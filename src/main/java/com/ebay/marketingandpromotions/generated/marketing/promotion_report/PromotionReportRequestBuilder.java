@@ -1,0 +1,148 @@
+package com.ebay.marketingandpromotions.generated.marketing.promotion_report;
+
+import com.ebay.marketingandpromotions.generated.marketing.models.PromotionsReportPagedCollection;
+import com.microsoft.kiota.BaseRequestBuilder;
+import com.microsoft.kiota.BaseRequestConfiguration;
+import com.microsoft.kiota.HttpMethod;
+import com.microsoft.kiota.QueryParameters;
+import com.microsoft.kiota.RequestAdapter;
+import com.microsoft.kiota.RequestInformation;
+import com.microsoft.kiota.RequestOption;
+import com.microsoft.kiota.serialization.Parsable;
+import com.microsoft.kiota.serialization.ParsableFactory;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+/**
+ * Builds and executes requests for operations under /promotion_report
+ */
+@jakarta.annotation.Generated("com.microsoft.kiota")
+public class PromotionReportRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Instantiates a new {@link PromotionReportRequestBuilder} and sets the default values.
+     * @param pathParameters Path parameters for the request
+     * @param requestAdapter The request adapter to use to execute the requests.
+     */
+    public PromotionReportRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/promotion_report?marketplace_id={marketplace_id}{&limit*,offset*,promotion_status*,promotion_type*,q*}", pathParameters);
+    }
+    /**
+     * Instantiates a new {@link PromotionReportRequestBuilder} and sets the default values.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @param requestAdapter The request adapter to use to execute the requests.
+     */
+    public PromotionReportRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
+        super(requestAdapter, "{+baseurl}/promotion_report?marketplace_id={marketplace_id}{&limit*,offset*,promotion_status*,promotion_type*,q*}", rawUrl);
+    }
+    /**
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that lists the seller&apos;s running, paused, and ended discounts for the specified eBay marketplace. The result set can be filtered by the discount status and the number of results to return. You can also supply &lt;i&gt;keywords&lt;/i&gt; to limit the report to discounts that contain the specified keywords. &lt;br&gt;&lt;br&gt;Specify the eBay marketplace for which you want the report run using the &lt;b&gt;marketplace_id&lt;/b&gt; query parameter. Supply additional query parameters to control the report as needed.
+     * @return a {@link PromotionsReportPagedCollection}
+     */
+    @jakarta.annotation.Nullable
+    public PromotionsReportPagedCollection get() {
+        return get(null);
+    }
+    /**
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that lists the seller&apos;s running, paused, and ended discounts for the specified eBay marketplace. The result set can be filtered by the discount status and the number of results to return. You can also supply &lt;i&gt;keywords&lt;/i&gt; to limit the report to discounts that contain the specified keywords. &lt;br&gt;&lt;br&gt;Specify the eBay marketplace for which you want the report run using the &lt;b&gt;marketplace_id&lt;/b&gt; query parameter. Supply additional query parameters to control the report as needed.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return a {@link PromotionsReportPagedCollection}
+     */
+    @jakarta.annotation.Nullable
+    public PromotionsReportPagedCollection get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
+        final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
+        return this.requestAdapter.send(requestInfo, null, PromotionsReportPagedCollection::createFromDiscriminatorValue);
+    }
+    /**
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that lists the seller&apos;s running, paused, and ended discounts for the specified eBay marketplace. The result set can be filtered by the discount status and the number of results to return. You can also supply &lt;i&gt;keywords&lt;/i&gt; to limit the report to discounts that contain the specified keywords. &lt;br&gt;&lt;br&gt;Specify the eBay marketplace for which you want the report run using the &lt;b&gt;marketplace_id&lt;/b&gt; query parameter. Supply additional query parameters to control the report as needed.
+     * @return a {@link RequestInformation}
+     */
+    @jakarta.annotation.Nonnull
+    public RequestInformation toGetRequestInformation() {
+        return toGetRequestInformation(null);
+    }
+    /**
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that lists the seller&apos;s running, paused, and ended discounts for the specified eBay marketplace. The result set can be filtered by the discount status and the number of results to return. You can also supply &lt;i&gt;keywords&lt;/i&gt; to limit the report to discounts that contain the specified keywords. &lt;br&gt;&lt;br&gt;Specify the eBay marketplace for which you want the report run using the &lt;b&gt;marketplace_id&lt;/b&gt; query parameter. Supply additional query parameters to control the report as needed.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return a {@link RequestInformation}
+     */
+    @jakarta.annotation.Nonnull
+    public RequestInformation toGetRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
+        final RequestInformation requestInfo = new RequestInformation(HttpMethod.GET, urlTemplate, pathParameters);
+        requestInfo.configure(requestConfiguration, GetRequestConfiguration::new, x -> x.queryParameters);
+        requestInfo.headers.tryAdd("Accept", "application/json");
+        return requestInfo;
+    }
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @return a {@link PromotionReportRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public PromotionReportRequestBuilder withUrl(@jakarta.annotation.Nonnull final String rawUrl) {
+        Objects.requireNonNull(rawUrl);
+        return new PromotionReportRequestBuilder(rawUrl, requestAdapter);
+    }
+    /**
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that lists the seller&apos;s running, paused, and ended discounts for the specified eBay marketplace. The result set can be filtered by the discount status and the number of results to return. You can also supply &lt;i&gt;keywords&lt;/i&gt; to limit the report to discounts that contain the specified keywords. &lt;br&gt;&lt;br&gt;Specify the eBay marketplace for which you want the report run using the &lt;b&gt;marketplace_id&lt;/b&gt; query parameter. Supply additional query parameters to control the report as needed.
+     */
+    @jakarta.annotation.Generated("com.microsoft.kiota")
+    public class GetQueryParameters implements QueryParameters {
+        /**
+         * Specifies the maximum number of discounts returned on a page from the result set.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Default:&lt;/b&gt; 200 &lt;br&gt;&lt;b&gt;Maximum:&lt;/b&gt; 200
+         */
+        @jakarta.annotation.Nullable
+        public String limit;
+        /**
+         * This parameter specifies the eBay marketplace ID of the site for which you want the discounts report.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for supported Marketplace ID values.
+         */
+        @jakarta.annotation.Nullable
+        public String marketplaceId;
+        /**
+         * Specifies the number of discounts to skip in the result set before returning the first discount in the paginated response.  &lt;p&gt;Combine &lt;b&gt;offset&lt;/b&gt; with the &lt;b&gt;limit&lt;/b&gt; query parameter to control the items returned in the response. For example, if you supply an &lt;b&gt;offset&lt;/b&gt; of &lt;code&gt;0&lt;/code&gt; and a &lt;b&gt;limit&lt;/b&gt; of &lt;code&gt;10&lt;/code&gt;, the first page of the response contains the first 10 items from the complete list of items retrieved by the call. If &lt;b&gt;offset&lt;/b&gt; is &lt;code&gt;10&lt;/code&gt; and &lt;b&gt;limit&lt;/b&gt; is &lt;code&gt;20&lt;/code&gt;, the first page of the response contains items 11-30 from the complete result set.&lt;/p&gt; &lt;p&gt;&lt;b&gt;Default:&lt;/b&gt; 0&lt;/p&gt;
+         */
+        @jakarta.annotation.Nullable
+        public String offset;
+        /**
+         * This parameter specifies the discount state by which you want to filter the results. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/sme:PromotionStatusEnum&quot; target=&quot;_blank&quot;&gt;PromotionStatusEnum&lt;/a&gt; for supported values.&lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum number of input values:&lt;/b&gt; 1
+         */
+        @jakarta.annotation.Nullable
+        public String promotionStatus;
+        /**
+         * This parameter specifies the campaign discount type by which you want to filter the results.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/sme:PromotionTypeEnum&quot; target=&quot;_blank&quot;&gt;PromotionTypeEnum&lt;/a&gt; for supported values.
+         */
+        @jakarta.annotation.Nullable
+        public String promotionType;
+        /**
+         * A string consisting of one or more &lt;i&gt;keywords&lt;/i&gt;. eBay filters the response by returning only the discounts that contain the supplied keywords in the discount title.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &quot;iPhone&quot; or &quot;Harry Potter.&quot;  &lt;br&gt;&lt;br&gt;Commas that separate keywords are ignored. For example, a keyword string of &quot;iPhone, iPad&quot; equals &quot;iPhone iPad&quot;, and each results in a response that contains discounts with both &quot;iPhone&quot; and &quot;iPad&quot; in the title.
+         */
+        @jakarta.annotation.Nullable
+        public String q;
+        /**
+         * Extracts the query parameters into a map for the URI template parsing.
+         * @return a {@link Map<String, Object>}
+         */
+        @jakarta.annotation.Nonnull
+        public Map<String, Object> toQueryParameters() {
+            final Map<String, Object> allQueryParams = new HashMap();
+            allQueryParams.put("limit", limit);
+            allQueryParams.put("marketplace_id", marketplaceId);
+            allQueryParams.put("offset", offset);
+            allQueryParams.put("promotion_status", promotionStatus);
+            allQueryParams.put("promotion_type", promotionType);
+            allQueryParams.put("q", q);
+            return allQueryParams;
+        }
+    }
+    /**
+     * Configuration for the request such as headers, query parameters, and middleware options.
+     */
+    @jakarta.annotation.Generated("com.microsoft.kiota")
+    public class GetRequestConfiguration extends BaseRequestConfiguration {
+        /**
+         * Request query parameters
+         */
+        @jakarta.annotation.Nullable
+        public GetQueryParameters queryParameters = new GetQueryParameters();
+    }
+}

@@ -1,0 +1,109 @@
+package com.ebay.marketingandpromotions.generated.marketing.models;
+
+import com.microsoft.kiota.serialization.AdditionalDataHolder;
+import com.microsoft.kiota.serialization.Parsable;
+import com.microsoft.kiota.serialization.ParseNode;
+import com.microsoft.kiota.serialization.SerializationWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+/**
+ * A type that defines the targeted items.
+ */
+@jakarta.annotation.Generated("com.microsoft.kiota")
+public class TargetingItems implements AdditionalDataHolder, Parsable {
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    private Map<String, Object> additionalData;
+    /**
+     * The metrics and additional information for the items.
+     */
+    private java.util.List<ItemBasis> bases;
+    /**
+     * The listing ID of the targeted item.
+     */
+    private String listingId;
+    /**
+     * Instantiates a new {@link TargetingItems} and sets the default values.
+     */
+    public TargetingItems() {
+        this.setAdditionalData(new HashMap<>());
+    }
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param parseNode The parse node to use to read the discriminator value and create the object
+     * @return a {@link TargetingItems}
+     */
+    @jakarta.annotation.Nonnull
+    public static TargetingItems createFromDiscriminatorValue(@jakarta.annotation.Nonnull final ParseNode parseNode) {
+        Objects.requireNonNull(parseNode);
+        return new TargetingItems();
+    }
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return a {@link Map<String, Object>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, Object> getAdditionalData() {
+        return this.additionalData;
+    }
+    /**
+     * Gets the bases property value. The metrics and additional information for the items.
+     * @return a {@link java.util.List<ItemBasis>}
+     */
+    @jakarta.annotation.Nullable
+    public java.util.List<ItemBasis> getBases() {
+        return this.bases;
+    }
+    /**
+     * The deserialization information for the current model
+     * @return a {@link Map<String, java.util.function.Consumer<ParseNode>>}
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
+        deserializerMap.put("bases", (n) -> { this.setBases(n.getCollectionOfObjectValues(ItemBasis::createFromDiscriminatorValue)); });
+        deserializerMap.put("listingId", (n) -> { this.setListingId(n.getStringValue()); });
+        return deserializerMap;
+    }
+    /**
+     * Gets the listingId property value. The listing ID of the targeted item.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nullable
+    public String getListingId() {
+        return this.listingId;
+    }
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
+        Objects.requireNonNull(writer);
+        writer.writeCollectionOfObjectValues("bases", this.getBases());
+        writer.writeStringValue("listingId", this.getListingId());
+        writer.writeAdditionalData(this.getAdditionalData());
+    }
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public void setAdditionalData(@jakarta.annotation.Nullable final Map<String, Object> value) {
+        this.additionalData = value;
+    }
+    /**
+     * Sets the bases property value. The metrics and additional information for the items.
+     * @param value Value to set for the bases property.
+     */
+    public void setBases(@jakarta.annotation.Nullable final java.util.List<ItemBasis> value) {
+        this.bases = value;
+    }
+    /**
+     * Sets the listingId property value. The listing ID of the targeted item.
+     * @param value Value to set for the listingId property.
+     */
+    public void setListingId(@jakarta.annotation.Nullable final String value) {
+        this.listingId = value;
+    }
+}

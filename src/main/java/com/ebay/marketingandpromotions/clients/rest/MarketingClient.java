@@ -395,6 +395,20 @@ public final class MarketingClient {
 
     // ── Reports ────────────────────────────────────────────────────────────
 
+    public CompletableFuture<ReportMetadatas> getReportMetadataAsync(
+            String channel, String fundingModel,
+            String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> {
+            TokenContext.CURRENT.set(accessToken);
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adReportMetadata().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (channel != null) config.queryParameters.channel = channel;
+                if (fundingModel != null) config.queryParameters.fundingModel = fundingModel;
+            });
+        });
+    }
+
     public CompletableFuture<PromotionsReportPagedCollection> getPromotionReportsAsync(
             String marketplaceId, String limit, String offset, String promotionStatus,
             String accessToken, RequestOptions requestOptions) {

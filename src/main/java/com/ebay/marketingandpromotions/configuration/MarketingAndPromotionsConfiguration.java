@@ -10,8 +10,8 @@ import java.util.HashSet;
  */
 public final class MarketingAndPromotionsConfiguration {
     // Base URLs for each API
-    private String marketingBaseUrl = "https://api.ebay.com";
-    private String recommendationBaseUrl = "https://api.ebay.com";
+    private String marketingBaseUrl = "https://api.ebay.com/sell/marketing/v1";
+    private String recommendationBaseUrl = "https://api.ebay.com/sell/recommendation/v1";
 
     private String accessToken;  // static fallback; per-call token takes precedence
     private boolean diagnosticLogging = false;

@@ -13,4 +13,7 @@ kiota generate -l java -d specs/sell_recommendation_v1_oas3.yaml \
   -c RecommendationApiClient -n com.ebay.marketingandpromotions.generated.recommendation \
   -o src/main/java/com/ebay/marketingandpromotions/generated/recommendation --ebc --co
 
+echo "Adding license headers to generated files..."
+./add-license-headers.sh ./src
+
 echo "Code generation complete!"

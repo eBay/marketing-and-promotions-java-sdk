@@ -24,6 +24,7 @@ import com.microsoft.kiota.authentication.BaseBearerTokenAuthenticationProvider;
 import com.microsoft.kiota.http.OkHttpRequestAdapter;
 import okhttp3.OkHttpClient;
 import java.io.Closeable;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Main facade for the Marketing and Promotions SDK.
@@ -48,6 +49,9 @@ public final class MarketingAndPromotionsClient implements Closeable {
     public MarketingAndPromotionsClient(MarketingAndPromotionsConfiguration config) {
         // Shared OkHttpClient for all REST clients
         this.sharedHttpClient = new OkHttpClient.Builder()
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
             .build();
 
         var authProvider = new BaseBearerTokenAuthenticationProvider(new KiotaAuthProvider(config));

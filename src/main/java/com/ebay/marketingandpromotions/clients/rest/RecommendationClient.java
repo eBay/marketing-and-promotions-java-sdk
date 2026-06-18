@@ -62,8 +62,7 @@ public final class RecommendationClient {
     public CompletableFuture<PagedListingRecommendationCollection> findListingRecommendationsAsync(
             FindListingRecommendationRequest body, String filter, String limit, String offset,
             String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.find().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
@@ -71,6 +70,6 @@ public final class RecommendationClient {
                 if (limit != null) config.queryParameters.limit = limit;
                 if (offset != null) config.queryParameters.offset = offset;
             });
-        });
+        }));
     }
 }

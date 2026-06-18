@@ -24,8 +24,8 @@ import java.util.HashSet;
  */
 public final class MarketingAndPromotionsConfiguration {
     // Base URLs for each API
-    private String marketingBaseUrl = "https://api.ebay.com/sell/marketing/v1";
-    private String recommendationBaseUrl = "https://api.ebay.com/sell/recommendation/v1";
+    private final String marketingBaseUrl;
+    private final String recommendationBaseUrl;
 
     private String accessToken;  // static fallback; per-call token takes precedence
     private boolean diagnosticLogging = false;
@@ -36,13 +36,50 @@ public final class MarketingAndPromotionsConfiguration {
      */
     private RequestOptions defaultRequestOptions = new RequestOptions();
 
-    // Getters and setters
+    /** Default constructor using production eBay API endpoints. */
+    public MarketingAndPromotionsConfiguration() {
+        this.marketingBaseUrl = "https://api.ebay.com";
+        this.recommendationBaseUrl = "https://api.ebay.com";
+    }
+
+    /**
+     * Constructor accepting custom base URLs. Each URL is validated against the allowed-host list.
+     *
+     * @param marketingBaseUrl       Base URL for the Marketing API
+     * @param recommendationBaseUrl  Base URL for the Recommendation API
+     */
+    public MarketingAndPromotionsConfiguration(String marketingBaseUrl, String recommendationBaseUrl) {
+        this.marketingBaseUrl = validateHost(marketingBaseUrl);
+        this.recommendationBaseUrl = validateHost(recommendationBaseUrl);
+    }
+
+    private static final Set<String> STATIC_ALLOWED_HOSTS = new HashSet<>(java.util.Arrays.asList(
+            "api.ebay.com", "api.sandbox.ebay.com"));
+
+    private String validateHost(String url) {
+        try {
+            String host = new java.net.URI(url).getHost();
+            if (host == null || !STATIC_ALLOWED_HOSTS.contains(host)) {
+                throw new IllegalArgumentException("URL host not in allowed list: " + url);
+            }
+        } catch (java.net.URISyntaxException e) {
+            throw new IllegalArgumentException("Invalid URL: " + url, e);
+        }
+        return url;
+    }
+
+    // Getters
     public String getMarketingBaseUrl() { return marketingBaseUrl; }
-    public void setMarketingBaseUrl(String marketingBaseUrl) { this.marketingBaseUrl = marketingBaseUrl; }
 
     public String getRecommendationBaseUrl() { return recommendationBaseUrl; }
-    public void setRecommendationBaseUrl(String recommendationBaseUrl) { this.recommendationBaseUrl = recommendationBaseUrl; }
 
+    /**
+     * Sets the static fallback access token.
+     *
+     * <p><strong>Security note:</strong> Access tokens are stored as plain {@code String} objects on
+     * the heap. Avoid logging or serialising instances of this class; clear the token reference when
+     * no longer needed.
+     */
     public String getAccessToken() { return accessToken; }
     public void setAccessToken(String accessToken) { this.accessToken = accessToken; }
 

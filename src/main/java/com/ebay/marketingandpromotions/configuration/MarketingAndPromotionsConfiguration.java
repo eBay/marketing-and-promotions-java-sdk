@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.configuration;
 
+import jakarta.annotation.Nullable;
 import java.net.URI;
 import java.util.Set;
 import java.util.HashSet;
@@ -27,7 +28,7 @@ public final class MarketingAndPromotionsConfiguration {
     private final String marketingBaseUrl;
     private final String recommendationBaseUrl;
 
-    private String accessToken;  // static fallback; per-call token takes precedence
+    private @Nullable String accessToken;  // static fallback; per-call token takes precedence
     private boolean diagnosticLogging = false;
 
     /**
@@ -80,8 +81,8 @@ public final class MarketingAndPromotionsConfiguration {
      * the heap. Avoid logging or serialising instances of this class; clear the token reference when
      * no longer needed.
      */
-    public String getAccessToken() { return accessToken; }
-    public void setAccessToken(String accessToken) { this.accessToken = accessToken; }
+    public @Nullable String getAccessToken() { return accessToken; }
+    public void setAccessToken(@Nullable String accessToken) { this.accessToken = accessToken; }
 
     public boolean isDiagnosticLogging() { return diagnosticLogging; }
     public void setDiagnosticLogging(boolean diagnosticLogging) { this.diagnosticLogging = diagnosticLogging; }

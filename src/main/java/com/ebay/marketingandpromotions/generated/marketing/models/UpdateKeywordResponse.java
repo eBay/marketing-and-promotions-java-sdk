@@ -43,7 +43,7 @@ public class UpdateKeywordResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer statusCode;
     /**
-     * List of warnings associated with this operation
+     * A list of warnings associated with this operation.
      */
     private java.util.List<ErrorDetailV3> warnings;
     /**
@@ -108,7 +108,7 @@ public class UpdateKeywordResponse implements AdditionalDataHolder, Parsable {
         return this.statusCode;
     }
     /**
-     * Gets the warnings property value. List of warnings associated with this operation
+     * Gets the warnings property value. A list of warnings associated with this operation.
      * @return a {@link java.util.List<ErrorDetailV3>}
      */
     @jakarta.annotation.Nullable
@@ -156,7 +156,7 @@ public class UpdateKeywordResponse implements AdditionalDataHolder, Parsable {
         this.statusCode = value;
     }
     /**
-     * Sets the warnings property value. List of warnings associated with this operation
+     * Sets the warnings property value. A list of warnings associated with this operation.
      * @param value Value to set for the warnings property.
      */
     public void setWarnings(@jakarta.annotation.Nullable final java.util.List<ErrorDetailV3> value) {

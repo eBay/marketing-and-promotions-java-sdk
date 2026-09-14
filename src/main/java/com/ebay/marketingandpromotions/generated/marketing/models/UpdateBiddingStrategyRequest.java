@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type specifies the new value for the bidding strategy.
+ * This type defines the fields used in the &lt;b&gt;updatedBiddingStrategy&lt;/b&gt; request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateBiddingStrategyRequest implements AdditionalDataHolder, Parsable {

@@ -15,7 +15,7 @@
 package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.clone;
 
 import com.ebay.marketingandpromotions.generated.marketing.models.CloneCampaignRequest;
-import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -53,10 +53,10 @@ public class CloneRequestBuilder extends BaseRequestBuilder {
      * This method clones (makes a copy of) the specified campaign&apos;s &lt;b&gt;campaign criterion&lt;/b&gt;. The &lt;b&gt;campaign criterion&lt;/b&gt; is a container for the fields that define the criteria for a rule-based campaign.&lt;p&gt;To clone a campaign, supply the &lt;b&gt;campaign_id&lt;/b&gt; as a path parameter in your call. There is no request payload.&lt;/p&gt;  &lt;p&gt;The ID of the newly-cloned campaign is returned in the &lt;b&gt;Location&lt;/b&gt; response header.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a seller&apos;s current campaign IDs.&lt;/p&gt;  &lt;p&gt;&lt;b&gt;Requirement: &lt;/b&gt;In order to clone a campaign, the &lt;b&gt;campaignStatus&lt;/b&gt; must be &lt;code&gt;ENDED&lt;/code&gt; and the campaign must define a set of selection rules (it must be a rules-based campaign).&lt;/p&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method only applies to the Cost Per Sale (CPS) funding model; it does not apply to the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot; target=&quot;_blank&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
      * @param body This type defines the fields for a clone campaign request.
      * @return a {@link ClonePostResponse}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public ClonePostResponse post(@jakarta.annotation.Nonnull final CloneCampaignRequest body) {
@@ -67,20 +67,20 @@ public class CloneRequestBuilder extends BaseRequestBuilder {
      * @param body This type defines the fields for a clone campaign request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link ClonePostResponse}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public ClonePostResponse post(@jakarta.annotation.Nonnull final CloneCampaignRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, ClonePostResponse::createFromDiscriminatorValue);
     }
     /**

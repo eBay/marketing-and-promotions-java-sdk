@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.item_price_markdown.item;
 
+import com.ebay.marketingandpromotions.generated.marketing.models.BaseResponse;
 import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.ItemPriceMarkdown;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -104,28 +105,28 @@ public class WithPromotionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method updates the specified item price markdown discount with the new configuration that you supply in the payload of the request. Specify the discount you want to update using the &lt;b&gt;promotion_id&lt;/b&gt; path parameter. Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions&quot;&gt;getPromotions&lt;/a&gt; to retrieve the IDs of a seller&apos;s discounts.&lt;br&gt;&lt;br&gt;When updating a discount, supply all the fields that you used to configure the original discount (and not just the fields you are updating). eBay replaces the specified discount with the values you supply in the update request and if you don&apos;t pass a field that currently has a value, the update request fails.  &lt;br&gt;&lt;br&gt;The parameters you are allowed to update with this request depend on the status of the discount you&apos;re updating:  &lt;ul&gt;&lt;li&gt;DRAFT or SCHEDULED discounts: You can update any of the parameters in these discounts that have not yet started to run, including the &lt;b&gt;discountRules&lt;/b&gt;.&lt;/li&gt; &lt;li&gt;RUNNING discounts: You can change the &lt;b&gt;endDate&lt;/b&gt; and the item&apos;s inventory but you cannot change the discount or the start date.&lt;/li&gt; &lt;li&gt;ENDED discounts: Nothing can be changed.&lt;/li&gt;&lt;/ul&gt;
      * @param body This type defines the fields that describe an item price markdown discount.
-     * @return a {@link WithPromotionPutResponse}
+     * @return a {@link BaseResponse}
      * @throws Error When receiving a 400 status code
      * @throws Error When receiving a 404 status code
      * @throws Error When receiving a 409 status code
      * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public WithPromotionPutResponse put(@jakarta.annotation.Nonnull final ItemPriceMarkdown body) {
+    public BaseResponse put(@jakarta.annotation.Nonnull final ItemPriceMarkdown body) {
         return put(body, null);
     }
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method updates the specified item price markdown discount with the new configuration that you supply in the payload of the request. Specify the discount you want to update using the &lt;b&gt;promotion_id&lt;/b&gt; path parameter. Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions&quot;&gt;getPromotions&lt;/a&gt; to retrieve the IDs of a seller&apos;s discounts.&lt;br&gt;&lt;br&gt;When updating a discount, supply all the fields that you used to configure the original discount (and not just the fields you are updating). eBay replaces the specified discount with the values you supply in the update request and if you don&apos;t pass a field that currently has a value, the update request fails.  &lt;br&gt;&lt;br&gt;The parameters you are allowed to update with this request depend on the status of the discount you&apos;re updating:  &lt;ul&gt;&lt;li&gt;DRAFT or SCHEDULED discounts: You can update any of the parameters in these discounts that have not yet started to run, including the &lt;b&gt;discountRules&lt;/b&gt;.&lt;/li&gt; &lt;li&gt;RUNNING discounts: You can change the &lt;b&gt;endDate&lt;/b&gt; and the item&apos;s inventory but you cannot change the discount or the start date.&lt;/li&gt; &lt;li&gt;ENDED discounts: Nothing can be changed.&lt;/li&gt;&lt;/ul&gt;
      * @param body This type defines the fields that describe an item price markdown discount.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return a {@link WithPromotionPutResponse}
+     * @return a {@link BaseResponse}
      * @throws Error When receiving a 400 status code
      * @throws Error When receiving a 404 status code
      * @throws Error When receiving a 409 status code
      * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
-    public WithPromotionPutResponse put(@jakarta.annotation.Nonnull final ItemPriceMarkdown body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
+    public BaseResponse put(@jakarta.annotation.Nonnull final ItemPriceMarkdown body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPutRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
@@ -133,7 +134,7 @@ public class WithPromotionItemRequestBuilder extends BaseRequestBuilder {
         errorMapping.put("404", Error::createFromDiscriminatorValue);
         errorMapping.put("409", Error::createFromDiscriminatorValue);
         errorMapping.put("500", Error::createFromDiscriminatorValue);
-        return this.requestAdapter.send(requestInfo, errorMapping, WithPromotionPutResponse::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, BaseResponse::createFromDiscriminatorValue);
     }
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method deletes the item price markdown discount specified by the &lt;b&gt;promotion_id&lt;/b&gt; path parameter. Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions&quot;&gt;getPromotions&lt;/a&gt; to retrieve the IDs of a seller&apos;s discounts.  &lt;br&gt;&lt;br&gt;You can delete any discount with the exception of those that are currently active (RUNNING). To end a running discount, call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-item_price_markdown-updateitempricemarkdownpromotion&quot;&gt;updateItemPriceMarkdownPromotion&lt;/a&gt; and adjust the &lt;b&gt;endDate&lt;/b&gt; field as appropriate.

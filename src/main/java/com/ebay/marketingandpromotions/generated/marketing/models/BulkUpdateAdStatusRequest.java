@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The bulk request to update the ads.
+ * A type that defines the fields for the &lt;b&gt;BulkUpdateAdStatus&lt;/b&gt; request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class BulkUpdateAdStatusRequest implements AdditionalDataHolder, Parsable {

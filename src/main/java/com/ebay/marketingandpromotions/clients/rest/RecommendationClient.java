@@ -22,6 +22,8 @@ import com.ebay.marketingandpromotions.generated.recommendation.models.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.io.InputStream;
+import com.microsoft.kiota.serialization.UntypedNode;
 
 public final class RecommendationClient {
     private final RecommendationApiClient kiota;
@@ -41,7 +43,7 @@ public final class RecommendationClient {
     }
 
     public CompletableFuture<Void> findListingRecommendationsAsync(
-            FindListingRecommendationRequest body, String filter, String limit, String offset, String xEBAYCMARKETPLACEID, String accessToken, RequestOptions requestOptions) {
+            FindListingRecommendationRequest body, String filter, Integer limit, Integer offset, String xEBAYCMARKETPLACEID, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             kiota.find().post(body, config -> {

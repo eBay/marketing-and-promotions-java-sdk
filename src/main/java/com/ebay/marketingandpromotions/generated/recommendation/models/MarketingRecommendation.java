@@ -27,7 +27,7 @@ import java.util.Objects;
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class MarketingRecommendation implements AdditionalDataHolder, Parsable {
     /**
-     * A complex type that contains recommendations and information on how to configure Promoted Listings ad campaigns.
+     * An object that contains Promoted Listings recommendations and information related to the associated listing ID.
      */
     private Ad ad;
     /**
@@ -55,7 +55,7 @@ public class MarketingRecommendation implements AdditionalDataHolder, Parsable {
         return new MarketingRecommendation();
     }
     /**
-     * Gets the ad property value. A complex type that contains recommendations and information on how to configure Promoted Listings ad campaigns.
+     * Gets the ad property value. An object that contains Promoted Listings recommendations and information related to the associated listing ID.
      * @return a {@link Ad}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class MarketingRecommendation implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
-     * Sets the ad property value. A complex type that contains recommendations and information on how to configure Promoted Listings ad campaigns.
+     * Sets the ad property value. An object that contains Promoted Listings recommendations and information related to the associated listing ID.
      * @param value Value to set for the ad property.
      */
     public void setAd(@jakarta.annotation.Nullable final Ad value) {

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This request object defines the fields for the &lt;b&gt;deleteAdsByInventoryReference&lt;/b&gt; request.
+ * This type defines the fields needed to delete an ad by its inventory reference ID.  You must always supply both &lt;b&gt;inventory_reference_id&lt;/b&gt; and &lt;b&gt;inventory_reference_type&lt;/b&gt;.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class DeleteAdsByInventoryReferenceRequest implements AdditionalDataHolder, Parsable {

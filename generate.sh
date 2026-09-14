@@ -20,12 +20,12 @@ echo "Generating Marketing and Promotions Java SDK with Kiota..."
 rm -rf src/main/java/com/ebay/marketingandpromotions/generated
 
 echo "Generating MarketingApiClient..."
-kiota generate -l java -d specs/openapi/marketing.yaml \
+kiota generate -l java -d specs/openapi/marketing.json \
   -c MarketingApiClient -n com.ebay.marketingandpromotions.generated.marketing \
   -o src/main/java/com/ebay/marketingandpromotions/generated/marketing --ebc --co
 
 echo "Generating RecommendationApiClient..."
-kiota generate -l java -d specs/openapi/recommendation.yaml \
+kiota generate -l java -d specs/openapi/recommendation.json \
   -c RecommendationApiClient -n com.ebay.marketingandpromotions.generated.recommendation \
   -o src/main/java/com/ebay/marketingandpromotions/generated/recommendation --ebc --co
 

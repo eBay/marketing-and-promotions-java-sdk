@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A container that defines either the listing IDs or the selection rules that specify the items to include in the discount. Listing IDs can be either eBay listing IDs or a list of the seller&apos;s inventory reference IDs (know as SKUs or custom labels). See the &lt;b&gt;selectionRules&lt;/b&gt; container for the rule criteria you can use to select inventory.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; All listings in Discounts Manager discounts must support an electronic payment method.&lt;/p&gt;
+ * This type defines either the selections rules or the list of listing IDs for the discount. The &quot;listing IDs&quot; are either the seller&apos;s item IDs or the eBay listing IDs.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class InventoryCriterion implements AdditionalDataHolder, Parsable {

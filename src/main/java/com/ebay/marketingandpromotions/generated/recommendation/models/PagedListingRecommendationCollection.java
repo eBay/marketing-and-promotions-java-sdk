@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The high-level object used to return a set of Promoted Listings ad recommendations.
+ * This type defines the set of Promoted Listings ad recommendations.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PagedListingRecommendationCollection implements AdditionalDataHolder, Parsable {

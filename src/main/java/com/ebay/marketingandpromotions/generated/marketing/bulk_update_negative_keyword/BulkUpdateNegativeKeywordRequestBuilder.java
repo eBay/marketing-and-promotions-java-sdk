@@ -17,6 +17,7 @@ package com.ebay.marketingandpromotions.generated.marketing.bulk_update_negative
 import com.ebay.marketingandpromotions.generated.marketing.models.BulkUpdateNegativeKeywordRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.BulkUpdateNegativeKeywordResponse;
 import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -54,10 +55,10 @@ public class BulkUpdateNegativeKeywordRequestBuilder extends BaseRequestBuilder 
      * This method updates the statuses of existing negative keywords, in bulk.&lt;br /&gt;&lt;br /&gt;Specify the &lt;b&gt;negativeKeywordId&lt;/b&gt; and &lt;b&gt;negativeKeywordStatus&lt;/b&gt; in the request body.
      * @param body A type that defines the fields for the bulk request to update negative keyword statuses.
      * @return a {@link BulkUpdateNegativeKeywordResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public BulkUpdateNegativeKeywordResponse post(@jakarta.annotation.Nonnull final BulkUpdateNegativeKeywordRequest body) {
@@ -68,20 +69,20 @@ public class BulkUpdateNegativeKeywordRequestBuilder extends BaseRequestBuilder 
      * @param body A type that defines the fields for the bulk request to update negative keyword statuses.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BulkUpdateNegativeKeywordResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public BulkUpdateNegativeKeywordResponse post(@jakarta.annotation.Nonnull final BulkUpdateNegativeKeywordRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
         errorMapping.put("403", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BulkUpdateNegativeKeywordResponse::createFromDiscriminatorValue);
     }
     /**

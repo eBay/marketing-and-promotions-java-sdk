@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields to update the campaign name and start and end dates.
+ * This type specifies the updated name, and start and end dates for an update-campaign request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateCampaignIdentificationRequest implements AdditionalDataHolder, Parsable {

@@ -26,6 +26,7 @@ import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.bulk
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.bulk_update_ads_status_by_listing_id.BulkUpdateAdsStatusByListingIdRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.bulk_update_ads_status.BulkUpdateAdsStatusRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.bulk_update_keyword.BulkUpdateKeywordRequestBuilder;
+import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.bulk_upsert_video_ads_preferences.BulkUpsertVideoAdsPreferencesRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.clone.CloneRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.create_ads_by_inventory_reference.CreateAdsByInventoryReferenceRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.delete_ads_by_inventory_reference.DeleteAdsByInventoryReferenceRequestBuilder;
@@ -39,8 +40,10 @@ import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.upda
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.update_bidding_strategy.UpdateBiddingStrategyRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.update_campaign_budget.UpdateCampaignBudgetRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.update_campaign_identification.UpdateCampaignIdentificationRequestBuilder;
+import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.upsert_video_ads_preferences.UpsertVideoAdsPreferencesRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.models.Campaign;
 import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -155,6 +158,14 @@ public class WithCampaignItemRequestBuilder extends BaseRequestBuilder {
         return new BulkUpdateKeywordRequestBuilder(pathParameters, requestAdapter);
     }
     /**
+     * The bulk_upsert_video_ads_preferences property
+     * @return a {@link BulkUpsertVideoAdsPreferencesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public BulkUpsertVideoAdsPreferencesRequestBuilder bulkUpsertVideoAdsPreferences() {
+        return new BulkUpsertVideoAdsPreferencesRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
      * The clone property
      * @return a {@link CloneRequestBuilder}
      */
@@ -259,6 +270,14 @@ public class WithCampaignItemRequestBuilder extends BaseRequestBuilder {
         return new UpdateCampaignIdentificationRequestBuilder(pathParameters, requestAdapter);
     }
     /**
+     * The upsert_video_ads_preferences property
+     * @return a {@link UpsertVideoAdsPreferencesRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public UpsertVideoAdsPreferencesRequestBuilder upsertVideoAdsPreferences() {
+        return new UpsertVideoAdsPreferencesRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
      * Instantiates a new {@link WithCampaignItemRequestBuilder} and sets the default values.
      * @param pathParameters Path parameters for the request
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -277,9 +296,9 @@ public class WithCampaignItemRequestBuilder extends BaseRequestBuilder {
     /**
      * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
      * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     public void delete() {
         delete(null);
@@ -288,26 +307,26 @@ public class WithCampaignItemRequestBuilder extends BaseRequestBuilder {
      * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     public void delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
     /**
      * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_id&lt;/b&gt; query parameter.  &lt;p&gt;This method returns all the details of a campaign (including the campaign&apos;s the selection rules), except the for the listing IDs or inventory reference IDs included in the campaign. These IDs are returned by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getads&quot;&gt;getAds&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign IDs.&lt;/p&gt;
      * @return a {@link Campaign}
      * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
      * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Campaign get() {
@@ -318,18 +337,18 @@ public class WithCampaignItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Campaign}
      * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
      * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Campaign get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
         errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, Campaign::createFromDiscriminatorValue);
     }
     /**

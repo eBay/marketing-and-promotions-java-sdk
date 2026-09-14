@@ -17,6 +17,7 @@ package com.ebay.marketingandpromotions.generated.marketing.bulk_create_negative
 import com.ebay.marketingandpromotions.generated.marketing.models.BulkCreateNegativeKeywordRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.BulkCreateNegativeKeywordResponse;
 import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -54,10 +55,10 @@ public class BulkCreateNegativeKeywordRequestBuilder extends BaseRequestBuilder 
      * This method adds negative keywords, in bulk, to an existing ad group in a priority strategy campaign that uses manual targeting.&lt;br /&gt;&lt;br /&gt;Specify the &lt;b&gt;campaignId&lt;/b&gt; and &lt;b&gt;adGroupId&lt;/b&gt; in the request body, along with the &lt;b&gt;negativeKeywordText&lt;/b&gt; and &lt;b&gt;negativeKeywordMatchType&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;Call the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; method to retrieve a list of current campaign IDs for a specified seller.
      * @param body A type that defines the fields for the bulk request to create negative keywords.
      * @return a {@link BulkCreateNegativeKeywordResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public BulkCreateNegativeKeywordResponse post(@jakarta.annotation.Nonnull final BulkCreateNegativeKeywordRequest body) {
@@ -68,20 +69,20 @@ public class BulkCreateNegativeKeywordRequestBuilder extends BaseRequestBuilder 
      * @param body A type that defines the fields for the bulk request to create negative keywords.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BulkCreateNegativeKeywordResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public BulkCreateNegativeKeywordResponse post(@jakarta.annotation.Nonnull final BulkCreateNegativeKeywordRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
         errorMapping.put("403", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BulkCreateNegativeKeywordResponse::createFromDiscriminatorValue);
     }
     /**

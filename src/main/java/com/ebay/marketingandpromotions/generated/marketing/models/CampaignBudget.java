@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The allocated budget for the Cost Per Click (CPC) Promoted Listings campaign.&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field will only be returned for campaigns using the CPC funding model; it does not apply to the Cost Per Sale (CPS) funding model.&lt;/span&gt;
+ * A type that defines the budget details for a Cost Per Click (CPC) Promoted Listings campaign.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CampaignBudget implements AdditionalDataHolder, Parsable {

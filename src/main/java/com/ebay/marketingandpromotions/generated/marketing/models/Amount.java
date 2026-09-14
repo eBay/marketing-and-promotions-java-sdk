@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The total revenue from all the purchased items that were part of a discount but &lt;i&gt;did not trigger&lt;/i&gt; a discount during the discount period.
+ * A complex type that describes the value of a monetary amount as represented by a global currency.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class Amount implements AdditionalDataHolder, Parsable {

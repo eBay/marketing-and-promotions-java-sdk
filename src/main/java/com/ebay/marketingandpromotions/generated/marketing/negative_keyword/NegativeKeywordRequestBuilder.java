@@ -16,6 +16,7 @@ package com.ebay.marketingandpromotions.generated.marketing.negative_keyword;
 
 import com.ebay.marketingandpromotions.generated.marketing.models.CreateNegativeKeywordRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.ebay.marketingandpromotions.generated.marketing.models.NegativeKeywordPagedCollectionResponse;
 import com.ebay.marketingandpromotions.generated.marketing.negative_keyword.item.WithNegativeKeywordItemRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -38,7 +39,7 @@ import java.util.Objects;
 public class NegativeKeywordRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the com.ebay.marketingandpromotions.generated.marketing.negative_keyword.item collection
-     * @param negative_keyword_id This path parameter specifies the unique identifier for the negative keyword being retrieved.&lt;br /&gt;&lt;br /&gt;Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-negative_keyword-getnegativekeywords&quot;&gt; getNegativeKeywords&lt;/a&gt; method to retrieve negative keyword IDs.
+     * @param negative_keyword_id This path parameter specifies the unique identifier for the negative keyword being retrieved.&lt;br /&gt;&lt;br /&gt;Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-negative_keyword-getnegativekeywords&quot;&gt;getNegativeKeywords&lt;/a&gt; method to retrieve negative keyword IDs.
      * @return a {@link WithNegativeKeywordItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
@@ -54,7 +55,7 @@ public class NegativeKeywordRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public NegativeKeywordRequestBuilder(@jakarta.annotation.Nonnull final HashMap<String, Object> pathParameters, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/negative_keyword?ad_group_ids={ad_group_ids}{&campaign_ids*,limit*,negative_keyword_status*,offset*}", pathParameters);
+        super(requestAdapter, "{+baseurl}/negative_keyword{?campaign_ids*,limit*,negative_keyword_status*,offset*}", pathParameters);
     }
     /**
      * Instantiates a new {@link NegativeKeywordRequestBuilder} and sets the default values.
@@ -62,16 +63,16 @@ public class NegativeKeywordRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public NegativeKeywordRequestBuilder(@jakarta.annotation.Nonnull final String rawUrl, @jakarta.annotation.Nonnull final RequestAdapter requestAdapter) {
-        super(requestAdapter, "{+baseurl}/negative_keyword?ad_group_ids={ad_group_ids}{&campaign_ids*,limit*,negative_keyword_status*,offset*}", rawUrl);
+        super(requestAdapter, "{+baseurl}/negative_keyword{?campaign_ids*,limit*,negative_keyword_status*,offset*}", rawUrl);
     }
     /**
      * This method can be used to retrieve all of the negative keywords for ad groups in priority strategy campaigns that use the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;The results can be filtered using the &lt;b&gt;campaign_ids&lt;/b&gt;, &lt;b&gt;ad_group_ids&lt;/b&gt;, and &lt;b&gt;negative_keyword_status&lt;/b&gt; query parameters.&lt;br /&gt;&lt;br /&gt;Call the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; method to retrieve a list of current campaign IDs for a seller.
      * @return a {@link NegativeKeywordPagedCollectionResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
      * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public NegativeKeywordPagedCollectionResponse get() {
@@ -81,31 +82,32 @@ public class NegativeKeywordRequestBuilder extends BaseRequestBuilder {
      * This method can be used to retrieve all of the negative keywords for ad groups in priority strategy campaigns that use the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;The results can be filtered using the &lt;b&gt;campaign_ids&lt;/b&gt;, &lt;b&gt;ad_group_ids&lt;/b&gt;, and &lt;b&gt;negative_keyword_status&lt;/b&gt; query parameters.&lt;br /&gt;&lt;br /&gt;Call the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; method to retrieve a list of current campaign IDs for a seller.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link NegativeKeywordPagedCollectionResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
      * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public NegativeKeywordPagedCollectionResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
         errorMapping.put("403", Error::createFromDiscriminatorValue);
         errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, NegativeKeywordPagedCollectionResponse::createFromDiscriminatorValue);
     }
     /**
      * This method adds a negative keyword to an existing ad group in a priority strategy campaign that uses manual targeting.&lt;br /&gt;&lt;br /&gt;Specify the &lt;b&gt;campaignId&lt;/b&gt; and &lt;b&gt;adGroupId&lt;/b&gt; in the request body, along with the &lt;b&gt;negativeKeywordText&lt;/b&gt; and &lt;b&gt;negativeKeywordMatchType&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;Call the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; method to retrieve a list of current campaign IDs for a specified seller.
      * @param body A type that defines the fields for the request to create a negative keyword.
      * @return a {@link NegativeKeywordPostResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public NegativeKeywordPostResponse post(@jakarta.annotation.Nonnull final CreateNegativeKeywordRequest body) {
@@ -116,20 +118,22 @@ public class NegativeKeywordRequestBuilder extends BaseRequestBuilder {
      * @param body A type that defines the fields for the request to create a negative keyword.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link NegativeKeywordPostResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public NegativeKeywordPostResponse post(@jakarta.annotation.Nonnull final CreateNegativeKeywordRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
         errorMapping.put("403", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, NegativeKeywordPostResponse::createFromDiscriminatorValue);
     }
     /**
@@ -147,7 +151,7 @@ public class NegativeKeywordRequestBuilder extends BaseRequestBuilder {
      */
     @jakarta.annotation.Nonnull
     public RequestInformation toGetRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
-        final RequestInformation requestInfo = new RequestInformation(HttpMethod.GET, urlTemplate, pathParameters);
+        final RequestInformation requestInfo = new RequestInformation(HttpMethod.GET, "{+baseurl}/negative_keyword?ad_group_ids={ad_group_ids}{&campaign_ids*,limit*,negative_keyword_status*,offset*}", pathParameters);
         requestInfo.configure(requestConfiguration, GetRequestConfiguration::new, x -> x.queryParameters);
         requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
@@ -170,7 +174,7 @@ public class NegativeKeywordRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public RequestInformation toPostRequestInformation(@jakarta.annotation.Nonnull final CreateNegativeKeywordRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
-        final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, "{+baseurl}/negative_keyword", pathParameters);
+        final RequestInformation requestInfo = new RequestInformation(HttpMethod.POST, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, PostRequestConfiguration::new);
         requestInfo.headers.tryAdd("Accept", "application/json");
         requestInfo.setContentFromParsable(requestAdapter, "application/json", body);
@@ -210,7 +214,7 @@ public class NegativeKeywordRequestBuilder extends BaseRequestBuilder {
          * A comma-separated list of negative keyword statuses.&lt;br /&gt;&lt;br /&gt;This query parameter is used if the seller wants to filter the search results based on one or more negative keyword statuses.&lt;br&gt;&lt;br&gt; See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-negative_keyword-getnegativekeywords.negativekeyword.negativekeywordtext&quot;&gt;NegativeKeywordStatusEnum&lt;/a&gt; for supported values.
          */
         @jakarta.annotation.Nullable
-        public String negativeKeywordStatus;
+        public GetNegativeKeywordStatusQueryParameterType negativeKeywordStatus;
         /**
          * The number of results that will be skipped in the result set. This is used with the &lt;b&gt;limit&lt;/b&gt; field to control the pagination of the output.&lt;br /&gt;&lt;br /&gt;For example, if the &lt;b&gt;offset&lt;/b&gt; is set to &lt;code&gt;0&lt;/code&gt; and the &lt;b&gt;limit&lt;/b&gt; is set to &lt;code&gt;10&lt;/code&gt;, the method will retrieve items 1 through 10 from the list of items returned. If the &lt;b&gt;offset&lt;/b&gt; is set to &lt;code&gt;10&lt;/code&gt; and the &lt;b&gt;limit&lt;/b&gt; is set to &lt;code&gt;10&lt;/code&gt;, the method will retrieve items 11 through 20 from the list of items returned.
          */
@@ -223,10 +227,10 @@ public class NegativeKeywordRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nonnull
         public Map<String, Object> toQueryParameters() {
             final Map<String, Object> allQueryParams = new HashMap();
+            allQueryParams.put("negative_keyword_status", negativeKeywordStatus);
             allQueryParams.put("ad_group_ids", adGroupIds);
             allQueryParams.put("campaign_ids", campaignIds);
             allQueryParams.put("limit", limit);
-            allQueryParams.put("negative_keyword_status", negativeKeywordStatus);
             allQueryParams.put("offset", offset);
             return allQueryParams;
         }

@@ -16,7 +16,7 @@ package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.bul
 
 import com.ebay.marketingandpromotions.generated.marketing.models.BulkUpdateKeywordRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.BulkUpdateKeywordResponse;
-import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -54,10 +54,10 @@ public class BulkUpdateKeywordRequestBuilder extends BaseRequestBuilder {
      * This method updates the bids and statuses of keywords, in bulk, for an existing priority strategy campaign.&lt;br /&gt;&lt;br /&gt;In the request, supply the &lt;b&gt;campaign_id&lt;/b&gt; as a path parameter.&lt;br /&gt;&lt;br /&gt;Call the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; method to retrieve a list of current campaign IDs for a specified seller.
      * @param body A type that defines the fields for the bulk request to update keywords.
      * @return a {@link BulkUpdateKeywordResponse}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public BulkUpdateKeywordResponse post(@jakarta.annotation.Nonnull final BulkUpdateKeywordRequest body) {
@@ -68,20 +68,20 @@ public class BulkUpdateKeywordRequestBuilder extends BaseRequestBuilder {
      * @param body A type that defines the fields for the bulk request to update keywords.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BulkUpdateKeywordResponse}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public BulkUpdateKeywordResponse post(@jakarta.annotation.Nonnull final BulkUpdateKeywordRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BulkUpdateKeywordResponse::createFromDiscriminatorValue);
     }
     /**

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The suggested bid associated with the keyword. 
+ * A type that defines the data for a payment amount, such as the sale price.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ProposedBid implements AdditionalDataHolder, Parsable {

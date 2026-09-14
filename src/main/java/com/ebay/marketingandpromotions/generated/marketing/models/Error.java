@@ -32,7 +32,7 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
      */
     private Map<String, Object> additionalData;
     /**
-     * Identifies the type of erro.
+     * Identifies the type of error.
      */
     private String category;
     /**
@@ -92,7 +92,7 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
         return this.additionalData;
     }
     /**
-     * Gets the category property value. Identifies the type of erro.
+     * Gets the category property value. Identifies the type of error.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -215,7 +215,7 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
         this.additionalData = value;
     }
     /**
-     * Sets the category property value. Identifies the type of erro.
+     * Sets the category property value. Identifies the type of error.
      * @param value Value to set for the category property.
      */
     public void setCategory(@jakarta.annotation.Nullable final String value) {

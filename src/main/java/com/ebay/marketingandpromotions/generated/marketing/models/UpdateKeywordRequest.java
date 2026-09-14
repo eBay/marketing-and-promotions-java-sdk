@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that defines the fields for the request to update a keyword.
+ * A type that contains the fields for the &lt;b&gt;UpdateKeyword&lt;/b&gt; request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateKeywordRequest implements AdditionalDataHolder, Parsable {

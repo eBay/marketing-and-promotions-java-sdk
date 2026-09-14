@@ -35,7 +35,7 @@ public class ErrorParameterV3 implements AdditionalDataHolder, Parsable {
      */
     private String name;
     /**
-     * A description of the error.
+     * The value that was set for the element specified in the &lt;b&gt;name&lt;/b&gt; field.
      */
     private String value;
     /**
@@ -82,7 +82,7 @@ public class ErrorParameterV3 implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the value property value. A description of the error.
+     * Gets the value property value. The value that was set for the element specified in the &lt;b&gt;name&lt;/b&gt; field.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -114,7 +114,7 @@ public class ErrorParameterV3 implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the value property value. A description of the error.
+     * Sets the value property value. The value that was set for the element specified in the &lt;b&gt;name&lt;/b&gt; field.
      * @param value Value to set for the value property.
      */
     public void setValue(@jakarta.annotation.Nullable final String value) {

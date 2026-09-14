@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The data requested to retrieve the suggested bids.
+ * A type that defines the targeted bid.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TargetedBidRequest implements AdditionalDataHolder, Parsable {

@@ -31,9 +31,9 @@ public class BidPercentages implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The basis by which the ad rate is calculated.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM&lt;/code&gt; and &lt;code&gt;TRENDING&lt;/code&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/recommendation/types/api:Basis&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The basis by which the ad rate is calculated.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM&lt;/code&gt; and &lt;code&gt;TRENDING&lt;/code&gt;
      */
-    private String basis;
+    private Basis basis;
     /**
      * The bid percentage data is a single precision value, as calculated by the associated basis. &lt;p&gt;In Promoted listings ad campaigns, the &lt;b&gt;bid percentage&lt;/b&gt; (also known as the &lt;i&gt;ad rate&lt;/i&gt;) is a user-defined value that sets the level that eBay raises the visibility of the listing in the marketplace. It is also the rate that is used to calculate the Promoted Listings fee.&lt;/p&gt; &lt;p&gt;&lt;b&gt;Minimum value:&lt;/b&gt; 1.0 &amp;nbsp; &lt;b&gt;Maximum value:&lt;/b&gt; 100.0&lt;/p&gt;
      */
@@ -63,11 +63,11 @@ public class BidPercentages implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the basis property value. The basis by which the ad rate is calculated.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM&lt;/code&gt; and &lt;code&gt;TRENDING&lt;/code&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/recommendation/types/api:Basis&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the basis property value. The basis by which the ad rate is calculated.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM&lt;/code&gt; and &lt;code&gt;TRENDING&lt;/code&gt;
+     * @return a {@link Basis}
      */
     @jakarta.annotation.Nullable
-    public String getBasis() {
+    public Basis getBasis() {
         return this.basis;
     }
     /**
@@ -77,7 +77,7 @@ public class BidPercentages implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("basis", (n) -> { this.setBasis(n.getStringValue()); });
+        deserializerMap.put("basis", (n) -> { this.setBasis(n.getEnumValue(Basis::forValue)); });
         deserializerMap.put("value", (n) -> { this.setValue(n.getStringValue()); });
         return deserializerMap;
     }
@@ -95,7 +95,7 @@ public class BidPercentages implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("basis", this.getBasis());
+        writer.writeEnumValue("basis", this.getBasis());
         writer.writeStringValue("value", this.getValue());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -107,10 +107,10 @@ public class BidPercentages implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the basis property value. The basis by which the ad rate is calculated.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM&lt;/code&gt; and &lt;code&gt;TRENDING&lt;/code&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/recommendation/types/api:Basis&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the basis property value. The basis by which the ad rate is calculated.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt; &lt;code&gt;ITEM&lt;/code&gt; and &lt;code&gt;TRENDING&lt;/code&gt;
      * @param value Value to set for the basis property.
      */
-    public void setBasis(@jakarta.annotation.Nullable final String value) {
+    public void setBasis(@jakarta.annotation.Nullable final Basis value) {
         this.basis = value;
     }
     /**

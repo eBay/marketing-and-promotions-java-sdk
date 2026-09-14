@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the request fields for the ad rate strategy that shall be updated.
+ * A type that defines the request fields used to update the ad rate strategy for a Promoted Listings ad campaign.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateAdrateStrategyRequest implements AdditionalDataHolder, Parsable {

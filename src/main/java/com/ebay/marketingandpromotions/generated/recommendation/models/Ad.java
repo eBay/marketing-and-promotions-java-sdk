@@ -35,9 +35,9 @@ public class Ad implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<BidPercentages> bidPercentages;
     /**
-     * An enum whose values describe whether or not eBay recommends you place the associated listing in a Promoted Listings ad campaign.  &lt;br&gt;&lt;br&gt;IDs deemed &lt;code&gt;RECOMMENDED&lt;/code&gt; by eBay are the listings with the highest potential of benefiting from being promoted. The recommendation calculation is based on marketplace trends, like buyer demand and the competition in the items category.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; A &lt;b&gt;promoteWithAd&lt;/b&gt; value cannot be calculated for listings that are part of Promoted Listings campaigns.  &lt;br&gt;&lt;br&gt;Because of this, if you call &lt;b&gt;findListingRecommendations&lt;/b&gt; with a specific set of listing IDs, the &lt;b&gt;promoteWithAd&lt;/b&gt; field is not returned for any of the listings that are involved in a promotion. However, as long as they are eligible, the trending &lt;b&gt;bidPercentage&lt;/b&gt; &lt;i&gt;is&lt;/i&gt; returned for all specified listings, even if they are part of an ad campaign.&lt;/p&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/recommendation/types/api:PromoteWithAd&apos;&gt;eBay API documentation&lt;/a&gt;
+     * An enum whose values describe whether or not eBay recommends you place the associated listing in a Promoted Listings ad campaign.  &lt;br&gt;&lt;br&gt;IDs deemed &lt;code&gt;RECOMMENDED&lt;/code&gt; by eBay are the listings with the highest potential of benefiting from being promoted. The recommendation calculation is based on marketplace trends, like buyer demand and the competition in the items category.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; A &lt;b&gt;promoteWithAd&lt;/b&gt; value cannot be calculated for listings that are part of Promoted Listings campaigns.  &lt;br&gt;&lt;br&gt;Because of this, if you call &lt;b&gt;findListingRecommendations&lt;/b&gt; with a specific set of listing IDs, the &lt;b&gt;promoteWithAd&lt;/b&gt; field is not returned for any of the listings that are involved in a promotion. However, as long as they are eligible, the trending &lt;b&gt;bidPercentage&lt;/b&gt; &lt;i&gt;is&lt;/i&gt; returned for all specified listings, even if they are part of an ad campaign.&lt;/p&gt;
      */
-    private String promoteWithAd;
+    private PromoteWithAd promoteWithAd;
     /**
      * Instantiates a new {@link Ad} and sets the default values.
      */
@@ -78,15 +78,15 @@ public class Ad implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("bidPercentages", (n) -> { this.setBidPercentages(n.getCollectionOfObjectValues(BidPercentages::createFromDiscriminatorValue)); });
-        deserializerMap.put("promoteWithAd", (n) -> { this.setPromoteWithAd(n.getStringValue()); });
+        deserializerMap.put("promoteWithAd", (n) -> { this.setPromoteWithAd(n.getEnumValue(PromoteWithAd::forValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the promoteWithAd property value. An enum whose values describe whether or not eBay recommends you place the associated listing in a Promoted Listings ad campaign.  &lt;br&gt;&lt;br&gt;IDs deemed &lt;code&gt;RECOMMENDED&lt;/code&gt; by eBay are the listings with the highest potential of benefiting from being promoted. The recommendation calculation is based on marketplace trends, like buyer demand and the competition in the items category.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; A &lt;b&gt;promoteWithAd&lt;/b&gt; value cannot be calculated for listings that are part of Promoted Listings campaigns.  &lt;br&gt;&lt;br&gt;Because of this, if you call &lt;b&gt;findListingRecommendations&lt;/b&gt; with a specific set of listing IDs, the &lt;b&gt;promoteWithAd&lt;/b&gt; field is not returned for any of the listings that are involved in a promotion. However, as long as they are eligible, the trending &lt;b&gt;bidPercentage&lt;/b&gt; &lt;i&gt;is&lt;/i&gt; returned for all specified listings, even if they are part of an ad campaign.&lt;/p&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/recommendation/types/api:PromoteWithAd&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the promoteWithAd property value. An enum whose values describe whether or not eBay recommends you place the associated listing in a Promoted Listings ad campaign.  &lt;br&gt;&lt;br&gt;IDs deemed &lt;code&gt;RECOMMENDED&lt;/code&gt; by eBay are the listings with the highest potential of benefiting from being promoted. The recommendation calculation is based on marketplace trends, like buyer demand and the competition in the items category.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; A &lt;b&gt;promoteWithAd&lt;/b&gt; value cannot be calculated for listings that are part of Promoted Listings campaigns.  &lt;br&gt;&lt;br&gt;Because of this, if you call &lt;b&gt;findListingRecommendations&lt;/b&gt; with a specific set of listing IDs, the &lt;b&gt;promoteWithAd&lt;/b&gt; field is not returned for any of the listings that are involved in a promotion. However, as long as they are eligible, the trending &lt;b&gt;bidPercentage&lt;/b&gt; &lt;i&gt;is&lt;/i&gt; returned for all specified listings, even if they are part of an ad campaign.&lt;/p&gt;
+     * @return a {@link PromoteWithAd}
      */
     @jakarta.annotation.Nullable
-    public String getPromoteWithAd() {
+    public PromoteWithAd getPromoteWithAd() {
         return this.promoteWithAd;
     }
     /**
@@ -96,7 +96,7 @@ public class Ad implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("bidPercentages", this.getBidPercentages());
-        writer.writeStringValue("promoteWithAd", this.getPromoteWithAd());
+        writer.writeEnumValue("promoteWithAd", this.getPromoteWithAd());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -114,10 +114,10 @@ public class Ad implements AdditionalDataHolder, Parsable {
         this.bidPercentages = value;
     }
     /**
-     * Sets the promoteWithAd property value. An enum whose values describe whether or not eBay recommends you place the associated listing in a Promoted Listings ad campaign.  &lt;br&gt;&lt;br&gt;IDs deemed &lt;code&gt;RECOMMENDED&lt;/code&gt; by eBay are the listings with the highest potential of benefiting from being promoted. The recommendation calculation is based on marketplace trends, like buyer demand and the competition in the items category.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; A &lt;b&gt;promoteWithAd&lt;/b&gt; value cannot be calculated for listings that are part of Promoted Listings campaigns.  &lt;br&gt;&lt;br&gt;Because of this, if you call &lt;b&gt;findListingRecommendations&lt;/b&gt; with a specific set of listing IDs, the &lt;b&gt;promoteWithAd&lt;/b&gt; field is not returned for any of the listings that are involved in a promotion. However, as long as they are eligible, the trending &lt;b&gt;bidPercentage&lt;/b&gt; &lt;i&gt;is&lt;/i&gt; returned for all specified listings, even if they are part of an ad campaign.&lt;/p&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/recommendation/types/api:PromoteWithAd&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the promoteWithAd property value. An enum whose values describe whether or not eBay recommends you place the associated listing in a Promoted Listings ad campaign.  &lt;br&gt;&lt;br&gt;IDs deemed &lt;code&gt;RECOMMENDED&lt;/code&gt; by eBay are the listings with the highest potential of benefiting from being promoted. The recommendation calculation is based on marketplace trends, like buyer demand and the competition in the items category.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; A &lt;b&gt;promoteWithAd&lt;/b&gt; value cannot be calculated for listings that are part of Promoted Listings campaigns.  &lt;br&gt;&lt;br&gt;Because of this, if you call &lt;b&gt;findListingRecommendations&lt;/b&gt; with a specific set of listing IDs, the &lt;b&gt;promoteWithAd&lt;/b&gt; field is not returned for any of the listings that are involved in a promotion. However, as long as they are eligible, the trending &lt;b&gt;bidPercentage&lt;/b&gt; &lt;i&gt;is&lt;/i&gt; returned for all specified listings, even if they are part of an ad campaign.&lt;/p&gt;
      * @param value Value to set for the promoteWithAd property.
      */
-    public void setPromoteWithAd(@jakarta.annotation.Nullable final String value) {
+    public void setPromoteWithAd(@jakarta.annotation.Nullable final PromoteWithAd value) {
         this.promoteWithAd = value;
     }
 }

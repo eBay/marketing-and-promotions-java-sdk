@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields for the create campaign request.
+ * This type defines the fields needed to create a campaign. To create a campaign, you need to specify a name, start and end dates, funding, marketplace, and optionally the criterion (selection rules).
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {

@@ -16,6 +16,7 @@ package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.get_camp
 
 import com.ebay.marketingandpromotions.generated.marketing.models.Campaign;
 import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -54,9 +55,9 @@ public class GetCampaignByNameRequestBuilder extends BaseRequestBuilder {
      * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
      * @return a {@link Campaign}
      * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
      * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Campaign get() {
@@ -67,18 +68,18 @@ public class GetCampaignByNameRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Campaign}
      * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
      * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Campaign get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
         errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, Campaign::createFromDiscriminatorValue);
     }
     /**

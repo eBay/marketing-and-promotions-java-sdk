@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The required data to retrieve suggested keywords.
+ * A type that provides details for the targeted keywords.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TargetedKeywordRequest implements AdditionalDataHolder, Parsable {

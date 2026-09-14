@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * An list of listing ID values for which you want Promoted Listings ad configuration information.
+ * This type defines the list of listing ID values for which you want Promoted Listings ad configuration information.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class FindListingRecommendationRequest implements AdditionalDataHolder, Parsable {

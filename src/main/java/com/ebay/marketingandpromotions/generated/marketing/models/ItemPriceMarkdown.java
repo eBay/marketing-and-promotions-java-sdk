@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields that describe an item price markdown discount.
+ * This type defines the fields used to describe an item price markdown discount.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {

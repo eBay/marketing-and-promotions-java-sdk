@@ -14,7 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.update_campaign_identification;
 
-import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.ebay.marketingandpromotions.generated.marketing.models.UpdateCampaignIdentificationRequest;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -52,10 +52,10 @@ public class UpdateCampaignIdentificationRequestBuilder extends BaseRequestBuild
     /**
      * This method can be used to change the name of a campaign, as well as modify the start or end dates. &lt;p&gt;Specify the &lt;b&gt;campaign_id&lt;/b&gt; you want to update as a URI parameter, and configure the &lt;b&gt;campaignName&lt;/b&gt; and &lt;b&gt;startDate&lt;/b&gt; in the request payload.  &lt;p&gt;If you want to change only the end date of the campaign, specify the current campaign name, set &lt;b&gt;endDate&lt;/b&gt; as desired, and set &lt;b&gt;startDate&lt;/b&gt; to the actual start date of the campaign. This applies if the campaign status is &lt;code&gt;RUNNING&lt;/code&gt; or &lt;code&gt;PAUSED&lt;/code&gt;. You can retrieve the &lt;b&gt;startDate&lt;/b&gt; using the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaign.campaign.startdate&quot;&gt;getCampaign&lt;/a&gt; method.&lt;/p&gt; &lt;p&gt;Note that if you do not set a new end date in this call, any current &lt;b&gt;endDate&lt;/b&gt; value will be set to &lt;code&gt;null&lt;/code&gt;. To preserve the currently-set end date, you must specify the value again in your request.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a seller&apos;s campaign details, including the campaign ID, campaign name, and the start and end dates of the campaign.
      * @param body This type defines the fields to update the campaign name and start and end dates.
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     public void post(@jakarta.annotation.Nonnull final UpdateCampaignIdentificationRequest body) {
         post(body, null);
@@ -64,19 +64,19 @@ public class UpdateCampaignIdentificationRequestBuilder extends BaseRequestBuild
      * This method can be used to change the name of a campaign, as well as modify the start or end dates. &lt;p&gt;Specify the &lt;b&gt;campaign_id&lt;/b&gt; you want to update as a URI parameter, and configure the &lt;b&gt;campaignName&lt;/b&gt; and &lt;b&gt;startDate&lt;/b&gt; in the request payload.  &lt;p&gt;If you want to change only the end date of the campaign, specify the current campaign name, set &lt;b&gt;endDate&lt;/b&gt; as desired, and set &lt;b&gt;startDate&lt;/b&gt; to the actual start date of the campaign. This applies if the campaign status is &lt;code&gt;RUNNING&lt;/code&gt; or &lt;code&gt;PAUSED&lt;/code&gt;. You can retrieve the &lt;b&gt;startDate&lt;/b&gt; using the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaign.campaign.startdate&quot;&gt;getCampaign&lt;/a&gt; method.&lt;/p&gt; &lt;p&gt;Note that if you do not set a new end date in this call, any current &lt;b&gt;endDate&lt;/b&gt; value will be set to &lt;code&gt;null&lt;/code&gt;. To preserve the currently-set end date, you must specify the value again in your request.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a seller&apos;s campaign details, including the campaign ID, campaign name, and the start and end dates of the campaign.
      * @param body This type defines the fields to update the campaign name and start and end dates.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     public void post(@jakarta.annotation.Nonnull final UpdateCampaignIdentificationRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
     /**

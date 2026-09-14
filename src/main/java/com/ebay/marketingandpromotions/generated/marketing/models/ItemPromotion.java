@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields that describe an item discount.
+ * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This type defines the fields that describe a threshold discount and includes the discount, the items being discounted, and the rules that specify when the discount is applied.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ItemPromotion implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class ItemPromotion implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This flag is relevant in only when &lt;b&gt;promotionType&lt;/b&gt; is set to &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For details on volume pricing discounts, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-volume-discounts.html&quot; target=&quot;_blank&quot;&gt;Configuring volume pricing discounts&lt;/a&gt;.  &lt;br&gt;&lt;br&gt;If set to &lt;code&gt;true&lt;/code&gt;, the discount is applied only when the buyer purchases multiple quantities of a single item that is being discounted. Otherwise, the discount applies to multiple quantities of any the items being discounted. Different variations of a multi-variation item are considered to be the same item. Note that this flag is not relevant if the &lt;b&gt;inventoryCriterion&lt;/b&gt; container identifies a single listing ID for the discount.
+     * This flag is relevant only when &lt;b&gt;promotionType&lt;/b&gt; is set to &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For details on volume pricing discounts, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-volume-discounts.html&quot; target=&quot;_blank&quot;&gt;Configuring volume pricing discounts&lt;/a&gt;.  &lt;br&gt;&lt;br&gt;If set to &lt;code&gt;true&lt;/code&gt;, the discount is applied only when the buyer purchases multiple quantities of a single item that is being discounted. Otherwise, the discount applies to multiple quantities of any the items being discounted. Different variations of a multi-variation item are considered to be the same item. Note that this flag is not relevant if the &lt;b&gt;inventoryCriterion&lt;/b&gt; container identifies a single listing ID for the discount.
      */
     private Boolean applyDiscountToSingleItemOnly;
     /**
@@ -111,7 +111,7 @@ public class ItemPromotion implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the applyDiscountToSingleItemOnly property value. This flag is relevant in only when &lt;b&gt;promotionType&lt;/b&gt; is set to &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For details on volume pricing discounts, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-volume-discounts.html&quot; target=&quot;_blank&quot;&gt;Configuring volume pricing discounts&lt;/a&gt;.  &lt;br&gt;&lt;br&gt;If set to &lt;code&gt;true&lt;/code&gt;, the discount is applied only when the buyer purchases multiple quantities of a single item that is being discounted. Otherwise, the discount applies to multiple quantities of any the items being discounted. Different variations of a multi-variation item are considered to be the same item. Note that this flag is not relevant if the &lt;b&gt;inventoryCriterion&lt;/b&gt; container identifies a single listing ID for the discount.
+     * Gets the applyDiscountToSingleItemOnly property value. This flag is relevant only when &lt;b&gt;promotionType&lt;/b&gt; is set to &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For details on volume pricing discounts, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-volume-discounts.html&quot; target=&quot;_blank&quot;&gt;Configuring volume pricing discounts&lt;/a&gt;.  &lt;br&gt;&lt;br&gt;If set to &lt;code&gt;true&lt;/code&gt;, the discount is applied only when the buyer purchases multiple quantities of a single item that is being discounted. Otherwise, the discount applies to multiple quantities of any the items being discounted. Different variations of a multi-variation item are considered to be the same item. Note that this flag is not relevant if the &lt;b&gt;inventoryCriterion&lt;/b&gt; container identifies a single listing ID for the discount.
      * @return a {@link Boolean}
      */
     @jakarta.annotation.Nullable
@@ -275,7 +275,7 @@ public class ItemPromotion implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the applyDiscountToSingleItemOnly property value. This flag is relevant in only when &lt;b&gt;promotionType&lt;/b&gt; is set to &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For details on volume pricing discounts, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-volume-discounts.html&quot; target=&quot;_blank&quot;&gt;Configuring volume pricing discounts&lt;/a&gt;.  &lt;br&gt;&lt;br&gt;If set to &lt;code&gt;true&lt;/code&gt;, the discount is applied only when the buyer purchases multiple quantities of a single item that is being discounted. Otherwise, the discount applies to multiple quantities of any the items being discounted. Different variations of a multi-variation item are considered to be the same item. Note that this flag is not relevant if the &lt;b&gt;inventoryCriterion&lt;/b&gt; container identifies a single listing ID for the discount.
+     * Sets the applyDiscountToSingleItemOnly property value. This flag is relevant only when &lt;b&gt;promotionType&lt;/b&gt; is set to &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For details on volume pricing discounts, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-volume-discounts.html&quot; target=&quot;_blank&quot;&gt;Configuring volume pricing discounts&lt;/a&gt;.  &lt;br&gt;&lt;br&gt;If set to &lt;code&gt;true&lt;/code&gt;, the discount is applied only when the buyer purchases multiple quantities of a single item that is being discounted. Otherwise, the discount applies to multiple quantities of any the items being discounted. Different variations of a multi-variation item are considered to be the same item. Note that this flag is not relevant if the &lt;b&gt;inventoryCriterion&lt;/b&gt; container identifies a single listing ID for the discount.
      * @param value Value to set for the applyDiscountToSingleItemOnly property.
      */
     public void setApplyDiscountToSingleItemOnly(@jakarta.annotation.Nullable final Boolean value) {

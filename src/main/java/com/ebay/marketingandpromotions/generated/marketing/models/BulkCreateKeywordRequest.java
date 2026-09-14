@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that defines the fields for the bulk request to create keywords.
+ * A type that contains the fields for the bulk request to create keywords.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class BulkCreateKeywordRequest implements AdditionalDataHolder, Parsable {

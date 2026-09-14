@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * update email campaign request
+ * This type defines the update email campaign request payload.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateCampaignRequest implements AdditionalDataHolder, Parsable {

@@ -39,7 +39,7 @@ public class AdPagedCollectionResponse implements AdditionalDataHolder, Parsable
      */
     private String href;
     /**
-     * The number of items returned on a single page from the result set. This value can be set in the request with the &lt;b&gt;limit&lt;/b&gt; query parameter.
+     * The number of items returned on a single page from the result set. This value can be set in the request with the &lt;b&gt;limit&lt;/b&gt; query parameter.&lt;p&gt;&lt;b&gt;Default&lt;/b&gt;: &lt;code&gt;10&lt;/code&gt;
      */
     private Integer limit;
     /**
@@ -47,7 +47,7 @@ public class AdPagedCollectionResponse implements AdditionalDataHolder, Parsable
      */
     private String next;
     /**
-     * The number of results skipped in the result set before listing the first result on the current page. This value can be set in the request with the &lt;b&gt;offset&lt;/b&gt; query parameter. If the &lt;b&gt;offset&lt;/b&gt; value is not set, it defaults to zero.&lt;p class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;The items in a paginated result set use a zero-based list where the first item in the list has an offset of &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+     * The number of results skipped in the result set before listing the first result on the current page. This value can be set in the request with the &lt;b&gt;offset&lt;/b&gt; query parameter. If the &lt;b&gt;offset&lt;/b&gt; value is not set, it defaults to zero.&lt;p&gt;&lt;b&gt;Default&lt;/b&gt;: &lt;code&gt;0&lt;/code&gt;&lt;/p&gt;&lt;p class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;The items in a paginated result set use a zero-based list where the first item in the list has an offset of &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
      */
     private Integer offset;
     /**
@@ -115,7 +115,7 @@ public class AdPagedCollectionResponse implements AdditionalDataHolder, Parsable
         return this.href;
     }
     /**
-     * Gets the limit property value. The number of items returned on a single page from the result set. This value can be set in the request with the &lt;b&gt;limit&lt;/b&gt; query parameter.
+     * Gets the limit property value. The number of items returned on a single page from the result set. This value can be set in the request with the &lt;b&gt;limit&lt;/b&gt; query parameter.&lt;p&gt;&lt;b&gt;Default&lt;/b&gt;: &lt;code&gt;10&lt;/code&gt;
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -131,7 +131,7 @@ public class AdPagedCollectionResponse implements AdditionalDataHolder, Parsable
         return this.next;
     }
     /**
-     * Gets the offset property value. The number of results skipped in the result set before listing the first result on the current page. This value can be set in the request with the &lt;b&gt;offset&lt;/b&gt; query parameter. If the &lt;b&gt;offset&lt;/b&gt; value is not set, it defaults to zero.&lt;p class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;The items in a paginated result set use a zero-based list where the first item in the list has an offset of &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+     * Gets the offset property value. The number of results skipped in the result set before listing the first result on the current page. This value can be set in the request with the &lt;b&gt;offset&lt;/b&gt; query parameter. If the &lt;b&gt;offset&lt;/b&gt; value is not set, it defaults to zero.&lt;p&gt;&lt;b&gt;Default&lt;/b&gt;: &lt;code&gt;0&lt;/code&gt;&lt;/p&gt;&lt;p class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;The items in a paginated result set use a zero-based list where the first item in the list has an offset of &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -191,7 +191,7 @@ public class AdPagedCollectionResponse implements AdditionalDataHolder, Parsable
         this.href = value;
     }
     /**
-     * Sets the limit property value. The number of items returned on a single page from the result set. This value can be set in the request with the &lt;b&gt;limit&lt;/b&gt; query parameter.
+     * Sets the limit property value. The number of items returned on a single page from the result set. This value can be set in the request with the &lt;b&gt;limit&lt;/b&gt; query parameter.&lt;p&gt;&lt;b&gt;Default&lt;/b&gt;: &lt;code&gt;10&lt;/code&gt;
      * @param value Value to set for the limit property.
      */
     public void setLimit(@jakarta.annotation.Nullable final Integer value) {
@@ -205,7 +205,7 @@ public class AdPagedCollectionResponse implements AdditionalDataHolder, Parsable
         this.next = value;
     }
     /**
-     * Sets the offset property value. The number of results skipped in the result set before listing the first result on the current page. This value can be set in the request with the &lt;b&gt;offset&lt;/b&gt; query parameter. If the &lt;b&gt;offset&lt;/b&gt; value is not set, it defaults to zero.&lt;p class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;The items in a paginated result set use a zero-based list where the first item in the list has an offset of &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+     * Sets the offset property value. The number of results skipped in the result set before listing the first result on the current page. This value can be set in the request with the &lt;b&gt;offset&lt;/b&gt; query parameter. If the &lt;b&gt;offset&lt;/b&gt; value is not set, it defaults to zero.&lt;p&gt;&lt;b&gt;Default&lt;/b&gt;: &lt;code&gt;0&lt;/code&gt;&lt;/p&gt;&lt;p class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;The items in a paginated result set use a zero-based list where the first item in the list has an offset of &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
      * @param value Value to set for the offset property.
      */
     public void setOffset(@jakarta.annotation.Nullable final Integer value) {

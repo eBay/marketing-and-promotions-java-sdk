@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * Create a new email campaign request.
+ * This type defines the &lt;b&gt;createEmailCampaign&lt;/b&gt; request payload.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsable {

@@ -15,6 +15,7 @@
 package com.ebay.marketingandpromotions.generated.marketing.negative_keyword.item;
 
 import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.ebay.marketingandpromotions.generated.marketing.models.NegativeKeyword;
 import com.ebay.marketingandpromotions.generated.marketing.models.UpdateNegativeKeywordRequest;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -55,9 +56,9 @@ public class WithNegativeKeywordItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link NegativeKeyword}
      * @throws Error When receiving a 400 status code
      * @throws Error When receiving a 403 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public NegativeKeyword get() {
@@ -69,9 +70,9 @@ public class WithNegativeKeywordItemRequestBuilder extends BaseRequestBuilder {
      * @return a {@link NegativeKeyword}
      * @throws Error When receiving a 400 status code
      * @throws Error When receiving a 403 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public NegativeKeyword get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
@@ -79,19 +80,19 @@ public class WithNegativeKeywordItemRequestBuilder extends BaseRequestBuilder {
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
         errorMapping.put("400", Error::createFromDiscriminatorValue);
         errorMapping.put("403", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, NegativeKeyword::createFromDiscriminatorValue);
     }
     /**
      * This method updates the status of an existing negative keyword.&lt;br /&gt;&lt;br /&gt;Specify the &lt;b&gt;negative_keyword_id&lt;/b&gt; as a path parameter, and specify the &lt;b&gt;negativeKeywordStatus&lt;/b&gt; in the request body.
      * @param body A type that defines the fields for the request to update a negative keyword.
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
      * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     public void put(@jakarta.annotation.Nonnull final UpdateNegativeKeywordRequest body) {
         put(body, null);
@@ -100,21 +101,21 @@ public class WithNegativeKeywordItemRequestBuilder extends BaseRequestBuilder {
      * This method updates the status of an existing negative keyword.&lt;br /&gt;&lt;br /&gt;Specify the &lt;b&gt;negative_keyword_id&lt;/b&gt; as a path parameter, and specify the &lt;b&gt;negativeKeywordStatus&lt;/b&gt; in the request body.
      * @param body A type that defines the fields for the request to update a negative keyword.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 403 status code
      * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     public void put(@jakarta.annotation.Nonnull final UpdateNegativeKeywordRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPutRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
         errorMapping.put("403", Error::createFromDiscriminatorValue);
         errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
     /**

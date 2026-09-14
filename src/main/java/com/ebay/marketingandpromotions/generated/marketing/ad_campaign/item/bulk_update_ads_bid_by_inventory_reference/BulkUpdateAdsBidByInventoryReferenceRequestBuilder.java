@@ -16,7 +16,7 @@ package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.bul
 
 import com.ebay.marketingandpromotions.generated.marketing.models.BulkCreateAdsByInventoryReferenceRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.BulkUpdateAdsByInventoryReferenceResponse;
-import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -54,10 +54,10 @@ public class BulkUpdateAdsBidByInventoryReferenceRequestBuilder extends BaseRequ
      * This method works with listings created with either the &lt;a href=&quot;/Devzone/XML/docs/Reference/eBay/index.html&quot; title=&quot;Trading API Reference&quot; target=&quot;_blank&quot;&gt;Trading API&lt;/a&gt; or the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; title=&quot;Inventory API Reference&quot; target=&quot;_blank&quot;&gt;Inventory API&lt;/a&gt;.  &lt;p&gt;The method updates the &lt;b&gt;bidPercentage&lt;/b&gt; values for a set of ads associated with the specified campaign.&lt;/p&gt;  &lt;p&gt;Specify the &lt;b&gt;campaign_id&lt;/b&gt; as a path parameter and supply a set of listing IDs with their associated updated &lt;b&gt;bidPercentage&lt;/b&gt; values in the request body. An eBay listing ID is generated when a listing is created with the Trading API.&lt;/p&gt;  &lt;p&gt;Get the campaign IDs for a seller by calling &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; and call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getads&quot;&gt;getAds&lt;/a&gt; to get a list of the seller&apos;s inventory reference IDs.&lt;/p&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method only applies to the Cost Per Sale (CPS) funding model; it does not apply to the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot; target=&quot;_blank&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
      * @param body This request object defines the fields for the &lt;b&gt;BulkCreateAdsByInventoryReference&lt;/b&gt; request.
      * @return a {@link BulkUpdateAdsByInventoryReferenceResponse}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public BulkUpdateAdsByInventoryReferenceResponse post(@jakarta.annotation.Nonnull final BulkCreateAdsByInventoryReferenceRequest body) {
@@ -68,20 +68,20 @@ public class BulkUpdateAdsBidByInventoryReferenceRequestBuilder extends BaseRequ
      * @param body This request object defines the fields for the &lt;b&gt;BulkCreateAdsByInventoryReference&lt;/b&gt; request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link BulkUpdateAdsByInventoryReferenceResponse}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public BulkUpdateAdsByInventoryReferenceResponse post(@jakarta.annotation.Nonnull final BulkCreateAdsByInventoryReferenceRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, BulkUpdateAdsByInventoryReferenceResponse::createFromDiscriminatorValue);
     }
     /**

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The aspect information of the alert including keys and values.
+ * A type that contains the aspect fields.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class Aspect implements AdditionalDataHolder, Parsable {

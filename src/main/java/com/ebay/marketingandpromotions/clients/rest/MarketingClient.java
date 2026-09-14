@@ -22,6 +22,8 @@ import com.ebay.marketingandpromotions.generated.marketing.models.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.io.InputStream;
+import com.microsoft.kiota.serialization.UntypedNode;
 
 public final class MarketingClient {
     private final MarketingApiClient kiota;
@@ -121,7 +123,7 @@ public final class MarketingClient {
     }
 
     public CompletableFuture<AdPagedCollectionResponse> getAdsAsync(
-            String campaignId, String adGroupIds, String adStatus, String limit, String listingIds, String offset, String accessToken, RequestOptions requestOptions) {
+            String campaignId, String adGroupIds, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.ad.GetAdStatusQueryParameterType adStatus, String limit, String listingIds, String offset, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.ad.GetFieldgroupsQueryParameterType fieldgroups, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).ad().get(config -> {
@@ -131,17 +133,19 @@ public final class MarketingClient {
                 if (limit != null) config.queryParameters.limit = limit;
                 if (listingIds != null) config.queryParameters.listingIds = listingIds;
                 if (offset != null) config.queryParameters.offset = offset;
+                if (fieldgroups != null) config.queryParameters.fieldgroups = fieldgroups;
             });
         }));
     }
 
-    public CompletableFuture<Object> createAdByListingIdAsync(
+    public CompletableFuture<Void> createAdByListingIdAsync(
             String campaignId, CreateAdRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).ad().post(body, config -> {
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).ad().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
+            return null;
         }));
     }
 
@@ -156,11 +160,12 @@ public final class MarketingClient {
     }
 
     public CompletableFuture<Ad> getAdAsync(
-            String adId, String campaignId, String accessToken, RequestOptions requestOptions) {
+            String adId, String campaignId, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.ad.item.GetFieldgroupsQueryParameterType fieldgroups, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).ad().byAd_id(Params.requireValid("adId", adId)).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
+                if (fieldgroups != null) config.queryParameters.fieldgroups = fieldgroups;
             });
         }));
     }
@@ -187,7 +192,7 @@ public final class MarketingClient {
     }
 
     public CompletableFuture<Ads> getAdsByInventoryReferenceAsync(
-            String campaignId, String inventoryReferenceId, String inventoryReferenceType, String accessToken, RequestOptions requestOptions) {
+            String campaignId, String inventoryReferenceId, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.get_ads_by_inventory_reference.GetInventoryReferenceTypeQueryParameterType inventoryReferenceType, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).getAdsByInventoryReference().get(config -> {
@@ -210,7 +215,7 @@ public final class MarketingClient {
     }
 
     public CompletableFuture<AdGroupPagedCollectionResponse> getAdGroupsAsync(
-            String campaignId, String adGroupStatus, String limit, String offset, String accessToken, RequestOptions requestOptions) {
+            String campaignId, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.ad_group.GetAdGroupStatusQueryParameterType adGroupStatus, String limit, String offset, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).adGroup().get(config -> {
@@ -222,13 +227,14 @@ public final class MarketingClient {
         }));
     }
 
-    public CompletableFuture<Object> createAdGroupAsync(
+    public CompletableFuture<Void> createAdGroupAsync(
             String campaignId, CreateAdGroupRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).adGroup().post(body, config -> {
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).adGroup().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
+            return null;
         }));
     }
 
@@ -273,18 +279,19 @@ public final class MarketingClient {
         }));
     }
 
-    public CompletableFuture<Object> cloneCampaignAsync(
+    public CompletableFuture<Void> cloneCampaignAsync(
             String campaignId, CloneCampaignRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).clone().post(body, config -> {
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).clone().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
+            return null;
         }));
     }
 
     public CompletableFuture<CampaignPagedCollectionResponse> getCampaignsAsync(
-            String campaignName, String campaignStatus, String campaignTargetingTypes, String channels, String endDateRange, String fundingStrategy, String limit, String offset, String startDateRange, String accessToken, RequestOptions requestOptions) {
+            String campaignName, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignStatusQueryParameterType campaignStatus, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignTargetingTypesQueryParameterType campaignTargetingTypes, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetChannelsQueryParameterType channels, String endDateRange, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetFundingStrategyQueryParameterType fundingStrategy, String limit, String offset, String startDateRange, String marketplaceId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.adCampaign().get(config -> {
@@ -298,17 +305,19 @@ public final class MarketingClient {
                 if (limit != null) config.queryParameters.limit = limit;
                 if (offset != null) config.queryParameters.offset = offset;
                 if (startDateRange != null) config.queryParameters.startDateRange = startDateRange;
+                if (marketplaceId != null) config.queryParameters.marketplaceId = marketplaceId;
             });
         }));
     }
 
-    public CompletableFuture<Object> createCampaignAsync(
+    public CompletableFuture<Void> createCampaignAsync(
             CreateCampaignRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().post(body, config -> {
+            kiota.adCampaign().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
+            return null;
         }));
     }
 
@@ -345,7 +354,7 @@ public final class MarketingClient {
     }
 
     public CompletableFuture<Campaigns> findCampaignByAdReferenceAsync(
-            String inventoryReferenceId, String inventoryReferenceType, String listingId, String accessToken, RequestOptions requestOptions) {
+            String inventoryReferenceId, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.find_campaign_by_ad_reference.GetInventoryReferenceTypeQueryParameterType inventoryReferenceType, String listingId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.adCampaign().findCampaignByAdReference().get(config -> {
@@ -446,13 +455,14 @@ public final class MarketingClient {
         }));
     }
 
-    public CompletableFuture<Object> updateCampaignBudgetAsync(
+    public CompletableFuture<Void> updateCampaignBudgetAsync(
             String campaignId, UpdateCampaignBudgetRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).updateCampaignBudget().post(body, config -> {
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).updateCampaignBudget().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
+            return null;
         }));
     }
 
@@ -488,7 +498,7 @@ public final class MarketingClient {
     }
 
     public CompletableFuture<KeywordPagedCollectionResponse> getKeywordsAsync(
-            String campaignId, String adGroupIds, String keywordStatus, String limit, String offset, String accessToken, RequestOptions requestOptions) {
+            String campaignId, String adGroupIds, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.keyword.GetKeywordStatusQueryParameterType keywordStatus, String limit, String offset, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).keyword().get(config -> {
@@ -501,13 +511,14 @@ public final class MarketingClient {
         }));
     }
 
-    public CompletableFuture<Object> createKeywordAsync(
+    public CompletableFuture<Void> createKeywordAsync(
             String campaignId, CreateKeywordRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).keyword().post(body, config -> {
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).keyword().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
+            return null;
         }));
     }
 
@@ -552,7 +563,7 @@ public final class MarketingClient {
     }
 
     public CompletableFuture<NegativeKeywordPagedCollectionResponse> getNegativeKeywordsAsync(
-            String adGroupIds, String campaignIds, String limit, String negativeKeywordStatus, String offset, String accessToken, RequestOptions requestOptions) {
+            String adGroupIds, String campaignIds, String limit, com.ebay.marketingandpromotions.generated.marketing.negative_keyword.GetNegativeKeywordStatusQueryParameterType negativeKeywordStatus, String offset, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.negativeKeyword().get(config -> {
@@ -566,13 +577,14 @@ public final class MarketingClient {
         }));
     }
 
-    public CompletableFuture<Object> createNegativeKeywordAsync(
+    public CompletableFuture<Void> createNegativeKeywordAsync(
             CreateNegativeKeywordRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.negativeKeyword().post(body, config -> {
+            kiota.negativeKeyword().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
+            return null;
         }));
     }
 
@@ -676,13 +688,14 @@ public final class MarketingClient {
         }));
     }
 
-    public CompletableFuture<Object> createItemPriceMarkdownPromotionAsync(
+    public CompletableFuture<Void> createItemPriceMarkdownPromotionAsync(
             ItemPriceMarkdown body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.itemPriceMarkdown().post(body, config -> {
+            kiota.itemPriceMarkdown().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
+            return null;
         }));
     }
 
@@ -696,7 +709,7 @@ public final class MarketingClient {
         }));
     }
 
-    public CompletableFuture<Object> updateItemPriceMarkdownPromotionAsync(
+    public CompletableFuture<BaseResponse> updateItemPriceMarkdownPromotionAsync(
             String promotionId, ItemPriceMarkdown body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
@@ -759,7 +772,7 @@ public final class MarketingClient {
     }
 
     public CompletableFuture<ItemsPagedCollection> getListingSetAsync(
-            String promotionId, String limit, String offset, String q, String sort, String status, String accessToken, RequestOptions requestOptions) {
+            String promotionId, String limit, String offset, String q, String sort, com.ebay.marketingandpromotions.generated.marketing.models.ItemMarkdownStatusEnum status, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.promotion().byPromotion_id(Params.requireValid("promotionId", promotionId)).getListingSet().get(config -> {
@@ -925,6 +938,26 @@ public final class MarketingClient {
                 headers.forEach((k, v) -> config.headers.add(k, v));
                 if (endDate != null) config.queryParameters.endDate = endDate;
                 if (startDate != null) config.queryParameters.startDate = startDate;
+            });
+        }));
+    }
+
+    public CompletableFuture<UpsertVideoAdsPreferencesResponse> upsertVideoAdsPreferencesAsync(
+            String campaignId, UpsertVideoAdsPreferencesRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).upsertVideoAdsPreferences().put(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkUpsertVideoAdsPreferencesResponse> bulkUpsertVideoAdsPreferencesAsync(
+            String campaignId, BulkUpsertVideoAdsPreferencesRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkUpsertVideoAdsPreferences().put(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
             });
         }));
     }

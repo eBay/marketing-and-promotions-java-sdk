@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.models;
 
+import com.microsoft.kiota.ApiException;
 import com.microsoft.kiota.serialization.AdditionalDataHolder;
 import com.microsoft.kiota.serialization.Parsable;
 import com.microsoft.kiota.serialization.ParseNode;
@@ -22,10 +23,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the elements of error and warning messages.
+ * This type defines the fields returned in an error condition.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
-public class ErrorDetailV3 implements AdditionalDataHolder, Parsable {
+public class ErrorDetailV3 extends ApiException implements AdditionalDataHolder, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -43,27 +44,27 @@ public class ErrorDetailV3 implements AdditionalDataHolder, Parsable {
      */
     private Integer errorId;
     /**
-     * Identifies specific request elements associated with the error, if any. inputRefId&apos;s response is format specific. For JSON, use &lt;i&gt;JSONPath&lt;/i&gt; notation.
+     * An array of reference IDs that identify the specific request elements most closely associated to the error or warning, if any. For JSON, use &lt;i&gt;JSONPath&lt;/i&gt; notation.
      */
     private java.util.List<String> inputRefIds;
     /**
-     * An expanded version of message that should be around 100-200 characters long, but is not required to be such.
+     * A detailed description of the condition that caused the error or warning and information on what to do to correct the problem. The string is normally 100-200 characters in length, but is not required to be such.
      */
     private String longMessage;
     /**
-     * An end user and app developer friendly device agnostic message. It explains what the error or warning is, and how to fix it (in a general sense). Its value is at most 50 characters long. If applicable, the value is localized in the end user&apos;s requested locale.
+     * A short description of the condition that caused the error or warning. This value is at most 50 characters long and, if applicable, is localized in the end user&apos;s requested locale.
      */
     private String message;
     /**
-     * Identifies specific response elements associated with the error, if any. Path format is the same as &lt;code&gt;inputRefId&lt;/code&gt;.
+     * An array of reference IDs that identify the specific response elements most closely associated to the error or warning, if any. The path format is the same as &lt;code&gt;inputRefId&lt;/code&gt;.
      */
     private java.util.List<String> outputRefIds;
     /**
-     * This optional complex field type contains a list of one or more context-specific &lt;code&gt;ErrorParameter&lt;/code&gt; objects, with each item in the list entry being a parameter (or input field name) that caused an error condition. Each &lt;code&gt;ErrorParameter&lt;/code&gt; object consists of two fields, a &lt;code&gt;name&lt;/code&gt; and a &lt;code&gt;value&lt;/code&gt;.
+     * An array that contains contextual information about the error or warning. The list often includes the parameter or input fields that triggered the warning or error condition.
      */
     private java.util.List<ErrorParameterV3> parameters;
     /**
-     * Name of the domain&apos;s subsystem or subdivision. For example, checkout is a subdomain in the buying domain.
+     * The name of the subdomain in which the error or warning occurred. For example, checkout is a subdomain in the buying domain.
      */
     private String subdomain;
     /**
@@ -133,7 +134,7 @@ public class ErrorDetailV3 implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the inputRefIds property value. Identifies specific request elements associated with the error, if any. inputRefId&apos;s response is format specific. For JSON, use &lt;i&gt;JSONPath&lt;/i&gt; notation.
+     * Gets the inputRefIds property value. An array of reference IDs that identify the specific request elements most closely associated to the error or warning, if any. For JSON, use &lt;i&gt;JSONPath&lt;/i&gt; notation.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -141,7 +142,7 @@ public class ErrorDetailV3 implements AdditionalDataHolder, Parsable {
         return this.inputRefIds;
     }
     /**
-     * Gets the longMessage property value. An expanded version of message that should be around 100-200 characters long, but is not required to be such.
+     * Gets the longMessage property value. A detailed description of the condition that caused the error or warning and information on what to do to correct the problem. The string is normally 100-200 characters in length, but is not required to be such.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -149,15 +150,24 @@ public class ErrorDetailV3 implements AdditionalDataHolder, Parsable {
         return this.longMessage;
     }
     /**
-     * Gets the message property value. An end user and app developer friendly device agnostic message. It explains what the error or warning is, and how to fix it (in a general sense). Its value is at most 50 characters long. If applicable, the value is localized in the end user&apos;s requested locale.
+     * The primary error message.
+     * @return a {@link String}
+     */
+    @jakarta.annotation.Nonnull
+    @Override
+    public String getMessage() {
+        return super.getMessage();
+    }
+    /**
+     * Gets the message property value. A short description of the condition that caused the error or warning. This value is at most 50 characters long and, if applicable, is localized in the end user&apos;s requested locale.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
-    public String getMessage() {
+    public String getMessageEscaped() {
         return this.message;
     }
     /**
-     * Gets the outputRefIds property value. Identifies specific response elements associated with the error, if any. Path format is the same as &lt;code&gt;inputRefId&lt;/code&gt;.
+     * Gets the outputRefIds property value. An array of reference IDs that identify the specific response elements most closely associated to the error or warning, if any. The path format is the same as &lt;code&gt;inputRefId&lt;/code&gt;.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -165,7 +175,7 @@ public class ErrorDetailV3 implements AdditionalDataHolder, Parsable {
         return this.outputRefIds;
     }
     /**
-     * Gets the parameters property value. This optional complex field type contains a list of one or more context-specific &lt;code&gt;ErrorParameter&lt;/code&gt; objects, with each item in the list entry being a parameter (or input field name) that caused an error condition. Each &lt;code&gt;ErrorParameter&lt;/code&gt; object consists of two fields, a &lt;code&gt;name&lt;/code&gt; and a &lt;code&gt;value&lt;/code&gt;.
+     * Gets the parameters property value. An array that contains contextual information about the error or warning. The list often includes the parameter or input fields that triggered the warning or error condition.
      * @return a {@link java.util.List<ErrorParameterV3>}
      */
     @jakarta.annotation.Nullable
@@ -173,7 +183,7 @@ public class ErrorDetailV3 implements AdditionalDataHolder, Parsable {
         return this.parameters;
     }
     /**
-     * Gets the subdomain property value. Name of the domain&apos;s subsystem or subdivision. For example, checkout is a subdomain in the buying domain.
+     * Gets the subdomain property value. The name of the subdomain in which the error or warning occurred. For example, checkout is a subdomain in the buying domain.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -191,7 +201,7 @@ public class ErrorDetailV3 implements AdditionalDataHolder, Parsable {
         writer.writeIntegerValue("errorId", this.getErrorId());
         writer.writeCollectionOfPrimitiveValues("inputRefIds", this.getInputRefIds());
         writer.writeStringValue("longMessage", this.getLongMessage());
-        writer.writeStringValue("message", this.getMessage());
+        writer.writeStringValue("message", this.getMessageEscaped());
         writer.writeCollectionOfPrimitiveValues("outputRefIds", this.getOutputRefIds());
         writer.writeCollectionOfObjectValues("parameters", this.getParameters());
         writer.writeStringValue("subdomain", this.getSubdomain());
@@ -226,42 +236,42 @@ public class ErrorDetailV3 implements AdditionalDataHolder, Parsable {
         this.errorId = value;
     }
     /**
-     * Sets the inputRefIds property value. Identifies specific request elements associated with the error, if any. inputRefId&apos;s response is format specific. For JSON, use &lt;i&gt;JSONPath&lt;/i&gt; notation.
+     * Sets the inputRefIds property value. An array of reference IDs that identify the specific request elements most closely associated to the error or warning, if any. For JSON, use &lt;i&gt;JSONPath&lt;/i&gt; notation.
      * @param value Value to set for the inputRefIds property.
      */
     public void setInputRefIds(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.inputRefIds = value;
     }
     /**
-     * Sets the longMessage property value. An expanded version of message that should be around 100-200 characters long, but is not required to be such.
+     * Sets the longMessage property value. A detailed description of the condition that caused the error or warning and information on what to do to correct the problem. The string is normally 100-200 characters in length, but is not required to be such.
      * @param value Value to set for the longMessage property.
      */
     public void setLongMessage(@jakarta.annotation.Nullable final String value) {
         this.longMessage = value;
     }
     /**
-     * Sets the message property value. An end user and app developer friendly device agnostic message. It explains what the error or warning is, and how to fix it (in a general sense). Its value is at most 50 characters long. If applicable, the value is localized in the end user&apos;s requested locale.
+     * Sets the message property value. A short description of the condition that caused the error or warning. This value is at most 50 characters long and, if applicable, is localized in the end user&apos;s requested locale.
      * @param value Value to set for the message property.
      */
     public void setMessage(@jakarta.annotation.Nullable final String value) {
         this.message = value;
     }
     /**
-     * Sets the outputRefIds property value. Identifies specific response elements associated with the error, if any. Path format is the same as &lt;code&gt;inputRefId&lt;/code&gt;.
+     * Sets the outputRefIds property value. An array of reference IDs that identify the specific response elements most closely associated to the error or warning, if any. The path format is the same as &lt;code&gt;inputRefId&lt;/code&gt;.
      * @param value Value to set for the outputRefIds property.
      */
     public void setOutputRefIds(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.outputRefIds = value;
     }
     /**
-     * Sets the parameters property value. This optional complex field type contains a list of one or more context-specific &lt;code&gt;ErrorParameter&lt;/code&gt; objects, with each item in the list entry being a parameter (or input field name) that caused an error condition. Each &lt;code&gt;ErrorParameter&lt;/code&gt; object consists of two fields, a &lt;code&gt;name&lt;/code&gt; and a &lt;code&gt;value&lt;/code&gt;.
+     * Sets the parameters property value. An array that contains contextual information about the error or warning. The list often includes the parameter or input fields that triggered the warning or error condition.
      * @param value Value to set for the parameters property.
      */
     public void setParameters(@jakarta.annotation.Nullable final java.util.List<ErrorParameterV3> value) {
         this.parameters = value;
     }
     /**
-     * Sets the subdomain property value. Name of the domain&apos;s subsystem or subdivision. For example, checkout is a subdomain in the buying domain.
+     * Sets the subdomain property value. The name of the subdomain in which the error or warning occurred. For example, checkout is a subdomain in the buying domain.
      * @param value Value to set for the subdomain property.
      */
     public void setSubdomain(@jakarta.annotation.Nullable final String value) {

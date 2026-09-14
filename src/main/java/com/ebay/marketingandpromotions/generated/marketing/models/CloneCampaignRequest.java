@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields for a clone campaign request.
+ * This type defines the fields needed for a clone-campaign request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CloneCampaignRequest implements AdditionalDataHolder, Parsable {

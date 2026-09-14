@@ -35,7 +35,7 @@ public class ListingRecommendation implements AdditionalDataHolder, Parsable {
      */
     private String listingId;
     /**
-     * A complex type that contains information about how a seller can improve their listing configurations. The &lt;code&gt;AD&lt;/code&gt; object contains Promoted Listings recommendations and information, which the seller can use to improve buyer conversions. The response can also contain an optional message about the returned data.
+     * This return object provides the eBay recommendations and information related to the associated listing ID.  &lt;br&gt;&lt;br&gt;The container currently returns the &lt;code&gt;AD&lt;/code&gt; recommendation type, which contains information that sellers can use to configure Promoted Listings ad campaigns.  &lt;br&gt;&lt;br&gt;This container is returned with each &lt;b&gt;ListingRecommendation&lt;/b&gt; object, &lt;i&gt;except&lt;/i&gt; when: &lt;ul&gt;&lt;li&gt;The listing ID is not eligible for Promoted Listings&lt;/li&gt; &lt;li&gt;The listing ID is currently in a Promoted Listings campaign&lt;/li&gt; &lt;li&gt;The listing ID is invalid&lt;/li&gt;&lt;/ul&gt;
      */
     private MarketingRecommendation marketing;
     /**
@@ -82,7 +82,7 @@ public class ListingRecommendation implements AdditionalDataHolder, Parsable {
         return this.listingId;
     }
     /**
-     * Gets the marketing property value. A complex type that contains information about how a seller can improve their listing configurations. The &lt;code&gt;AD&lt;/code&gt; object contains Promoted Listings recommendations and information, which the seller can use to improve buyer conversions. The response can also contain an optional message about the returned data.
+     * Gets the marketing property value. This return object provides the eBay recommendations and information related to the associated listing ID.  &lt;br&gt;&lt;br&gt;The container currently returns the &lt;code&gt;AD&lt;/code&gt; recommendation type, which contains information that sellers can use to configure Promoted Listings ad campaigns.  &lt;br&gt;&lt;br&gt;This container is returned with each &lt;b&gt;ListingRecommendation&lt;/b&gt; object, &lt;i&gt;except&lt;/i&gt; when: &lt;ul&gt;&lt;li&gt;The listing ID is not eligible for Promoted Listings&lt;/li&gt; &lt;li&gt;The listing ID is currently in a Promoted Listings campaign&lt;/li&gt; &lt;li&gt;The listing ID is invalid&lt;/li&gt;&lt;/ul&gt;
      * @return a {@link MarketingRecommendation}
      */
     @jakarta.annotation.Nullable
@@ -114,7 +114,7 @@ public class ListingRecommendation implements AdditionalDataHolder, Parsable {
         this.listingId = value;
     }
     /**
-     * Sets the marketing property value. A complex type that contains information about how a seller can improve their listing configurations. The &lt;code&gt;AD&lt;/code&gt; object contains Promoted Listings recommendations and information, which the seller can use to improve buyer conversions. The response can also contain an optional message about the returned data.
+     * Sets the marketing property value. This return object provides the eBay recommendations and information related to the associated listing ID.  &lt;br&gt;&lt;br&gt;The container currently returns the &lt;code&gt;AD&lt;/code&gt; recommendation type, which contains information that sellers can use to configure Promoted Listings ad campaigns.  &lt;br&gt;&lt;br&gt;This container is returned with each &lt;b&gt;ListingRecommendation&lt;/b&gt; object, &lt;i&gt;except&lt;/i&gt; when: &lt;ul&gt;&lt;li&gt;The listing ID is not eligible for Promoted Listings&lt;/li&gt; &lt;li&gt;The listing ID is currently in a Promoted Listings campaign&lt;/li&gt; &lt;li&gt;The listing ID is invalid&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the marketing property.
      */
     public void setMarketing(@jakarta.annotation.Nullable final MarketingRecommendation value) {

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The configuration of a coded coupon discount.
+ * This type defines a coded coupon discount. It is required if the discount type is &lt;code&gt;CODED_COUPON&lt;/code&gt;.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CouponConfiguration implements AdditionalDataHolder, Parsable {

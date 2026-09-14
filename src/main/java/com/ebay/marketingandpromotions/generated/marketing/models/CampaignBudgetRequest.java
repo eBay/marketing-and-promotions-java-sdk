@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The allocated daily budget for the Cost Per Click (CPC) Promoted Listings campaign.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if&lt;/i&gt; the campaign funding model is CPC.
+ * A container for the details of a Promoted Listings campaign that uses the Cost Per Click (CPC) funding model.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CampaignBudgetRequest implements AdditionalDataHolder, Parsable {

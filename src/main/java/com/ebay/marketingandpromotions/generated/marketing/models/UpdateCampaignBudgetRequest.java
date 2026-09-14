@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the request fields for the budget details that shall be updated.
+ * A type that contains the fields for the &lt;b&gt;UpdateCampaignBudget&lt;/b&gt; request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateCampaignBudgetRequest implements AdditionalDataHolder, Parsable {

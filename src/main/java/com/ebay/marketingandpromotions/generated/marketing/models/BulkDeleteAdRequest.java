@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This request object defines the fields for the &lt;b&gt;bulkDeleteAdsByListingId&lt;/b&gt; request.
+ * This type defines the fields that the call uses to remove ads in bulk.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class BulkDeleteAdRequest implements AdditionalDataHolder, Parsable {

@@ -18,7 +18,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Indicates the state assigned to the markdown discount using one of the &lt;b&gt;status&lt;/b&gt; values.
+ * This enumerated type defines the item markdown status of a discount. | - **PENDING**: Indicates the system is still processing the item price markdown discount request. - **MARKED_DOWN**: Indicates item price markdown discount request succeeded and the discount has been scheduled. - **MARKED_UP**: Indicates the item is no longer in the markdown discount and the price has been &quot;marked up&quot; to its standard price. - **SKIPPED**: Indicates item price markdown discount has been skipped. - **FAILED**: Indicates item price markdown discount request failed. Check the configuration of your discount and resubmit the request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum ItemMarkdownStatusEnum implements ValuedEnum {

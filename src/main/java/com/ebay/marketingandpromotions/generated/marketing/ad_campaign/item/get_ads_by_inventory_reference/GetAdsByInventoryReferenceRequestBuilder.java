@@ -15,7 +15,7 @@
 package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.get_ads_by_inventory_reference;
 
 import com.ebay.marketingandpromotions.generated.marketing.models.Ads;
-import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -53,10 +53,10 @@ public class GetAdsByInventoryReferenceRequestBuilder extends BaseRequestBuilder
     /**
      * This method retrieves Promoted Listings ads associated with listings that are managed with the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; title=&quot;Inventory API Reference&quot; target=&quot;_blank&quot;&gt;Inventory API&lt;/a&gt; from the specified campaign.&lt;br /&gt;&lt;br /&gt;Supply the &lt;b&gt;campaign_id&lt;/b&gt; as a path parameter and use query parameters to specify the &lt;b&gt;inventory_reference_id&lt;/b&gt; and &lt;b&gt;inventory_reference_type&lt;/b&gt; pairs.&lt;br /&gt;&lt;br /&gt;In the Inventory API, an &lt;i&gt;inventory reference ID&lt;/i&gt; is either a seller-defined &lt;b&gt;SKU&lt;/b&gt; value or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; (a seller-defined ID for an inventory item group, which is an entity that&apos;s used in the Inventory API to create a multiple-variation listing). To indicate a listing managed by the Inventory API, you must always specify both an &lt;b&gt;inventory_reference_id&lt;/b&gt; and the associated &lt;b&gt;inventory_reference_type&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s the current campaign IDs.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method only applies to the Cost Per Sale (CPS) funding model; it does not apply to the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot; target=&quot;_blank&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
      * @return a {@link Ads}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Ads get() {
@@ -66,19 +66,19 @@ public class GetAdsByInventoryReferenceRequestBuilder extends BaseRequestBuilder
      * This method retrieves Promoted Listings ads associated with listings that are managed with the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; title=&quot;Inventory API Reference&quot; target=&quot;_blank&quot;&gt;Inventory API&lt;/a&gt; from the specified campaign.&lt;br /&gt;&lt;br /&gt;Supply the &lt;b&gt;campaign_id&lt;/b&gt; as a path parameter and use query parameters to specify the &lt;b&gt;inventory_reference_id&lt;/b&gt; and &lt;b&gt;inventory_reference_type&lt;/b&gt; pairs.&lt;br /&gt;&lt;br /&gt;In the Inventory API, an &lt;i&gt;inventory reference ID&lt;/i&gt; is either a seller-defined &lt;b&gt;SKU&lt;/b&gt; value or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; (a seller-defined ID for an inventory item group, which is an entity that&apos;s used in the Inventory API to create a multiple-variation listing). To indicate a listing managed by the Inventory API, you must always specify both an &lt;b&gt;inventory_reference_id&lt;/b&gt; and the associated &lt;b&gt;inventory_reference_type&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s the current campaign IDs.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method only applies to the Cost Per Sale (CPS) funding model; it does not apply to the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot; target=&quot;_blank&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Ads}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Ads get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, Ads::createFromDiscriminatorValue);
     }
     /**
@@ -125,7 +125,7 @@ public class GetAdsByInventoryReferenceRequestBuilder extends BaseRequestBuilder
          * This query parameter specifies the type of the item the &lt;b&gt;inventory_reference_id&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;INVENTORY_ITEM&lt;/li&gt;&lt;li&gt;INVENTORY_ITEM_GROUP&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getadsbyinventoryreference.inventoryreferencetypeenum&quot;&gt;InventoryReferenceType&lt;/a&gt; for more information.
          */
         @jakarta.annotation.Nullable
-        public String inventoryReferenceType;
+        public GetInventoryReferenceTypeQueryParameterType inventoryReferenceType;
         /**
          * Extracts the query parameters into a map for the URI template parsing.
          * @return a {@link Map<String, Object>}
@@ -133,8 +133,8 @@ public class GetAdsByInventoryReferenceRequestBuilder extends BaseRequestBuilder
         @jakarta.annotation.Nonnull
         public Map<String, Object> toQueryParameters() {
             final Map<String, Object> allQueryParams = new HashMap();
-            allQueryParams.put("inventory_reference_id", inventoryReferenceId);
             allQueryParams.put("inventory_reference_type", inventoryReferenceType);
+            allQueryParams.put("inventory_reference_id", inventoryReferenceId);
             return allQueryParams;
         }
     }

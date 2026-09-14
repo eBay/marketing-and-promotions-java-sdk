@@ -14,7 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.ad_group.item.suggest_bids;
 
-import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.ebay.marketingandpromotions.generated.marketing.models.TargetedBidRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.TargetedBidsPagedCollection;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -54,10 +54,10 @@ public class SuggestBidsRequestBuilder extends BaseRequestBuilder {
      * This method allows sellers to retrieve the suggested bids for input keywords and match type.
      * @param body The data requested to retrieve the suggested bids.
      * @return a {@link TargetedBidsPagedCollection}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public TargetedBidsPagedCollection post(@jakarta.annotation.Nonnull final TargetedBidRequest body) {
@@ -68,20 +68,20 @@ public class SuggestBidsRequestBuilder extends BaseRequestBuilder {
      * @param body The data requested to retrieve the suggested bids.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link TargetedBidsPagedCollection}
-     * @throws Error When receiving a 400 status code
-     * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 404 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public TargetedBidsPagedCollection post(@jakarta.annotation.Nonnull final TargetedBidRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
-        errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("404", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, TargetedBidsPagedCollection::createFromDiscriminatorValue);
     }
     /**

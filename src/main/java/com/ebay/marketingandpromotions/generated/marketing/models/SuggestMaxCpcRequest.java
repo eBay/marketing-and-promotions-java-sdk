@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request.
+ * This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request. To retrieve the suggested &lt;b&gt;maxCpc&lt;/b&gt; value for a smart targeting campaign, a seller must specify the listings associated with the campaign, as well as the marketplace on which the campaign is hosted.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuggestMaxCpcRequest implements AdditionalDataHolder, Parsable {

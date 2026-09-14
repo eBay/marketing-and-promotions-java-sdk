@@ -15,6 +15,7 @@
 package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.suggest_budget;
 
 import com.ebay.marketingandpromotions.generated.marketing.models.Error;
+import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
 import com.ebay.marketingandpromotions.generated.marketing.models.SuggestBudgetResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -52,10 +53,10 @@ public class SuggestBudgetRequestBuilder extends BaseRequestBuilder {
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only supported for Promoted Offsite campaigns. Sellers can use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility&quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method of the &lt;a href=&quot;/api-docs/sell/account/overview.html&quot; target=&quot;_blank &quot;&gt;Account API v1&lt;/a&gt; to determine if they are eligible for offsite campaigns.&lt;/span&gt;&lt;br&gt;This method allows sellers to retrieve the suggested budget for an offsite campaign.
      * @return a {@link SuggestBudgetResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public SuggestBudgetResponse get() {
@@ -65,19 +66,19 @@ public class SuggestBudgetRequestBuilder extends BaseRequestBuilder {
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only supported for Promoted Offsite campaigns. Sellers can use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility&quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method of the &lt;a href=&quot;/api-docs/sell/account/overview.html&quot; target=&quot;_blank &quot;&gt;Account API v1&lt;/a&gt; to determine if they are eligible for offsite campaigns.&lt;/span&gt;&lt;br&gt;This method allows sellers to retrieve the suggested budget for an offsite campaign.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuggestBudgetResponse}
-     * @throws Error When receiving a 400 status code
+     * @throws ErrorDetailV3 When receiving a 400 status code
      * @throws Error When receiving a 404 status code
-     * @throws Error When receiving a 409 status code
-     * @throws Error When receiving a 500 status code
+     * @throws ErrorDetailV3 When receiving a 409 status code
+     * @throws ErrorDetailV3 When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public SuggestBudgetResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
         final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
-        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("400", ErrorDetailV3::createFromDiscriminatorValue);
         errorMapping.put("404", Error::createFromDiscriminatorValue);
-        errorMapping.put("409", Error::createFromDiscriminatorValue);
-        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", ErrorDetailV3::createFromDiscriminatorValue);
+        errorMapping.put("500", ErrorDetailV3::createFromDiscriminatorValue);
         return this.requestAdapter.send(requestInfo, errorMapping, SuggestBudgetResponse::createFromDiscriminatorValue);
     }
     /**

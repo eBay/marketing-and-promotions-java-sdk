@@ -63,6 +63,10 @@ public class Ad implements AdditionalDataHolder, Parsable {
      */
     private String listingId;
     /**
+     * A container for the details of video ads that are associated with an ad. This container is returned only when the &lt;b&gt;fieldgroups&lt;/b&gt; query parameter is set to &lt;code&gt;VIDEO&lt;/code&gt;.
+     */
+    private VideoAdsPreferences videoAdsPreferences;
+    /**
      * Instantiates a new {@link Ad} and sets the default values.
      */
     public Ad() {
@@ -132,7 +136,7 @@ public class Ad implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(9);
         deserializerMap.put("adGroupId", (n) -> { this.setAdGroupId(n.getStringValue()); });
         deserializerMap.put("adId", (n) -> { this.setAdId(n.getStringValue()); });
         deserializerMap.put("adStatus", (n) -> { this.setAdStatus(n.getEnumValue(AdStatusEnum::forValue)); });
@@ -141,6 +145,7 @@ public class Ad implements AdditionalDataHolder, Parsable {
         deserializerMap.put("inventoryReferenceId", (n) -> { this.setInventoryReferenceId(n.getStringValue()); });
         deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getEnumValue(InventoryReferenceTypeEnum::forValue)); });
         deserializerMap.put("listingId", (n) -> { this.setListingId(n.getStringValue()); });
+        deserializerMap.put("videoAdsPreferences", (n) -> { this.setVideoAdsPreferences(n.getObjectValue(VideoAdsPreferences::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
@@ -168,6 +173,14 @@ public class Ad implements AdditionalDataHolder, Parsable {
         return this.listingId;
     }
     /**
+     * Gets the videoAdsPreferences property value. A container for the details of video ads that are associated with an ad. This container is returned only when the &lt;b&gt;fieldgroups&lt;/b&gt; query parameter is set to &lt;code&gt;VIDEO&lt;/code&gt;.
+     * @return a {@link VideoAdsPreferences}
+     */
+    @jakarta.annotation.Nullable
+    public VideoAdsPreferences getVideoAdsPreferences() {
+        return this.videoAdsPreferences;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -181,6 +194,7 @@ public class Ad implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("inventoryReferenceId", this.getInventoryReferenceId());
         writer.writeEnumValue("inventoryReferenceType", this.getInventoryReferenceType());
         writer.writeStringValue("listingId", this.getListingId());
+        writer.writeObjectValue("videoAdsPreferences", this.getVideoAdsPreferences());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -245,5 +259,12 @@ public class Ad implements AdditionalDataHolder, Parsable {
      */
     public void setListingId(@jakarta.annotation.Nullable final String value) {
         this.listingId = value;
+    }
+    /**
+     * Sets the videoAdsPreferences property value. A container for the details of video ads that are associated with an ad. This container is returned only when the &lt;b&gt;fieldgroups&lt;/b&gt; query parameter is set to &lt;code&gt;VIDEO&lt;/code&gt;.
+     * @param value Value to set for the videoAdsPreferences property.
+     */
+    public void setVideoAdsPreferences(@jakarta.annotation.Nullable final VideoAdsPreferences value) {
+        this.videoAdsPreferences = value;
     }
 }

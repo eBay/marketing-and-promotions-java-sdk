@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields for the &lt;b&gt;UpdateAdGroup&lt;/b&gt; request.
+ * A type that contains the fields used by the &lt;b&gt;UpdateAdGroup&lt;/b&gt; request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateAdGroupRequest implements AdditionalDataHolder, Parsable {

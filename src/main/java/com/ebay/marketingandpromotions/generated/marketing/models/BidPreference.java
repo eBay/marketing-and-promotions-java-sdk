@@ -31,7 +31,7 @@ public class BidPreference implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The maxCpc property
+     * The maximum amount for which the eBay suggested bid can be adjusted. This value represents the most a seller is willing to pay for each click on their ad. The adjusted bid will never exceed this amount.&lt;br&gt;&lt;br&gt;This field is required for smart targeting campaigns.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The maximum cost-per-click has a minimum value of 0.02 and a maximum value of 100.&lt;/span&gt;
      */
     private MaxCpc maxCpc;
     /**
@@ -69,7 +69,7 @@ public class BidPreference implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the maxCpc property value. The maxCpc property
+     * Gets the maxCpc property value. The maximum amount for which the eBay suggested bid can be adjusted. This value represents the most a seller is willing to pay for each click on their ad. The adjusted bid will never exceed this amount.&lt;br&gt;&lt;br&gt;This field is required for smart targeting campaigns.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The maximum cost-per-click has a minimum value of 0.02 and a maximum value of 100.&lt;/span&gt;
      * @return a {@link MaxCpc}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class BidPreference implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the maxCpc property value. The maxCpc property
+     * Sets the maxCpc property value. The maximum amount for which the eBay suggested bid can be adjusted. This value represents the most a seller is willing to pay for each click on their ad. The adjusted bid will never exceed this amount.&lt;br&gt;&lt;br&gt;This field is required for smart targeting campaigns.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The maximum cost-per-click has a minimum value of 0.02 and a maximum value of 100.&lt;/span&gt;
      * @param value Value to set for the maxCpc property.
      */
     public void setMaxCpc(@jakarta.annotation.Nullable final MaxCpc value) {

@@ -21,6 +21,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * This type defines the response payload for the &lt;b&gt;updateEmailCampaign&lt;/b&gt; method.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateEmailCampaignResponse implements AdditionalDataHolder, Parsable {
     /**
@@ -32,9 +35,9 @@ public class UpdateEmailCampaignResponse implements AdditionalDataHolder, Parsab
      */
     private String emailCampaignId;
     /**
-     * The email campaign status. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of email campaign statuses and their descriptions. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The email campaign status. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of email campaign statuses and their descriptions.
      */
-    private String emailCampaignStatus;
+    private EmailCampaignStatusEnum emailCampaignStatus;
     /**
      * Instantiates a new {@link UpdateEmailCampaignResponse} and sets the default values.
      */
@@ -68,11 +71,11 @@ public class UpdateEmailCampaignResponse implements AdditionalDataHolder, Parsab
         return this.emailCampaignId;
     }
     /**
-     * Gets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of email campaign statuses and their descriptions. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of email campaign statuses and their descriptions.
+     * @return a {@link EmailCampaignStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getEmailCampaignStatus() {
+    public EmailCampaignStatusEnum getEmailCampaignStatus() {
         return this.emailCampaignStatus;
     }
     /**
@@ -83,7 +86,7 @@ public class UpdateEmailCampaignResponse implements AdditionalDataHolder, Parsab
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("emailCampaignId", (n) -> { this.setEmailCampaignId(n.getStringValue()); });
-        deserializerMap.put("emailCampaignStatus", (n) -> { this.setEmailCampaignStatus(n.getStringValue()); });
+        deserializerMap.put("emailCampaignStatus", (n) -> { this.setEmailCampaignStatus(n.getEnumValue(EmailCampaignStatusEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -93,7 +96,7 @@ public class UpdateEmailCampaignResponse implements AdditionalDataHolder, Parsab
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("emailCampaignId", this.getEmailCampaignId());
-        writer.writeStringValue("emailCampaignStatus", this.getEmailCampaignStatus());
+        writer.writeEnumValue("emailCampaignStatus", this.getEmailCampaignStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -111,10 +114,10 @@ public class UpdateEmailCampaignResponse implements AdditionalDataHolder, Parsab
         this.emailCampaignId = value;
     }
     /**
-     * Sets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of email campaign statuses and their descriptions. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of email campaign statuses and their descriptions.
      * @param value Value to set for the emailCampaignStatus property.
      */
-    public void setEmailCampaignStatus(@jakarta.annotation.Nullable final String value) {
+    public void setEmailCampaignStatus(@jakarta.annotation.Nullable final EmailCampaignStatusEnum value) {
         this.emailCampaignStatus = value;
     }
 }

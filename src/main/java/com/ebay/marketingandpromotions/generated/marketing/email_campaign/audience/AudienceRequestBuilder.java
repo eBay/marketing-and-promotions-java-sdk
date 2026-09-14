@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.email_campaign.audience;
 
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.GetEmailCampaignAudiencesResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -50,25 +51,35 @@ public class AudienceRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/email_campaign/audience?emailCampaignType={emailCampaignType}{&limit*,offset*}", rawUrl);
     }
     /**
-     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
+     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
      * @return a {@link GetEmailCampaignAudiencesResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetEmailCampaignAudiencesResponse get() {
         return get(null);
     }
     /**
-     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
+     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link GetEmailCampaignAudiencesResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetEmailCampaignAudiencesResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, GetEmailCampaignAudiencesResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, GetEmailCampaignAudiencesResponse::createFromDiscriminatorValue);
     }
     /**
-     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
+     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -76,7 +87,7 @@ public class AudienceRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
+     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -98,12 +109,12 @@ public class AudienceRequestBuilder extends BaseRequestBuilder {
         return new AudienceRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
+     * This method retrieves all available email newsletter audiences for the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt; specified by the &lt;b&gt;emailCampaignType&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Use the optional &lt;b&gt;limit&lt;/b&gt; and &lt;b&gt;offset&lt;/b&gt; path parameters to paginate the results and to control which records are returned, respectively.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
         /**
-         * The email campaign type to search against.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot; target=&quot;_blank&quot;&gt;CampaignTypeEnum&lt;/a&gt; for the full list of available email campaign types and associated enum values.
+         * The email campaign type to search against.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for the full list of available email campaign types and associated enum values.
          */
         @jakarta.annotation.Nullable
         public String emailCampaignType;

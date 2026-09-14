@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines all rules/inclusion filters used to add listings to campaigns or discounts. Use of the specific fields is different for campaigns or discounts. See &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html &quot;&gt;Using the selectionRules container&lt;/a&gt;.
+ * This type defines all rules/inclusion filters used to add listings to campaigns or discounts. Use of the specific fields is different for campaigns or discounts. See &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SelectionRule implements AdditionalDataHolder, Parsable {
@@ -31,27 +31,27 @@ public class SelectionRule implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * An array of product brands. For more details, see &lt;a href=&quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html &quot;&gt;Using the selectionRules container&lt;/a&gt;.
+     * An array of product brands. For more details, see &lt;a href=&quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
      */
     private java.util.List<String> brands;
     /**
-     * This field contains an array of the associated category ID(s).&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot;&gt;Item discounts&lt;/a&gt;, a single-item array containing the category ID associated with the discounts. Required when used in an Item discount and either specifying a &lt;b&gt;selectionRules&lt;/b&gt; container or when &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;, an array of category ID(s) associated with the campaign. &lt;br&gt;&lt;br&gt;For information on how to get category IDs, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#eBay &quot;&gt;eBay Marketplace category IDs&lt;/a&gt; and &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Seller &quot;&gt;Seller store category IDs&lt;/a&gt;
+     * This field contains an array of the associated category ID(s).&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot; target=&quot;_blank&quot;&gt;Item discounts&lt;/a&gt;, a single-item array containing the category ID associated with the discounts. Required when used in an Item discount and either specifying a &lt;b&gt;selectionRules&lt;/b&gt; container or when &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;, an array of category ID(s) associated with the campaign. &lt;br&gt;&lt;br&gt;For information on how to get category IDs, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#eBay &quot; target=&quot;_blank&quot;&gt;eBay Marketplace category IDs&lt;/a&gt; and &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Seller &quot; target=&quot;_blank&quot;&gt;Seller store category IDs&lt;/a&gt;
      */
     private java.util.List<String> categoryIds;
     /**
-     * This enumerated value indicates if the category ID for the item is an identifier for eBay categories or for a seller&apos;s eBay store categories. &lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;, this field includes the type of the category ID for the item(s) to be included in the campaign.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot;&gt;Item discounts&lt;/a&gt;, this field identifies the scope for the corresponding array as eBay categories or for a seller&apos;s eBay store categories. Required when used in an Item discount and &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;.  For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:CategoryScopeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This enumerated value indicates if the category ID for the item is an identifier for eBay categories or for a seller&apos;s eBay store categories. &lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;, this field includes the type of the category ID for the item(s) to be included in the campaign.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot; target=&quot;_blank&quot;&gt;Item discounts&lt;/a&gt;, this field identifies the scope for the corresponding array as eBay categories or for a seller&apos;s eBay store categories. Required when used in an Item discount and &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;. 
      */
-    private String categoryScope;
+    private CategoryScopeEnum categoryScope;
     /**
-     * A comma-separated list of unique identifiers for the conditions of listings to be included&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/marketing/pl-campaign-flow-pls.html#add-by-rule &quot;&gt;Add items to the campaign&lt;/a&gt;. Up to four IDs can be specified.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot;&gt;Item discounts&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/metadata/condition-id-values.html &quot;&gt;Item condition ID and name values&lt;/a&gt;.
+     * A comma-separated list of unique identifiers for the conditions of listings to be included&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/marketing/pl-campaign-flow-pls.html#add-by-rule &quot; target=&quot;_blank&quot;&gt;Add items to the campaign&lt;/a&gt;. Up to four IDs can be specified.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot; target=&quot;_blank&quot;&gt;Item discounts&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/metadata/condition-id-values.html &quot; target=&quot;_blank&quot;&gt;Item condition ID and name values&lt;/a&gt;.
      */
     private java.util.List<String> listingConditionIds;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * This container sets the maximum price threshold. For more details, see &lt;a href= &quot;/api-docs/sell/marketing/resources/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
      */
     private Amount maxPrice;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * This container sets the minimum price threshold. For more details, see &lt;a href= &quot;/api-docs/sell/marketing/resources/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
      */
     private Amount minPrice;
     /**
@@ -79,7 +79,7 @@ public class SelectionRule implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the brands property value. An array of product brands. For more details, see &lt;a href=&quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html &quot;&gt;Using the selectionRules container&lt;/a&gt;.
+     * Gets the brands property value. An array of product brands. For more details, see &lt;a href=&quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -87,7 +87,7 @@ public class SelectionRule implements AdditionalDataHolder, Parsable {
         return this.brands;
     }
     /**
-     * Gets the categoryIds property value. This field contains an array of the associated category ID(s).&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot;&gt;Item discounts&lt;/a&gt;, a single-item array containing the category ID associated with the discounts. Required when used in an Item discount and either specifying a &lt;b&gt;selectionRules&lt;/b&gt; container or when &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;, an array of category ID(s) associated with the campaign. &lt;br&gt;&lt;br&gt;For information on how to get category IDs, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#eBay &quot;&gt;eBay Marketplace category IDs&lt;/a&gt; and &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Seller &quot;&gt;Seller store category IDs&lt;/a&gt;
+     * Gets the categoryIds property value. This field contains an array of the associated category ID(s).&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot; target=&quot;_blank&quot;&gt;Item discounts&lt;/a&gt;, a single-item array containing the category ID associated with the discounts. Required when used in an Item discount and either specifying a &lt;b&gt;selectionRules&lt;/b&gt; container or when &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;, an array of category ID(s) associated with the campaign. &lt;br&gt;&lt;br&gt;For information on how to get category IDs, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#eBay &quot; target=&quot;_blank&quot;&gt;eBay Marketplace category IDs&lt;/a&gt; and &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Seller &quot; target=&quot;_blank&quot;&gt;Seller store category IDs&lt;/a&gt;
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -95,11 +95,11 @@ public class SelectionRule implements AdditionalDataHolder, Parsable {
         return this.categoryIds;
     }
     /**
-     * Gets the categoryScope property value. This enumerated value indicates if the category ID for the item is an identifier for eBay categories or for a seller&apos;s eBay store categories. &lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;, this field includes the type of the category ID for the item(s) to be included in the campaign.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot;&gt;Item discounts&lt;/a&gt;, this field identifies the scope for the corresponding array as eBay categories or for a seller&apos;s eBay store categories. Required when used in an Item discount and &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;.  For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:CategoryScopeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the categoryScope property value. This enumerated value indicates if the category ID for the item is an identifier for eBay categories or for a seller&apos;s eBay store categories. &lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;, this field includes the type of the category ID for the item(s) to be included in the campaign.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot; target=&quot;_blank&quot;&gt;Item discounts&lt;/a&gt;, this field identifies the scope for the corresponding array as eBay categories or for a seller&apos;s eBay store categories. Required when used in an Item discount and &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;. 
+     * @return a {@link CategoryScopeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getCategoryScope() {
+    public CategoryScopeEnum getCategoryScope() {
         return this.categoryScope;
     }
     /**
@@ -111,14 +111,14 @@ public class SelectionRule implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("brands", (n) -> { this.setBrands(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("categoryIds", (n) -> { this.setCategoryIds(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("categoryScope", (n) -> { this.setCategoryScope(n.getStringValue()); });
+        deserializerMap.put("categoryScope", (n) -> { this.setCategoryScope(n.getEnumValue(CategoryScopeEnum::forValue)); });
         deserializerMap.put("listingConditionIds", (n) -> { this.setListingConditionIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("maxPrice", (n) -> { this.setMaxPrice(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
         deserializerMap.put("minPrice", (n) -> { this.setMinPrice(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the listingConditionIds property value. A comma-separated list of unique identifiers for the conditions of listings to be included&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/marketing/pl-campaign-flow-pls.html#add-by-rule &quot;&gt;Add items to the campaign&lt;/a&gt;. Up to four IDs can be specified.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot;&gt;Item discounts&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/metadata/condition-id-values.html &quot;&gt;Item condition ID and name values&lt;/a&gt;.
+     * Gets the listingConditionIds property value. A comma-separated list of unique identifiers for the conditions of listings to be included&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/marketing/pl-campaign-flow-pls.html#add-by-rule &quot; target=&quot;_blank&quot;&gt;Add items to the campaign&lt;/a&gt;. Up to four IDs can be specified.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot; target=&quot;_blank&quot;&gt;Item discounts&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/metadata/condition-id-values.html &quot; target=&quot;_blank&quot;&gt;Item condition ID and name values&lt;/a&gt;.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -126,7 +126,7 @@ public class SelectionRule implements AdditionalDataHolder, Parsable {
         return this.listingConditionIds;
     }
     /**
-     * Gets the maxPrice property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the maxPrice property value. This container sets the maximum price threshold. For more details, see &lt;a href= &quot;/api-docs/sell/marketing/resources/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -134,7 +134,7 @@ public class SelectionRule implements AdditionalDataHolder, Parsable {
         return this.maxPrice;
     }
     /**
-     * Gets the minPrice property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the minPrice property value. This container sets the minimum price threshold. For more details, see &lt;a href= &quot;/api-docs/sell/marketing/resources/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -149,7 +149,7 @@ public class SelectionRule implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("brands", this.getBrands());
         writer.writeCollectionOfPrimitiveValues("categoryIds", this.getCategoryIds());
-        writer.writeStringValue("categoryScope", this.getCategoryScope());
+        writer.writeEnumValue("categoryScope", this.getCategoryScope());
         writer.writeCollectionOfPrimitiveValues("listingConditionIds", this.getListingConditionIds());
         writer.writeObjectValue("maxPrice", this.getMaxPrice());
         writer.writeObjectValue("minPrice", this.getMinPrice());
@@ -163,42 +163,42 @@ public class SelectionRule implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the brands property value. An array of product brands. For more details, see &lt;a href=&quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html &quot;&gt;Using the selectionRules container&lt;/a&gt;.
+     * Sets the brands property value. An array of product brands. For more details, see &lt;a href=&quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
      * @param value Value to set for the brands property.
      */
     public void setBrands(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.brands = value;
     }
     /**
-     * Sets the categoryIds property value. This field contains an array of the associated category ID(s).&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot;&gt;Item discounts&lt;/a&gt;, a single-item array containing the category ID associated with the discounts. Required when used in an Item discount and either specifying a &lt;b&gt;selectionRules&lt;/b&gt; container or when &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;, an array of category ID(s) associated with the campaign. &lt;br&gt;&lt;br&gt;For information on how to get category IDs, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#eBay &quot;&gt;eBay Marketplace category IDs&lt;/a&gt; and &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Seller &quot;&gt;Seller store category IDs&lt;/a&gt;
+     * Sets the categoryIds property value. This field contains an array of the associated category ID(s).&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot; target=&quot;_blank&quot;&gt;Item discounts&lt;/a&gt;, a single-item array containing the category ID associated with the discounts. Required when used in an Item discount and either specifying a &lt;b&gt;selectionRules&lt;/b&gt; container or when &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;, an array of category ID(s) associated with the campaign. &lt;br&gt;&lt;br&gt;For information on how to get category IDs, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#eBay &quot; target=&quot;_blank&quot;&gt;eBay Marketplace category IDs&lt;/a&gt; and &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Seller &quot; target=&quot;_blank&quot;&gt;Seller store category IDs&lt;/a&gt;
      * @param value Value to set for the categoryIds property.
      */
     public void setCategoryIds(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.categoryIds = value;
     }
     /**
-     * Sets the categoryScope property value. This enumerated value indicates if the category ID for the item is an identifier for eBay categories or for a seller&apos;s eBay store categories. &lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;, this field includes the type of the category ID for the item(s) to be included in the campaign.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot;&gt;Item discounts&lt;/a&gt;, this field identifies the scope for the corresponding array as eBay categories or for a seller&apos;s eBay store categories. Required when used in an Item discount and &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;.  For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:CategoryScopeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the categoryScope property value. This enumerated value indicates if the category ID for the item is an identifier for eBay categories or for a seller&apos;s eBay store categories. &lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;, this field includes the type of the category ID for the item(s) to be included in the campaign.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot; target=&quot;_blank&quot;&gt;Item discounts&lt;/a&gt;, this field identifies the scope for the corresponding array as eBay categories or for a seller&apos;s eBay store categories. Required when used in an Item discount and &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt;. 
      * @param value Value to set for the categoryScope property.
      */
-    public void setCategoryScope(@jakarta.annotation.Nullable final String value) {
+    public void setCategoryScope(@jakarta.annotation.Nullable final CategoryScopeEnum value) {
         this.categoryScope = value;
     }
     /**
-     * Sets the listingConditionIds property value. A comma-separated list of unique identifiers for the conditions of listings to be included&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/marketing/pl-campaign-flow-pls.html#add-by-rule &quot;&gt;Add items to the campaign&lt;/a&gt;. Up to four IDs can be specified.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot;&gt;Item discounts&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/metadata/condition-id-values.html &quot;&gt;Item condition ID and name values&lt;/a&gt;.
+     * Sets the listingConditionIds property value. A comma-separated list of unique identifiers for the conditions of listings to be included&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/marketing/pl-campaign-flow-pls.html#add-by-rule &quot; target=&quot;_blank&quot;&gt;Add items to the campaign&lt;/a&gt;. Up to four IDs can be specified.&lt;br&gt;&lt;br&gt;For &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Promotio &quot; target=&quot;_blank&quot;&gt;Item discounts&lt;/a&gt;, refer to &lt;a href= &quot;/api-docs/sell/static/metadata/condition-id-values.html &quot; target=&quot;_blank&quot;&gt;Item condition ID and name values&lt;/a&gt;.
      * @param value Value to set for the listingConditionIds property.
      */
     public void setListingConditionIds(@jakarta.annotation.Nullable final java.util.List<String> value) {
         this.listingConditionIds = value;
     }
     /**
-     * Sets the maxPrice property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the maxPrice property value. This container sets the maximum price threshold. For more details, see &lt;a href= &quot;/api-docs/sell/marketing/resources/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
      * @param value Value to set for the maxPrice property.
      */
     public void setMaxPrice(@jakarta.annotation.Nullable final Amount value) {
         this.maxPrice = value;
     }
     /**
-     * Sets the minPrice property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the minPrice property value. This container sets the minimum price threshold. For more details, see &lt;a href= &quot;/api-docs/sell/marketing/resources/using-the-selectionrules-container.html &quot; target=&quot;_blank&quot;&gt;Using the selectionRules container&lt;/a&gt;.
      * @param value Value to set for the minPrice property.
      */
     public void setMinPrice(@jakarta.annotation.Nullable final Amount value) {

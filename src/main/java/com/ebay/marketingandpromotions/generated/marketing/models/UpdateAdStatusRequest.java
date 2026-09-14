@@ -31,13 +31,13 @@ public class UpdateAdStatusRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A unique eBay-assigned identifier for an ad that belongs to the specified campaign.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/ad/methods/getAds&quot;&gt;getAds&lt;/a&gt; method to retrieve ad IDs.
+     * A unique eBay-assigned identifier for an ad that belongs to the specified campaign.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getads&quot;&gt;getAds&lt;/a&gt; method to retrieve ad IDs.
      */
     private String adId;
     /**
-     * An enumeration value representing the status you wish to update the specified ad to.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AdStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * An enumeration value representing the status you wish to update the specified ad to.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String adStatus;
+    private AdStatusEnum adStatus;
     /**
      * Instantiates a new {@link UpdateAdStatusRequest} and sets the default values.
      */
@@ -63,7 +63,7 @@ public class UpdateAdStatusRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adId property value. A unique eBay-assigned identifier for an ad that belongs to the specified campaign.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/ad/methods/getAds&quot;&gt;getAds&lt;/a&gt; method to retrieve ad IDs.
+     * Gets the adId property value. A unique eBay-assigned identifier for an ad that belongs to the specified campaign.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getads&quot;&gt;getAds&lt;/a&gt; method to retrieve ad IDs.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -71,11 +71,11 @@ public class UpdateAdStatusRequest implements AdditionalDataHolder, Parsable {
         return this.adId;
     }
     /**
-     * Gets the adStatus property value. An enumeration value representing the status you wish to update the specified ad to.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AdStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the adStatus property value. An enumeration value representing the status you wish to update the specified ad to.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link AdStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getAdStatus() {
+    public AdStatusEnum getAdStatus() {
         return this.adStatus;
     }
     /**
@@ -86,7 +86,7 @@ public class UpdateAdStatusRequest implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("adId", (n) -> { this.setAdId(n.getStringValue()); });
-        deserializerMap.put("adStatus", (n) -> { this.setAdStatus(n.getStringValue()); });
+        deserializerMap.put("adStatus", (n) -> { this.setAdStatus(n.getEnumValue(AdStatusEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -96,7 +96,7 @@ public class UpdateAdStatusRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("adId", this.getAdId());
-        writer.writeStringValue("adStatus", this.getAdStatus());
+        writer.writeEnumValue("adStatus", this.getAdStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -107,17 +107,17 @@ public class UpdateAdStatusRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the adId property value. A unique eBay-assigned identifier for an ad that belongs to the specified campaign.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/ad/methods/getAds&quot;&gt;getAds&lt;/a&gt; method to retrieve ad IDs.
+     * Sets the adId property value. A unique eBay-assigned identifier for an ad that belongs to the specified campaign.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getads&quot;&gt;getAds&lt;/a&gt; method to retrieve ad IDs.
      * @param value Value to set for the adId property.
      */
     public void setAdId(@jakarta.annotation.Nullable final String value) {
         this.adId = value;
     }
     /**
-     * Sets the adStatus property value. An enumeration value representing the status you wish to update the specified ad to.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AdStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the adStatus property value. An enumeration value representing the status you wish to update the specified ad to.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the adStatus property.
      */
-    public void setAdStatus(@jakarta.annotation.Nullable final String value) {
+    public void setAdStatus(@jakarta.annotation.Nullable final AdStatusEnum value) {
         this.adStatus = value;
     }
 }

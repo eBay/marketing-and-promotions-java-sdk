@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * create email campaign request payload
+ * Create a new email campaign request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
      */
     private Map<String, Object> additionalData;
     /**
-     * An array of audience codes for the audiences of the email campaign. At least one audience code is required. There is no upper limit to the number of audience codes.&lt;br&gt;&lt;br&gt;To retrieve seller audiences, call &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/getAudiences&quot; target=&quot;_blank&quot;&gt;getAudiences&lt;/a&gt;. Use the &lt;b&gt;code&lt;/b&gt; values in the response to populate &lt;b&gt;audienceCodes&lt;/b&gt;.
+     * An array of audience codes for the audiences of the email campaign. At least one audience code is required. There is no upper limit to the number of audience codes.&lt;br&gt;&lt;br&gt;To retrieve seller audiences, call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getaudiences&quot;&gt;getAudiences&lt;/a&gt;. Use the &lt;b&gt;code&lt;/b&gt; values in the response to populate &lt;b&gt;audienceCodes&lt;/b&gt;.
      */
     private java.util.List<String> audienceCodes;
     /**
@@ -39,45 +39,45 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
      */
     private String categoryId;
     /**
-     * This field must be set when applying an email campaign to a specific eBay category or store category. The enumeration value used indicates which type of category the &lt;b&gt;categoryId&lt;/b&gt; belongs to. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CategoryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This field must be set when applying an email campaign to a specific eBay category or store category. The enumeration value used indicates which type of category the &lt;b&gt;categoryId&lt;/b&gt; belongs to.
      */
-    private String categoryType;
+    private CategoryTypeEnum categoryType;
     /**
-     * The email campaign type of the email campaign being created. There are six &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaigns&lt;/a&gt; that a user can create:&lt;ul&gt;&lt;li&gt;&lt;code&gt;WELCOME&lt;/code&gt; - an email sent automatically to new subscribers.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_SHOWCASE&lt;/code&gt; - an email featuring new products &amp; collections that the seller wants to highlight.&lt;/li&gt;&lt;li&gt;&lt;code&gt;COUPON&lt;/code&gt; - an email containing a coupon code and up to 4 items that this coupon can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ORDER_DISCOUNT&lt;/code&gt; - an email containing an order discount and up to 10 items that this discount can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;SALE_EVENT&lt;/code&gt; - an email about a sale event and up to 10 items that the sale can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;VOLUME_PRICING&lt;/code&gt; - an email containing up to 10 items that are eligible for volume pricing.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;b&gt;emailCampaignType&lt;/b&gt; cannot be updated once the email campaign is created.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CampaignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The email campaign type of the email campaign being created. There are six &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaigns&lt;/a&gt; that a user can create:&lt;ul&gt;&lt;li&gt;&lt;code&gt;WELCOME&lt;/code&gt; - an email sent automatically to new subscribers.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_SHOWCASE&lt;/code&gt; - an email featuring new products &amp; collections that the seller wants to highlight.&lt;/li&gt;&lt;li&gt;&lt;code&gt;COUPON&lt;/code&gt; - an email containing a coupon code and up to 4 items that this coupon can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ORDER_DISCOUNT&lt;/code&gt; - an email containing an order discount and up to 10 items that this discount can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;SALE_EVENT&lt;/code&gt; - an email about a sale event and up to 10 items that the sale can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;VOLUME_PRICING&lt;/code&gt; - an email containing up to 10 items that are eligible for volume pricing.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;b&gt;emailCampaignType&lt;/b&gt; cannot be updated once the email campaign is created.&lt;/span&gt;
      */
-    private String emailCampaignType;
+    private CampaignTypeEnum emailCampaignType;
     /**
      * An array of unique identifiers for the listings displayed in an email campaign. Used if the seller wishes to select the eBay listings in the email campaign rather than have eBay automatically select them. &lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/DevZone/XML/docs/Reference/eBay/GetSellerList.html#GetSellerList&quot;&gt;getSellerList&lt;/a&gt; to retrieve all seller listings. Each &lt;b&gt;Item&lt;/b&gt; result contains an &lt;b&gt;ItemID&lt;/b&gt; value. Use this value in &lt;b&gt;itemIds&lt;/b&gt; to feature that listing.&lt;br&gt;&lt;br&gt;The maximum number of &lt;b&gt;itemIds&lt;/b&gt; for the &lt;code&gt;COUPON&lt;/code&gt; campaign type is 4, and for every other campaign type is 10&lt;br&gt;&lt;br&gt;&lt;b&gt;itemSelectMode&lt;/b&gt; must be set to &lt;code&gt;MANUAL&lt;/code&gt; in order to use this field.
      */
     private java.util.List<String> itemIds;
     /**
-     * Determines whether listings featured in an email campaign are selected by the seller or by eBay.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay automatically choses listings based on values set for &lt;b&gt;sort&lt;/b&gt;, &lt;b&gt;categoryType&lt;/b&gt;, &lt;b&gt;categoryId&lt;/b&gt;, and &lt;b&gt;priceRange&lt;/b&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;MANUAL&lt;/code&gt;, listings are set by the seller by populating the &lt;b&gt;itemIds&lt;/b&gt; array.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;&lt;b&gt;itemSelectMode&lt;/b&gt; is always set to &lt;code&gt;AUTO&lt;/code&gt; for &lt;code&gt;WELCOME&lt;/code&gt; email campaigns.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Determines whether listings featured in an email campaign are selected by the seller or by eBay.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay automatically choses listings based on values set for &lt;b&gt;sort&lt;/b&gt;, &lt;b&gt;categoryType&lt;/b&gt;, &lt;b&gt;categoryId&lt;/b&gt;, and &lt;b&gt;priceRange&lt;/b&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;MANUAL&lt;/code&gt;, listings are set by the seller by populating the &lt;b&gt;itemIds&lt;/b&gt; array.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;&lt;b&gt;itemSelectMode&lt;/b&gt; is always set to &lt;code&gt;AUTO&lt;/code&gt; for &lt;code&gt;WELCOME&lt;/code&gt; email campaigns.&lt;/span&gt;
      */
-    private String itemSelectMode;
+    private ItemSelectModeEnum itemSelectMode;
     /**
      * The body of the email campaign. Accepts HTML and CSS.&lt;br&gt;&lt;br&gt;&lt;b&gt;Max length:&lt;/b&gt; 1000
      */
     private String personalizedMessage;
     /**
-     * The price range.
+     * This container is used if the seller wants to apply the email campaign to listings based on a price range.&lt;br&gt;&lt;br&gt;The &lt;b&gt;priceRange&lt;/b&gt; container consists of the &lt;b&gt;currency&lt;/b&gt;, &lt;b&gt;gte&lt;/b&gt;, and &lt;b&gt;lte&lt;/b&gt; fields.&lt;br&gt;&lt;br&gt; &quot;gte&quot; stands for &quot;greater than or equal to&quot; and &quot;lte&quot; stands for &quot;less than or equal to&quot;. Either &lt;b&gt;gte&lt;/b&gt;, &lt;b&gt;lte&lt;/b&gt;, or both must be used.&lt;br&gt;&lt;br&gt;&lt;b&gt;currency&lt;/b&gt; is a required field if including a price range. One of the three-digit currency codes from &lt;b&gt;CurrencyCodeEnum&lt;/b&gt; must be specified.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Use this object when the &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;.&lt;/span&gt;
      */
     private PriceRange priceRange;
     /**
-     * The unique identifier of the discount used for an email campaign if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;. &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; must set to &lt;code&gt;MANUAL&lt;/code&gt; if a discount is selected.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/promotion/methods/getPromotions&quot; target=&quot;_blank&quot;&gt;getPromotions&lt;/a&gt; to retrieve a list of the seller&apos;s discounts. Use the &lt;b&gt;promotionId&lt;/b&gt; from an individual &lt;b&gt;PromotionDetail&lt;/b&gt; in the result to populate the request.
+     * The unique identifier of the discount used for an email campaign if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;. &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; must set to &lt;code&gt;MANUAL&lt;/code&gt; if a discount is selected.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions&quot;&gt;getPromotions&lt;/a&gt; to retrieve a list of the seller&apos;s discounts. Use the &lt;b&gt;promotionId&lt;/b&gt; from an individual &lt;b&gt;PromotionDetail&lt;/b&gt; in the result to populate the request.
      */
     private String promotionId;
     /**
-     * The selection mode for the discount used if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay will choose the discount to include in the email campaign. If set to &lt;code&gt;MANUAL&lt;/code&gt;, the seller must specify the discount in the &lt;b&gt;promotionId&lt;/b&gt; field. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:PromotionSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The selection mode for the discount used if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay will choose the discount to include in the email campaign. If set to &lt;code&gt;MANUAL&lt;/code&gt;, the seller must specify the discount in the &lt;b&gt;promotionId&lt;/b&gt; field.
      */
-    private String promotionSelectModeEnum;
+    private PromotionSelectModeEnum promotionSelectModeEnum;
     /**
      * The date and time that the email campaign newsletter will be sent, given in UTC format. Example: 2023-05-20T03:13:35Z&lt;br&gt;&lt;br&gt;This field should be used if the seller wishes to send the email campaign on a future date. If no &lt;b&gt;scheduleDate&lt;/b&gt; is set, the email campaign will send once it is created or updated.
      */
     private String scheduleDate;
     /**
-     * The sort rule is used to display the listings featured in the email campaign.&lt;br&gt;&lt;br&gt;Sort rules are only used if &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;. If &lt;b&gt;itemSelectMode&lt;/b&gt; is &lt;code&gt;MANUAL&lt;/code&gt;, listings are displayed in the order in which they are listed in the &lt;b&gt;itemIds&lt;/b&gt; array. The following sort rules are available:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ENDING_FIRST&lt;/code&gt; displays listings by ending date, from soonest to latest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOWEST_PRICED&lt;/code&gt; displays listings by price, from lowest to highest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;HIGHEST_PRICED&lt;/code&gt; displays listings by price, from highest to lowest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;NEWLY_LISTED&lt;/code&gt; displays listings by date listed, with the newest first.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;The default sort rule is &lt;code&gt;NEWLY_LISTED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSortEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The sort rule is used to display the listings featured in the email campaign.&lt;br&gt;&lt;br&gt;Sort rules are only used if &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;. If &lt;b&gt;itemSelectMode&lt;/b&gt; is &lt;code&gt;MANUAL&lt;/code&gt;, listings are displayed in the order in which they are listed in the &lt;b&gt;itemIds&lt;/b&gt; array. The following sort rules are available:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ENDING_FIRST&lt;/code&gt; displays listings by ending date, from soonest to latest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOWEST_PRICED&lt;/code&gt; displays listings by price, from lowest to highest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;HIGHEST_PRICED&lt;/code&gt; displays listings by price, from highest to lowest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;NEWLY_LISTED&lt;/code&gt; displays listings by date listed, with the newest first.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;The default sort rule is &lt;code&gt;NEWLY_LISTED&lt;/code&gt;.
      */
-    private String sort;
+    private ItemSortEnum sort;
     /**
      * The subject line of the email campaign.&lt;br&gt;&lt;br&gt;&lt;b&gt;Max length:&lt;/b&gt; 70
      */
@@ -107,7 +107,7 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         return this.additionalData;
     }
     /**
-     * Gets the audienceCodes property value. An array of audience codes for the audiences of the email campaign. At least one audience code is required. There is no upper limit to the number of audience codes.&lt;br&gt;&lt;br&gt;To retrieve seller audiences, call &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/getAudiences&quot; target=&quot;_blank&quot;&gt;getAudiences&lt;/a&gt;. Use the &lt;b&gt;code&lt;/b&gt; values in the response to populate &lt;b&gt;audienceCodes&lt;/b&gt;.
+     * Gets the audienceCodes property value. An array of audience codes for the audiences of the email campaign. At least one audience code is required. There is no upper limit to the number of audience codes.&lt;br&gt;&lt;br&gt;To retrieve seller audiences, call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getaudiences&quot;&gt;getAudiences&lt;/a&gt;. Use the &lt;b&gt;code&lt;/b&gt; values in the response to populate &lt;b&gt;audienceCodes&lt;/b&gt;.
      * @return a {@link java.util.List<String>}
      */
     @jakarta.annotation.Nullable
@@ -123,19 +123,19 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         return this.categoryId;
     }
     /**
-     * Gets the categoryType property value. This field must be set when applying an email campaign to a specific eBay category or store category. The enumeration value used indicates which type of category the &lt;b&gt;categoryId&lt;/b&gt; belongs to. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CategoryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the categoryType property value. This field must be set when applying an email campaign to a specific eBay category or store category. The enumeration value used indicates which type of category the &lt;b&gt;categoryId&lt;/b&gt; belongs to.
+     * @return a {@link CategoryTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getCategoryType() {
+    public CategoryTypeEnum getCategoryType() {
         return this.categoryType;
     }
     /**
-     * Gets the emailCampaignType property value. The email campaign type of the email campaign being created. There are six &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaigns&lt;/a&gt; that a user can create:&lt;ul&gt;&lt;li&gt;&lt;code&gt;WELCOME&lt;/code&gt; - an email sent automatically to new subscribers.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_SHOWCASE&lt;/code&gt; - an email featuring new products &amp; collections that the seller wants to highlight.&lt;/li&gt;&lt;li&gt;&lt;code&gt;COUPON&lt;/code&gt; - an email containing a coupon code and up to 4 items that this coupon can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ORDER_DISCOUNT&lt;/code&gt; - an email containing an order discount and up to 10 items that this discount can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;SALE_EVENT&lt;/code&gt; - an email about a sale event and up to 10 items that the sale can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;VOLUME_PRICING&lt;/code&gt; - an email containing up to 10 items that are eligible for volume pricing.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;b&gt;emailCampaignType&lt;/b&gt; cannot be updated once the email campaign is created.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CampaignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the emailCampaignType property value. The email campaign type of the email campaign being created. There are six &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaigns&lt;/a&gt; that a user can create:&lt;ul&gt;&lt;li&gt;&lt;code&gt;WELCOME&lt;/code&gt; - an email sent automatically to new subscribers.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_SHOWCASE&lt;/code&gt; - an email featuring new products &amp; collections that the seller wants to highlight.&lt;/li&gt;&lt;li&gt;&lt;code&gt;COUPON&lt;/code&gt; - an email containing a coupon code and up to 4 items that this coupon can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ORDER_DISCOUNT&lt;/code&gt; - an email containing an order discount and up to 10 items that this discount can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;SALE_EVENT&lt;/code&gt; - an email about a sale event and up to 10 items that the sale can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;VOLUME_PRICING&lt;/code&gt; - an email containing up to 10 items that are eligible for volume pricing.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;b&gt;emailCampaignType&lt;/b&gt; cannot be updated once the email campaign is created.&lt;/span&gt;
+     * @return a {@link CampaignTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getEmailCampaignType() {
+    public CampaignTypeEnum getEmailCampaignType() {
         return this.emailCampaignType;
     }
     /**
@@ -147,16 +147,16 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(13);
         deserializerMap.put("audienceCodes", (n) -> { this.setAudienceCodes(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("categoryId", (n) -> { this.setCategoryId(n.getStringValue()); });
-        deserializerMap.put("categoryType", (n) -> { this.setCategoryType(n.getStringValue()); });
-        deserializerMap.put("emailCampaignType", (n) -> { this.setEmailCampaignType(n.getStringValue()); });
+        deserializerMap.put("categoryType", (n) -> { this.setCategoryType(n.getEnumValue(CategoryTypeEnum::forValue)); });
+        deserializerMap.put("emailCampaignType", (n) -> { this.setEmailCampaignType(n.getEnumValue(CampaignTypeEnum::forValue)); });
         deserializerMap.put("itemIds", (n) -> { this.setItemIds(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("itemSelectMode", (n) -> { this.setItemSelectMode(n.getStringValue()); });
+        deserializerMap.put("itemSelectMode", (n) -> { this.setItemSelectMode(n.getEnumValue(ItemSelectModeEnum::forValue)); });
         deserializerMap.put("personalizedMessage", (n) -> { this.setPersonalizedMessage(n.getStringValue()); });
         deserializerMap.put("priceRange", (n) -> { this.setPriceRange(n.getObjectValue(PriceRange::createFromDiscriminatorValue)); });
         deserializerMap.put("promotionId", (n) -> { this.setPromotionId(n.getStringValue()); });
-        deserializerMap.put("promotionSelectModeEnum", (n) -> { this.setPromotionSelectModeEnum(n.getStringValue()); });
+        deserializerMap.put("promotionSelectModeEnum", (n) -> { this.setPromotionSelectModeEnum(n.getEnumValue(PromotionSelectModeEnum::forValue)); });
         deserializerMap.put("scheduleDate", (n) -> { this.setScheduleDate(n.getStringValue()); });
-        deserializerMap.put("sort", (n) -> { this.setSort(n.getStringValue()); });
+        deserializerMap.put("sort", (n) -> { this.setSort(n.getEnumValue(ItemSortEnum::forValue)); });
         deserializerMap.put("subject", (n) -> { this.setSubject(n.getStringValue()); });
         return deserializerMap;
     }
@@ -169,11 +169,11 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         return this.itemIds;
     }
     /**
-     * Gets the itemSelectMode property value. Determines whether listings featured in an email campaign are selected by the seller or by eBay.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay automatically choses listings based on values set for &lt;b&gt;sort&lt;/b&gt;, &lt;b&gt;categoryType&lt;/b&gt;, &lt;b&gt;categoryId&lt;/b&gt;, and &lt;b&gt;priceRange&lt;/b&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;MANUAL&lt;/code&gt;, listings are set by the seller by populating the &lt;b&gt;itemIds&lt;/b&gt; array.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;&lt;b&gt;itemSelectMode&lt;/b&gt; is always set to &lt;code&gt;AUTO&lt;/code&gt; for &lt;code&gt;WELCOME&lt;/code&gt; email campaigns.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the itemSelectMode property value. Determines whether listings featured in an email campaign are selected by the seller or by eBay.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay automatically choses listings based on values set for &lt;b&gt;sort&lt;/b&gt;, &lt;b&gt;categoryType&lt;/b&gt;, &lt;b&gt;categoryId&lt;/b&gt;, and &lt;b&gt;priceRange&lt;/b&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;MANUAL&lt;/code&gt;, listings are set by the seller by populating the &lt;b&gt;itemIds&lt;/b&gt; array.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;&lt;b&gt;itemSelectMode&lt;/b&gt; is always set to &lt;code&gt;AUTO&lt;/code&gt; for &lt;code&gt;WELCOME&lt;/code&gt; email campaigns.&lt;/span&gt;
+     * @return a {@link ItemSelectModeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getItemSelectMode() {
+    public ItemSelectModeEnum getItemSelectMode() {
         return this.itemSelectMode;
     }
     /**
@@ -185,7 +185,7 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         return this.personalizedMessage;
     }
     /**
-     * Gets the priceRange property value. The price range.
+     * Gets the priceRange property value. This container is used if the seller wants to apply the email campaign to listings based on a price range.&lt;br&gt;&lt;br&gt;The &lt;b&gt;priceRange&lt;/b&gt; container consists of the &lt;b&gt;currency&lt;/b&gt;, &lt;b&gt;gte&lt;/b&gt;, and &lt;b&gt;lte&lt;/b&gt; fields.&lt;br&gt;&lt;br&gt; &quot;gte&quot; stands for &quot;greater than or equal to&quot; and &quot;lte&quot; stands for &quot;less than or equal to&quot;. Either &lt;b&gt;gte&lt;/b&gt;, &lt;b&gt;lte&lt;/b&gt;, or both must be used.&lt;br&gt;&lt;br&gt;&lt;b&gt;currency&lt;/b&gt; is a required field if including a price range. One of the three-digit currency codes from &lt;b&gt;CurrencyCodeEnum&lt;/b&gt; must be specified.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Use this object when the &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;.&lt;/span&gt;
      * @return a {@link PriceRange}
      */
     @jakarta.annotation.Nullable
@@ -193,7 +193,7 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         return this.priceRange;
     }
     /**
-     * Gets the promotionId property value. The unique identifier of the discount used for an email campaign if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;. &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; must set to &lt;code&gt;MANUAL&lt;/code&gt; if a discount is selected.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/promotion/methods/getPromotions&quot; target=&quot;_blank&quot;&gt;getPromotions&lt;/a&gt; to retrieve a list of the seller&apos;s discounts. Use the &lt;b&gt;promotionId&lt;/b&gt; from an individual &lt;b&gt;PromotionDetail&lt;/b&gt; in the result to populate the request.
+     * Gets the promotionId property value. The unique identifier of the discount used for an email campaign if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;. &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; must set to &lt;code&gt;MANUAL&lt;/code&gt; if a discount is selected.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions&quot;&gt;getPromotions&lt;/a&gt; to retrieve a list of the seller&apos;s discounts. Use the &lt;b&gt;promotionId&lt;/b&gt; from an individual &lt;b&gt;PromotionDetail&lt;/b&gt; in the result to populate the request.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -201,11 +201,11 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         return this.promotionId;
     }
     /**
-     * Gets the promotionSelectModeEnum property value. The selection mode for the discount used if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay will choose the discount to include in the email campaign. If set to &lt;code&gt;MANUAL&lt;/code&gt;, the seller must specify the discount in the &lt;b&gt;promotionId&lt;/b&gt; field. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:PromotionSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the promotionSelectModeEnum property value. The selection mode for the discount used if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay will choose the discount to include in the email campaign. If set to &lt;code&gt;MANUAL&lt;/code&gt;, the seller must specify the discount in the &lt;b&gt;promotionId&lt;/b&gt; field.
+     * @return a {@link PromotionSelectModeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPromotionSelectModeEnum() {
+    public PromotionSelectModeEnum getPromotionSelectModeEnum() {
         return this.promotionSelectModeEnum;
     }
     /**
@@ -217,11 +217,11 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         return this.scheduleDate;
     }
     /**
-     * Gets the sort property value. The sort rule is used to display the listings featured in the email campaign.&lt;br&gt;&lt;br&gt;Sort rules are only used if &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;. If &lt;b&gt;itemSelectMode&lt;/b&gt; is &lt;code&gt;MANUAL&lt;/code&gt;, listings are displayed in the order in which they are listed in the &lt;b&gt;itemIds&lt;/b&gt; array. The following sort rules are available:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ENDING_FIRST&lt;/code&gt; displays listings by ending date, from soonest to latest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOWEST_PRICED&lt;/code&gt; displays listings by price, from lowest to highest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;HIGHEST_PRICED&lt;/code&gt; displays listings by price, from highest to lowest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;NEWLY_LISTED&lt;/code&gt; displays listings by date listed, with the newest first.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;The default sort rule is &lt;code&gt;NEWLY_LISTED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSortEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the sort property value. The sort rule is used to display the listings featured in the email campaign.&lt;br&gt;&lt;br&gt;Sort rules are only used if &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;. If &lt;b&gt;itemSelectMode&lt;/b&gt; is &lt;code&gt;MANUAL&lt;/code&gt;, listings are displayed in the order in which they are listed in the &lt;b&gt;itemIds&lt;/b&gt; array. The following sort rules are available:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ENDING_FIRST&lt;/code&gt; displays listings by ending date, from soonest to latest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOWEST_PRICED&lt;/code&gt; displays listings by price, from lowest to highest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;HIGHEST_PRICED&lt;/code&gt; displays listings by price, from highest to lowest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;NEWLY_LISTED&lt;/code&gt; displays listings by date listed, with the newest first.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;The default sort rule is &lt;code&gt;NEWLY_LISTED&lt;/code&gt;.
+     * @return a {@link ItemSortEnum}
      */
     @jakarta.annotation.Nullable
-    public String getSort() {
+    public ItemSortEnum getSort() {
         return this.sort;
     }
     /**
@@ -240,16 +240,16 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("audienceCodes", this.getAudienceCodes());
         writer.writeStringValue("categoryId", this.getCategoryId());
-        writer.writeStringValue("categoryType", this.getCategoryType());
-        writer.writeStringValue("emailCampaignType", this.getEmailCampaignType());
+        writer.writeEnumValue("categoryType", this.getCategoryType());
+        writer.writeEnumValue("emailCampaignType", this.getEmailCampaignType());
         writer.writeCollectionOfPrimitiveValues("itemIds", this.getItemIds());
-        writer.writeStringValue("itemSelectMode", this.getItemSelectMode());
+        writer.writeEnumValue("itemSelectMode", this.getItemSelectMode());
         writer.writeStringValue("personalizedMessage", this.getPersonalizedMessage());
         writer.writeObjectValue("priceRange", this.getPriceRange());
         writer.writeStringValue("promotionId", this.getPromotionId());
-        writer.writeStringValue("promotionSelectModeEnum", this.getPromotionSelectModeEnum());
+        writer.writeEnumValue("promotionSelectModeEnum", this.getPromotionSelectModeEnum());
         writer.writeStringValue("scheduleDate", this.getScheduleDate());
-        writer.writeStringValue("sort", this.getSort());
+        writer.writeEnumValue("sort", this.getSort());
         writer.writeStringValue("subject", this.getSubject());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -261,7 +261,7 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         this.additionalData = value;
     }
     /**
-     * Sets the audienceCodes property value. An array of audience codes for the audiences of the email campaign. At least one audience code is required. There is no upper limit to the number of audience codes.&lt;br&gt;&lt;br&gt;To retrieve seller audiences, call &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/getAudiences&quot; target=&quot;_blank&quot;&gt;getAudiences&lt;/a&gt;. Use the &lt;b&gt;code&lt;/b&gt; values in the response to populate &lt;b&gt;audienceCodes&lt;/b&gt;.
+     * Sets the audienceCodes property value. An array of audience codes for the audiences of the email campaign. At least one audience code is required. There is no upper limit to the number of audience codes.&lt;br&gt;&lt;br&gt;To retrieve seller audiences, call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getaudiences&quot;&gt;getAudiences&lt;/a&gt;. Use the &lt;b&gt;code&lt;/b&gt; values in the response to populate &lt;b&gt;audienceCodes&lt;/b&gt;.
      * @param value Value to set for the audienceCodes property.
      */
     public void setAudienceCodes(@jakarta.annotation.Nullable final java.util.List<String> value) {
@@ -275,17 +275,17 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         this.categoryId = value;
     }
     /**
-     * Sets the categoryType property value. This field must be set when applying an email campaign to a specific eBay category or store category. The enumeration value used indicates which type of category the &lt;b&gt;categoryId&lt;/b&gt; belongs to. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CategoryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the categoryType property value. This field must be set when applying an email campaign to a specific eBay category or store category. The enumeration value used indicates which type of category the &lt;b&gt;categoryId&lt;/b&gt; belongs to.
      * @param value Value to set for the categoryType property.
      */
-    public void setCategoryType(@jakarta.annotation.Nullable final String value) {
+    public void setCategoryType(@jakarta.annotation.Nullable final CategoryTypeEnum value) {
         this.categoryType = value;
     }
     /**
-     * Sets the emailCampaignType property value. The email campaign type of the email campaign being created. There are six &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaigns&lt;/a&gt; that a user can create:&lt;ul&gt;&lt;li&gt;&lt;code&gt;WELCOME&lt;/code&gt; - an email sent automatically to new subscribers.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_SHOWCASE&lt;/code&gt; - an email featuring new products &amp; collections that the seller wants to highlight.&lt;/li&gt;&lt;li&gt;&lt;code&gt;COUPON&lt;/code&gt; - an email containing a coupon code and up to 4 items that this coupon can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ORDER_DISCOUNT&lt;/code&gt; - an email containing an order discount and up to 10 items that this discount can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;SALE_EVENT&lt;/code&gt; - an email about a sale event and up to 10 items that the sale can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;VOLUME_PRICING&lt;/code&gt; - an email containing up to 10 items that are eligible for volume pricing.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;b&gt;emailCampaignType&lt;/b&gt; cannot be updated once the email campaign is created.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CampaignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the emailCampaignType property value. The email campaign type of the email campaign being created. There are six &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaigns&lt;/a&gt; that a user can create:&lt;ul&gt;&lt;li&gt;&lt;code&gt;WELCOME&lt;/code&gt; - an email sent automatically to new subscribers.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ITEM_SHOWCASE&lt;/code&gt; - an email featuring new products &amp; collections that the seller wants to highlight.&lt;/li&gt;&lt;li&gt;&lt;code&gt;COUPON&lt;/code&gt; - an email containing a coupon code and up to 4 items that this coupon can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;ORDER_DISCOUNT&lt;/code&gt; - an email containing an order discount and up to 10 items that this discount can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;SALE_EVENT&lt;/code&gt; - an email about a sale event and up to 10 items that the sale can be applied to.&lt;/li&gt;&lt;li&gt;&lt;code&gt;VOLUME_PRICING&lt;/code&gt; - an email containing up to 10 items that are eligible for volume pricing.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;b&gt;emailCampaignType&lt;/b&gt; cannot be updated once the email campaign is created.&lt;/span&gt;
      * @param value Value to set for the emailCampaignType property.
      */
-    public void setEmailCampaignType(@jakarta.annotation.Nullable final String value) {
+    public void setEmailCampaignType(@jakarta.annotation.Nullable final CampaignTypeEnum value) {
         this.emailCampaignType = value;
     }
     /**
@@ -296,10 +296,10 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         this.itemIds = value;
     }
     /**
-     * Sets the itemSelectMode property value. Determines whether listings featured in an email campaign are selected by the seller or by eBay.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay automatically choses listings based on values set for &lt;b&gt;sort&lt;/b&gt;, &lt;b&gt;categoryType&lt;/b&gt;, &lt;b&gt;categoryId&lt;/b&gt;, and &lt;b&gt;priceRange&lt;/b&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;MANUAL&lt;/code&gt;, listings are set by the seller by populating the &lt;b&gt;itemIds&lt;/b&gt; array.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;&lt;b&gt;itemSelectMode&lt;/b&gt; is always set to &lt;code&gt;AUTO&lt;/code&gt; for &lt;code&gt;WELCOME&lt;/code&gt; email campaigns.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the itemSelectMode property value. Determines whether listings featured in an email campaign are selected by the seller or by eBay.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay automatically choses listings based on values set for &lt;b&gt;sort&lt;/b&gt;, &lt;b&gt;categoryType&lt;/b&gt;, &lt;b&gt;categoryId&lt;/b&gt;, and &lt;b&gt;priceRange&lt;/b&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;MANUAL&lt;/code&gt;, listings are set by the seller by populating the &lt;b&gt;itemIds&lt;/b&gt; array.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;&lt;b&gt;itemSelectMode&lt;/b&gt; is always set to &lt;code&gt;AUTO&lt;/code&gt; for &lt;code&gt;WELCOME&lt;/code&gt; email campaigns.&lt;/span&gt;
      * @param value Value to set for the itemSelectMode property.
      */
-    public void setItemSelectMode(@jakarta.annotation.Nullable final String value) {
+    public void setItemSelectMode(@jakarta.annotation.Nullable final ItemSelectModeEnum value) {
         this.itemSelectMode = value;
     }
     /**
@@ -310,24 +310,24 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         this.personalizedMessage = value;
     }
     /**
-     * Sets the priceRange property value. The price range.
+     * Sets the priceRange property value. This container is used if the seller wants to apply the email campaign to listings based on a price range.&lt;br&gt;&lt;br&gt;The &lt;b&gt;priceRange&lt;/b&gt; container consists of the &lt;b&gt;currency&lt;/b&gt;, &lt;b&gt;gte&lt;/b&gt;, and &lt;b&gt;lte&lt;/b&gt; fields.&lt;br&gt;&lt;br&gt; &quot;gte&quot; stands for &quot;greater than or equal to&quot; and &quot;lte&quot; stands for &quot;less than or equal to&quot;. Either &lt;b&gt;gte&lt;/b&gt;, &lt;b&gt;lte&lt;/b&gt;, or both must be used.&lt;br&gt;&lt;br&gt;&lt;b&gt;currency&lt;/b&gt; is a required field if including a price range. One of the three-digit currency codes from &lt;b&gt;CurrencyCodeEnum&lt;/b&gt; must be specified.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Use this object when the &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;.&lt;/span&gt;
      * @param value Value to set for the priceRange property.
      */
     public void setPriceRange(@jakarta.annotation.Nullable final PriceRange value) {
         this.priceRange = value;
     }
     /**
-     * Sets the promotionId property value. The unique identifier of the discount used for an email campaign if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;. &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; must set to &lt;code&gt;MANUAL&lt;/code&gt; if a discount is selected.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/promotion/methods/getPromotions&quot; target=&quot;_blank&quot;&gt;getPromotions&lt;/a&gt; to retrieve a list of the seller&apos;s discounts. Use the &lt;b&gt;promotionId&lt;/b&gt; from an individual &lt;b&gt;PromotionDetail&lt;/b&gt; in the result to populate the request.
+     * Sets the promotionId property value. The unique identifier of the discount used for an email campaign if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;. &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; must set to &lt;code&gt;MANUAL&lt;/code&gt; if a discount is selected.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions&quot;&gt;getPromotions&lt;/a&gt; to retrieve a list of the seller&apos;s discounts. Use the &lt;b&gt;promotionId&lt;/b&gt; from an individual &lt;b&gt;PromotionDetail&lt;/b&gt; in the result to populate the request.
      * @param value Value to set for the promotionId property.
      */
     public void setPromotionId(@jakarta.annotation.Nullable final String value) {
         this.promotionId = value;
     }
     /**
-     * Sets the promotionSelectModeEnum property value. The selection mode for the discount used if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay will choose the discount to include in the email campaign. If set to &lt;code&gt;MANUAL&lt;/code&gt;, the seller must specify the discount in the &lt;b&gt;promotionId&lt;/b&gt; field. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:PromotionSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the promotionSelectModeEnum property value. The selection mode for the discount used if the &lt;b&gt;emailCampaignType&lt;/b&gt; is set to &lt;code&gt;COUPON&lt;/code&gt;, &lt;code&gt;SALE_EVENT&lt;/code&gt;, or &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;.&lt;br&gt;&lt;br&gt;If &lt;b&gt;promotionSelectModeEnum&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;, eBay will choose the discount to include in the email campaign. If set to &lt;code&gt;MANUAL&lt;/code&gt;, the seller must specify the discount in the &lt;b&gt;promotionId&lt;/b&gt; field.
      * @param value Value to set for the promotionSelectModeEnum property.
      */
-    public void setPromotionSelectModeEnum(@jakarta.annotation.Nullable final String value) {
+    public void setPromotionSelectModeEnum(@jakarta.annotation.Nullable final PromotionSelectModeEnum value) {
         this.promotionSelectModeEnum = value;
     }
     /**
@@ -338,10 +338,10 @@ public class CreateEmailCampaignRequest implements AdditionalDataHolder, Parsabl
         this.scheduleDate = value;
     }
     /**
-     * Sets the sort property value. The sort rule is used to display the listings featured in the email campaign.&lt;br&gt;&lt;br&gt;Sort rules are only used if &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;. If &lt;b&gt;itemSelectMode&lt;/b&gt; is &lt;code&gt;MANUAL&lt;/code&gt;, listings are displayed in the order in which they are listed in the &lt;b&gt;itemIds&lt;/b&gt; array. The following sort rules are available:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ENDING_FIRST&lt;/code&gt; displays listings by ending date, from soonest to latest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOWEST_PRICED&lt;/code&gt; displays listings by price, from lowest to highest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;HIGHEST_PRICED&lt;/code&gt; displays listings by price, from highest to lowest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;NEWLY_LISTED&lt;/code&gt; displays listings by date listed, with the newest first.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;The default sort rule is &lt;code&gt;NEWLY_LISTED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSortEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the sort property value. The sort rule is used to display the listings featured in the email campaign.&lt;br&gt;&lt;br&gt;Sort rules are only used if &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;. If &lt;b&gt;itemSelectMode&lt;/b&gt; is &lt;code&gt;MANUAL&lt;/code&gt;, listings are displayed in the order in which they are listed in the &lt;b&gt;itemIds&lt;/b&gt; array. The following sort rules are available:&lt;ul&gt;&lt;li&gt;&lt;code&gt;ENDING_FIRST&lt;/code&gt; displays listings by ending date, from soonest to latest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;LOWEST_PRICED&lt;/code&gt; displays listings by price, from lowest to highest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;HIGHEST_PRICED&lt;/code&gt; displays listings by price, from highest to lowest.&lt;/li&gt;&lt;li&gt;&lt;code&gt;NEWLY_LISTED&lt;/code&gt; displays listings by date listed, with the newest first.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;The default sort rule is &lt;code&gt;NEWLY_LISTED&lt;/code&gt;.
      * @param value Value to set for the sort property.
      */
-    public void setSort(@jakarta.annotation.Nullable final String value) {
+    public void setSort(@jakarta.annotation.Nullable final ItemSortEnum value) {
         this.sort = value;
     }
     /**

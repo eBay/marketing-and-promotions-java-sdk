@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that defines the fields for the &lt;b&gt;CreateAdGroup&lt;/b&gt; request.
+ * This type defines the fields for the &lt;b&gt;createAdGroup&lt;/b&gt; request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CreateAdGroupRequest implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class CreateAdGroupRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * A bid amount that applies to all of the keywords in an ad group that do not have individual bids.
      */
     private Amount defaultBid;
     /**
@@ -63,7 +63,7 @@ public class CreateAdGroupRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the defaultBid property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the defaultBid property value. A bid amount that applies to all of the keywords in an ad group that do not have individual bids.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -107,7 +107,7 @@ public class CreateAdGroupRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the defaultBid property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the defaultBid property value. A bid amount that applies to all of the keywords in an ad group that do not have individual bids.
      * @param value Value to set for the defaultBid property.
      */
     public void setDefaultBid(@jakarta.annotation.Nullable final Amount value) {

@@ -41,7 +41,7 @@ public class NegativeKeywordResponse implements AdditionalDataHolder, Parsable {
     /**
      * This container will be returned if there is an issue creating the corresponding negative keyword.
      */
-    private java.util.List<Error> errors;
+    private java.util.List<ErrorDetailV3> errors;
     /**
      * The URI for the negative keyword, which is used to retrieve the negative keyword. This URI will be returned for each successfully created negative keyword.
      */
@@ -51,9 +51,9 @@ public class NegativeKeywordResponse implements AdditionalDataHolder, Parsable {
      */
     private String negativeKeywordId;
     /**
-     * The match type for the negative keyword.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; Broad matching of negative keywords is not currently supported.&lt;/span&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:NegativeKeywordMatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The match type for the negative keyword.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; Broad matching of negative keywords is not currently supported.&lt;/span&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String negativeKeywordMatchType;
+    private NegativeKeywordMatchTypeEnum negativeKeywordMatchType;
     /**
      * The text for the negative keyword.
      */
@@ -104,10 +104,10 @@ public class NegativeKeywordResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the errors property value. This container will be returned if there is an issue creating the corresponding negative keyword.
-     * @return a {@link java.util.List<Error>}
+     * @return a {@link java.util.List<ErrorDetailV3>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<Error> getErrors() {
+    public java.util.List<ErrorDetailV3> getErrors() {
         return this.errors;
     }
     /**
@@ -119,10 +119,10 @@ public class NegativeKeywordResponse implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(8);
         deserializerMap.put("adGroupId", (n) -> { this.setAdGroupId(n.getStringValue()); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
-        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(Error::createFromDiscriminatorValue)); });
+        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(ErrorDetailV3::createFromDiscriminatorValue)); });
         deserializerMap.put("href", (n) -> { this.setHref(n.getStringValue()); });
         deserializerMap.put("negativeKeywordId", (n) -> { this.setNegativeKeywordId(n.getStringValue()); });
-        deserializerMap.put("negativeKeywordMatchType", (n) -> { this.setNegativeKeywordMatchType(n.getStringValue()); });
+        deserializerMap.put("negativeKeywordMatchType", (n) -> { this.setNegativeKeywordMatchType(n.getEnumValue(NegativeKeywordMatchTypeEnum::forValue)); });
         deserializerMap.put("negativeKeywordText", (n) -> { this.setNegativeKeywordText(n.getStringValue()); });
         deserializerMap.put("statusCode", (n) -> { this.setStatusCode(n.getIntegerValue()); });
         return deserializerMap;
@@ -144,11 +144,11 @@ public class NegativeKeywordResponse implements AdditionalDataHolder, Parsable {
         return this.negativeKeywordId;
     }
     /**
-     * Gets the negativeKeywordMatchType property value. The match type for the negative keyword.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; Broad matching of negative keywords is not currently supported.&lt;/span&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:NegativeKeywordMatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the negativeKeywordMatchType property value. The match type for the negative keyword.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; Broad matching of negative keywords is not currently supported.&lt;/span&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link NegativeKeywordMatchTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getNegativeKeywordMatchType() {
+    public NegativeKeywordMatchTypeEnum getNegativeKeywordMatchType() {
         return this.negativeKeywordMatchType;
     }
     /**
@@ -178,7 +178,7 @@ public class NegativeKeywordResponse implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues("errors", this.getErrors());
         writer.writeStringValue("href", this.getHref());
         writer.writeStringValue("negativeKeywordId", this.getNegativeKeywordId());
-        writer.writeStringValue("negativeKeywordMatchType", this.getNegativeKeywordMatchType());
+        writer.writeEnumValue("negativeKeywordMatchType", this.getNegativeKeywordMatchType());
         writer.writeStringValue("negativeKeywordText", this.getNegativeKeywordText());
         writer.writeIntegerValue("statusCode", this.getStatusCode());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -208,7 +208,7 @@ public class NegativeKeywordResponse implements AdditionalDataHolder, Parsable {
      * Sets the errors property value. This container will be returned if there is an issue creating the corresponding negative keyword.
      * @param value Value to set for the errors property.
      */
-    public void setErrors(@jakarta.annotation.Nullable final java.util.List<Error> value) {
+    public void setErrors(@jakarta.annotation.Nullable final java.util.List<ErrorDetailV3> value) {
         this.errors = value;
     }
     /**
@@ -226,10 +226,10 @@ public class NegativeKeywordResponse implements AdditionalDataHolder, Parsable {
         this.negativeKeywordId = value;
     }
     /**
-     * Sets the negativeKeywordMatchType property value. The match type for the negative keyword.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; Broad matching of negative keywords is not currently supported.&lt;/span&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:NegativeKeywordMatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the negativeKeywordMatchType property value. The match type for the negative keyword.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; Broad matching of negative keywords is not currently supported.&lt;/span&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the negativeKeywordMatchType property.
      */
-    public void setNegativeKeywordMatchType(@jakarta.annotation.Nullable final String value) {
+    public void setNegativeKeywordMatchType(@jakarta.annotation.Nullable final NegativeKeywordMatchTypeEnum value) {
         this.negativeKeywordMatchType = value;
     }
     /**

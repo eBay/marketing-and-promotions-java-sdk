@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that provides details for the targeted keywords.
+ * The required data to retrieve suggested keywords.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class TargetedKeywordRequest implements AdditionalDataHolder, Parsable {
@@ -33,19 +33,19 @@ public class TargetedKeywordRequest implements AdditionalDataHolder, Parsable {
     /**
      * A field used to indicate whether additional information and insight data shall be provided for suggested keywords.&lt;br&gt;&lt;br&gt;Use this array to retrieve keyword insights, including active seller count and search volume.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;KEYWORD_INSIGHTS&lt;/code&gt;
      */
-    private java.util.List<String> additionalInfo;
+    private java.util.List<AdditionalInfoEnum> additionalInfo;
     /**
      * A field used to indicate that the keywords already selected by sellers for the specified listing IDs should be filtered out of the response, and only new and unique keyword recommendations shall be returned.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;ADOPTED_KEYWORDS&lt;/code&gt;
      */
-    private java.util.List<String> exclusions;
+    private java.util.List<ExclusionsEnum> exclusions;
     /**
      * A set of comma-separated listing IDs for the specific listings you wish to retrieve suggested keywords. &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of listings requested: &lt;/b&gt;300
      */
     private java.util.List<String> listingIds;
     /**
-     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String matchType;
+    private MatchTypeEnum matchType;
     /**
      * Instantiates a new {@link TargetedKeywordRequest} and sets the default values.
      */
@@ -72,18 +72,18 @@ public class TargetedKeywordRequest implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the additionalInfo property value. A field used to indicate whether additional information and insight data shall be provided for suggested keywords.&lt;br&gt;&lt;br&gt;Use this array to retrieve keyword insights, including active seller count and search volume.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;KEYWORD_INSIGHTS&lt;/code&gt;
-     * @return a {@link java.util.List<String>}
+     * @return a {@link java.util.List<AdditionalInfoEnum>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<String> getAdditionalInfo() {
+    public java.util.List<AdditionalInfoEnum> getAdditionalInfo() {
         return this.additionalInfo;
     }
     /**
      * Gets the exclusions property value. A field used to indicate that the keywords already selected by sellers for the specified listing IDs should be filtered out of the response, and only new and unique keyword recommendations shall be returned.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;ADOPTED_KEYWORDS&lt;/code&gt;
-     * @return a {@link java.util.List<String>}
+     * @return a {@link java.util.List<ExclusionsEnum>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<String> getExclusions() {
+    public java.util.List<ExclusionsEnum> getExclusions() {
         return this.exclusions;
     }
     /**
@@ -93,10 +93,10 @@ public class TargetedKeywordRequest implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
-        deserializerMap.put("additionalInfo", (n) -> { this.setAdditionalInfo(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("exclusions", (n) -> { this.setExclusions(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("additionalInfo", (n) -> { this.setAdditionalInfo(n.getCollectionOfEnumValues(AdditionalInfoEnum::forValue)); });
+        deserializerMap.put("exclusions", (n) -> { this.setExclusions(n.getCollectionOfEnumValues(ExclusionsEnum::forValue)); });
         deserializerMap.put("listingIds", (n) -> { this.setListingIds(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getStringValue()); });
+        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getEnumValue(MatchTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -108,11 +108,11 @@ public class TargetedKeywordRequest implements AdditionalDataHolder, Parsable {
         return this.listingIds;
     }
     /**
-     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link MatchTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMatchType() {
+    public MatchTypeEnum getMatchType() {
         return this.matchType;
     }
     /**
@@ -121,10 +121,10 @@ public class TargetedKeywordRequest implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeCollectionOfPrimitiveValues("additionalInfo", this.getAdditionalInfo());
-        writer.writeCollectionOfPrimitiveValues("exclusions", this.getExclusions());
+        writer.writeCollectionOfEnumValues("additionalInfo", this.getAdditionalInfo());
+        writer.writeCollectionOfEnumValues("exclusions", this.getExclusions());
         writer.writeCollectionOfPrimitiveValues("listingIds", this.getListingIds());
-        writer.writeStringValue("matchType", this.getMatchType());
+        writer.writeEnumValue("matchType", this.getMatchType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -138,14 +138,14 @@ public class TargetedKeywordRequest implements AdditionalDataHolder, Parsable {
      * Sets the additionalInfo property value. A field used to indicate whether additional information and insight data shall be provided for suggested keywords.&lt;br&gt;&lt;br&gt;Use this array to retrieve keyword insights, including active seller count and search volume.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;KEYWORD_INSIGHTS&lt;/code&gt;
      * @param value Value to set for the additionalInfo property.
      */
-    public void setAdditionalInfo(@jakarta.annotation.Nullable final java.util.List<String> value) {
+    public void setAdditionalInfo(@jakarta.annotation.Nullable final java.util.List<AdditionalInfoEnum> value) {
         this.additionalInfo = value;
     }
     /**
      * Sets the exclusions property value. A field used to indicate that the keywords already selected by sellers for the specified listing IDs should be filtered out of the response, and only new and unique keyword recommendations shall be returned.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;ADOPTED_KEYWORDS&lt;/code&gt;
      * @param value Value to set for the exclusions property.
      */
-    public void setExclusions(@jakarta.annotation.Nullable final java.util.List<String> value) {
+    public void setExclusions(@jakarta.annotation.Nullable final java.util.List<ExclusionsEnum> value) {
         this.exclusions = value;
     }
     /**
@@ -156,10 +156,10 @@ public class TargetedKeywordRequest implements AdditionalDataHolder, Parsable {
         this.listingIds = value;
     }
     /**
-     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the matchType property.
      */
-    public void setMatchType(@jakarta.annotation.Nullable final String value) {
+    public void setMatchType(@jakarta.annotation.Nullable final MatchTypeEnum value) {
         this.matchType = value;
     }
 }

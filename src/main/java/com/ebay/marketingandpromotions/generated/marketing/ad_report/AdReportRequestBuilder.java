@@ -26,7 +26,7 @@ import java.util.Objects;
 public class AdReportRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the com.ebay.marketingandpromotions.generated.marketing.ad_report.item collection
-     * @param report_id This path parameter specifies the unique ID of the Promoted Listings report being retrieved.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/ad_report_task/methods/getReportTasks&quot;&gt;getReportTasks&lt;/a&gt; method to retrieve report IDs.
+     * @param report_id This path parameter specifies the unique ID of the Promoted Listings report being retrieved.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_report_task-getreporttasks&quot;&gt;getReportTasks&lt;/a&gt; method to retrieve report IDs.
      * @return a {@link WithReportItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull

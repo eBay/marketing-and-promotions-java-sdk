@@ -1,0 +1,72 @@
+# ChangeLog
+
+## 1.0.0 (09/14/2026)
+
+**Breaking changes**
+- The following operations were removed from `MarketingClient`:
+  - `createItemPriceMarkdownAsync`
+  - `getItemPriceMarkdownAsync`
+- The following operations changed signature on `MarketingClient`:
+  - `createEmailCampaignAsync`: `(CreateEmailCampaignRequest, String, RequestOptions)` → `(CreateEmailCampaignRequest, String, String, RequestOptions)`
+  - `getAdsAsync`: `(String, String, String, String, String, RequestOptions)` → `(String, String, String, String, String, String, String, RequestOptions)`
+  - `getCampaignsAsync`: `(String, String, String, String, String, RequestOptions)` → `(String, String, String, String, String, String, String, String, String, String, RequestOptions)`
+  - `getEmailCampaignsAsync`: `(String, String, String, String, RequestOptions)` → `(String, String, String, String, String, RequestOptions)`
+  - `getKeywordsAsync`: `(String, String, String, String, String, RequestOptions)` → `(String, String, String, String, String, String, RequestOptions)`
+  - `getNegativeKeywordsAsync`: `(String, String, String, String, String, RequestOptions)` → `(String, String, String, String, String, String, RequestOptions)`
+  - `getPromotionReportsAsync`: `(String, String, String, String, String, RequestOptions)` → `(String, String, String, String, String, String, String, RequestOptions)`
+  - `getPromotionsAsync`: `(String, String, String, String, String, RequestOptions)` → `(String, String, String, String, String, String, String, String, RequestOptions)`
+- The following operations changed signature on `RecommendationClient`:
+  - `findListingRecommendationsAsync`: `(FindListingRecommendationRequest, String, String, String, String, RequestOptions)` → `(FindListingRecommendationRequest, String, String, String, String, String, RequestOptions)`
+
+- The following operations were added to `MarketingClient`:
+  - `bulkCreateAdsByInventoryReferenceAsync`
+  - `bulkCreateAdsByListingIdAsync`
+  - `bulkCreateKeywordAsync`
+  - `bulkCreateNegativeKeywordAsync`
+  - `bulkDeleteAdsByInventoryReferenceAsync`
+  - `bulkDeleteAdsByListingIdAsync`
+  - `bulkUpdateAdsBidByInventoryReferenceAsync`
+  - `bulkUpdateAdsBidByListingIdAsync`
+  - `bulkUpdateAdsStatusAsync`
+  - `bulkUpdateAdsStatusByListingIdAsync`
+  - `bulkUpdateKeywordAsync`
+  - `bulkUpdateNegativeKeywordAsync`
+  - `cloneCampaignAsync`
+  - `createAdGroupAsync`
+  - `createAdsByInventoryReferenceAsync`
+  - `createItemPriceMarkdownPromotionAsync`
+  - `createReportTaskAsync`
+  - `deleteAdsByInventoryReferenceAsync`
+  - `deleteItemPriceMarkdownPromotionAsync`
+  - `deleteItemPromotionAsync`
+  - `deleteReportTaskAsync`
+  - `findCampaignByAdReferenceAsync`
+  - `getAdGroupAsync`
+  - `getAdGroupsAsync`
+  - `getAdsByInventoryReferenceAsync`
+  - `getAudiencesAsync`
+  - `getCampaignByNameAsync`
+  - `getEmailPreviewAsync`
+  - `getEmailReportAsync`
+  - `getItemPriceMarkdownPromotionAsync`
+  - `getListingSetAsync`
+  - `getReportAsync`
+  - `getReportMetadataForReportTypeAsync`
+  - `getReportTaskAsync`
+  - `getReportTasksAsync`
+  - `suggestBidsAsync`
+  - `suggestBudgetAsync`
+  - `suggestItemsAsync`
+  - `suggestKeywordsAsync`
+  - `suggestMaxCpcAsync`
+  - `updateAdGroupAsync`
+  - `updateAdRateStrategyAsync`
+  - `updateBidAsync`
+  - `updateBiddingStrategyAsync`
+  - `updateCampaignBudgetAsync`
+  - `updateCampaignIdentificationAsync`
+  - `updateEmailCampaignAsync`
+  - `updateItemPriceMarkdownPromotionAsync`
+  - `updateItemPromotionAsync`
+  - `updateKeywordAsync`
+  - `updateNegativeKeywordAsync`

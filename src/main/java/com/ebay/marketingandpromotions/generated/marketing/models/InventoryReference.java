@@ -35,9 +35,9 @@ public class InventoryReference implements AdditionalDataHolder, Parsable {
      */
     private String inventoryReferenceId;
     /**
-     * Indicates the type of item indicated by the &lt;b&gt;inventoryReferenceId&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This value can be set to either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if &lt;/i&gt; if you supply an &lt;b&gt;inventoryReferenceId&lt;/b&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates the type of item indicated by the &lt;b&gt;inventoryReferenceId&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This value can be set to either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if &lt;/i&gt; if you supply an &lt;b&gt;inventoryReferenceId&lt;/b&gt;.
      */
-    private String inventoryReferenceType;
+    private InventoryReferenceTypeEnum inventoryReferenceType;
     /**
      * Instantiates a new {@link InventoryReference} and sets the default values.
      */
@@ -70,7 +70,7 @@ public class InventoryReference implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("inventoryReferenceId", (n) -> { this.setInventoryReferenceId(n.getStringValue()); });
-        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getStringValue()); });
+        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getEnumValue(InventoryReferenceTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -82,11 +82,11 @@ public class InventoryReference implements AdditionalDataHolder, Parsable {
         return this.inventoryReferenceId;
     }
     /**
-     * Gets the inventoryReferenceType property value. Indicates the type of item indicated by the &lt;b&gt;inventoryReferenceId&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This value can be set to either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if &lt;/i&gt; if you supply an &lt;b&gt;inventoryReferenceId&lt;/b&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the inventoryReferenceType property value. Indicates the type of item indicated by the &lt;b&gt;inventoryReferenceId&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This value can be set to either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if &lt;/i&gt; if you supply an &lt;b&gt;inventoryReferenceId&lt;/b&gt;.
+     * @return a {@link InventoryReferenceTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getInventoryReferenceType() {
+    public InventoryReferenceTypeEnum getInventoryReferenceType() {
         return this.inventoryReferenceType;
     }
     /**
@@ -96,7 +96,7 @@ public class InventoryReference implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("inventoryReferenceId", this.getInventoryReferenceId());
-        writer.writeStringValue("inventoryReferenceType", this.getInventoryReferenceType());
+        writer.writeEnumValue("inventoryReferenceType", this.getInventoryReferenceType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -114,10 +114,10 @@ public class InventoryReference implements AdditionalDataHolder, Parsable {
         this.inventoryReferenceId = value;
     }
     /**
-     * Sets the inventoryReferenceType property value. Indicates the type of item indicated by the &lt;b&gt;inventoryReferenceId&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This value can be set to either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if &lt;/i&gt; if you supply an &lt;b&gt;inventoryReferenceId&lt;/b&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the inventoryReferenceType property value. Indicates the type of item indicated by the &lt;b&gt;inventoryReferenceId&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This value can be set to either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if &lt;/i&gt; if you supply an &lt;b&gt;inventoryReferenceId&lt;/b&gt;.
      * @param value Value to set for the inventoryReferenceType property.
      */
-    public void setInventoryReferenceType(@jakarta.annotation.Nullable final String value) {
+    public void setInventoryReferenceType(@jakarta.annotation.Nullable final InventoryReferenceTypeEnum value) {
         this.inventoryReferenceType = value;
     }
 }

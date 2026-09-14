@@ -15,6 +15,7 @@
 package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.get_campaign_by_name;
 
 import com.ebay.marketingandpromotions.generated.marketing.models.Campaign;
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -50,25 +51,38 @@ public class GetCampaignByNameRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/ad_campaign/get_campaign_by_name?campaign_name={campaign_name}", rawUrl);
     }
     /**
-     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
+     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
      * @return a {@link Campaign}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Campaign get() {
         return get(null);
     }
     /**
-     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
+     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Campaign}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Campaign get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, Campaign::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, Campaign::createFromDiscriminatorValue);
     }
     /**
-     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
+     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -76,7 +90,7 @@ public class GetCampaignByNameRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
+     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -98,12 +112,12 @@ public class GetCampaignByNameRequestBuilder extends BaseRequestBuilder {
         return new GetCampaignByNameRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
+     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_name&lt;/b&gt; query parameter. Note that the campaign name you specify must be an exact, case-sensitive match of the name of the campaign you want to retrieve.&lt;/p&gt;&lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign names.&lt;/p&gt;
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
         /**
-         * This query parameter specifies name of the campaign being retrieved.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot; target=&quot;_blank&quot;&gt;getCampaigns&lt;/a&gt; method to retrieve a list of a seller&apos;s campaign names.
+         * This query parameter specifies name of the campaign being retrieved.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; method to retrieve a list of a seller&apos;s campaign names.
          */
         @jakarta.annotation.Nullable
         public String campaignName;

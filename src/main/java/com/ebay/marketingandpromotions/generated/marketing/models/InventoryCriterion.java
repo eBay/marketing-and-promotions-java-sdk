@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines either the selections rules or the list of listing IDs for the discount. The &quot;listing IDs&quot; are are either the seller&apos;s item IDs or the eBay listing IDs.
+ * A container that defines either the listing IDs or the selection rules that specify the items to include in the discount. Listing IDs can be either eBay listing IDs or a list of the seller&apos;s inventory reference IDs (know as SKUs or custom labels). See the &lt;b&gt;selectionRules&lt;/b&gt; container for the rule criteria you can use to select inventory.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; All listings in Discounts Manager discounts must support an electronic payment method.&lt;/p&gt;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class InventoryCriterion implements AdditionalDataHolder, Parsable {
@@ -31,9 +31,9 @@ public class InventoryCriterion implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Indicates how the items to be discounted are selected. You can include inventory by ID, using rules, or globally include all your inventory.  For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:InventoryCriterionEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates how the items to be discounted are selected. You can include inventory by ID, using rules, or globally include all your inventory. 
      */
-    private String inventoryCriterionType;
+    private InventoryCriterionEnum inventoryCriterionType;
     /**
      * An array of containers for the seller&apos;s inventory reference IDs (also known as an &quot;SKU&quot; or &quot;custom label&quot;) to be added to the discount.&lt;br&gt;&lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The request can have either &lt;b&gt;inventoryItems&lt;/b&gt; or &lt;b&gt;listingIds&lt;/b&gt;, but not both.&lt;/p&gt;&lt;br&gt;&lt;b&gt;Maximum:&lt;/b&gt; 2000 parent items &lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum SKU or custom label length:&lt;/b&gt; 50 characters &lt;br&gt;&lt;br&gt;&lt;i&gt;Required if&lt;/i&gt; &lt;b&gt;InventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_VALUE&lt;/code&gt;, you must specify either &lt;b&gt;inventoryItems&lt;/b&gt; or &lt;b&gt;listingIds&lt;/b&gt;.
      */
@@ -43,7 +43,7 @@ public class InventoryCriterion implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> listingIds;
     /**
-     * This type defines the fields for a set of inventory selection rules.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Required:&lt;/b&gt; When &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt; or &lt;code&gt;INVENTORY_ANY&lt;/code&gt;.
+     * This container defines a set of inventory selection rules for a discount.  &lt;br&gt;&lt;br&gt;When defining rule criteria, you must limit item exclusions to 100 IDs when you choose from live inventory.  &lt;br&gt;&lt;br&gt;Required if  &lt;b&gt;InventoryCriterionEnum&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt; or &lt;code&gt;INVENTORY_ANY&lt;/code&gt;.
      */
     private RuleCriteria ruleCriteria;
     /**
@@ -77,18 +77,18 @@ public class InventoryCriterion implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
-        deserializerMap.put("inventoryCriterionType", (n) -> { this.setInventoryCriterionType(n.getStringValue()); });
+        deserializerMap.put("inventoryCriterionType", (n) -> { this.setInventoryCriterionType(n.getEnumValue(InventoryCriterionEnum::forValue)); });
         deserializerMap.put("inventoryItems", (n) -> { this.setInventoryItems(n.getCollectionOfObjectValues(InventoryItem::createFromDiscriminatorValue)); });
         deserializerMap.put("listingIds", (n) -> { this.setListingIds(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("ruleCriteria", (n) -> { this.setRuleCriteria(n.getObjectValue(RuleCriteria::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the inventoryCriterionType property value. Indicates how the items to be discounted are selected. You can include inventory by ID, using rules, or globally include all your inventory.  For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:InventoryCriterionEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the inventoryCriterionType property value. Indicates how the items to be discounted are selected. You can include inventory by ID, using rules, or globally include all your inventory. 
+     * @return a {@link InventoryCriterionEnum}
      */
     @jakarta.annotation.Nullable
-    public String getInventoryCriterionType() {
+    public InventoryCriterionEnum getInventoryCriterionType() {
         return this.inventoryCriterionType;
     }
     /**
@@ -108,7 +108,7 @@ public class InventoryCriterion implements AdditionalDataHolder, Parsable {
         return this.listingIds;
     }
     /**
-     * Gets the ruleCriteria property value. This type defines the fields for a set of inventory selection rules.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Required:&lt;/b&gt; When &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt; or &lt;code&gt;INVENTORY_ANY&lt;/code&gt;.
+     * Gets the ruleCriteria property value. This container defines a set of inventory selection rules for a discount.  &lt;br&gt;&lt;br&gt;When defining rule criteria, you must limit item exclusions to 100 IDs when you choose from live inventory.  &lt;br&gt;&lt;br&gt;Required if  &lt;b&gt;InventoryCriterionEnum&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt; or &lt;code&gt;INVENTORY_ANY&lt;/code&gt;.
      * @return a {@link RuleCriteria}
      */
     @jakarta.annotation.Nullable
@@ -121,7 +121,7 @@ public class InventoryCriterion implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("inventoryCriterionType", this.getInventoryCriterionType());
+        writer.writeEnumValue("inventoryCriterionType", this.getInventoryCriterionType());
         writer.writeCollectionOfObjectValues("inventoryItems", this.getInventoryItems());
         writer.writeCollectionOfPrimitiveValues("listingIds", this.getListingIds());
         writer.writeObjectValue("ruleCriteria", this.getRuleCriteria());
@@ -135,10 +135,10 @@ public class InventoryCriterion implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the inventoryCriterionType property value. Indicates how the items to be discounted are selected. You can include inventory by ID, using rules, or globally include all your inventory.  For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:InventoryCriterionEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the inventoryCriterionType property value. Indicates how the items to be discounted are selected. You can include inventory by ID, using rules, or globally include all your inventory. 
      * @param value Value to set for the inventoryCriterionType property.
      */
-    public void setInventoryCriterionType(@jakarta.annotation.Nullable final String value) {
+    public void setInventoryCriterionType(@jakarta.annotation.Nullable final InventoryCriterionEnum value) {
         this.inventoryCriterionType = value;
     }
     /**
@@ -156,7 +156,7 @@ public class InventoryCriterion implements AdditionalDataHolder, Parsable {
         this.listingIds = value;
     }
     /**
-     * Sets the ruleCriteria property value. This type defines the fields for a set of inventory selection rules.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Required:&lt;/b&gt; When &lt;b&gt;inventoryCriterionType&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt; or &lt;code&gt;INVENTORY_ANY&lt;/code&gt;.
+     * Sets the ruleCriteria property value. This container defines a set of inventory selection rules for a discount.  &lt;br&gt;&lt;br&gt;When defining rule criteria, you must limit item exclusions to 100 IDs when you choose from live inventory.  &lt;br&gt;&lt;br&gt;Required if  &lt;b&gt;InventoryCriterionEnum&lt;/b&gt; is set to &lt;code&gt;INVENTORY_BY_RULE&lt;/code&gt; or &lt;code&gt;INVENTORY_ANY&lt;/code&gt;.
      * @param value Value to set for the ruleCriteria property.
      */
     public void setRuleCriteria(@jakarta.annotation.Nullable final RuleCriteria value) {

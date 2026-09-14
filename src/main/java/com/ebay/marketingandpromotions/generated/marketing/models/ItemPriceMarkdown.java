@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields used to describe an item price markdown discount.
+ * This type defines the fields that describe an item price markdown discount.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
@@ -51,25 +51,25 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
      */
     private String endDate;
     /**
-     * The eBay marketplace ID of the site where the markdown discount is hosted. Markdown discounts are supported on all eBay marketplaces. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The eBay marketplace ID of the site where the markdown discount is hosted. Markdown discounts are supported on all eBay marketplaces.
      */
-    private String marketplaceId;
+    private MarketplaceIdEnum marketplaceId;
     /**
      * The seller-defined name or &apos;title&apos; of the discount that the seller can use to identify a discount. This label is not displayed in end-user flows.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum length:&lt;/b&gt; 90
      */
     private String name;
     /**
-     * This field is ignored in markdown discounts. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionPriorityEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This field is ignored in markdown discounts.
      */
-    private String priority;
+    private PromotionPriorityEnum priority;
     /**
      * Required for CODED_COUPON, MARKDOWN_SALE, and ORDER_DISCOUNT discounts, populate this field with a URL that points to an image to be used with the discount. This image is displayed on the seller&apos;s &lt;b&gt;All Offers&lt;/b&gt; page. The URL must point to either JPEG or PNG image and it must be a minimum of 500x500 pixels in dimension and cannot exceed 12Mb in size.
      */
     private String promotionImageUrl;
     /**
-     * The current status of the discount. When creating a new discount, you must set this value to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;.  &lt;br&gt;&lt;br&gt;Note that you must set this value to &lt;code&gt;SCHEDULED&lt;/code&gt; when you update a &lt;b&gt;RUNNING&lt;/b&gt; discount. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The current status of the discount. When creating a new discount, you must set this value to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;.  &lt;br&gt;&lt;br&gt;Note that you must set this value to &lt;code&gt;SCHEDULED&lt;/code&gt; when you update a &lt;b&gt;RUNNING&lt;/b&gt; discount.
      */
-    private String promotionStatus;
+    private PromotionStatusEnum promotionStatus;
     /**
      * A list that defines the sets of selected items for the markdown discount.
      */
@@ -154,21 +154,21 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
         deserializerMap.put("blockPriceIncreaseInItemRevision", (n) -> { this.setBlockPriceIncreaseInItemRevision(n.getBooleanValue()); });
         deserializerMap.put("description", (n) -> { this.setDescription(n.getStringValue()); });
         deserializerMap.put("endDate", (n) -> { this.setEndDate(n.getStringValue()); });
-        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getStringValue()); });
+        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getEnumValue(MarketplaceIdEnum::forValue)); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
-        deserializerMap.put("priority", (n) -> { this.setPriority(n.getStringValue()); });
+        deserializerMap.put("priority", (n) -> { this.setPriority(n.getEnumValue(PromotionPriorityEnum::forValue)); });
         deserializerMap.put("promotionImageUrl", (n) -> { this.setPromotionImageUrl(n.getStringValue()); });
-        deserializerMap.put("promotionStatus", (n) -> { this.setPromotionStatus(n.getStringValue()); });
+        deserializerMap.put("promotionStatus", (n) -> { this.setPromotionStatus(n.getEnumValue(PromotionStatusEnum::forValue)); });
         deserializerMap.put("selectedInventoryDiscounts", (n) -> { this.setSelectedInventoryDiscounts(n.getCollectionOfObjectValues(SelectedInventoryDiscount::createFromDiscriminatorValue)); });
         deserializerMap.put("startDate", (n) -> { this.setStartDate(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the marketplaceId property value. The eBay marketplace ID of the site where the markdown discount is hosted. Markdown discounts are supported on all eBay marketplaces. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the marketplaceId property value. The eBay marketplace ID of the site where the markdown discount is hosted. Markdown discounts are supported on all eBay marketplaces.
+     * @return a {@link MarketplaceIdEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMarketplaceId() {
+    public MarketplaceIdEnum getMarketplaceId() {
         return this.marketplaceId;
     }
     /**
@@ -180,11 +180,11 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the priority property value. This field is ignored in markdown discounts. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionPriorityEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the priority property value. This field is ignored in markdown discounts.
+     * @return a {@link PromotionPriorityEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPriority() {
+    public PromotionPriorityEnum getPriority() {
         return this.priority;
     }
     /**
@@ -196,11 +196,11 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
         return this.promotionImageUrl;
     }
     /**
-     * Gets the promotionStatus property value. The current status of the discount. When creating a new discount, you must set this value to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;.  &lt;br&gt;&lt;br&gt;Note that you must set this value to &lt;code&gt;SCHEDULED&lt;/code&gt; when you update a &lt;b&gt;RUNNING&lt;/b&gt; discount. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the promotionStatus property value. The current status of the discount. When creating a new discount, you must set this value to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;.  &lt;br&gt;&lt;br&gt;Note that you must set this value to &lt;code&gt;SCHEDULED&lt;/code&gt; when you update a &lt;b&gt;RUNNING&lt;/b&gt; discount.
+     * @return a {@link PromotionStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPromotionStatus() {
+    public PromotionStatusEnum getPromotionStatus() {
         return this.promotionStatus;
     }
     /**
@@ -230,11 +230,11 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("blockPriceIncreaseInItemRevision", this.getBlockPriceIncreaseInItemRevision());
         writer.writeStringValue("description", this.getDescription());
         writer.writeStringValue("endDate", this.getEndDate());
-        writer.writeStringValue("marketplaceId", this.getMarketplaceId());
+        writer.writeEnumValue("marketplaceId", this.getMarketplaceId());
         writer.writeStringValue("name", this.getName());
-        writer.writeStringValue("priority", this.getPriority());
+        writer.writeEnumValue("priority", this.getPriority());
         writer.writeStringValue("promotionImageUrl", this.getPromotionImageUrl());
-        writer.writeStringValue("promotionStatus", this.getPromotionStatus());
+        writer.writeEnumValue("promotionStatus", this.getPromotionStatus());
         writer.writeCollectionOfObjectValues("selectedInventoryDiscounts", this.getSelectedInventoryDiscounts());
         writer.writeStringValue("startDate", this.getStartDate());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -282,10 +282,10 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
         this.endDate = value;
     }
     /**
-     * Sets the marketplaceId property value. The eBay marketplace ID of the site where the markdown discount is hosted. Markdown discounts are supported on all eBay marketplaces. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the marketplaceId property value. The eBay marketplace ID of the site where the markdown discount is hosted. Markdown discounts are supported on all eBay marketplaces.
      * @param value Value to set for the marketplaceId property.
      */
-    public void setMarketplaceId(@jakarta.annotation.Nullable final String value) {
+    public void setMarketplaceId(@jakarta.annotation.Nullable final MarketplaceIdEnum value) {
         this.marketplaceId = value;
     }
     /**
@@ -296,10 +296,10 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the priority property value. This field is ignored in markdown discounts. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionPriorityEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the priority property value. This field is ignored in markdown discounts.
      * @param value Value to set for the priority property.
      */
-    public void setPriority(@jakarta.annotation.Nullable final String value) {
+    public void setPriority(@jakarta.annotation.Nullable final PromotionPriorityEnum value) {
         this.priority = value;
     }
     /**
@@ -310,10 +310,10 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
         this.promotionImageUrl = value;
     }
     /**
-     * Sets the promotionStatus property value. The current status of the discount. When creating a new discount, you must set this value to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;.  &lt;br&gt;&lt;br&gt;Note that you must set this value to &lt;code&gt;SCHEDULED&lt;/code&gt; when you update a &lt;b&gt;RUNNING&lt;/b&gt; discount. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the promotionStatus property value. The current status of the discount. When creating a new discount, you must set this value to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;.  &lt;br&gt;&lt;br&gt;Note that you must set this value to &lt;code&gt;SCHEDULED&lt;/code&gt; when you update a &lt;b&gt;RUNNING&lt;/b&gt; discount.
      * @param value Value to set for the promotionStatus property.
      */
-    public void setPromotionStatus(@jakarta.annotation.Nullable final String value) {
+    public void setPromotionStatus(@jakarta.annotation.Nullable final PromotionStatusEnum value) {
         this.promotionStatus = value;
     }
     /**

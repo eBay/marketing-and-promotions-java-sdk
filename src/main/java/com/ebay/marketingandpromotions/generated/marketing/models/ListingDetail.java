@@ -31,7 +31,7 @@ public class ListingDetail implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The container that returns the current price of the listing.
      */
     private Amount currentPrice;
     /**
@@ -51,11 +51,11 @@ public class ListingDetail implements AdditionalDataHolder, Parsable {
      */
     private String listingCategoryId;
     /**
-     * An eBay-assigned value that indicates condition of the associated item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot;&gt;Item condition ID and name values&lt;/a&gt;.
+     * An eBay-assigned value that indicates condition of the associated item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot; target=&quot;_blank&quot;&gt;Item condition ID and name values&lt;/a&gt;.
      */
     private String listingCondition;
     /**
-     * The ID of the condition associated with the item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot;&gt;Item condition ID and name values&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; This value is not currently returned in the response.&lt;/span&gt;
+     * The ID of the condition associated with the item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot; target=&quot;_blank&quot;&gt;Item condition ID and name values&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; This value is not currently returned in the response.&lt;/span&gt;
      */
     private String listingConditionId;
     /**
@@ -103,7 +103,7 @@ public class ListingDetail implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the currentPrice property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the currentPrice property value. The container that returns the current price of the listing.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -164,7 +164,7 @@ public class ListingDetail implements AdditionalDataHolder, Parsable {
         return this.listingCategoryId;
     }
     /**
-     * Gets the listingCondition property value. An eBay-assigned value that indicates condition of the associated item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot;&gt;Item condition ID and name values&lt;/a&gt;.
+     * Gets the listingCondition property value. An eBay-assigned value that indicates condition of the associated item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot; target=&quot;_blank&quot;&gt;Item condition ID and name values&lt;/a&gt;.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -172,7 +172,7 @@ public class ListingDetail implements AdditionalDataHolder, Parsable {
         return this.listingCondition;
     }
     /**
-     * Gets the listingConditionId property value. The ID of the condition associated with the item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot;&gt;Item condition ID and name values&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; This value is not currently returned in the response.&lt;/span&gt;
+     * Gets the listingConditionId property value. The ID of the condition associated with the item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot; target=&quot;_blank&quot;&gt;Item condition ID and name values&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; This value is not currently returned in the response.&lt;/span&gt;
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -247,7 +247,7 @@ public class ListingDetail implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the currentPrice property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the currentPrice property value. The container that returns the current price of the listing.
      * @param value Value to set for the currentPrice property.
      */
     public void setCurrentPrice(@jakarta.annotation.Nullable final Amount value) {
@@ -282,14 +282,14 @@ public class ListingDetail implements AdditionalDataHolder, Parsable {
         this.listingCategoryId = value;
     }
     /**
-     * Sets the listingCondition property value. An eBay-assigned value that indicates condition of the associated item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot;&gt;Item condition ID and name values&lt;/a&gt;.
+     * Sets the listingCondition property value. An eBay-assigned value that indicates condition of the associated item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot; target=&quot;_blank&quot;&gt;Item condition ID and name values&lt;/a&gt;.
      * @param value Value to set for the listingCondition property.
      */
     public void setListingCondition(@jakarta.annotation.Nullable final String value) {
         this.listingCondition = value;
     }
     /**
-     * Sets the listingConditionId property value. The ID of the condition associated with the item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot;&gt;Item condition ID and name values&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; This value is not currently returned in the response.&lt;/span&gt;
+     * Sets the listingConditionId property value. The ID of the condition associated with the item. For more information, see &lt;a href=&quot;/api-docs/sell/static/metadata/condition-id-values.html&quot; target=&quot;_blank&quot;&gt;Item condition ID and name values&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; This value is not currently returned in the response.&lt;/span&gt;
      * @param value Value to set for the listingConditionId property.
      */
     public void setListingConditionId(@jakarta.annotation.Nullable final String value) {

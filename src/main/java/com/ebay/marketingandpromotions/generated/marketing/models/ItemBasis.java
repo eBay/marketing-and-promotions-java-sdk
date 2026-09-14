@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A container for details regarding the basis for an item.
+ * This type defines the details regarding the basis for an item.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ItemBasis implements AdditionalDataHolder, Parsable {
@@ -35,9 +35,9 @@ public class ItemBasis implements AdditionalDataHolder, Parsable {
      */
     private Integer estimatedValue;
     /**
-     * The basis of the statistics. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:TargetingMetricsEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The basis of the statistics.
      */
-    private String metric;
+    private TargetingMetricsEnum metric;
     /**
      * Instantiates a new {@link ItemBasis} and sets the default values.
      */
@@ -78,15 +78,15 @@ public class ItemBasis implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("estimatedValue", (n) -> { this.setEstimatedValue(n.getIntegerValue()); });
-        deserializerMap.put("metric", (n) -> { this.setMetric(n.getStringValue()); });
+        deserializerMap.put("metric", (n) -> { this.setMetric(n.getEnumValue(TargetingMetricsEnum::forValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the metric property value. The basis of the statistics. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:TargetingMetricsEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the metric property value. The basis of the statistics.
+     * @return a {@link TargetingMetricsEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMetric() {
+    public TargetingMetricsEnum getMetric() {
         return this.metric;
     }
     /**
@@ -96,7 +96,7 @@ public class ItemBasis implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeIntegerValue("estimatedValue", this.getEstimatedValue());
-        writer.writeStringValue("metric", this.getMetric());
+        writer.writeEnumValue("metric", this.getMetric());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -114,10 +114,10 @@ public class ItemBasis implements AdditionalDataHolder, Parsable {
         this.estimatedValue = value;
     }
     /**
-     * Sets the metric property value. The basis of the statistics. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:TargetingMetricsEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the metric property value. The basis of the statistics.
      * @param value Value to set for the metric property.
      */
-    public void setMetric(@jakarta.annotation.Nullable final String value) {
+    public void setMetric(@jakarta.annotation.Nullable final TargetingMetricsEnum value) {
         this.metric = value;
     }
 }

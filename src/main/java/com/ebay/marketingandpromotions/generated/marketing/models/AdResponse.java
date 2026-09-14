@@ -41,7 +41,7 @@ public class AdResponse implements AdditionalDataHolder, Parsable {
     /**
      * An array of errors associated with the request.
      */
-    private java.util.List<Error> errors;
+    private java.util.List<ErrorDetailV3> errors;
     /**
      * The getAd URI that points to the ad.&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt;This field is only returned when an ad is successfully created for the corresponding listing.&lt;/span&gt;
      */
@@ -96,10 +96,10 @@ public class AdResponse implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the errors property value. An array of errors associated with the request.
-     * @return a {@link java.util.List<Error>}
+     * @return a {@link java.util.List<ErrorDetailV3>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<Error> getErrors() {
+    public java.util.List<ErrorDetailV3> getErrors() {
         return this.errors;
     }
     /**
@@ -111,7 +111,7 @@ public class AdResponse implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("adGroupId", (n) -> { this.setAdGroupId(n.getStringValue()); });
         deserializerMap.put("adId", (n) -> { this.setAdId(n.getStringValue()); });
-        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(Error::createFromDiscriminatorValue)); });
+        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(ErrorDetailV3::createFromDiscriminatorValue)); });
         deserializerMap.put("href", (n) -> { this.setHref(n.getStringValue()); });
         deserializerMap.put("listingId", (n) -> { this.setListingId(n.getStringValue()); });
         deserializerMap.put("statusCode", (n) -> { this.setStatusCode(n.getIntegerValue()); });
@@ -180,7 +180,7 @@ public class AdResponse implements AdditionalDataHolder, Parsable {
      * Sets the errors property value. An array of errors associated with the request.
      * @param value Value to set for the errors property.
      */
-    public void setErrors(@jakarta.annotation.Nullable final java.util.List<Error> value) {
+    public void setErrors(@jakarta.annotation.Nullable final java.util.List<ErrorDetailV3> value) {
         this.errors = value;
     }
     /**

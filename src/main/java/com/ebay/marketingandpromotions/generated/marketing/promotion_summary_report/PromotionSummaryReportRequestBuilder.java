@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.promotion_summary_report;
 
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.SummaryReportResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -50,25 +51,35 @@ public class PromotionSummaryReportRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/promotion_summary_report?marketplace_id={marketplace_id}", rawUrl);
     }
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot; target=&quot;_blank&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
      * @return a {@link SummaryReportResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public SummaryReportResponse get() {
         return get(null);
     }
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot; target=&quot;_blank&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SummaryReportResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public SummaryReportResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, SummaryReportResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, SummaryReportResponse::createFromDiscriminatorValue);
     }
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot; target=&quot;_blank&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -76,7 +87,7 @@ public class PromotionSummaryReportRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot; target=&quot;_blank&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -98,12 +109,12 @@ public class PromotionSummaryReportRequestBuilder extends BaseRequestBuilder {
         return new PromotionSummaryReportRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that summarizes the seller&apos;s discounts for the specified eBay marketplace. The report returns information on &lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, and &lt;code&gt;ENDED&lt;/code&gt; discounts (deleted reports are not returned) and summarizes the seller&apos;s campaign performance for all discounts on a given site.  &lt;br&gt;&lt;br&gt;For information about summary reports, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-report.html&quot; target=&quot;_blank&quot;&gt;Reading the item discount Summary report&lt;/a&gt;.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
         /**
-         * This parameter specifies the eBay marketplace ID of the site for which you want a discount summary report.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for supported Marketplace ID values.
+         * This parameter specifies the eBay marketplace ID of the site for which you want a discount summary report.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;Marketplace ID values&lt;/a&gt; for supported Marketplace ID values.
          */
         @jakarta.annotation.Nullable
         public String marketplaceId;

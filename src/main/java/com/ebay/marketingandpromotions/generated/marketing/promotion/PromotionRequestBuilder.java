@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.promotion;
 
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.PromotionsPagedCollection;
 import com.ebay.marketingandpromotions.generated.marketing.promotion.item.WithPromotionItemRequestBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -36,7 +37,7 @@ import java.util.Objects;
 public class PromotionRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the com.ebay.marketingandpromotions.generated.marketing.promotion.item collection
-     * @param promotion_id This path parameter takes a concatenation of the ID of the discount associated with the listing set plus the marketplace ID on which the discount is hosted. Concatenate the two values by separating them with an &quot;at sign&quot; (&lt;b&gt;@&lt;/b&gt;). &lt;br&gt;&lt;br&gt;The ID of the discount (&lt;b&gt;promotionId&lt;/b&gt;) is a unique eBay-assigned value that&apos;s generated when the discount is created. The Marketplace ID is the ENUM value of eBay marketplace where the discount is hosted.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/promotion/methods/getPromotions&quot;&gt;getPromotions&lt;/a&gt; method to retrieve promotion Ids. See &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for supported Marketplace ID values.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;1********5@EBAY_US&lt;/code&gt;
+     * @param promotion_id This path parameter takes a concatenation of the ID of the discount associated with the listing set plus the marketplace ID on which the discount is hosted. Concatenate the two values by separating them with an &quot;at sign&quot; (&lt;b&gt;@&lt;/b&gt;). &lt;br&gt;&lt;br&gt;The ID of the discount (&lt;b&gt;promotionId&lt;/b&gt;) is a unique eBay-assigned value that&apos;s generated when the discount is created. The Marketplace ID is the ENUM value of eBay marketplace where the discount is hosted.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions&quot;&gt;getPromotions&lt;/a&gt; method to retrieve promotion Ids. See &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;Marketplace ID values&lt;/a&gt; for supported Marketplace ID values.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;1********5@EBAY_US&lt;/code&gt;
      * @return a {@link WithPromotionItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
@@ -65,6 +66,8 @@ public class PromotionRequestBuilder extends BaseRequestBuilder {
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method returns a list of a seller&apos;s undeleted discounts. &lt;p&gt;The call returns up to 200 currently-available discounts on the specified marketplace. While the response body does not include the discount&apos;s &lt;b&gt;discountRules&lt;/b&gt; or &lt;b&gt;inventoryCriterion&lt;/b&gt; containers, it does include the &lt;b&gt;promotionHref&lt;/b&gt; (which you can use to retrieve the complete details of the discount).&lt;/p&gt;  &lt;p&gt;Use query parameters to sort and filter the results by the number of discounts to return, the discount state or type, and the eBay marketplace. You can also supply keywords to limit the response to the discounts that contain that keywords in the title of the discount.&lt;/p&gt; &lt;p&gt;&lt;b&gt;Maximum returned:&lt;/b&gt; 200&lt;/p&gt;
      * @return a {@link PromotionsPagedCollection}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public PromotionsPagedCollection get() {
@@ -74,11 +77,16 @@ public class PromotionRequestBuilder extends BaseRequestBuilder {
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method returns a list of a seller&apos;s undeleted discounts. &lt;p&gt;The call returns up to 200 currently-available discounts on the specified marketplace. While the response body does not include the discount&apos;s &lt;b&gt;discountRules&lt;/b&gt; or &lt;b&gt;inventoryCriterion&lt;/b&gt; containers, it does include the &lt;b&gt;promotionHref&lt;/b&gt; (which you can use to retrieve the complete details of the discount).&lt;/p&gt;  &lt;p&gt;Use query parameters to sort and filter the results by the number of discounts to return, the discount state or type, and the eBay marketplace. You can also supply keywords to limit the response to the discounts that contain that keywords in the title of the discount.&lt;/p&gt; &lt;p&gt;&lt;b&gt;Maximum returned:&lt;/b&gt; 200&lt;/p&gt;
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PromotionsPagedCollection}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public PromotionsPagedCollection get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, PromotionsPagedCollection::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, PromotionsPagedCollection::createFromDiscriminatorValue);
     }
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method returns a list of a seller&apos;s undeleted discounts. &lt;p&gt;The call returns up to 200 currently-available discounts on the specified marketplace. While the response body does not include the discount&apos;s &lt;b&gt;discountRules&lt;/b&gt; or &lt;b&gt;inventoryCriterion&lt;/b&gt; containers, it does include the &lt;b&gt;promotionHref&lt;/b&gt; (which you can use to retrieve the complete details of the discount).&lt;/p&gt;  &lt;p&gt;Use query parameters to sort and filter the results by the number of discounts to return, the discount state or type, and the eBay marketplace. You can also supply keywords to limit the response to the discounts that contain that keywords in the title of the discount.&lt;/p&gt; &lt;p&gt;&lt;b&gt;Maximum returned:&lt;/b&gt; 200&lt;/p&gt;
@@ -121,7 +129,7 @@ public class PromotionRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String limit;
         /**
-         * This parameter specifies eBay marketplace ID of the site where the discount is hosted.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for supported Marketplace ID values.
+         * This parameter specifies eBay marketplace ID of the site where the discount is hosted.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;Marketplace ID values&lt;/a&gt; for supported Marketplace ID values.
          */
         @jakarta.annotation.Nullable
         public String marketplaceId;
@@ -131,12 +139,12 @@ public class PromotionRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String offset;
         /**
-         * This parameter specifies the discount state by which you want to filter the results. The response contains only those discounts that match the state you specify. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/sme:PromotionStatusEnum&quot; target=&quot;_blank&quot;&gt;PromotionStatusEnum&lt;/a&gt; for supported values.&lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum number of input values:&lt;/b&gt; 1
+         * This parameter specifies the discount state by which you want to filter the results. The response contains only those discounts that match the state you specify. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions.promotionstatusenum&quot;&gt;PromotionStatusEnum&lt;/a&gt; for supported values.&lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum number of input values:&lt;/b&gt; 1
          */
         @jakarta.annotation.Nullable
         public String promotionStatus;
         /**
-         * This parameter specifies the campaign discounts type by which you want to filter the results.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/sme:PromotionTypeEnum&quot; target=&quot;_blank&quot;&gt;PromotionTypeEnum&lt;/a&gt; for supported values.
+         * This parameter specifies the campaign discounts type by which you want to filter the results.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions.promotiontypeenum&quot;&gt;PromotionTypeEnum&lt;/a&gt; for supported values.
          */
         @jakarta.annotation.Nullable
         public String promotionType;
@@ -146,7 +154,7 @@ public class PromotionRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String q;
         /**
-         * Specifies the order for how to sort the response. If you precede the supplied value with a dash, the response is sorted in reverse order.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;code&gt;sort=END_DATE&lt;/code&gt; &amp;nbsp; Sorts the discounts in the response by their end dates in ascending order &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;code&gt;sort=-PROMOTION_NAME&lt;/code&gt; &amp;nbsp; Sorts the discounts by their name in descending alphabetical order (Z-Az-a)  &lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;START_DATE&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;END_DATE&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;PROMOTION_NAME&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to eBay API documentation at https://developer.ebay.com/api-docs/sell/marketing/types/csb:SortField
+         * Specifies the order for how to sort the response. If you precede the supplied value with a dash, the response is sorted in reverse order.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;code&gt;sort=END_DATE&lt;/code&gt; &amp;nbsp; Sorts the discounts in the response by their end dates in ascending order &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;code&gt;sort=-PROMOTION_NAME&lt;/code&gt; &amp;nbsp; Sorts the discounts by their name in descending alphabetical order (Z-Az-a)  &lt;br&gt;&lt;br&gt;&lt;b&gt;Valid values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;START_DATE&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;END_DATE&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;PROMOTION_NAME&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
          */
         @jakarta.annotation.Nullable
         public String sort;

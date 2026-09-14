@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that contains the aspect fields.
+ * The aspect information of the alert including keys and values.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class Aspect implements AdditionalDataHolder, Parsable {
@@ -31,9 +31,9 @@ public class Aspect implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The type of the aspect. For example, &lt;code&gt;MINIMUM_REQUIRED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AspectKeyEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The type of the aspect. For example, &lt;code&gt;MINIMUM_REQUIRED&lt;/code&gt;.
      */
-    private String key;
+    private AspectKeyEnum key;
     /**
      * The value of the aspect. For example, if the aspect is a percentage, a value of &apos;2.0&apos; would equal 2%.
      */
@@ -69,16 +69,16 @@ public class Aspect implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("key", (n) -> { this.setKey(n.getStringValue()); });
+        deserializerMap.put("key", (n) -> { this.setKey(n.getEnumValue(AspectKeyEnum::forValue)); });
         deserializerMap.put("value", (n) -> { this.setValue(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the key property value. The type of the aspect. For example, &lt;code&gt;MINIMUM_REQUIRED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AspectKeyEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the key property value. The type of the aspect. For example, &lt;code&gt;MINIMUM_REQUIRED&lt;/code&gt;.
+     * @return a {@link AspectKeyEnum}
      */
     @jakarta.annotation.Nullable
-    public String getKey() {
+    public AspectKeyEnum getKey() {
         return this.key;
     }
     /**
@@ -95,7 +95,7 @@ public class Aspect implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("key", this.getKey());
+        writer.writeEnumValue("key", this.getKey());
         writer.writeStringValue("value", this.getValue());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -107,10 +107,10 @@ public class Aspect implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the key property value. The type of the aspect. For example, &lt;code&gt;MINIMUM_REQUIRED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AspectKeyEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the key property value. The type of the aspect. For example, &lt;code&gt;MINIMUM_REQUIRED&lt;/code&gt;.
      * @param value Value to set for the key property.
      */
-    public void setKey(@jakarta.annotation.Nullable final String value) {
+    public void setKey(@jakarta.annotation.Nullable final AspectKeyEnum value) {
         this.key = value;
     }
     /**

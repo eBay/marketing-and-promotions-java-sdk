@@ -21,6 +21,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * The maximum amount for which the eBay suggested bid can be adjusted. This value represents the most a seller is willing to pay for each click on their ad. The adjusted bid will never exceed this amount.&lt;br&gt;&lt;br&gt;This field is required for smart targeting campaigns.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The maximum cost-per-click has a minimum value of 0.02 and a maximum value of 100.&lt;/span&gt;
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class MaxCpc implements AdditionalDataHolder, Parsable {
     /**
@@ -28,7 +31,7 @@ public class MaxCpc implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The allocated maximum CPC amount for a smart targeting campaign.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;currency&lt;/b&gt; and &lt;b&gt;amount&lt;/b&gt; must be specified when allocating the Max CPC.
      */
     private Amount amount;
     /**
@@ -56,7 +59,7 @@ public class MaxCpc implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the amount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the amount property value. The allocated maximum CPC amount for a smart targeting campaign.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;currency&lt;/b&gt; and &lt;b&gt;amount&lt;/b&gt; must be specified when allocating the Max CPC.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -90,7 +93,7 @@ public class MaxCpc implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the amount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the amount property value. The allocated maximum CPC amount for a smart targeting campaign.&lt;br&gt;&lt;br&gt;Both the &lt;b&gt;currency&lt;/b&gt; and &lt;b&gt;amount&lt;/b&gt; must be specified when allocating the Max CPC.
      * @param value Value to set for the amount property.
      */
     public void setAmount(@jakarta.annotation.Nullable final Amount value) {

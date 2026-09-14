@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that defines the fields used by the &lt;b&gt;Keyword&lt;/b&gt; method.
+ * A type that defines the fields used by the &lt;b&gt;keyword&lt;/b&gt; requests.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class KeywordRequest implements AdditionalDataHolder, Parsable {
@@ -31,13 +31,13 @@ public class KeywordRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The text of the keyword. Keywords are not case sensitive and compound words can be used without additional encoding (for example, tennis ball).&lt;br&gt;&lt;br&gt;You can use the &lt;a href=&quot;/api-docs/sell/marketing/resources/keyword/methods/getKeywords&quot;&gt;getKeywords&lt;/a&gt; method to retrieve keyword values currently associated with the specified ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of characters: &lt;/b&gt;100 &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of words: &lt;/b&gt;10 
+     * The text of the keyword. Keywords are not case sensitive and compound words can be used without additional encoding (for example, tennis ball).&lt;br&gt;&lt;br&gt;You can use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeywords&quot;&gt;getKeywords&lt;/a&gt; method to retrieve keyword values currently associated with the specified ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of characters: &lt;/b&gt;100 &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of words: &lt;/b&gt;10 
      */
     private String keywordText;
     /**
-     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String matchType;
+    private MatchTypeEnum matchType;
     /**
      * Instantiates a new {@link KeywordRequest} and sets the default values.
      */
@@ -70,11 +70,11 @@ public class KeywordRequest implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("keywordText", (n) -> { this.setKeywordText(n.getStringValue()); });
-        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getStringValue()); });
+        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getEnumValue(MatchTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the keywordText property value. The text of the keyword. Keywords are not case sensitive and compound words can be used without additional encoding (for example, tennis ball).&lt;br&gt;&lt;br&gt;You can use the &lt;a href=&quot;/api-docs/sell/marketing/resources/keyword/methods/getKeywords&quot;&gt;getKeywords&lt;/a&gt; method to retrieve keyword values currently associated with the specified ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of characters: &lt;/b&gt;100 &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of words: &lt;/b&gt;10 
+     * Gets the keywordText property value. The text of the keyword. Keywords are not case sensitive and compound words can be used without additional encoding (for example, tennis ball).&lt;br&gt;&lt;br&gt;You can use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeywords&quot;&gt;getKeywords&lt;/a&gt; method to retrieve keyword values currently associated with the specified ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of characters: &lt;/b&gt;100 &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of words: &lt;/b&gt;10 
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -82,11 +82,11 @@ public class KeywordRequest implements AdditionalDataHolder, Parsable {
         return this.keywordText;
     }
     /**
-     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link MatchTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMatchType() {
+    public MatchTypeEnum getMatchType() {
         return this.matchType;
     }
     /**
@@ -96,7 +96,7 @@ public class KeywordRequest implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("keywordText", this.getKeywordText());
-        writer.writeStringValue("matchType", this.getMatchType());
+        writer.writeEnumValue("matchType", this.getMatchType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -107,17 +107,17 @@ public class KeywordRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the keywordText property value. The text of the keyword. Keywords are not case sensitive and compound words can be used without additional encoding (for example, tennis ball).&lt;br&gt;&lt;br&gt;You can use the &lt;a href=&quot;/api-docs/sell/marketing/resources/keyword/methods/getKeywords&quot;&gt;getKeywords&lt;/a&gt; method to retrieve keyword values currently associated with the specified ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of characters: &lt;/b&gt;100 &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of words: &lt;/b&gt;10 
+     * Sets the keywordText property value. The text of the keyword. Keywords are not case sensitive and compound words can be used without additional encoding (for example, tennis ball).&lt;br&gt;&lt;br&gt;You can use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeywords&quot;&gt;getKeywords&lt;/a&gt; method to retrieve keyword values currently associated with the specified ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of characters: &lt;/b&gt;100 &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Maximum number of words: &lt;/b&gt;10 
      * @param value Value to set for the keywordText property.
      */
     public void setKeywordText(@jakarta.annotation.Nullable final String value) {
         this.keywordText = value;
     }
     /**
-     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the matchType property.
      */
-    public void setMatchType(@jakarta.annotation.Nullable final String value) {
+    public void setMatchType(@jakarta.annotation.Nullable final MatchTypeEnum value) {
         this.matchType = value;
     }
 }

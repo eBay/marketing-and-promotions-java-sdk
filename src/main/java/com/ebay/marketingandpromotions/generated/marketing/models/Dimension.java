@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the annotation and dimension key used by the report. For information on how to set these values, see &lt;a href=&quot;/api-docs/sell/static/marketing/pl-reports.html&quot;&gt;Promoted Listings reporting&lt;/a&gt;.
+ * This type defines the annotation and dimension key used by the report. For information on how to set these values, see &lt;a href=&quot;/api-docs/sell/static/marketing/pl-reports.html&quot; target=&quot;_blank&quot;&gt;Promoted Listings reporting&lt;/a&gt;.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class Dimension implements AdditionalDataHolder, Parsable {

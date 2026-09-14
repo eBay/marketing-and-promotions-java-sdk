@@ -41,15 +41,15 @@ public class CreateAdsByInventoryReferenceResponse implements AdditionalDataHold
     /**
      * An array of errors or warnings associated with the create-ads request.
      */
-    private java.util.List<Error> errors;
+    private java.util.List<ErrorDetailV3> errors;
     /**
-     * An ID that identifies a single-item listing or multiple-variation listing that is managed with the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; title=&quot;Inventory API Reference&quot;&gt;Inventory API&lt;/a&gt;. &lt;p&gt;The &lt;i&gt;inventory reference ID&lt;/i&gt; is a seller-defined value that can be either an &lt;b&gt;SKU&lt;/b&gt; for a single-item listing or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; for a multiple-value listing.&lt;/p&gt;
+     * An ID that identifies a single-item listing or multiple-variation listing that is managed with the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; title=&quot;Inventory API Reference&quot; target=&quot;_blank&quot;&gt;Inventory API&lt;/a&gt;. &lt;p&gt;The &lt;i&gt;inventory reference ID&lt;/i&gt; is a seller-defined value that can be either an &lt;b&gt;SKU&lt;/b&gt; for a single-item listing or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; for a multiple-value listing.&lt;/p&gt;
      */
     private String inventoryReferenceId;
     /**
-     * Indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references. The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references. The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.
      */
-    private String inventoryReferenceType;
+    private InventoryReferenceTypeEnum inventoryReferenceType;
     /**
      * An HTTP status code that indicates the response-status of the request. Check this code to see if the ads were successfully created.
      */
@@ -96,10 +96,10 @@ public class CreateAdsByInventoryReferenceResponse implements AdditionalDataHold
     }
     /**
      * Gets the errors property value. An array of errors or warnings associated with the create-ads request.
-     * @return a {@link java.util.List<Error>}
+     * @return a {@link java.util.List<ErrorDetailV3>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<Error> getErrors() {
+    public java.util.List<ErrorDetailV3> getErrors() {
         return this.errors;
     }
     /**
@@ -111,14 +111,14 @@ public class CreateAdsByInventoryReferenceResponse implements AdditionalDataHold
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
         deserializerMap.put("adGroupId", (n) -> { this.setAdGroupId(n.getStringValue()); });
         deserializerMap.put("ads", (n) -> { this.setAds(n.getCollectionOfObjectValues(AdReference::createFromDiscriminatorValue)); });
-        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(Error::createFromDiscriminatorValue)); });
+        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(ErrorDetailV3::createFromDiscriminatorValue)); });
         deserializerMap.put("inventoryReferenceId", (n) -> { this.setInventoryReferenceId(n.getStringValue()); });
-        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getStringValue()); });
+        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getEnumValue(InventoryReferenceTypeEnum::forValue)); });
         deserializerMap.put("statusCode", (n) -> { this.setStatusCode(n.getIntegerValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the inventoryReferenceId property value. An ID that identifies a single-item listing or multiple-variation listing that is managed with the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; title=&quot;Inventory API Reference&quot;&gt;Inventory API&lt;/a&gt;. &lt;p&gt;The &lt;i&gt;inventory reference ID&lt;/i&gt; is a seller-defined value that can be either an &lt;b&gt;SKU&lt;/b&gt; for a single-item listing or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; for a multiple-value listing.&lt;/p&gt;
+     * Gets the inventoryReferenceId property value. An ID that identifies a single-item listing or multiple-variation listing that is managed with the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; title=&quot;Inventory API Reference&quot; target=&quot;_blank&quot;&gt;Inventory API&lt;/a&gt;. &lt;p&gt;The &lt;i&gt;inventory reference ID&lt;/i&gt; is a seller-defined value that can be either an &lt;b&gt;SKU&lt;/b&gt; for a single-item listing or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; for a multiple-value listing.&lt;/p&gt;
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -126,11 +126,11 @@ public class CreateAdsByInventoryReferenceResponse implements AdditionalDataHold
         return this.inventoryReferenceId;
     }
     /**
-     * Gets the inventoryReferenceType property value. Indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references. The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the inventoryReferenceType property value. Indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references. The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.
+     * @return a {@link InventoryReferenceTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getInventoryReferenceType() {
+    public InventoryReferenceTypeEnum getInventoryReferenceType() {
         return this.inventoryReferenceType;
     }
     /**
@@ -151,7 +151,7 @@ public class CreateAdsByInventoryReferenceResponse implements AdditionalDataHold
         writer.writeCollectionOfObjectValues("ads", this.getAds());
         writer.writeCollectionOfObjectValues("errors", this.getErrors());
         writer.writeStringValue("inventoryReferenceId", this.getInventoryReferenceId());
-        writer.writeStringValue("inventoryReferenceType", this.getInventoryReferenceType());
+        writer.writeEnumValue("inventoryReferenceType", this.getInventoryReferenceType());
         writer.writeIntegerValue("statusCode", this.getStatusCode());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -180,21 +180,21 @@ public class CreateAdsByInventoryReferenceResponse implements AdditionalDataHold
      * Sets the errors property value. An array of errors or warnings associated with the create-ads request.
      * @param value Value to set for the errors property.
      */
-    public void setErrors(@jakarta.annotation.Nullable final java.util.List<Error> value) {
+    public void setErrors(@jakarta.annotation.Nullable final java.util.List<ErrorDetailV3> value) {
         this.errors = value;
     }
     /**
-     * Sets the inventoryReferenceId property value. An ID that identifies a single-item listing or multiple-variation listing that is managed with the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; title=&quot;Inventory API Reference&quot;&gt;Inventory API&lt;/a&gt;. &lt;p&gt;The &lt;i&gt;inventory reference ID&lt;/i&gt; is a seller-defined value that can be either an &lt;b&gt;SKU&lt;/b&gt; for a single-item listing or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; for a multiple-value listing.&lt;/p&gt;
+     * Sets the inventoryReferenceId property value. An ID that identifies a single-item listing or multiple-variation listing that is managed with the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; title=&quot;Inventory API Reference&quot; target=&quot;_blank&quot;&gt;Inventory API&lt;/a&gt;. &lt;p&gt;The &lt;i&gt;inventory reference ID&lt;/i&gt; is a seller-defined value that can be either an &lt;b&gt;SKU&lt;/b&gt; for a single-item listing or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; for a multiple-value listing.&lt;/p&gt;
      * @param value Value to set for the inventoryReferenceId property.
      */
     public void setInventoryReferenceId(@jakarta.annotation.Nullable final String value) {
         this.inventoryReferenceId = value;
     }
     /**
-     * Sets the inventoryReferenceType property value. Indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references. The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the inventoryReferenceType property value. Indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references. The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.
      * @param value Value to set for the inventoryReferenceType property.
      */
-    public void setInventoryReferenceType(@jakarta.annotation.Nullable final String value) {
+    public void setInventoryReferenceType(@jakarta.annotation.Nullable final InventoryReferenceTypeEnum value) {
         this.inventoryReferenceType = value;
     }
     /**

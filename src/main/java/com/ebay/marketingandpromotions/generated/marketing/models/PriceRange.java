@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The price range.
+ * This container is used if the seller wants to apply the email campaign to listings based on a price range.&lt;br&gt;&lt;br&gt;The &lt;b&gt;priceRange&lt;/b&gt; container consists of the &lt;b&gt;currency&lt;/b&gt;, &lt;b&gt;gte&lt;/b&gt;, and &lt;b&gt;lte&lt;/b&gt; fields.&lt;br&gt;&lt;br&gt; &quot;gte&quot; stands for &quot;greater than or equal to&quot; and &quot;lte&quot; stands for &quot;less than or equal to&quot;. Either &lt;b&gt;gte&lt;/b&gt;, &lt;b&gt;lte&lt;/b&gt;, or both must be used.&lt;br&gt;&lt;br&gt;&lt;b&gt;currency&lt;/b&gt; is a required field if including a price range. One of the three-digit currency codes from &lt;b&gt;CurrencyCodeEnum&lt;/b&gt; must be specified.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Use this object when the &lt;b&gt;itemSelectMode&lt;/b&gt; is set to &lt;code&gt;AUTO&lt;/code&gt;.&lt;/span&gt;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class PriceRange implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class PriceRange implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Specifies the currency of the listings in an email campaign using one of the three-digit codes of the &lt;a href=&quot;/api-docs/sell/marketing/types/ba:CurrencyCodeEnum&quot; target=&quot;_blank&quot;&gt;CurrencyCodeEnum&lt;/a&gt; type.
+     * Specifies the currency of the listings in an email campaign using one of the three-digit codes of the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailreport.currencycodeenum&quot;&gt;CurrencyCodeEnum&lt;/a&gt; type.
      */
     private String currency;
     /**
@@ -67,7 +67,7 @@ public class PriceRange implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the currency property value. Specifies the currency of the listings in an email campaign using one of the three-digit codes of the &lt;a href=&quot;/api-docs/sell/marketing/types/ba:CurrencyCodeEnum&quot; target=&quot;_blank&quot;&gt;CurrencyCodeEnum&lt;/a&gt; type.
+     * Gets the currency property value. Specifies the currency of the listings in an email campaign using one of the three-digit codes of the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailreport.currencycodeenum&quot;&gt;CurrencyCodeEnum&lt;/a&gt; type.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -121,7 +121,7 @@ public class PriceRange implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the currency property value. Specifies the currency of the listings in an email campaign using one of the three-digit codes of the &lt;a href=&quot;/api-docs/sell/marketing/types/ba:CurrencyCodeEnum&quot; target=&quot;_blank&quot;&gt;CurrencyCodeEnum&lt;/a&gt; type.
+     * Sets the currency property value. Specifies the currency of the listings in an email campaign using one of the three-digit codes of the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailreport.currencycodeenum&quot;&gt;CurrencyCodeEnum&lt;/a&gt; type.
      * @param value Value to set for the currency property.
      */
     public void setCurrency(@jakarta.annotation.Nullable final String value) {

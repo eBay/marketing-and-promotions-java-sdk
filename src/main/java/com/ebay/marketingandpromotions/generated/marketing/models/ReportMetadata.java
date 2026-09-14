@@ -31,9 +31,9 @@ public class ReportMetadata implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This field indicates whether a COST_PER_CLICK report type is related to an ON_SITE or OFF_SITE Promoted Listings campaign. This field is not returned for COST_PER_SALE report types since COST_PER_SALE campaigns are only available ON_SITE. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:ChannelEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This field indicates whether a &lt;code&gt;COST_PER_CLICK&lt;/code&gt; report type is related to an &lt;code&gt;ON_SITE&lt;/code&gt; or &lt;code&gt;OFF_SITE&lt;/code&gt; Promoted Listings campaign. This field is not returned for &lt;code&gt;COST_PER_SALE&lt;/code&gt; report types since &lt;code&gt;COST_PER_SALE&lt;/code&gt; campaigns are only available &lt;code&gt;ON_SITE&lt;/code&gt;.
      */
-    private String channel;
+    private ChannelEnum channel;
     /**
      * A list containing the metadata for the dimension used in the report.
      */
@@ -51,9 +51,9 @@ public class ReportMetadata implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<MetricMetadata> metricMetadata;
     /**
-     * The &lt;b&gt;report_type&lt;/b&gt;, as specified in the request to create the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; INVENTORY_PERFORMANCE_REPORT is not currently available; availability date is pending.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:ReportTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The &lt;b&gt;report_type&lt;/b&gt;, as specified in the request to create the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; INVENTORY_PERFORMANCE_REPORT is not currently available; availability date is pending.&lt;/span&gt;
      */
-    private String reportType;
+    private ReportTypeEnum reportType;
     /**
      * Instantiates a new {@link ReportMetadata} and sets the default values.
      */
@@ -79,11 +79,11 @@ public class ReportMetadata implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the channel property value. This field indicates whether a COST_PER_CLICK report type is related to an ON_SITE or OFF_SITE Promoted Listings campaign. This field is not returned for COST_PER_SALE report types since COST_PER_SALE campaigns are only available ON_SITE. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:ChannelEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the channel property value. This field indicates whether a &lt;code&gt;COST_PER_CLICK&lt;/code&gt; report type is related to an &lt;code&gt;ON_SITE&lt;/code&gt; or &lt;code&gt;OFF_SITE&lt;/code&gt; Promoted Listings campaign. This field is not returned for &lt;code&gt;COST_PER_SALE&lt;/code&gt; report types since &lt;code&gt;COST_PER_SALE&lt;/code&gt; campaigns are only available &lt;code&gt;ON_SITE&lt;/code&gt;.
+     * @return a {@link ChannelEnum}
      */
     @jakarta.annotation.Nullable
-    public String getChannel() {
+    public ChannelEnum getChannel() {
         return this.channel;
     }
     /**
@@ -101,12 +101,12 @@ public class ReportMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(6);
-        deserializerMap.put("channel", (n) -> { this.setChannel(n.getStringValue()); });
+        deserializerMap.put("channel", (n) -> { this.setChannel(n.getEnumValue(ChannelEnum::forValue)); });
         deserializerMap.put("dimensionMetadata", (n) -> { this.setDimensionMetadata(n.getCollectionOfObjectValues(DimensionMetadata::createFromDiscriminatorValue)); });
         deserializerMap.put("maxNumberOfDimensionsToRequest", (n) -> { this.setMaxNumberOfDimensionsToRequest(n.getIntegerValue()); });
         deserializerMap.put("maxNumberOfMetricsToRequest", (n) -> { this.setMaxNumberOfMetricsToRequest(n.getIntegerValue()); });
         deserializerMap.put("metricMetadata", (n) -> { this.setMetricMetadata(n.getCollectionOfObjectValues(MetricMetadata::createFromDiscriminatorValue)); });
-        deserializerMap.put("reportType", (n) -> { this.setReportType(n.getStringValue()); });
+        deserializerMap.put("reportType", (n) -> { this.setReportType(n.getEnumValue(ReportTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -134,11 +134,11 @@ public class ReportMetadata implements AdditionalDataHolder, Parsable {
         return this.metricMetadata;
     }
     /**
-     * Gets the reportType property value. The &lt;b&gt;report_type&lt;/b&gt;, as specified in the request to create the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; INVENTORY_PERFORMANCE_REPORT is not currently available; availability date is pending.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:ReportTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the reportType property value. The &lt;b&gt;report_type&lt;/b&gt;, as specified in the request to create the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; INVENTORY_PERFORMANCE_REPORT is not currently available; availability date is pending.&lt;/span&gt;
+     * @return a {@link ReportTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getReportType() {
+    public ReportTypeEnum getReportType() {
         return this.reportType;
     }
     /**
@@ -147,12 +147,12 @@ public class ReportMetadata implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("channel", this.getChannel());
+        writer.writeEnumValue("channel", this.getChannel());
         writer.writeCollectionOfObjectValues("dimensionMetadata", this.getDimensionMetadata());
         writer.writeIntegerValue("maxNumberOfDimensionsToRequest", this.getMaxNumberOfDimensionsToRequest());
         writer.writeIntegerValue("maxNumberOfMetricsToRequest", this.getMaxNumberOfMetricsToRequest());
         writer.writeCollectionOfObjectValues("metricMetadata", this.getMetricMetadata());
-        writer.writeStringValue("reportType", this.getReportType());
+        writer.writeEnumValue("reportType", this.getReportType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -163,10 +163,10 @@ public class ReportMetadata implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the channel property value. This field indicates whether a COST_PER_CLICK report type is related to an ON_SITE or OFF_SITE Promoted Listings campaign. This field is not returned for COST_PER_SALE report types since COST_PER_SALE campaigns are only available ON_SITE. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:ChannelEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the channel property value. This field indicates whether a &lt;code&gt;COST_PER_CLICK&lt;/code&gt; report type is related to an &lt;code&gt;ON_SITE&lt;/code&gt; or &lt;code&gt;OFF_SITE&lt;/code&gt; Promoted Listings campaign. This field is not returned for &lt;code&gt;COST_PER_SALE&lt;/code&gt; report types since &lt;code&gt;COST_PER_SALE&lt;/code&gt; campaigns are only available &lt;code&gt;ON_SITE&lt;/code&gt;.
      * @param value Value to set for the channel property.
      */
-    public void setChannel(@jakarta.annotation.Nullable final String value) {
+    public void setChannel(@jakarta.annotation.Nullable final ChannelEnum value) {
         this.channel = value;
     }
     /**
@@ -198,10 +198,10 @@ public class ReportMetadata implements AdditionalDataHolder, Parsable {
         this.metricMetadata = value;
     }
     /**
-     * Sets the reportType property value. The &lt;b&gt;report_type&lt;/b&gt;, as specified in the request to create the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; INVENTORY_PERFORMANCE_REPORT is not currently available; availability date is pending.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:ReportTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the reportType property value. The &lt;b&gt;report_type&lt;/b&gt;, as specified in the request to create the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; INVENTORY_PERFORMANCE_REPORT is not currently available; availability date is pending.&lt;/span&gt;
      * @param value Value to set for the reportType property.
      */
-    public void setReportType(@jakarta.annotation.Nullable final String value) {
+    public void setReportType(@jakarta.annotation.Nullable final ReportTypeEnum value) {
         this.reportType = value;
     }
 }

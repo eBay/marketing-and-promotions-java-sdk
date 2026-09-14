@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This container defines a coded coupon discount. It is required if the discount type is CODED_COUPON.
+ * The configuration of a coded coupon discount.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CouponConfiguration implements AdditionalDataHolder, Parsable {
@@ -35,9 +35,9 @@ public class CouponConfiguration implements AdditionalDataHolder, Parsable {
      */
     private String couponCode;
     /**
-     * This indicates the type of Coded Coupon discount, and is required when the discount type is &lt;b&gt;CODED_COUPON&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Supported types:&lt;ul&gt;&lt;li&gt;&lt;b&gt;PRIVATE_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can use and share the coupon code, but it isn&apos;t posted on eBay.&lt;/li&gt;&lt;li&gt;&lt;b&gt;PUBLIC_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can find the coupon code on eBay and use it.&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:CouponTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This indicates the type of Coded Coupon discount, and is required when the discount type is &lt;b&gt;CODED_COUPON&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Supported types:&lt;ul&gt;&lt;li&gt;&lt;b&gt;PRIVATE_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can use and share the coupon code, but it isn&apos;t posted on eBay.&lt;/li&gt;&lt;li&gt;&lt;b&gt;PUBLIC_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can find the coupon code on eBay and use it.&lt;/li&gt;&lt;/ul&gt;
      */
-    private String couponType;
+    private CouponTypeEnum couponType;
     /**
      * This sets the limit on the number of times a buyer can use this coupon. The range of values is 1-10. If no value is provided, a buyer can use the coupon an unlimited number of times.
      */
@@ -75,11 +75,11 @@ public class CouponConfiguration implements AdditionalDataHolder, Parsable {
         return this.couponCode;
     }
     /**
-     * Gets the couponType property value. This indicates the type of Coded Coupon discount, and is required when the discount type is &lt;b&gt;CODED_COUPON&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Supported types:&lt;ul&gt;&lt;li&gt;&lt;b&gt;PRIVATE_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can use and share the coupon code, but it isn&apos;t posted on eBay.&lt;/li&gt;&lt;li&gt;&lt;b&gt;PUBLIC_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can find the coupon code on eBay and use it.&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:CouponTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the couponType property value. This indicates the type of Coded Coupon discount, and is required when the discount type is &lt;b&gt;CODED_COUPON&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Supported types:&lt;ul&gt;&lt;li&gt;&lt;b&gt;PRIVATE_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can use and share the coupon code, but it isn&apos;t posted on eBay.&lt;/li&gt;&lt;li&gt;&lt;b&gt;PUBLIC_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can find the coupon code on eBay and use it.&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link CouponTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getCouponType() {
+    public CouponTypeEnum getCouponType() {
         return this.couponType;
     }
     /**
@@ -90,7 +90,7 @@ public class CouponConfiguration implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("couponCode", (n) -> { this.setCouponCode(n.getStringValue()); });
-        deserializerMap.put("couponType", (n) -> { this.setCouponType(n.getStringValue()); });
+        deserializerMap.put("couponType", (n) -> { this.setCouponType(n.getEnumValue(CouponTypeEnum::forValue)); });
         deserializerMap.put("maxCouponRedemptionPerUser", (n) -> { this.setMaxCouponRedemptionPerUser(n.getIntegerValue()); });
         return deserializerMap;
     }
@@ -109,7 +109,7 @@ public class CouponConfiguration implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("couponCode", this.getCouponCode());
-        writer.writeStringValue("couponType", this.getCouponType());
+        writer.writeEnumValue("couponType", this.getCouponType());
         writer.writeIntegerValue("maxCouponRedemptionPerUser", this.getMaxCouponRedemptionPerUser());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -128,10 +128,10 @@ public class CouponConfiguration implements AdditionalDataHolder, Parsable {
         this.couponCode = value;
     }
     /**
-     * Sets the couponType property value. This indicates the type of Coded Coupon discount, and is required when the discount type is &lt;b&gt;CODED_COUPON&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Supported types:&lt;ul&gt;&lt;li&gt;&lt;b&gt;PRIVATE_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can use and share the coupon code, but it isn&apos;t posted on eBay.&lt;/li&gt;&lt;li&gt;&lt;b&gt;PUBLIC_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can find the coupon code on eBay and use it.&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:CouponTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the couponType property value. This indicates the type of Coded Coupon discount, and is required when the discount type is &lt;b&gt;CODED_COUPON&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Supported types:&lt;ul&gt;&lt;li&gt;&lt;b&gt;PRIVATE_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can use and share the coupon code, but it isn&apos;t posted on eBay.&lt;/li&gt;&lt;li&gt;&lt;b&gt;PUBLIC_SINGLE_SELLER_COUPON:&lt;/b&gt; Anyone can find the coupon code on eBay and use it.&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the couponType property.
      */
-    public void setCouponType(@jakarta.annotation.Nullable final String value) {
+    public void setCouponType(@jakarta.annotation.Nullable final CouponTypeEnum value) {
         this.couponType = value;
     }
     /**

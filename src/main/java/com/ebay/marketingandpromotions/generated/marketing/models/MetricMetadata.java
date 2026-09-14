@@ -31,9 +31,9 @@ public class MetricMetadata implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The data type of the returned metric value. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:DataTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The data type of the returned metric value.
      */
-    private String dataType;
+    private DataTypeEnum dataType;
     /**
      * The name of the metric.
      */
@@ -63,11 +63,11 @@ public class MetricMetadata implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the dataType property value. The data type of the returned metric value. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:DataTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the dataType property value. The data type of the returned metric value.
+     * @return a {@link DataTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getDataType() {
+    public DataTypeEnum getDataType() {
         return this.dataType;
     }
     /**
@@ -77,7 +77,7 @@ public class MetricMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("dataType", (n) -> { this.setDataType(n.getStringValue()); });
+        deserializerMap.put("dataType", (n) -> { this.setDataType(n.getEnumValue(DataTypeEnum::forValue)); });
         deserializerMap.put("metricKey", (n) -> { this.setMetricKey(n.getStringValue()); });
         return deserializerMap;
     }
@@ -95,7 +95,7 @@ public class MetricMetadata implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("dataType", this.getDataType());
+        writer.writeEnumValue("dataType", this.getDataType());
         writer.writeStringValue("metricKey", this.getMetricKey());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -107,10 +107,10 @@ public class MetricMetadata implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the dataType property value. The data type of the returned metric value. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:DataTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the dataType property value. The data type of the returned metric value.
      * @param value Value to set for the dataType property.
      */
-    public void setDataType(@jakarta.annotation.Nullable final String value) {
+    public void setDataType(@jakarta.annotation.Nullable final DataTypeEnum value) {
         this.dataType = value;
     }
     /**

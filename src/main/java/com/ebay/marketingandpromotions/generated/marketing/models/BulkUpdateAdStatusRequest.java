@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that defines the fields for the &lt;b&gt;BulkUpdateAdStatus&lt;/b&gt; request.
+ * The bulk request to update the ads.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class BulkUpdateAdStatusRequest implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class BulkUpdateAdStatusRequest implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * An array of listing IDs and bid percentages.
+     * An array of listing IDs and &lt;b&gt;adStatus&lt;/b&gt; pairs.
      */
     private java.util.List<UpdateAdStatusRequest> requests;
     /**
@@ -69,7 +69,7 @@ public class BulkUpdateAdStatusRequest implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the requests property value. An array of listing IDs and bid percentages.
+     * Gets the requests property value. An array of listing IDs and &lt;b&gt;adStatus&lt;/b&gt; pairs.
      * @return a {@link java.util.List<UpdateAdStatusRequest>}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class BulkUpdateAdStatusRequest implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the requests property value. An array of listing IDs and bid percentages.
+     * Sets the requests property value. An array of listing IDs and &lt;b&gt;adStatus&lt;/b&gt; pairs.
      * @param value Value to set for the requests property.
      */
     public void setRequests(@jakarta.annotation.Nullable final java.util.List<UpdateAdStatusRequest> value) {

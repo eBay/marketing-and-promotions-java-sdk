@@ -21,6 +21,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * This type defines the response payload for the &lt;b&gt;getEmailReport&lt;/b&gt; method.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class GetEmailReportResponse implements AdditionalDataHolder, Parsable {
     /**
@@ -36,7 +39,7 @@ public class GetEmailReportResponse implements AdditionalDataHolder, Parsable {
      */
     private Integer openCount;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * A seller&apos;s total sale amount for the time range specified by the query.
      */
     private Amount totalSales;
     /**
@@ -92,7 +95,7 @@ public class GetEmailReportResponse implements AdditionalDataHolder, Parsable {
         return this.openCount;
     }
     /**
-     * Gets the totalSales property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the totalSales property value. A seller&apos;s total sale amount for the time range specified by the query.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -132,7 +135,7 @@ public class GetEmailReportResponse implements AdditionalDataHolder, Parsable {
         this.openCount = value;
     }
     /**
-     * Sets the totalSales property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the totalSales property value. A seller&apos;s total sale amount for the time range specified by the query.
      * @param value Value to set for the totalSales property.
      */
     public void setTotalSales(@jakarta.annotation.Nullable final Amount value) {

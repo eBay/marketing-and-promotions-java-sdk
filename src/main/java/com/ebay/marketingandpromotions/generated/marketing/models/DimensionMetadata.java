@@ -31,9 +31,9 @@ public class DimensionMetadata implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The data type of the dimension value used to create the report. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:DataTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The data type of the dimension value used to create the report.
      */
-    private String dataType;
+    private DataTypeEnum dataType;
     /**
      * The name of the dimension used to create the report.
      */
@@ -67,11 +67,11 @@ public class DimensionMetadata implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the dataType property value. The data type of the dimension value used to create the report. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:DataTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the dataType property value. The data type of the dimension value used to create the report.
+     * @return a {@link DataTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getDataType() {
+    public DataTypeEnum getDataType() {
         return this.dataType;
     }
     /**
@@ -97,7 +97,7 @@ public class DimensionMetadata implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
-        deserializerMap.put("dataType", (n) -> { this.setDataType(n.getStringValue()); });
+        deserializerMap.put("dataType", (n) -> { this.setDataType(n.getEnumValue(DataTypeEnum::forValue)); });
         deserializerMap.put("dimensionKey", (n) -> { this.setDimensionKey(n.getStringValue()); });
         deserializerMap.put("dimensionKeyAnnotations", (n) -> { this.setDimensionKeyAnnotations(n.getCollectionOfObjectValues(DimensionKeyAnnotation::createFromDiscriminatorValue)); });
         return deserializerMap;
@@ -108,7 +108,7 @@ public class DimensionMetadata implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("dataType", this.getDataType());
+        writer.writeEnumValue("dataType", this.getDataType());
         writer.writeStringValue("dimensionKey", this.getDimensionKey());
         writer.writeCollectionOfObjectValues("dimensionKeyAnnotations", this.getDimensionKeyAnnotations());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -121,10 +121,10 @@ public class DimensionMetadata implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the dataType property value. The data type of the dimension value used to create the report. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:DataTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the dataType property value. The data type of the dimension value used to create the report.
      * @param value Value to set for the dataType property.
      */
-    public void setDataType(@jakarta.annotation.Nullable final String value) {
+    public void setDataType(@jakarta.annotation.Nullable final DataTypeEnum value) {
         this.dataType = value;
     }
     /**

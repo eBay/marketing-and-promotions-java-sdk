@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.email_campaign.report;
 
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.GetEmailReportResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -52,6 +53,9 @@ public class ReportRequestBuilder extends BaseRequestBuilder {
     /**
      * This method returns the seller&apos;s email campaign performance report for a time period specified by the &lt;b&gt;startDate&lt;/b&gt; and &lt;b&gt;endDate&lt;/b&gt; path parameters. The maximum date range for a report retrieved by this method is one year. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;The &lt;b&gt;startDate&lt;/b&gt; and &lt;b&gt;endDate&lt;/b&gt; must be given in UTC format, as shown in the following example: &lt;br&gt;&lt;code&gt;sell/marketing/v1/email_campaign/report?startDate=2022-11-01T19:09:02.768Z&amp;endDate=2022-12-28T19:09:02.768Z&lt;/code&gt;&lt;/span&gt;&lt;br&gt;The email report returns a list of metrics, such as the number of times an email report has been opened and resulted in clicks.
      * @return a {@link GetEmailReportResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetEmailReportResponse get() {
@@ -61,11 +65,18 @@ public class ReportRequestBuilder extends BaseRequestBuilder {
      * This method returns the seller&apos;s email campaign performance report for a time period specified by the &lt;b&gt;startDate&lt;/b&gt; and &lt;b&gt;endDate&lt;/b&gt; path parameters. The maximum date range for a report retrieved by this method is one year. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;The &lt;b&gt;startDate&lt;/b&gt; and &lt;b&gt;endDate&lt;/b&gt; must be given in UTC format, as shown in the following example: &lt;br&gt;&lt;code&gt;sell/marketing/v1/email_campaign/report?startDate=2022-11-01T19:09:02.768Z&amp;endDate=2022-12-28T19:09:02.768Z&lt;/code&gt;&lt;/span&gt;&lt;br&gt;The email report returns a list of metrics, such as the number of times an email report has been opened and resulted in clicks.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link GetEmailReportResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetEmailReportResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, GetEmailReportResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, GetEmailReportResponse::createFromDiscriminatorValue);
     }
     /**
      * This method returns the seller&apos;s email campaign performance report for a time period specified by the &lt;b&gt;startDate&lt;/b&gt; and &lt;b&gt;endDate&lt;/b&gt; path parameters. The maximum date range for a report retrieved by this method is one year. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;The &lt;b&gt;startDate&lt;/b&gt; and &lt;b&gt;endDate&lt;/b&gt; must be given in UTC format, as shown in the following example: &lt;br&gt;&lt;code&gt;sell/marketing/v1/email_campaign/report?startDate=2022-11-01T19:09:02.768Z&amp;endDate=2022-12-28T19:09:02.768Z&lt;/code&gt;&lt;/span&gt;&lt;br&gt;The email report returns a list of metrics, such as the number of times an email report has been opened and resulted in clicks.

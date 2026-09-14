@@ -37,15 +37,15 @@ public class DeleteAdsByInventoryReferenceResponse implements AdditionalDataHold
     /**
      * The container for the errors associated with the request.
      */
-    private java.util.List<Error> errors;
+    private java.util.List<ErrorDetailV3> errors;
     /**
      * The inventory reference ID is a seller-defined SKU value for a single-item listing, or a seller-defined identifier for an inventory item group. Both of these values are defined when using the Inventory API, and an inventory item group is used to create a multiple-variation listing.
      */
     private String inventoryReferenceId;
     /**
-     * The enumeration value returned here indicates if the ad was for a single-variation listing or a multiple-variation listing. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The enumeration value returned here indicates if the ad was for a single-variation listing or a multiple-variation listing.
      */
-    private String inventoryReferenceType;
+    private InventoryReferenceTypeEnum inventoryReferenceType;
     /**
      * An HTTP status code indicating if the corresponding ad was successfully deleted or not. &lt;code&gt;200 Successful&lt;/code&gt; should be returned for successfully deleted ads. &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt;A status code is returned for each ad that the seller deletes, or attempts to delete.&lt;/span&gt;
      */
@@ -84,10 +84,10 @@ public class DeleteAdsByInventoryReferenceResponse implements AdditionalDataHold
     }
     /**
      * Gets the errors property value. The container for the errors associated with the request.
-     * @return a {@link java.util.List<Error>}
+     * @return a {@link java.util.List<ErrorDetailV3>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<Error> getErrors() {
+    public java.util.List<ErrorDetailV3> getErrors() {
         return this.errors;
     }
     /**
@@ -98,9 +98,9 @@ public class DeleteAdsByInventoryReferenceResponse implements AdditionalDataHold
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("adIds", (n) -> { this.setAdIds(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(Error::createFromDiscriminatorValue)); });
+        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(ErrorDetailV3::createFromDiscriminatorValue)); });
         deserializerMap.put("inventoryReferenceId", (n) -> { this.setInventoryReferenceId(n.getStringValue()); });
-        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getStringValue()); });
+        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getEnumValue(InventoryReferenceTypeEnum::forValue)); });
         deserializerMap.put("statusCode", (n) -> { this.setStatusCode(n.getIntegerValue()); });
         return deserializerMap;
     }
@@ -113,11 +113,11 @@ public class DeleteAdsByInventoryReferenceResponse implements AdditionalDataHold
         return this.inventoryReferenceId;
     }
     /**
-     * Gets the inventoryReferenceType property value. The enumeration value returned here indicates if the ad was for a single-variation listing or a multiple-variation listing. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the inventoryReferenceType property value. The enumeration value returned here indicates if the ad was for a single-variation listing or a multiple-variation listing.
+     * @return a {@link InventoryReferenceTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getInventoryReferenceType() {
+    public InventoryReferenceTypeEnum getInventoryReferenceType() {
         return this.inventoryReferenceType;
     }
     /**
@@ -137,7 +137,7 @@ public class DeleteAdsByInventoryReferenceResponse implements AdditionalDataHold
         writer.writeCollectionOfPrimitiveValues("adIds", this.getAdIds());
         writer.writeCollectionOfObjectValues("errors", this.getErrors());
         writer.writeStringValue("inventoryReferenceId", this.getInventoryReferenceId());
-        writer.writeStringValue("inventoryReferenceType", this.getInventoryReferenceType());
+        writer.writeEnumValue("inventoryReferenceType", this.getInventoryReferenceType());
         writer.writeIntegerValue("statusCode", this.getStatusCode());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -159,7 +159,7 @@ public class DeleteAdsByInventoryReferenceResponse implements AdditionalDataHold
      * Sets the errors property value. The container for the errors associated with the request.
      * @param value Value to set for the errors property.
      */
-    public void setErrors(@jakarta.annotation.Nullable final java.util.List<Error> value) {
+    public void setErrors(@jakarta.annotation.Nullable final java.util.List<ErrorDetailV3> value) {
         this.errors = value;
     }
     /**
@@ -170,10 +170,10 @@ public class DeleteAdsByInventoryReferenceResponse implements AdditionalDataHold
         this.inventoryReferenceId = value;
     }
     /**
-     * Sets the inventoryReferenceType property value. The enumeration value returned here indicates if the ad was for a single-variation listing or a multiple-variation listing. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the inventoryReferenceType property value. The enumeration value returned here indicates if the ad was for a single-variation listing or a multiple-variation listing.
      * @param value Value to set for the inventoryReferenceType property.
      */
-    public void setInventoryReferenceType(@jakarta.annotation.Nullable final String value) {
+    public void setInventoryReferenceType(@jakarta.annotation.Nullable final InventoryReferenceTypeEnum value) {
         this.inventoryReferenceType = value;
     }
     /**

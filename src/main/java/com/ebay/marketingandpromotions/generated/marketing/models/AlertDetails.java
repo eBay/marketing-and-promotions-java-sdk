@@ -31,11 +31,11 @@ public class AlertDetails implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A type that contains the aspect fields.
+     * The aspect information of the alert including keys and values.
      */
     private Aspect aspect;
     /**
-     * A type that contains the dimension fields.
+     * The dimension information of the alert including keys and values.
      */
     private AlertDimension dimension;
     /**
@@ -63,7 +63,7 @@ public class AlertDetails implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the aspect property value. A type that contains the aspect fields.
+     * Gets the aspect property value. The aspect information of the alert including keys and values.
      * @return a {@link Aspect}
      */
     @jakarta.annotation.Nullable
@@ -71,7 +71,7 @@ public class AlertDetails implements AdditionalDataHolder, Parsable {
         return this.aspect;
     }
     /**
-     * Gets the dimension property value. A type that contains the dimension fields.
+     * Gets the dimension property value. The dimension information of the alert including keys and values.
      * @return a {@link AlertDimension}
      */
     @jakarta.annotation.Nullable
@@ -107,14 +107,14 @@ public class AlertDetails implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the aspect property value. A type that contains the aspect fields.
+     * Sets the aspect property value. The aspect information of the alert including keys and values.
      * @param value Value to set for the aspect property.
      */
     public void setAspect(@jakarta.annotation.Nullable final Aspect value) {
         this.aspect = value;
     }
     /**
-     * Sets the dimension property value. A type that contains the dimension fields.
+     * Sets the dimension property value. The dimension information of the alert including keys and values.
      * @param value Value to set for the dimension property.
      */
     public void setDimension(@jakarta.annotation.Nullable final AlertDimension value) {

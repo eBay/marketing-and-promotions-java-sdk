@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields needed for a clone-campaign request.
+ * This type defines the fields for a clone campaign request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CloneCampaignRequest implements AdditionalDataHolder, Parsable {
@@ -35,11 +35,11 @@ public class CloneCampaignRequest implements AdditionalDataHolder, Parsable {
      */
     private String campaignName;
     /**
-     * The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/endCampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
+     * The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-endcampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
      */
     private String endDate;
     /**
-     * This type defines how the Promoted Listings fee is calculated for a Promoted Listings ad campaign.
+     * This container includes parameters that define an ad campaign funding strategy. The set of seller-configurable parameters depends on the selected &lt;b&gt;fundingModel&lt;/b&gt; value.
      */
     private FundingStrategy fundingStrategy;
     /**
@@ -79,7 +79,7 @@ public class CloneCampaignRequest implements AdditionalDataHolder, Parsable {
         return this.campaignName;
     }
     /**
-     * Gets the endDate property value. The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/endCampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
+     * Gets the endDate property value. The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-endcampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class CloneCampaignRequest implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the fundingStrategy property value. This type defines how the Promoted Listings fee is calculated for a Promoted Listings ad campaign.
+     * Gets the fundingStrategy property value. This container includes parameters that define an ad campaign funding strategy. The set of seller-configurable parameters depends on the selected &lt;b&gt;fundingModel&lt;/b&gt; value.
      * @return a {@link FundingStrategy}
      */
     @jakarta.annotation.Nullable
@@ -142,14 +142,14 @@ public class CloneCampaignRequest implements AdditionalDataHolder, Parsable {
         this.campaignName = value;
     }
     /**
-     * Sets the endDate property value. The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/endCampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
+     * Sets the endDate property value. The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-endcampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
      * @param value Value to set for the endDate property.
      */
     public void setEndDate(@jakarta.annotation.Nullable final String value) {
         this.endDate = value;
     }
     /**
-     * Sets the fundingStrategy property value. This type defines how the Promoted Listings fee is calculated for a Promoted Listings ad campaign.
+     * Sets the fundingStrategy property value. This container includes parameters that define an ad campaign funding strategy. The set of seller-configurable parameters depends on the selected &lt;b&gt;fundingModel&lt;/b&gt; value.
      * @param value Value to set for the fundingStrategy property.
      */
     public void setFundingStrategy(@jakarta.annotation.Nullable final FundingStrategy value) {

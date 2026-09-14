@@ -31,9 +31,9 @@ public class AdditionalInfo implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The type of additional information provided for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;KEYWORD_INSIGHTS&lt;/code&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AdditionalInfoEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The type of additional information provided for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;KEYWORD_INSIGHTS&lt;/code&gt;
      */
-    private String infoType;
+    private AdditionalInfoEnum infoType;
     /**
      * A list of additional data provided for the suggested keyword.
      */
@@ -69,16 +69,16 @@ public class AdditionalInfo implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("infoType", (n) -> { this.setInfoType(n.getStringValue()); });
+        deserializerMap.put("infoType", (n) -> { this.setInfoType(n.getEnumValue(AdditionalInfoEnum::forValue)); });
         deserializerMap.put("metrics", (n) -> { this.setMetrics(n.getCollectionOfObjectValues(AdditionalInfoData::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the infoType property value. The type of additional information provided for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;KEYWORD_INSIGHTS&lt;/code&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AdditionalInfoEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the infoType property value. The type of additional information provided for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;KEYWORD_INSIGHTS&lt;/code&gt;
+     * @return a {@link AdditionalInfoEnum}
      */
     @jakarta.annotation.Nullable
-    public String getInfoType() {
+    public AdditionalInfoEnum getInfoType() {
         return this.infoType;
     }
     /**
@@ -95,7 +95,7 @@ public class AdditionalInfo implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("infoType", this.getInfoType());
+        writer.writeEnumValue("infoType", this.getInfoType());
         writer.writeCollectionOfObjectValues("metrics", this.getMetrics());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -107,10 +107,10 @@ public class AdditionalInfo implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the infoType property value. The type of additional information provided for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;KEYWORD_INSIGHTS&lt;/code&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AdditionalInfoEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the infoType property value. The type of additional information provided for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Value:&lt;/strong&gt; &lt;code&gt;KEYWORD_INSIGHTS&lt;/code&gt;
      * @param value Value to set for the infoType property.
      */
-    public void setInfoType(@jakarta.annotation.Nullable final String value) {
+    public void setInfoType(@jakarta.annotation.Nullable final AdditionalInfoEnum value) {
         this.infoType = value;
     }
     /**

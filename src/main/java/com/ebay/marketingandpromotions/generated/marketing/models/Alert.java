@@ -31,9 +31,9 @@ public class Alert implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The type of alert message. For example, an invalid bid percentage. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AlertTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The type of alert message. For example, an invalid bid percentage.
      */
-    private String alertType;
+    private AlertTypeEnum alertType;
     /**
      * A description of the alert including dimensions and aspects.
      */
@@ -63,11 +63,11 @@ public class Alert implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the alertType property value. The type of alert message. For example, an invalid bid percentage. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AlertTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the alertType property value. The type of alert message. For example, an invalid bid percentage.
+     * @return a {@link AlertTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getAlertType() {
+    public AlertTypeEnum getAlertType() {
         return this.alertType;
     }
     /**
@@ -85,7 +85,7 @@ public class Alert implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("alertType", (n) -> { this.setAlertType(n.getStringValue()); });
+        deserializerMap.put("alertType", (n) -> { this.setAlertType(n.getEnumValue(AlertTypeEnum::forValue)); });
         deserializerMap.put("details", (n) -> { this.setDetails(n.getCollectionOfObjectValues(AlertDetails::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
@@ -95,7 +95,7 @@ public class Alert implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("alertType", this.getAlertType());
+        writer.writeEnumValue("alertType", this.getAlertType());
         writer.writeCollectionOfObjectValues("details", this.getDetails());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -107,10 +107,10 @@ public class Alert implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the alertType property value. The type of alert message. For example, an invalid bid percentage. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AlertTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the alertType property value. The type of alert message. For example, an invalid bid percentage.
      * @param value Value to set for the alertType property.
      */
-    public void setAlertType(@jakarta.annotation.Nullable final String value) {
+    public void setAlertType(@jakarta.annotation.Nullable final AlertTypeEnum value) {
         this.alertType = value;
     }
     /**

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that contains the dimension fields.
+ * The dimension information of the alert including keys and values.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AlertDimension implements AdditionalDataHolder, Parsable {
@@ -31,11 +31,11 @@ public class AlertDimension implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The key field of the applied dimension. For example, the marketplace Id. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:DimensionKeyEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The key field of the applied dimension. For example, the marketplace Id.
      */
-    private String key;
+    private DimensionKeyEnum key;
     /**
-     * The value field of the applied dimension. For example, if the key is a &lt;code&gt;MARKETPLACE_ID&lt;/code&gt;, the value would be from &lt;a href=&apos;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;MarketplaceIdEnum&lt;/a&gt;.
+     * The value field of the applied dimension. For example, if the key is a &lt;code&gt;MARKETPLACE_ID&lt;/code&gt;, the value would be from &lt;a href=&apos;/develop/api/sell/request_headers#marketplace-id-values&apos; target=&quot;_blank&quot;&gt;Marketplace ID values&lt;/a&gt;.
      */
     private String value;
     /**
@@ -69,20 +69,20 @@ public class AlertDimension implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("key", (n) -> { this.setKey(n.getStringValue()); });
+        deserializerMap.put("key", (n) -> { this.setKey(n.getEnumValue(DimensionKeyEnum::forValue)); });
         deserializerMap.put("value", (n) -> { this.setValue(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the key property value. The key field of the applied dimension. For example, the marketplace Id. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:DimensionKeyEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the key property value. The key field of the applied dimension. For example, the marketplace Id.
+     * @return a {@link DimensionKeyEnum}
      */
     @jakarta.annotation.Nullable
-    public String getKey() {
+    public DimensionKeyEnum getKey() {
         return this.key;
     }
     /**
-     * Gets the value property value. The value field of the applied dimension. For example, if the key is a &lt;code&gt;MARKETPLACE_ID&lt;/code&gt;, the value would be from &lt;a href=&apos;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;MarketplaceIdEnum&lt;/a&gt;.
+     * Gets the value property value. The value field of the applied dimension. For example, if the key is a &lt;code&gt;MARKETPLACE_ID&lt;/code&gt;, the value would be from &lt;a href=&apos;/develop/api/sell/request_headers#marketplace-id-values&apos; target=&quot;_blank&quot;&gt;Marketplace ID values&lt;/a&gt;.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -95,7 +95,7 @@ public class AlertDimension implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("key", this.getKey());
+        writer.writeEnumValue("key", this.getKey());
         writer.writeStringValue("value", this.getValue());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -107,14 +107,14 @@ public class AlertDimension implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the key property value. The key field of the applied dimension. For example, the marketplace Id. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:DimensionKeyEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the key property value. The key field of the applied dimension. For example, the marketplace Id.
      * @param value Value to set for the key property.
      */
-    public void setKey(@jakarta.annotation.Nullable final String value) {
+    public void setKey(@jakarta.annotation.Nullable final DimensionKeyEnum value) {
         this.key = value;
     }
     /**
-     * Sets the value property value. The value field of the applied dimension. For example, if the key is a &lt;code&gt;MARKETPLACE_ID&lt;/code&gt;, the value would be from &lt;a href=&apos;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;MarketplaceIdEnum&lt;/a&gt;.
+     * Sets the value property value. The value field of the applied dimension. For example, if the key is a &lt;code&gt;MARKETPLACE_ID&lt;/code&gt;, the value would be from &lt;a href=&apos;/develop/api/sell/request_headers#marketplace-id-values&apos; target=&quot;_blank&quot;&gt;Marketplace ID values&lt;/a&gt;.
      * @param value Value to set for the value property.
      */
     public void setValue(@jakarta.annotation.Nullable final String value) {

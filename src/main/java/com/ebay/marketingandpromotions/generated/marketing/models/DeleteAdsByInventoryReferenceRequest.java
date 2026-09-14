@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields needed to delete an ad by its inventory reference ID.  You must always supply both &lt;b&gt;inventory_reference_id&lt;/b&gt; and &lt;b&gt;inventory_reference_type&lt;/b&gt;.
+ * This request object defines the fields for the &lt;b&gt;deleteAdsByInventoryReference&lt;/b&gt; request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class DeleteAdsByInventoryReferenceRequest implements AdditionalDataHolder, Parsable {
@@ -35,9 +35,9 @@ public class DeleteAdsByInventoryReferenceRequest implements AdditionalDataHolde
      */
     private String inventoryReferenceId;
     /**
-     * This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.
      */
-    private String inventoryReferenceType;
+    private InventoryReferenceTypeEnum inventoryReferenceType;
     /**
      * Instantiates a new {@link DeleteAdsByInventoryReferenceRequest} and sets the default values.
      */
@@ -70,7 +70,7 @@ public class DeleteAdsByInventoryReferenceRequest implements AdditionalDataHolde
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("inventoryReferenceId", (n) -> { this.setInventoryReferenceId(n.getStringValue()); });
-        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getStringValue()); });
+        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getEnumValue(InventoryReferenceTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -82,11 +82,11 @@ public class DeleteAdsByInventoryReferenceRequest implements AdditionalDataHolde
         return this.inventoryReferenceId;
     }
     /**
-     * Gets the inventoryReferenceType property value. This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the inventoryReferenceType property value. This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.
+     * @return a {@link InventoryReferenceTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getInventoryReferenceType() {
+    public InventoryReferenceTypeEnum getInventoryReferenceType() {
         return this.inventoryReferenceType;
     }
     /**
@@ -96,7 +96,7 @@ public class DeleteAdsByInventoryReferenceRequest implements AdditionalDataHolde
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("inventoryReferenceId", this.getInventoryReferenceId());
-        writer.writeStringValue("inventoryReferenceType", this.getInventoryReferenceType());
+        writer.writeEnumValue("inventoryReferenceType", this.getInventoryReferenceType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -114,10 +114,10 @@ public class DeleteAdsByInventoryReferenceRequest implements AdditionalDataHolde
         this.inventoryReferenceId = value;
     }
     /**
-     * Sets the inventoryReferenceType property value. This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the inventoryReferenceType property value. This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.
      * @param value Value to set for the inventoryReferenceType property.
      */
-    public void setInventoryReferenceType(@jakarta.annotation.Nullable final String value) {
+    public void setInventoryReferenceType(@jakarta.annotation.Nullable final InventoryReferenceTypeEnum value) {
         this.inventoryReferenceType = value;
     }
 }

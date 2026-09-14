@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The suggested keywords for the item.
+ * This type defines the suggested keywords for the item.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuggestedKeywords implements AdditionalDataHolder, Parsable {
@@ -39,9 +39,9 @@ public class SuggestedKeywords implements AdditionalDataHolder, Parsable {
      */
     private String keywordText;
     /**
-     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String matchType;
+    private MatchTypeEnum matchType;
     /**
      * Instantiates a new {@link SuggestedKeywords} and sets the default values.
      */
@@ -83,7 +83,7 @@ public class SuggestedKeywords implements AdditionalDataHolder, Parsable {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("additionalInfo", (n) -> { this.setAdditionalInfo(n.getCollectionOfObjectValues(AdditionalInfo::createFromDiscriminatorValue)); });
         deserializerMap.put("keywordText", (n) -> { this.setKeywordText(n.getStringValue()); });
-        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getStringValue()); });
+        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getEnumValue(MatchTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -95,11 +95,11 @@ public class SuggestedKeywords implements AdditionalDataHolder, Parsable {
         return this.keywordText;
     }
     /**
-     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link MatchTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMatchType() {
+    public MatchTypeEnum getMatchType() {
         return this.matchType;
     }
     /**
@@ -110,7 +110,7 @@ public class SuggestedKeywords implements AdditionalDataHolder, Parsable {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("additionalInfo", this.getAdditionalInfo());
         writer.writeStringValue("keywordText", this.getKeywordText());
-        writer.writeStringValue("matchType", this.getMatchType());
+        writer.writeEnumValue("matchType", this.getMatchType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -135,10 +135,10 @@ public class SuggestedKeywords implements AdditionalDataHolder, Parsable {
         this.keywordText = value;
     }
     /**
-     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the matchType property.
      */
-    public void setMatchType(@jakarta.annotation.Nullable final String value) {
+    public void setMatchType(@jakarta.annotation.Nullable final MatchTypeEnum value) {
         this.matchType = value;
     }
 }

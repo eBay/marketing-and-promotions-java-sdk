@@ -33,7 +33,7 @@ public class UpdateNegativeKeywordResponse implements AdditionalDataHolder, Pars
     /**
      * A container that will be returned if there are one or more issues associated with modifying the corresponding negative keyword.
      */
-    private java.util.List<Error> errors;
+    private java.util.List<ErrorDetailV3> errors;
     /**
      * A unique eBay-assigned ID for a negative keyword. This keyword ID will be generated for each successfully created negative keyword.
      */
@@ -68,10 +68,10 @@ public class UpdateNegativeKeywordResponse implements AdditionalDataHolder, Pars
     }
     /**
      * Gets the errors property value. A container that will be returned if there are one or more issues associated with modifying the corresponding negative keyword.
-     * @return a {@link java.util.List<Error>}
+     * @return a {@link java.util.List<ErrorDetailV3>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<Error> getErrors() {
+    public java.util.List<ErrorDetailV3> getErrors() {
         return this.errors;
     }
     /**
@@ -81,7 +81,7 @@ public class UpdateNegativeKeywordResponse implements AdditionalDataHolder, Pars
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
-        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(Error::createFromDiscriminatorValue)); });
+        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(ErrorDetailV3::createFromDiscriminatorValue)); });
         deserializerMap.put("negativeKeywordId", (n) -> { this.setNegativeKeywordId(n.getStringValue()); });
         deserializerMap.put("statusCode", (n) -> { this.setStatusCode(n.getIntegerValue()); });
         return deserializerMap;
@@ -124,7 +124,7 @@ public class UpdateNegativeKeywordResponse implements AdditionalDataHolder, Pars
      * Sets the errors property value. A container that will be returned if there are one or more issues associated with modifying the corresponding negative keyword.
      * @param value Value to set for the errors property.
      */
-    public void setErrors(@jakarta.annotation.Nullable final java.util.List<Error> value) {
+    public void setErrors(@jakarta.annotation.Nullable final java.util.List<ErrorDetailV3> value) {
         this.errors = value;
     }
     /**

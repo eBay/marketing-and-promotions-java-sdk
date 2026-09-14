@@ -31,7 +31,7 @@ public class CreateAdsByInventoryReferenceRequest implements AdditionalDataHolde
      */
     private Map<String, Object> additionalData;
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is not currently in use. Ad groups are only applicable to priority strategy ad campaigns that use the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
+     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is not currently in use. Ad groups are only applicable to priority strategy ad campaigns that use the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot; target=&quot;_blank&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
      */
     private String adGroupId;
     /**
@@ -43,9 +43,9 @@ public class CreateAdsByInventoryReferenceRequest implements AdditionalDataHolde
      */
     private String inventoryReferenceId;
     /**
-     * This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.
      */
-    private String inventoryReferenceType;
+    private InventoryReferenceTypeEnum inventoryReferenceType;
     /**
      * Instantiates a new {@link CreateAdsByInventoryReferenceRequest} and sets the default values.
      */
@@ -71,7 +71,7 @@ public class CreateAdsByInventoryReferenceRequest implements AdditionalDataHolde
         return this.additionalData;
     }
     /**
-     * Gets the adGroupId property value. &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is not currently in use. Ad groups are only applicable to priority strategy ad campaigns that use the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
+     * Gets the adGroupId property value. &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is not currently in use. Ad groups are only applicable to priority strategy ad campaigns that use the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot; target=&quot;_blank&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class CreateAdsByInventoryReferenceRequest implements AdditionalDataHolde
         deserializerMap.put("adGroupId", (n) -> { this.setAdGroupId(n.getStringValue()); });
         deserializerMap.put("bidPercentage", (n) -> { this.setBidPercentage(n.getStringValue()); });
         deserializerMap.put("inventoryReferenceId", (n) -> { this.setInventoryReferenceId(n.getStringValue()); });
-        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getStringValue()); });
+        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getEnumValue(InventoryReferenceTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -108,11 +108,11 @@ public class CreateAdsByInventoryReferenceRequest implements AdditionalDataHolde
         return this.inventoryReferenceId;
     }
     /**
-     * Gets the inventoryReferenceType property value. This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the inventoryReferenceType property value. This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.
+     * @return a {@link InventoryReferenceTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getInventoryReferenceType() {
+    public InventoryReferenceTypeEnum getInventoryReferenceType() {
         return this.inventoryReferenceType;
     }
     /**
@@ -124,7 +124,7 @@ public class CreateAdsByInventoryReferenceRequest implements AdditionalDataHolde
         writer.writeStringValue("adGroupId", this.getAdGroupId());
         writer.writeStringValue("bidPercentage", this.getBidPercentage());
         writer.writeStringValue("inventoryReferenceId", this.getInventoryReferenceId());
-        writer.writeStringValue("inventoryReferenceType", this.getInventoryReferenceType());
+        writer.writeEnumValue("inventoryReferenceType", this.getInventoryReferenceType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -135,7 +135,7 @@ public class CreateAdsByInventoryReferenceRequest implements AdditionalDataHolde
         this.additionalData = value;
     }
     /**
-     * Sets the adGroupId property value. &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is not currently in use. Ad groups are only applicable to priority strategy ad campaigns that use the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
+     * Sets the adGroupId property value. &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This field is not currently in use. Ad groups are only applicable to priority strategy ad campaigns that use the Cost Per Click (CPC) funding model. See &lt;a href=&quot;/api-docs/sell/static/marketing/pl-overview.html#funding-model&quot; target=&quot;_blank&quot;&gt;Funding Models&lt;/a&gt; in the &lt;i&gt;Promoted Listings Playbook&lt;/i&gt; for more information.&lt;/span&gt;
      * @param value Value to set for the adGroupId property.
      */
     public void setAdGroupId(@jakarta.annotation.Nullable final String value) {
@@ -156,10 +156,10 @@ public class CreateAdsByInventoryReferenceRequest implements AdditionalDataHolde
         this.inventoryReferenceId = value;
     }
     /**
-     * Sets the inventoryReferenceType property value. This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the inventoryReferenceType property value. This enumerated value indicates the type of item the &lt;b&gt;inventoryReferenceId&lt;/b&gt; references.&lt;br&gt;&lt;br&gt;The item can be either an &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or an &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.
      * @param value Value to set for the inventoryReferenceType property.
      */
-    public void setInventoryReferenceType(@jakarta.annotation.Nullable final String value) {
+    public void setInventoryReferenceType(@jakarta.annotation.Nullable final InventoryReferenceTypeEnum value) {
         this.inventoryReferenceType = value;
     }
 }

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This is the object for a single email campaign audience.
+ * This type defines the object for a single email campaign audience.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CampaignAudience implements AdditionalDataHolder, Parsable {
@@ -31,9 +31,9 @@ public class CampaignAudience implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This enum value indicates the audience type. For the complete list of audience types and their associated enum values, see &lt;a href=&quot;/api-docs/sell/marketing/types/api:AudienceTypeEnum&quot;&gt;AudienceTypeEnum&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:AudienceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This enum value indicates the audience type. For the complete list of audience types and their associated enum values, see &lt;b&gt;AudienceTypeEnum&lt;/b&gt;.
      */
-    private String audienceType;
+    private AudienceTypeEnum audienceType;
     /**
      * The unique code for an audience. 
      */
@@ -67,11 +67,11 @@ public class CampaignAudience implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the audienceType property value. This enum value indicates the audience type. For the complete list of audience types and their associated enum values, see &lt;a href=&quot;/api-docs/sell/marketing/types/api:AudienceTypeEnum&quot;&gt;AudienceTypeEnum&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:AudienceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the audienceType property value. This enum value indicates the audience type. For the complete list of audience types and their associated enum values, see &lt;b&gt;AudienceTypeEnum&lt;/b&gt;.
+     * @return a {@link AudienceTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getAudienceType() {
+    public AudienceTypeEnum getAudienceType() {
         return this.audienceType;
     }
     /**
@@ -89,7 +89,7 @@ public class CampaignAudience implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
-        deserializerMap.put("audienceType", (n) -> { this.setAudienceType(n.getStringValue()); });
+        deserializerMap.put("audienceType", (n) -> { this.setAudienceType(n.getEnumValue(AudienceTypeEnum::forValue)); });
         deserializerMap.put("code", (n) -> { this.setCode(n.getStringValue()); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         return deserializerMap;
@@ -108,7 +108,7 @@ public class CampaignAudience implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("audienceType", this.getAudienceType());
+        writer.writeEnumValue("audienceType", this.getAudienceType());
         writer.writeStringValue("code", this.getCode());
         writer.writeStringValue("name", this.getName());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -121,10 +121,10 @@ public class CampaignAudience implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the audienceType property value. This enum value indicates the audience type. For the complete list of audience types and their associated enum values, see &lt;a href=&quot;/api-docs/sell/marketing/types/api:AudienceTypeEnum&quot;&gt;AudienceTypeEnum&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:AudienceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the audienceType property value. This enum value indicates the audience type. For the complete list of audience types and their associated enum values, see &lt;b&gt;AudienceTypeEnum&lt;/b&gt;.
      * @param value Value to set for the audienceType property.
      */
-    public void setAudienceType(@jakarta.annotation.Nullable final String value) {
+    public void setAudienceType(@jakarta.annotation.Nullable final AudienceTypeEnum value) {
         this.audienceType = value;
     }
     /**

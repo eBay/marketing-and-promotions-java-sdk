@@ -21,6 +21,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * This type defines the response payload for the &lt;b&gt;getEmailCampaign&lt;/b&gt; method.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable {
     /**
@@ -36,9 +39,9 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
      */
     private String categoryId;
     /**
-     * The enumeration value returned here indicates if the &lt;b&gt;categoryId&lt;/b&gt; value is the identifier of an eBay category or an eBay store category.&lt;br&gt;&lt;br&gt;This field is returned if a seller has applied the email campaign to a specific category. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CategoryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The enumeration value returned here indicates if the &lt;b&gt;categoryId&lt;/b&gt; value is the identifier of an eBay category or an eBay store category.&lt;br&gt;&lt;br&gt;This field is returned if a seller has applied the email campaign to a specific category.
      */
-    private String categoryType;
+    private CategoryTypeEnum categoryType;
     /**
      * The date and time that the email campaign was created, given in UTC format.
      */
@@ -48,23 +51,23 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
      */
     private String emailCampaignId;
     /**
-     * The email campaign status. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of valid statuses. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The email campaign status. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of valid statuses.
      */
-    private String emailCampaignStatus;
+    private EmailCampaignStatusEnum emailCampaignStatus;
     /**
-     * The email campaign type. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for valid email campaign types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CampaignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The email campaign type. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for valid email campaign types.
      */
-    private String emailCampaignType;
+    private CampaignTypeEnum emailCampaignType;
     /**
      * The listing IDs of the items that were manually added to the email campaign.&lt;br&gt;&lt;br&gt;Only listings added manually by the seller are returned. Returns a null array if no listings were added.
      */
     private java.util.List<String> itemIds;
     /**
-     * The mode used to select the items listed in the email campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The mode used to select the items listed in the email campaign.
      */
-    private String itemSelectMode;
+    private ItemSelectModeEnum itemSelectMode;
     /**
-     * The eBay marketplace where the email campaign is active. See &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for a list of marketplace IDs.
+     * The eBay marketplace where the email campaign is active. See &lt;b&gt;MarketplaceIdEnum&lt;/b&gt; for a list of marketplace IDs.
      */
     private String marketplaceId;
     /**
@@ -76,7 +79,7 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
      */
     private String personalizedMessage;
     /**
-     * The price range.
+     * The price range and currency set within the email campaign. This container will only return if a price range was set.
      */
     private PriceRange priceRange;
     /**
@@ -84,25 +87,25 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
      */
     private String promotionId;
     /**
-     * Indicates whether the listings that the discount was applied to were selected manually or automatically.&lt;br&gt;&lt;br&gt;This field will only return if a discount was applied. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:PromotionSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates whether the listings that the discount was applied to were selected manually or automatically.&lt;br&gt;&lt;br&gt;This field will only return if a discount was applied.
      */
-    private String promotionSelectMode;
+    private PromotionSelectModeEnum promotionSelectMode;
     /**
      * The date and time that the email campaign newsletter is scheduled to send, given in UTC format. This field is only returned if the seller set the start of the email campaign to a date in the future.
      */
     private String scheduleDate;
     /**
-     * The schedule type of the email campaign. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&quot;&gt;ScheduleDateTypeEnum&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The schedule type of the email campaign. See &lt;b&gt;ScheduleDateTypeEnum&lt;/b&gt;.
      */
-    private String scheduleDateType;
+    private ScheduleDateTypeEnum scheduleDateType;
     /**
      * The date and time that the email campaign was sent, given in UTC format.
      */
     private String sentDate;
     /**
-     * The sort rule is used to display the items in the email campaign. If no sort rule was selected, the default will be &lt;code&gt;NEWLY_LISTED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSortEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The sort rule is used to display the items in the email campaign. If no sort rule was selected, the default will be &lt;code&gt;NEWLY_LISTED&lt;/code&gt;.
      */
-    private String sort;
+    private ItemSortEnum sort;
     /**
      * The email campaign subject.
      */
@@ -148,11 +151,11 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         return this.categoryId;
     }
     /**
-     * Gets the categoryType property value. The enumeration value returned here indicates if the &lt;b&gt;categoryId&lt;/b&gt; value is the identifier of an eBay category or an eBay store category.&lt;br&gt;&lt;br&gt;This field is returned if a seller has applied the email campaign to a specific category. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CategoryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the categoryType property value. The enumeration value returned here indicates if the &lt;b&gt;categoryId&lt;/b&gt; value is the identifier of an eBay category or an eBay store category.&lt;br&gt;&lt;br&gt;This field is returned if a seller has applied the email campaign to a specific category.
+     * @return a {@link CategoryTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getCategoryType() {
+    public CategoryTypeEnum getCategoryType() {
         return this.categoryType;
     }
     /**
@@ -172,19 +175,19 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         return this.emailCampaignId;
     }
     /**
-     * Gets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of valid statuses. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of valid statuses.
+     * @return a {@link EmailCampaignStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getEmailCampaignStatus() {
+    public EmailCampaignStatusEnum getEmailCampaignStatus() {
         return this.emailCampaignStatus;
     }
     /**
-     * Gets the emailCampaignType property value. The email campaign type. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for valid email campaign types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CampaignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the emailCampaignType property value. The email campaign type. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for valid email campaign types.
+     * @return a {@link CampaignTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getEmailCampaignType() {
+    public CampaignTypeEnum getEmailCampaignType() {
         return this.emailCampaignType;
     }
     /**
@@ -196,23 +199,23 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(20);
         deserializerMap.put("audiences", (n) -> { this.setAudiences(n.getCollectionOfObjectValues(CampaignAudience::createFromDiscriminatorValue)); });
         deserializerMap.put("categoryId", (n) -> { this.setCategoryId(n.getStringValue()); });
-        deserializerMap.put("categoryType", (n) -> { this.setCategoryType(n.getStringValue()); });
+        deserializerMap.put("categoryType", (n) -> { this.setCategoryType(n.getEnumValue(CategoryTypeEnum::forValue)); });
         deserializerMap.put("creationDate", (n) -> { this.setCreationDate(n.getStringValue()); });
         deserializerMap.put("emailCampaignId", (n) -> { this.setEmailCampaignId(n.getStringValue()); });
-        deserializerMap.put("emailCampaignStatus", (n) -> { this.setEmailCampaignStatus(n.getStringValue()); });
-        deserializerMap.put("emailCampaignType", (n) -> { this.setEmailCampaignType(n.getStringValue()); });
+        deserializerMap.put("emailCampaignStatus", (n) -> { this.setEmailCampaignStatus(n.getEnumValue(EmailCampaignStatusEnum::forValue)); });
+        deserializerMap.put("emailCampaignType", (n) -> { this.setEmailCampaignType(n.getEnumValue(CampaignTypeEnum::forValue)); });
         deserializerMap.put("itemIds", (n) -> { this.setItemIds(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("itemSelectMode", (n) -> { this.setItemSelectMode(n.getStringValue()); });
+        deserializerMap.put("itemSelectMode", (n) -> { this.setItemSelectMode(n.getEnumValue(ItemSelectModeEnum::forValue)); });
         deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getStringValue()); });
         deserializerMap.put("modificationDate", (n) -> { this.setModificationDate(n.getStringValue()); });
         deserializerMap.put("personalizedMessage", (n) -> { this.setPersonalizedMessage(n.getStringValue()); });
         deserializerMap.put("priceRange", (n) -> { this.setPriceRange(n.getObjectValue(PriceRange::createFromDiscriminatorValue)); });
         deserializerMap.put("promotionId", (n) -> { this.setPromotionId(n.getStringValue()); });
-        deserializerMap.put("promotionSelectMode", (n) -> { this.setPromotionSelectMode(n.getStringValue()); });
+        deserializerMap.put("promotionSelectMode", (n) -> { this.setPromotionSelectMode(n.getEnumValue(PromotionSelectModeEnum::forValue)); });
         deserializerMap.put("scheduleDate", (n) -> { this.setScheduleDate(n.getStringValue()); });
-        deserializerMap.put("scheduleDateType", (n) -> { this.setScheduleDateType(n.getStringValue()); });
+        deserializerMap.put("scheduleDateType", (n) -> { this.setScheduleDateType(n.getEnumValue(ScheduleDateTypeEnum::forValue)); });
         deserializerMap.put("sentDate", (n) -> { this.setSentDate(n.getStringValue()); });
-        deserializerMap.put("sort", (n) -> { this.setSort(n.getStringValue()); });
+        deserializerMap.put("sort", (n) -> { this.setSort(n.getEnumValue(ItemSortEnum::forValue)); });
         deserializerMap.put("subject", (n) -> { this.setSubject(n.getStringValue()); });
         return deserializerMap;
     }
@@ -225,15 +228,15 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         return this.itemIds;
     }
     /**
-     * Gets the itemSelectMode property value. The mode used to select the items listed in the email campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the itemSelectMode property value. The mode used to select the items listed in the email campaign.
+     * @return a {@link ItemSelectModeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getItemSelectMode() {
+    public ItemSelectModeEnum getItemSelectMode() {
         return this.itemSelectMode;
     }
     /**
-     * Gets the marketplaceId property value. The eBay marketplace where the email campaign is active. See &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for a list of marketplace IDs.
+     * Gets the marketplaceId property value. The eBay marketplace where the email campaign is active. See &lt;b&gt;MarketplaceIdEnum&lt;/b&gt; for a list of marketplace IDs.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -257,7 +260,7 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         return this.personalizedMessage;
     }
     /**
-     * Gets the priceRange property value. The price range.
+     * Gets the priceRange property value. The price range and currency set within the email campaign. This container will only return if a price range was set.
      * @return a {@link PriceRange}
      */
     @jakarta.annotation.Nullable
@@ -273,11 +276,11 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         return this.promotionId;
     }
     /**
-     * Gets the promotionSelectMode property value. Indicates whether the listings that the discount was applied to were selected manually or automatically.&lt;br&gt;&lt;br&gt;This field will only return if a discount was applied. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:PromotionSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the promotionSelectMode property value. Indicates whether the listings that the discount was applied to were selected manually or automatically.&lt;br&gt;&lt;br&gt;This field will only return if a discount was applied.
+     * @return a {@link PromotionSelectModeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPromotionSelectMode() {
+    public PromotionSelectModeEnum getPromotionSelectMode() {
         return this.promotionSelectMode;
     }
     /**
@@ -289,11 +292,11 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         return this.scheduleDate;
     }
     /**
-     * Gets the scheduleDateType property value. The schedule type of the email campaign. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&quot;&gt;ScheduleDateTypeEnum&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the scheduleDateType property value. The schedule type of the email campaign. See &lt;b&gt;ScheduleDateTypeEnum&lt;/b&gt;.
+     * @return a {@link ScheduleDateTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getScheduleDateType() {
+    public ScheduleDateTypeEnum getScheduleDateType() {
         return this.scheduleDateType;
     }
     /**
@@ -305,11 +308,11 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         return this.sentDate;
     }
     /**
-     * Gets the sort property value. The sort rule is used to display the items in the email campaign. If no sort rule was selected, the default will be &lt;code&gt;NEWLY_LISTED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSortEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the sort property value. The sort rule is used to display the items in the email campaign. If no sort rule was selected, the default will be &lt;code&gt;NEWLY_LISTED&lt;/code&gt;.
+     * @return a {@link ItemSortEnum}
      */
     @jakarta.annotation.Nullable
-    public String getSort() {
+    public ItemSortEnum getSort() {
         return this.sort;
     }
     /**
@@ -328,23 +331,23 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         Objects.requireNonNull(writer);
         writer.writeCollectionOfObjectValues("audiences", this.getAudiences());
         writer.writeStringValue("categoryId", this.getCategoryId());
-        writer.writeStringValue("categoryType", this.getCategoryType());
+        writer.writeEnumValue("categoryType", this.getCategoryType());
         writer.writeStringValue("creationDate", this.getCreationDate());
         writer.writeStringValue("emailCampaignId", this.getEmailCampaignId());
-        writer.writeStringValue("emailCampaignStatus", this.getEmailCampaignStatus());
-        writer.writeStringValue("emailCampaignType", this.getEmailCampaignType());
+        writer.writeEnumValue("emailCampaignStatus", this.getEmailCampaignStatus());
+        writer.writeEnumValue("emailCampaignType", this.getEmailCampaignType());
         writer.writeCollectionOfPrimitiveValues("itemIds", this.getItemIds());
-        writer.writeStringValue("itemSelectMode", this.getItemSelectMode());
+        writer.writeEnumValue("itemSelectMode", this.getItemSelectMode());
         writer.writeStringValue("marketplaceId", this.getMarketplaceId());
         writer.writeStringValue("modificationDate", this.getModificationDate());
         writer.writeStringValue("personalizedMessage", this.getPersonalizedMessage());
         writer.writeObjectValue("priceRange", this.getPriceRange());
         writer.writeStringValue("promotionId", this.getPromotionId());
-        writer.writeStringValue("promotionSelectMode", this.getPromotionSelectMode());
+        writer.writeEnumValue("promotionSelectMode", this.getPromotionSelectMode());
         writer.writeStringValue("scheduleDate", this.getScheduleDate());
-        writer.writeStringValue("scheduleDateType", this.getScheduleDateType());
+        writer.writeEnumValue("scheduleDateType", this.getScheduleDateType());
         writer.writeStringValue("sentDate", this.getSentDate());
-        writer.writeStringValue("sort", this.getSort());
+        writer.writeEnumValue("sort", this.getSort());
         writer.writeStringValue("subject", this.getSubject());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -370,10 +373,10 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         this.categoryId = value;
     }
     /**
-     * Sets the categoryType property value. The enumeration value returned here indicates if the &lt;b&gt;categoryId&lt;/b&gt; value is the identifier of an eBay category or an eBay store category.&lt;br&gt;&lt;br&gt;This field is returned if a seller has applied the email campaign to a specific category. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CategoryTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the categoryType property value. The enumeration value returned here indicates if the &lt;b&gt;categoryId&lt;/b&gt; value is the identifier of an eBay category or an eBay store category.&lt;br&gt;&lt;br&gt;This field is returned if a seller has applied the email campaign to a specific category.
      * @param value Value to set for the categoryType property.
      */
-    public void setCategoryType(@jakarta.annotation.Nullable final String value) {
+    public void setCategoryType(@jakarta.annotation.Nullable final CategoryTypeEnum value) {
         this.categoryType = value;
     }
     /**
@@ -391,17 +394,17 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         this.emailCampaignId = value;
     }
     /**
-     * Sets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of valid statuses. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for a list of valid statuses.
      * @param value Value to set for the emailCampaignStatus property.
      */
-    public void setEmailCampaignStatus(@jakarta.annotation.Nullable final String value) {
+    public void setEmailCampaignStatus(@jakarta.annotation.Nullable final EmailCampaignStatusEnum value) {
         this.emailCampaignStatus = value;
     }
     /**
-     * Sets the emailCampaignType property value. The email campaign type. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for valid email campaign types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CampaignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the emailCampaignType property value. The email campaign type. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for valid email campaign types.
      * @param value Value to set for the emailCampaignType property.
      */
-    public void setEmailCampaignType(@jakarta.annotation.Nullable final String value) {
+    public void setEmailCampaignType(@jakarta.annotation.Nullable final CampaignTypeEnum value) {
         this.emailCampaignType = value;
     }
     /**
@@ -412,14 +415,14 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         this.itemIds = value;
     }
     /**
-     * Sets the itemSelectMode property value. The mode used to select the items listed in the email campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the itemSelectMode property value. The mode used to select the items listed in the email campaign.
      * @param value Value to set for the itemSelectMode property.
      */
-    public void setItemSelectMode(@jakarta.annotation.Nullable final String value) {
+    public void setItemSelectMode(@jakarta.annotation.Nullable final ItemSelectModeEnum value) {
         this.itemSelectMode = value;
     }
     /**
-     * Sets the marketplaceId property value. The eBay marketplace where the email campaign is active. See &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for a list of marketplace IDs.
+     * Sets the marketplaceId property value. The eBay marketplace where the email campaign is active. See &lt;b&gt;MarketplaceIdEnum&lt;/b&gt; for a list of marketplace IDs.
      * @param value Value to set for the marketplaceId property.
      */
     public void setMarketplaceId(@jakarta.annotation.Nullable final String value) {
@@ -440,7 +443,7 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         this.personalizedMessage = value;
     }
     /**
-     * Sets the priceRange property value. The price range.
+     * Sets the priceRange property value. The price range and currency set within the email campaign. This container will only return if a price range was set.
      * @param value Value to set for the priceRange property.
      */
     public void setPriceRange(@jakarta.annotation.Nullable final PriceRange value) {
@@ -454,10 +457,10 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         this.promotionId = value;
     }
     /**
-     * Sets the promotionSelectMode property value. Indicates whether the listings that the discount was applied to were selected manually or automatically.&lt;br&gt;&lt;br&gt;This field will only return if a discount was applied. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:PromotionSelectModeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the promotionSelectMode property value. Indicates whether the listings that the discount was applied to were selected manually or automatically.&lt;br&gt;&lt;br&gt;This field will only return if a discount was applied.
      * @param value Value to set for the promotionSelectMode property.
      */
-    public void setPromotionSelectMode(@jakarta.annotation.Nullable final String value) {
+    public void setPromotionSelectMode(@jakarta.annotation.Nullable final PromotionSelectModeEnum value) {
         this.promotionSelectMode = value;
     }
     /**
@@ -468,10 +471,10 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         this.scheduleDate = value;
     }
     /**
-     * Sets the scheduleDateType property value. The schedule type of the email campaign. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&quot;&gt;ScheduleDateTypeEnum&lt;/a&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the scheduleDateType property value. The schedule type of the email campaign. See &lt;b&gt;ScheduleDateTypeEnum&lt;/b&gt;.
      * @param value Value to set for the scheduleDateType property.
      */
-    public void setScheduleDateType(@jakarta.annotation.Nullable final String value) {
+    public void setScheduleDateType(@jakarta.annotation.Nullable final ScheduleDateTypeEnum value) {
         this.scheduleDateType = value;
     }
     /**
@@ -482,10 +485,10 @@ public class GetEmailCampaignResponse implements AdditionalDataHolder, Parsable 
         this.sentDate = value;
     }
     /**
-     * Sets the sort property value. The sort rule is used to display the items in the email campaign. If no sort rule was selected, the default will be &lt;code&gt;NEWLY_LISTED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ItemSortEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the sort property value. The sort rule is used to display the items in the email campaign. If no sort rule was selected, the default will be &lt;code&gt;NEWLY_LISTED&lt;/code&gt;.
      * @param value Value to set for the sort property.
      */
-    public void setSort(@jakarta.annotation.Nullable final String value) {
+    public void setSort(@jakarta.annotation.Nullable final ItemSortEnum value) {
         this.sort = value;
     }
     /**

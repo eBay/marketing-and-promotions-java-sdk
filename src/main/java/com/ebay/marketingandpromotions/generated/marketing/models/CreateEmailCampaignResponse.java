@@ -21,6 +21,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * This type defines the response payload of the &lt;b&gt;createEmailCampaign&lt;/b&gt; method.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CreateEmailCampaignResponse implements AdditionalDataHolder, Parsable {
     /**
@@ -32,9 +35,9 @@ public class CreateEmailCampaignResponse implements AdditionalDataHolder, Parsab
      */
     private String emailCampaignId;
     /**
-     * The status of the email campaign.&lt;br&gt;&lt;br&gt;&lt;code&gt;ACTIVE&lt;/code&gt; is returned for email campaigns that have been successfully created but not been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;SENT&lt;/code&gt; is returned for email campaigns that have already been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;ERROR&lt;/code&gt; is returned when an email has not been successfully created. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The status of the email campaign.&lt;br&gt;&lt;br&gt;&lt;code&gt;ACTIVE&lt;/code&gt; is returned for email campaigns that have been successfully created but not been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;SENT&lt;/code&gt; is returned for email campaigns that have already been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;ERROR&lt;/code&gt; is returned when an email has not been successfully created.
      */
-    private String emailCampaignStatus;
+    private EmailCampaignStatusEnum emailCampaignStatus;
     /**
      * Instantiates a new {@link CreateEmailCampaignResponse} and sets the default values.
      */
@@ -68,11 +71,11 @@ public class CreateEmailCampaignResponse implements AdditionalDataHolder, Parsab
         return this.emailCampaignId;
     }
     /**
-     * Gets the emailCampaignStatus property value. The status of the email campaign.&lt;br&gt;&lt;br&gt;&lt;code&gt;ACTIVE&lt;/code&gt; is returned for email campaigns that have been successfully created but not been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;SENT&lt;/code&gt; is returned for email campaigns that have already been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;ERROR&lt;/code&gt; is returned when an email has not been successfully created. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the emailCampaignStatus property value. The status of the email campaign.&lt;br&gt;&lt;br&gt;&lt;code&gt;ACTIVE&lt;/code&gt; is returned for email campaigns that have been successfully created but not been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;SENT&lt;/code&gt; is returned for email campaigns that have already been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;ERROR&lt;/code&gt; is returned when an email has not been successfully created.
+     * @return a {@link EmailCampaignStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getEmailCampaignStatus() {
+    public EmailCampaignStatusEnum getEmailCampaignStatus() {
         return this.emailCampaignStatus;
     }
     /**
@@ -83,7 +86,7 @@ public class CreateEmailCampaignResponse implements AdditionalDataHolder, Parsab
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("emailCampaignId", (n) -> { this.setEmailCampaignId(n.getStringValue()); });
-        deserializerMap.put("emailCampaignStatus", (n) -> { this.setEmailCampaignStatus(n.getStringValue()); });
+        deserializerMap.put("emailCampaignStatus", (n) -> { this.setEmailCampaignStatus(n.getEnumValue(EmailCampaignStatusEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -93,7 +96,7 @@ public class CreateEmailCampaignResponse implements AdditionalDataHolder, Parsab
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("emailCampaignId", this.getEmailCampaignId());
-        writer.writeStringValue("emailCampaignStatus", this.getEmailCampaignStatus());
+        writer.writeEnumValue("emailCampaignStatus", this.getEmailCampaignStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -111,10 +114,10 @@ public class CreateEmailCampaignResponse implements AdditionalDataHolder, Parsab
         this.emailCampaignId = value;
     }
     /**
-     * Sets the emailCampaignStatus property value. The status of the email campaign.&lt;br&gt;&lt;br&gt;&lt;code&gt;ACTIVE&lt;/code&gt; is returned for email campaigns that have been successfully created but not been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;SENT&lt;/code&gt; is returned for email campaigns that have already been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;ERROR&lt;/code&gt; is returned when an email has not been successfully created. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the emailCampaignStatus property value. The status of the email campaign.&lt;br&gt;&lt;br&gt;&lt;code&gt;ACTIVE&lt;/code&gt; is returned for email campaigns that have been successfully created but not been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;SENT&lt;/code&gt; is returned for email campaigns that have already been sent.&lt;br&gt;&lt;br&gt;&lt;code&gt;ERROR&lt;/code&gt; is returned when an email has not been successfully created.
      * @param value Value to set for the emailCampaignStatus property.
      */
-    public void setEmailCampaignStatus(@jakarta.annotation.Nullable final String value) {
+    public void setEmailCampaignStatus(@jakarta.annotation.Nullable final EmailCampaignStatusEnum value) {
         this.emailCampaignStatus = value;
     }
 }

@@ -37,7 +37,7 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
     /**
      * The channel for the advertising campaign that will be included in the report task. This value indicates whether the data included in the report task is for an Onsite or Offsite advertising campaign.
      */
-    private java.util.List<String> channels;
+    private java.util.List<ChannelEnum> channels;
     /**
      * The date defining the start of the timespan covered by the report, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; timestamp.
      */
@@ -53,9 +53,9 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
     /**
      * The funding model for the campaign that shall be included in the report.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; The default funding model for Promoted Listings reports is &lt;code&gt;COST_PER_SALE&lt;/code&gt;.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;COST_PER_SALE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;COST_PER_CLICK&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private java.util.List<String> fundingModels;
+    private java.util.List<FundingModelEnum> fundingModels;
     /**
-     * If supplied in the request, this field returns a list of the seller&apos;s inventory reference IDs included in the report.  &lt;p&gt;Each item is referenced by a pair of &lt;b&gt;inventoryRefernceID&lt;/b&gt; and &lt;b&gt;inventoryReferenceType&lt;/b&gt; values, where an inventory reference ID can be either a seller-defined &lt;b&gt;SKU&lt;/b&gt; value or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt;. An &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; is seller-defined ID for an inventory item group (a multiple-variation listing), and is created and used by the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot;&gt;Inventory API&lt;/a&gt;.&lt;/p&gt;
+     * If supplied in the request, this field returns a list of the seller&apos;s inventory reference IDs included in the report.  &lt;p&gt;Each item is referenced by a pair of &lt;b&gt;inventoryRefernceID&lt;/b&gt; and &lt;b&gt;inventoryReferenceType&lt;/b&gt; values, where an inventory reference ID can be either a seller-defined &lt;b&gt;SKU&lt;/b&gt; value or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt;. An &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; is seller-defined ID for an inventory item group (a multiple-variation listing), and is created and used by the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; target=&quot;_blank&quot;&gt;Inventory API&lt;/a&gt;.&lt;/p&gt;
      */
     private java.util.List<InventoryReference> inventoryReferences;
     /**
@@ -63,9 +63,9 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
      */
     private java.util.List<String> listingIds;
     /**
-     * The ID of the eBay marketplace used by the report task. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The ID of the eBay marketplace used by the report task.
      */
-    private String marketplaceId;
+    private MarketplaceIdEnum marketplaceId;
     /**
      * A list of metrics for the report task.
      */
@@ -75,9 +75,9 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
      */
     private String reportExpirationDate;
     /**
-     * Indicates the format of the report. Currently, only &lt;code&gt;TSV_GZIP&lt;/code&gt; is supported. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:ReportFormatEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates the format of the report. Currently, only &lt;code&gt;TSV_GZIP&lt;/code&gt; is supported.
      */
-    private String reportFormat;
+    private ReportFormatEnum reportFormat;
     /**
      * The URL of the generated report, which can be used to download the report once it has been generated.
      */
@@ -107,17 +107,17 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
      */
     private String reportTaskId;
     /**
-     * Indicates the current state of the report task. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:TaskStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates the current state of the report task.
      */
-    private String reportTaskStatus;
+    private TaskStatusEnum reportTaskStatus;
     /**
      * A status message with additional information about the report task.
      */
     private String reportTaskStatusMessage;
     /**
-     * Indicates type of report associated with the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; INVENTORY_PERFORMANCE_REPORT is not currently available; availability date is pending.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:ReportTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates type of report associated with the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;code&gt;INVENTORY_PERFORMANCE_REPORT&lt;/code&gt; is not currently available; availability date is pending.&lt;/span&gt;
      */
-    private String reportType;
+    private ReportTypeEnum reportType;
     /**
      * Instantiates a new {@link ReportTask} and sets the default values.
      */
@@ -152,10 +152,10 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
     }
     /**
      * Gets the channels property value. The channel for the advertising campaign that will be included in the report task. This value indicates whether the data included in the report task is for an Onsite or Offsite advertising campaign.
-     * @return a {@link java.util.List<String>}
+     * @return a {@link java.util.List<ChannelEnum>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<String> getChannels() {
+    public java.util.List<ChannelEnum> getChannels() {
         return this.channels;
     }
     /**
@@ -190,17 +190,17 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(22);
         deserializerMap.put("campaignIds", (n) -> { this.setCampaignIds(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("channels", (n) -> { this.setChannels(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("channels", (n) -> { this.setChannels(n.getCollectionOfEnumValues(ChannelEnum::forValue)); });
         deserializerMap.put("dateFrom", (n) -> { this.setDateFrom(n.getStringValue()); });
         deserializerMap.put("dateTo", (n) -> { this.setDateTo(n.getStringValue()); });
         deserializerMap.put("dimensions", (n) -> { this.setDimensions(n.getCollectionOfObjectValues(Dimension::createFromDiscriminatorValue)); });
-        deserializerMap.put("fundingModels", (n) -> { this.setFundingModels(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("fundingModels", (n) -> { this.setFundingModels(n.getCollectionOfEnumValues(FundingModelEnum::forValue)); });
         deserializerMap.put("inventoryReferences", (n) -> { this.setInventoryReferences(n.getCollectionOfObjectValues(InventoryReference::createFromDiscriminatorValue)); });
         deserializerMap.put("listingIds", (n) -> { this.setListingIds(n.getCollectionOfPrimitiveValues(String.class)); });
-        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getStringValue()); });
+        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getEnumValue(MarketplaceIdEnum::forValue)); });
         deserializerMap.put("metricKeys", (n) -> { this.setMetricKeys(n.getCollectionOfPrimitiveValues(String.class)); });
         deserializerMap.put("reportExpirationDate", (n) -> { this.setReportExpirationDate(n.getStringValue()); });
-        deserializerMap.put("reportFormat", (n) -> { this.setReportFormat(n.getStringValue()); });
+        deserializerMap.put("reportFormat", (n) -> { this.setReportFormat(n.getEnumValue(ReportFormatEnum::forValue)); });
         deserializerMap.put("reportHref", (n) -> { this.setReportHref(n.getStringValue()); });
         deserializerMap.put("reportId", (n) -> { this.setReportId(n.getStringValue()); });
         deserializerMap.put("reportName", (n) -> { this.setReportName(n.getStringValue()); });
@@ -208,21 +208,21 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         deserializerMap.put("reportTaskCreationDate", (n) -> { this.setReportTaskCreationDate(n.getStringValue()); });
         deserializerMap.put("reportTaskExpectedCompletionDate", (n) -> { this.setReportTaskExpectedCompletionDate(n.getStringValue()); });
         deserializerMap.put("reportTaskId", (n) -> { this.setReportTaskId(n.getStringValue()); });
-        deserializerMap.put("reportTaskStatus", (n) -> { this.setReportTaskStatus(n.getStringValue()); });
+        deserializerMap.put("reportTaskStatus", (n) -> { this.setReportTaskStatus(n.getEnumValue(TaskStatusEnum::forValue)); });
         deserializerMap.put("reportTaskStatusMessage", (n) -> { this.setReportTaskStatusMessage(n.getStringValue()); });
-        deserializerMap.put("reportType", (n) -> { this.setReportType(n.getStringValue()); });
+        deserializerMap.put("reportType", (n) -> { this.setReportType(n.getEnumValue(ReportTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
      * Gets the fundingModels property value. The funding model for the campaign that shall be included in the report.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; The default funding model for Promoted Listings reports is &lt;code&gt;COST_PER_SALE&lt;/code&gt;.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;COST_PER_SALE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;COST_PER_CLICK&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @return a {@link java.util.List<String>}
+     * @return a {@link java.util.List<FundingModelEnum>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<String> getFundingModels() {
+    public java.util.List<FundingModelEnum> getFundingModels() {
         return this.fundingModels;
     }
     /**
-     * Gets the inventoryReferences property value. If supplied in the request, this field returns a list of the seller&apos;s inventory reference IDs included in the report.  &lt;p&gt;Each item is referenced by a pair of &lt;b&gt;inventoryRefernceID&lt;/b&gt; and &lt;b&gt;inventoryReferenceType&lt;/b&gt; values, where an inventory reference ID can be either a seller-defined &lt;b&gt;SKU&lt;/b&gt; value or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt;. An &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; is seller-defined ID for an inventory item group (a multiple-variation listing), and is created and used by the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot;&gt;Inventory API&lt;/a&gt;.&lt;/p&gt;
+     * Gets the inventoryReferences property value. If supplied in the request, this field returns a list of the seller&apos;s inventory reference IDs included in the report.  &lt;p&gt;Each item is referenced by a pair of &lt;b&gt;inventoryRefernceID&lt;/b&gt; and &lt;b&gt;inventoryReferenceType&lt;/b&gt; values, where an inventory reference ID can be either a seller-defined &lt;b&gt;SKU&lt;/b&gt; value or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt;. An &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; is seller-defined ID for an inventory item group (a multiple-variation listing), and is created and used by the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; target=&quot;_blank&quot;&gt;Inventory API&lt;/a&gt;.&lt;/p&gt;
      * @return a {@link java.util.List<InventoryReference>}
      */
     @jakarta.annotation.Nullable
@@ -238,11 +238,11 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         return this.listingIds;
     }
     /**
-     * Gets the marketplaceId property value. The ID of the eBay marketplace used by the report task. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the marketplaceId property value. The ID of the eBay marketplace used by the report task.
+     * @return a {@link MarketplaceIdEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMarketplaceId() {
+    public MarketplaceIdEnum getMarketplaceId() {
         return this.marketplaceId;
     }
     /**
@@ -262,11 +262,11 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         return this.reportExpirationDate;
     }
     /**
-     * Gets the reportFormat property value. Indicates the format of the report. Currently, only &lt;code&gt;TSV_GZIP&lt;/code&gt; is supported. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:ReportFormatEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the reportFormat property value. Indicates the format of the report. Currently, only &lt;code&gt;TSV_GZIP&lt;/code&gt; is supported.
+     * @return a {@link ReportFormatEnum}
      */
     @jakarta.annotation.Nullable
-    public String getReportFormat() {
+    public ReportFormatEnum getReportFormat() {
         return this.reportFormat;
     }
     /**
@@ -326,11 +326,11 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         return this.reportTaskId;
     }
     /**
-     * Gets the reportTaskStatus property value. Indicates the current state of the report task. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:TaskStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the reportTaskStatus property value. Indicates the current state of the report task.
+     * @return a {@link TaskStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getReportTaskStatus() {
+    public TaskStatusEnum getReportTaskStatus() {
         return this.reportTaskStatus;
     }
     /**
@@ -342,11 +342,11 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         return this.reportTaskStatusMessage;
     }
     /**
-     * Gets the reportType property value. Indicates type of report associated with the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; INVENTORY_PERFORMANCE_REPORT is not currently available; availability date is pending.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:ReportTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the reportType property value. Indicates type of report associated with the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;code&gt;INVENTORY_PERFORMANCE_REPORT&lt;/code&gt; is not currently available; availability date is pending.&lt;/span&gt;
+     * @return a {@link ReportTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getReportType() {
+    public ReportTypeEnum getReportType() {
         return this.reportType;
     }
     /**
@@ -356,17 +356,17 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeCollectionOfPrimitiveValues("campaignIds", this.getCampaignIds());
-        writer.writeCollectionOfPrimitiveValues("channels", this.getChannels());
+        writer.writeCollectionOfEnumValues("channels", this.getChannels());
         writer.writeStringValue("dateFrom", this.getDateFrom());
         writer.writeStringValue("dateTo", this.getDateTo());
         writer.writeCollectionOfObjectValues("dimensions", this.getDimensions());
-        writer.writeCollectionOfPrimitiveValues("fundingModels", this.getFundingModels());
+        writer.writeCollectionOfEnumValues("fundingModels", this.getFundingModels());
         writer.writeCollectionOfObjectValues("inventoryReferences", this.getInventoryReferences());
         writer.writeCollectionOfPrimitiveValues("listingIds", this.getListingIds());
-        writer.writeStringValue("marketplaceId", this.getMarketplaceId());
+        writer.writeEnumValue("marketplaceId", this.getMarketplaceId());
         writer.writeCollectionOfPrimitiveValues("metricKeys", this.getMetricKeys());
         writer.writeStringValue("reportExpirationDate", this.getReportExpirationDate());
-        writer.writeStringValue("reportFormat", this.getReportFormat());
+        writer.writeEnumValue("reportFormat", this.getReportFormat());
         writer.writeStringValue("reportHref", this.getReportHref());
         writer.writeStringValue("reportId", this.getReportId());
         writer.writeStringValue("reportName", this.getReportName());
@@ -374,9 +374,9 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("reportTaskCreationDate", this.getReportTaskCreationDate());
         writer.writeStringValue("reportTaskExpectedCompletionDate", this.getReportTaskExpectedCompletionDate());
         writer.writeStringValue("reportTaskId", this.getReportTaskId());
-        writer.writeStringValue("reportTaskStatus", this.getReportTaskStatus());
+        writer.writeEnumValue("reportTaskStatus", this.getReportTaskStatus());
         writer.writeStringValue("reportTaskStatusMessage", this.getReportTaskStatusMessage());
-        writer.writeStringValue("reportType", this.getReportType());
+        writer.writeEnumValue("reportType", this.getReportType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -397,7 +397,7 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
      * Sets the channels property value. The channel for the advertising campaign that will be included in the report task. This value indicates whether the data included in the report task is for an Onsite or Offsite advertising campaign.
      * @param value Value to set for the channels property.
      */
-    public void setChannels(@jakarta.annotation.Nullable final java.util.List<String> value) {
+    public void setChannels(@jakarta.annotation.Nullable final java.util.List<ChannelEnum> value) {
         this.channels = value;
     }
     /**
@@ -425,11 +425,11 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
      * Sets the fundingModels property value. The funding model for the campaign that shall be included in the report.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; The default funding model for Promoted Listings reports is &lt;code&gt;COST_PER_SALE&lt;/code&gt;.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;COST_PER_SALE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;COST_PER_CLICK&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the fundingModels property.
      */
-    public void setFundingModels(@jakarta.annotation.Nullable final java.util.List<String> value) {
+    public void setFundingModels(@jakarta.annotation.Nullable final java.util.List<FundingModelEnum> value) {
         this.fundingModels = value;
     }
     /**
-     * Sets the inventoryReferences property value. If supplied in the request, this field returns a list of the seller&apos;s inventory reference IDs included in the report.  &lt;p&gt;Each item is referenced by a pair of &lt;b&gt;inventoryRefernceID&lt;/b&gt; and &lt;b&gt;inventoryReferenceType&lt;/b&gt; values, where an inventory reference ID can be either a seller-defined &lt;b&gt;SKU&lt;/b&gt; value or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt;. An &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; is seller-defined ID for an inventory item group (a multiple-variation listing), and is created and used by the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot;&gt;Inventory API&lt;/a&gt;.&lt;/p&gt;
+     * Sets the inventoryReferences property value. If supplied in the request, this field returns a list of the seller&apos;s inventory reference IDs included in the report.  &lt;p&gt;Each item is referenced by a pair of &lt;b&gt;inventoryRefernceID&lt;/b&gt; and &lt;b&gt;inventoryReferenceType&lt;/b&gt; values, where an inventory reference ID can be either a seller-defined &lt;b&gt;SKU&lt;/b&gt; value or an &lt;b&gt;inventoryItemGroupKey&lt;/b&gt;. An &lt;b&gt;inventoryItemGroupKey&lt;/b&gt; is seller-defined ID for an inventory item group (a multiple-variation listing), and is created and used by the &lt;a href=&quot;/api-docs/sell/inventory/resources/methods&quot; target=&quot;_blank&quot;&gt;Inventory API&lt;/a&gt;.&lt;/p&gt;
      * @param value Value to set for the inventoryReferences property.
      */
     public void setInventoryReferences(@jakarta.annotation.Nullable final java.util.List<InventoryReference> value) {
@@ -443,10 +443,10 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         this.listingIds = value;
     }
     /**
-     * Sets the marketplaceId property value. The ID of the eBay marketplace used by the report task. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the marketplaceId property value. The ID of the eBay marketplace used by the report task.
      * @param value Value to set for the marketplaceId property.
      */
-    public void setMarketplaceId(@jakarta.annotation.Nullable final String value) {
+    public void setMarketplaceId(@jakarta.annotation.Nullable final MarketplaceIdEnum value) {
         this.marketplaceId = value;
     }
     /**
@@ -464,10 +464,10 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         this.reportExpirationDate = value;
     }
     /**
-     * Sets the reportFormat property value. Indicates the format of the report. Currently, only &lt;code&gt;TSV_GZIP&lt;/code&gt; is supported. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:ReportFormatEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the reportFormat property value. Indicates the format of the report. Currently, only &lt;code&gt;TSV_GZIP&lt;/code&gt; is supported.
      * @param value Value to set for the reportFormat property.
      */
-    public void setReportFormat(@jakarta.annotation.Nullable final String value) {
+    public void setReportFormat(@jakarta.annotation.Nullable final ReportFormatEnum value) {
         this.reportFormat = value;
     }
     /**
@@ -520,10 +520,10 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         this.reportTaskId = value;
     }
     /**
-     * Sets the reportTaskStatus property value. Indicates the current state of the report task. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:TaskStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the reportTaskStatus property value. Indicates the current state of the report task.
      * @param value Value to set for the reportTaskStatus property.
      */
-    public void setReportTaskStatus(@jakarta.annotation.Nullable final String value) {
+    public void setReportTaskStatus(@jakarta.annotation.Nullable final TaskStatusEnum value) {
         this.reportTaskStatus = value;
     }
     /**
@@ -534,10 +534,10 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         this.reportTaskStatusMessage = value;
     }
     /**
-     * Sets the reportType property value. Indicates type of report associated with the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; INVENTORY_PERFORMANCE_REPORT is not currently available; availability date is pending.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:ReportTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the reportType property value. Indicates type of report associated with the report task.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;code&gt;INVENTORY_PERFORMANCE_REPORT&lt;/code&gt; is not currently available; availability date is pending.&lt;/span&gt;
      * @param value Value to set for the reportType property.
      */
-    public void setReportType(@jakarta.annotation.Nullable final String value) {
+    public void setReportType(@jakarta.annotation.Nullable final ReportTypeEnum value) {
         this.reportType = value;
     }
 }

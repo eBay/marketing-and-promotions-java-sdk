@@ -21,6 +21,9 @@ import com.microsoft.kiota.serialization.SerializationWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+/**
+ * This type defines the response payload for the &lt;b&gt;getAudiences&lt;/b&gt; method.
+ */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class GetEmailCampaignAudiencesResponse implements AdditionalDataHolder, Parsable {
     /**

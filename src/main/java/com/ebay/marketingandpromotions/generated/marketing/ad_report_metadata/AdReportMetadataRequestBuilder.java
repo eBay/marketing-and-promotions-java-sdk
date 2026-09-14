@@ -15,6 +15,7 @@
 package com.ebay.marketingandpromotions.generated.marketing.ad_report_metadata;
 
 import com.ebay.marketingandpromotions.generated.marketing.ad_report_metadata.item.WithReportTypeItemRequestBuilder;
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.ReportMetadatas;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -36,7 +37,7 @@ import java.util.Objects;
 public class AdReportMetadataRequestBuilder extends BaseRequestBuilder {
     /**
      * Gets an item from the com.ebay.marketingandpromotions.generated.marketing.ad_report_metadata.item collection
-     * @param report_type This path parameter specifies the name of the report type whose metadata you want to retrieve.&lt;br /&gt;&lt;br /&gt;For details about available report types and their descriptions, refer to the &lt;a href=&quot;/api-docs/sell/marketing/types/plr:ReportTypeEnum&quot; target=&quot;_blank&quot;&gt;ReportTypeEnum&lt;/a&gt;.
+     * @param report_type This path parameter specifies the name of the report type whose metadata you want to retrieve.&lt;br /&gt;&lt;br /&gt;For details about available report types and their descriptions, refer to the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_report_task-getreporttasks.reporttypeenum&quot;&gt;ReportTypeEnum&lt;/a&gt;.
      * @return a {@link WithReportTypeItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
@@ -65,6 +66,8 @@ public class AdReportMetadataRequestBuilder extends BaseRequestBuilder {
     /**
      * This call retrieves information that details the fields used in each of the Promoted Listings reports. Use the returned information to configure the different types of Promoted Listings reports.&lt;/br&gt;&lt;/br&gt; You can retrieve metadata for all report types,funding models and channels, or you can filter based on funding model and/or channel.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The reporting of some data related to sales and ad-fees may require a 72-hour (&lt;b&gt;maximum&lt;/b&gt;) adjustment period which is often referred to as the &lt;i&gt;Reconciliation Period&lt;/i&gt;. Such adjustment periods should, on average, be minimal. However, at any given time, the &lt;b&gt;payments&lt;/b&gt; tab may be used to view those amounts that have actually been charged.&lt;/span&gt;
      * @return a {@link ReportMetadatas}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public ReportMetadatas get() {
@@ -74,11 +77,16 @@ public class AdReportMetadataRequestBuilder extends BaseRequestBuilder {
      * This call retrieves information that details the fields used in each of the Promoted Listings reports. Use the returned information to configure the different types of Promoted Listings reports.&lt;/br&gt;&lt;/br&gt; You can retrieve metadata for all report types,funding models and channels, or you can filter based on funding model and/or channel.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The reporting of some data related to sales and ad-fees may require a 72-hour (&lt;b&gt;maximum&lt;/b&gt;) adjustment period which is often referred to as the &lt;i&gt;Reconciliation Period&lt;/i&gt;. Such adjustment periods should, on average, be minimal. However, at any given time, the &lt;b&gt;payments&lt;/b&gt; tab may be used to view those amounts that have actually been charged.&lt;/span&gt;
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link ReportMetadatas}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public ReportMetadatas get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, ReportMetadatas::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, ReportMetadatas::createFromDiscriminatorValue);
     }
     /**
      * This call retrieves information that details the fields used in each of the Promoted Listings reports. Use the returned information to configure the different types of Promoted Listings reports.&lt;/br&gt;&lt;/br&gt; You can retrieve metadata for all report types,funding models and channels, or you can filter based on funding model and/or channel.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The reporting of some data related to sales and ad-fees may require a 72-hour (&lt;b&gt;maximum&lt;/b&gt;) adjustment period which is often referred to as the &lt;i&gt;Reconciliation Period&lt;/i&gt;. Such adjustment periods should, on average, be minimal. However, at any given time, the &lt;b&gt;payments&lt;/b&gt; tab may be used to view those amounts that have actually been charged.&lt;/span&gt;
@@ -116,12 +124,12 @@ public class AdReportMetadataRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
         /**
-         * This query parameter is used only if the user wants to see COST_PER_CLICK report metadata for a specific channel. Refer to the &lt;a href=&quot;/api-docs/sell/marketing/types/pls:ChannelEnum&quot;&gt;ChannelEnum&lt;/a&gt; type for supported values.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The channel parameter is only applicable for COST_PER_CLICK funding model.&lt;/span&gt;
+         * This query parameter is used only if the user wants to see &lt;code&gt;COST_PER_CLICK&lt;/code&gt; report metadata for a specific channel. Refer to the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_report_task-getreporttasks.channelenum&quot;&gt;ChannelEnum&lt;/a&gt; type for supported values.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The channel parameter is only applicable for &lt;code&gt;COST_PER_CLICK&lt;/code&gt; funding model.&lt;/span&gt;
          */
         @jakarta.annotation.Nullable
         public String channel;
         /**
-         * This query parameter is used only if the user wants to see report metadata for a specific funding model. Refer to the &lt;a href=&quot;/api-docs/sell/marketing/types/pls:FundingModelEnum&quot;&gt;FundingModelEnum&lt;/a&gt; type for supported values.
+         * This query parameter is used only if the user wants to see report metadata for a specific funding model. Refer to the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_report_task-getreporttasks.fundingmodelenum&quot;&gt;FundingModelEnum&lt;/a&gt; type for supported values.
          */
         @jakarta.annotation.Nullable
         public String fundingModel;

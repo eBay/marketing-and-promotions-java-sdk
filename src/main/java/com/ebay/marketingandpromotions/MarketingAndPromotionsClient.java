@@ -28,17 +28,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Main facade for the Marketing and Promotions SDK.
- * Provides unified access to Marketing and Recommendation APIs.
- *
- * <pre>{@code
- * var config = new MarketingAndPromotionsConfiguration();
- * config.setAccessToken("your-token");
- *
- * try (var sdk = new MarketingAndPromotionsClient(config)) {
- *     var campaigns = sdk.marketing.getCampaigns(null, null, "10", "0", null, null).join();
- *     System.out.println(campaigns);
- * }
- * }</pre>
  */
 public final class MarketingAndPromotionsClient implements Closeable {
     private final OkHttpClient sharedHttpClient;
@@ -47,32 +36,11 @@ public final class MarketingAndPromotionsClient implements Closeable {
     public final RecommendationClient recommendation;
 
     public MarketingAndPromotionsClient(MarketingAndPromotionsConfiguration config) {
-        // Shared OkHttpClient for all REST clients
         this.sharedHttpClient = new OkHttpClient.Builder()
             .connectTimeout(10, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .build();
-
-        var authProvider = new BaseBearerTokenAuthenticationProvider(new KiotaAuthProvider(config));
-
-        // Marketing API client
-        var marketingAdapter = new OkHttpRequestAdapter(authProvider, null, null, sharedHttpClient);
-        marketingAdapter.setBaseUrl(config.getMarketingBaseUrl());
-        this.marketing = new MarketingClient(new MarketingApiClient(marketingAdapter), config);
-
-        // Recommendation API client
-        var recommendationAdapter = new OkHttpRequestAdapter(authProvider, null, null, sharedHttpClient);
-        recommendationAdapter.setBaseUrl(config.getRecommendationBaseUrl());
-        this.recommendation = new RecommendationClient(new RecommendationApiClient(recommendationAdapter), config);
-    }
-
-    /**
-     * Constructor with custom OkHttpClient.
-     * Useful for testing or custom HTTP configuration.
-     */
-    public MarketingAndPromotionsClient(MarketingAndPromotionsConfiguration config, OkHttpClient httpClient) {
-        this.sharedHttpClient = httpClient;
 
         var authProvider = new BaseBearerTokenAuthenticationProvider(new KiotaAuthProvider(config));
 

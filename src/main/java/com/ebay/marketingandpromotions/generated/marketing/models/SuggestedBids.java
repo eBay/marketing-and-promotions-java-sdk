@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * The suggested bid rate for the item.
+ * This type defines the suggested bid rate for the keyword.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SuggestedBids implements AdditionalDataHolder, Parsable {
@@ -35,11 +35,11 @@ public class SuggestedBids implements AdditionalDataHolder, Parsable {
      */
     private String keywordText;
     /**
-     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String matchType;
+    private MatchTypeEnum matchType;
     /**
-     * A type that defines the data for a payment amount, such as the sale price.
+     * The suggested bid associated with the keyword. 
      */
     private ProposedBid proposedBid;
     /**
@@ -74,7 +74,7 @@ public class SuggestedBids implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("keywordText", (n) -> { this.setKeywordText(n.getStringValue()); });
-        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getStringValue()); });
+        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getEnumValue(MatchTypeEnum::forValue)); });
         deserializerMap.put("proposedBid", (n) -> { this.setProposedBid(n.getObjectValue(ProposedBid::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
@@ -87,15 +87,15 @@ public class SuggestedBids implements AdditionalDataHolder, Parsable {
         return this.keywordText;
     }
     /**
-     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link MatchTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMatchType() {
+    public MatchTypeEnum getMatchType() {
         return this.matchType;
     }
     /**
-     * Gets the proposedBid property value. A type that defines the data for a payment amount, such as the sale price.
+     * Gets the proposedBid property value. The suggested bid associated with the keyword. 
      * @return a {@link ProposedBid}
      */
     @jakarta.annotation.Nullable
@@ -109,7 +109,7 @@ public class SuggestedBids implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("keywordText", this.getKeywordText());
-        writer.writeStringValue("matchType", this.getMatchType());
+        writer.writeEnumValue("matchType", this.getMatchType());
         writer.writeObjectValue("proposedBid", this.getProposedBid());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -128,14 +128,14 @@ public class SuggestedBids implements AdditionalDataHolder, Parsable {
         this.keywordText = value;
     }
     /**
-     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the matchType property.
      */
-    public void setMatchType(@jakarta.annotation.Nullable final String value) {
+    public void setMatchType(@jakarta.annotation.Nullable final MatchTypeEnum value) {
         this.matchType = value;
     }
     /**
-     * Sets the proposedBid property value. A type that defines the data for a payment amount, such as the sale price.
+     * Sets the proposedBid property value. The suggested bid associated with the keyword. 
      * @param value Value to set for the proposedBid property.
      */
     public void setProposedBid(@jakarta.annotation.Nullable final ProposedBid value) {

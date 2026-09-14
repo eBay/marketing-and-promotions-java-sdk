@@ -35,9 +35,9 @@ public class DimensionKeyAnnotation implements AdditionalDataHolder, Parsable {
      */
     private String annotationKey;
     /**
-     * The data type of the annotation key value. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:DataTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The data type of the annotation key value.
      */
-    private String dataType;
+    private DataTypeEnum dataType;
     /**
      * Instantiates a new {@link DimensionKeyAnnotation} and sets the default values.
      */
@@ -71,11 +71,11 @@ public class DimensionKeyAnnotation implements AdditionalDataHolder, Parsable {
         return this.annotationKey;
     }
     /**
-     * Gets the dataType property value. The data type of the annotation key value. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:DataTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the dataType property value. The data type of the annotation key value.
+     * @return a {@link DataTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getDataType() {
+    public DataTypeEnum getDataType() {
         return this.dataType;
     }
     /**
@@ -86,7 +86,7 @@ public class DimensionKeyAnnotation implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("annotationKey", (n) -> { this.setAnnotationKey(n.getStringValue()); });
-        deserializerMap.put("dataType", (n) -> { this.setDataType(n.getStringValue()); });
+        deserializerMap.put("dataType", (n) -> { this.setDataType(n.getEnumValue(DataTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -96,7 +96,7 @@ public class DimensionKeyAnnotation implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("annotationKey", this.getAnnotationKey());
-        writer.writeStringValue("dataType", this.getDataType());
+        writer.writeEnumValue("dataType", this.getDataType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -114,10 +114,10 @@ public class DimensionKeyAnnotation implements AdditionalDataHolder, Parsable {
         this.annotationKey = value;
     }
     /**
-     * Sets the dataType property value. The data type of the annotation key value. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/plr:DataTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the dataType property value. The data type of the annotation key value.
      * @param value Value to set for the dataType property.
      */
-    public void setDataType(@jakarta.annotation.Nullable final String value) {
+    public void setDataType(@jakarta.annotation.Nullable final DataTypeEnum value) {
         this.dataType = value;
     }
 }

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields used in the &lt;b&gt;updatedBiddingStrategy&lt;/b&gt; request.
+ * This type specifies the new value for the bidding strategy.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateBiddingStrategyRequest implements AdditionalDataHolder, Parsable {
@@ -31,9 +31,9 @@ public class UpdateBiddingStrategyRequest implements AdditionalDataHolder, Parsa
      */
     private Map<String, Object> additionalData;
     /**
-     * The new bidding strategy for the specified Cost Per Click (CPC) campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:BiddingStrategyEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The new bidding strategy for the specified Cost Per Click (CPC) campaign.
      */
-    private String biddingStrategy;
+    private BiddingStrategyEnum biddingStrategy;
     /**
      * This container indicates the bidding preferences of the campaign, such as the maximum CPC amount.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This container is only applicable for smart targeting campaigns.&lt;/span&gt;&lt;br&gt;This container is required if the user wants to create a Smart Targeting campaign.
      */
@@ -63,11 +63,11 @@ public class UpdateBiddingStrategyRequest implements AdditionalDataHolder, Parsa
         return this.additionalData;
     }
     /**
-     * Gets the biddingStrategy property value. The new bidding strategy for the specified Cost Per Click (CPC) campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:BiddingStrategyEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the biddingStrategy property value. The new bidding strategy for the specified Cost Per Click (CPC) campaign.
+     * @return a {@link BiddingStrategyEnum}
      */
     @jakarta.annotation.Nullable
-    public String getBiddingStrategy() {
+    public BiddingStrategyEnum getBiddingStrategy() {
         return this.biddingStrategy;
     }
     /**
@@ -85,7 +85,7 @@ public class UpdateBiddingStrategyRequest implements AdditionalDataHolder, Parsa
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("biddingStrategy", (n) -> { this.setBiddingStrategy(n.getStringValue()); });
+        deserializerMap.put("biddingStrategy", (n) -> { this.setBiddingStrategy(n.getEnumValue(BiddingStrategyEnum::forValue)); });
         deserializerMap.put("bidPreferences", (n) -> { this.setBidPreferences(n.getCollectionOfObjectValues(BidPreference::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
@@ -95,7 +95,7 @@ public class UpdateBiddingStrategyRequest implements AdditionalDataHolder, Parsa
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("biddingStrategy", this.getBiddingStrategy());
+        writer.writeEnumValue("biddingStrategy", this.getBiddingStrategy());
         writer.writeCollectionOfObjectValues("bidPreferences", this.getBidPreferences());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -107,10 +107,10 @@ public class UpdateBiddingStrategyRequest implements AdditionalDataHolder, Parsa
         this.additionalData = value;
     }
     /**
-     * Sets the biddingStrategy property value. The new bidding strategy for the specified Cost Per Click (CPC) campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:BiddingStrategyEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the biddingStrategy property value. The new bidding strategy for the specified Cost Per Click (CPC) campaign.
      * @param value Value to set for the biddingStrategy property.
      */
-    public void setBiddingStrategy(@jakarta.annotation.Nullable final String value) {
+    public void setBiddingStrategy(@jakarta.annotation.Nullable final BiddingStrategyEnum value) {
         this.biddingStrategy = value;
     }
     /**

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields for specifying the criterion (selection rule) settings of an ad campaign. If you populate the campaignCriterion object in your &lt;b&gt;createCampaign&lt;/b&gt; request, ads for the campaign are created by rule for the listings that meet the criteria you specify, and these ads are associated with the newly created campaign.
+ * The selection rules (criterion) used to select the listings for a campaign. If you populate the &lt;b&gt;campaignCriterion&lt;/b&gt; object in your &lt;b&gt;createCampaign&lt;/b&gt; request, ads for the campaign are created by rule for the listings that meet the criteria you specify, and these ads are associated with the campaign.&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This container is only returned for rules-based campaigns using the Cost Per Sale (CPS) funding model.&lt;/span&gt;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CampaignCriterion implements AdditionalDataHolder, Parsable {
@@ -35,11 +35,11 @@ public class CampaignCriterion implements AdditionalDataHolder, Parsable {
      */
     private Boolean autoSelectFutureInventory;
     /**
-     * This enum defines the criterion (selection rule) types. Currently, the only criterion type supported is &lt;code&gt;INVENTORY_PARTITION&lt;/code&gt;, and you must specify this value if you manage your items with the Inventory API and you want to include items based on their inventory reference IDs.  &lt;br&gt;&lt;br&gt;Do not include this field if you manage your listings with Trading API/legacy model. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:CriterionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * This enum defines the criterion (selection rule) types. Currently, the only criterion type supported is &lt;code&gt;INVENTORY_PARTITION&lt;/code&gt;, and you must specify this value if you manage your items with the Inventory API and you want to include items based on their inventory reference IDs.  &lt;br&gt;&lt;br&gt;Do not include this field if you manage your listings with Trading API/legacy model.
      */
-    private String criterionType;
+    private CriterionTypeEnum criterionType;
     /**
-     * This container shows all of the rules/inclusion filters used to add listings to the campaign. For information on using the contained fields, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;.
+     * This container shows all of the rules/inclusion filters used to add listings to the campaign. For information on using the contained fields, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;.
      */
     private java.util.List<SelectionRule> selectionRules;
     /**
@@ -75,11 +75,11 @@ public class CampaignCriterion implements AdditionalDataHolder, Parsable {
         return this.autoSelectFutureInventory;
     }
     /**
-     * Gets the criterionType property value. This enum defines the criterion (selection rule) types. Currently, the only criterion type supported is &lt;code&gt;INVENTORY_PARTITION&lt;/code&gt;, and you must specify this value if you manage your items with the Inventory API and you want to include items based on their inventory reference IDs.  &lt;br&gt;&lt;br&gt;Do not include this field if you manage your listings with Trading API/legacy model. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:CriterionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the criterionType property value. This enum defines the criterion (selection rule) types. Currently, the only criterion type supported is &lt;code&gt;INVENTORY_PARTITION&lt;/code&gt;, and you must specify this value if you manage your items with the Inventory API and you want to include items based on their inventory reference IDs.  &lt;br&gt;&lt;br&gt;Do not include this field if you manage your listings with Trading API/legacy model.
+     * @return a {@link CriterionTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getCriterionType() {
+    public CriterionTypeEnum getCriterionType() {
         return this.criterionType;
     }
     /**
@@ -90,12 +90,12 @@ public class CampaignCriterion implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("autoSelectFutureInventory", (n) -> { this.setAutoSelectFutureInventory(n.getBooleanValue()); });
-        deserializerMap.put("criterionType", (n) -> { this.setCriterionType(n.getStringValue()); });
+        deserializerMap.put("criterionType", (n) -> { this.setCriterionType(n.getEnumValue(CriterionTypeEnum::forValue)); });
         deserializerMap.put("selectionRules", (n) -> { this.setSelectionRules(n.getCollectionOfObjectValues(SelectionRule::createFromDiscriminatorValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the selectionRules property value. This container shows all of the rules/inclusion filters used to add listings to the campaign. For information on using the contained fields, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;.
+     * Gets the selectionRules property value. This container shows all of the rules/inclusion filters used to add listings to the campaign. For information on using the contained fields, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;.
      * @return a {@link java.util.List<SelectionRule>}
      */
     @jakarta.annotation.Nullable
@@ -109,7 +109,7 @@ public class CampaignCriterion implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeBooleanValue("autoSelectFutureInventory", this.getAutoSelectFutureInventory());
-        writer.writeStringValue("criterionType", this.getCriterionType());
+        writer.writeEnumValue("criterionType", this.getCriterionType());
         writer.writeCollectionOfObjectValues("selectionRules", this.getSelectionRules());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -128,14 +128,14 @@ public class CampaignCriterion implements AdditionalDataHolder, Parsable {
         this.autoSelectFutureInventory = value;
     }
     /**
-     * Sets the criterionType property value. This enum defines the criterion (selection rule) types. Currently, the only criterion type supported is &lt;code&gt;INVENTORY_PARTITION&lt;/code&gt;, and you must specify this value if you manage your items with the Inventory API and you want to include items based on their inventory reference IDs.  &lt;br&gt;&lt;br&gt;Do not include this field if you manage your listings with Trading API/legacy model. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:CriterionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the criterionType property value. This enum defines the criterion (selection rule) types. Currently, the only criterion type supported is &lt;code&gt;INVENTORY_PARTITION&lt;/code&gt;, and you must specify this value if you manage your items with the Inventory API and you want to include items based on their inventory reference IDs.  &lt;br&gt;&lt;br&gt;Do not include this field if you manage your listings with Trading API/legacy model.
      * @param value Value to set for the criterionType property.
      */
-    public void setCriterionType(@jakarta.annotation.Nullable final String value) {
+    public void setCriterionType(@jakarta.annotation.Nullable final CriterionTypeEnum value) {
         this.criterionType = value;
     }
     /**
-     * Sets the selectionRules property value. This container shows all of the rules/inclusion filters used to add listings to the campaign. For information on using the contained fields, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot;&gt;Promoted Listing campaigns&lt;/a&gt;.
+     * Sets the selectionRules property value. This container shows all of the rules/inclusion filters used to add listings to the campaign. For information on using the contained fields, see &lt;a href= &quot;/api-docs/sell/static/marketing/using-the-selectionrules-container.html#Campaign &quot; target=&quot;_blank&quot;&gt;Promoted Listing campaigns&lt;/a&gt;.
      * @param value Value to set for the selectionRules property.
      */
     public void setSelectionRules(@jakarta.annotation.Nullable final java.util.List<SelectionRule> value) {

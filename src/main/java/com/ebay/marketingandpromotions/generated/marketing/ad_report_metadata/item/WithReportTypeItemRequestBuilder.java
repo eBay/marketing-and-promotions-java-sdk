@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.ad_report_metadata.item;
 
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.ReportMetadata;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -52,6 +53,10 @@ public class WithReportTypeItemRequestBuilder extends BaseRequestBuilder {
     /**
      * This call retrieves metadata that details the fields used by a specific Promoted Listings report type. Use the &lt;b&gt;report_type&lt;/b&gt; path parameter to indicate metadata to retrieve.&lt;br/&gt;&lt;br/&gt;This method does not use a request payload.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The reporting of some data related to sales and ad-fees may require a 72-hour (&lt;b&gt;maximum&lt;/b&gt;) adjustment period which is often referred to as the &lt;i&gt;Reconciliation Period&lt;/i&gt;. Such adjustment periods should, on average, be minimal. However, at any given time, the &lt;b&gt;payments&lt;/b&gt; tab may be used to view those amounts that have actually been charged.&lt;/span&gt;
      * @return a {@link ReportMetadata}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 403 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public ReportMetadata get() {
@@ -61,11 +66,20 @@ public class WithReportTypeItemRequestBuilder extends BaseRequestBuilder {
      * This call retrieves metadata that details the fields used by a specific Promoted Listings report type. Use the &lt;b&gt;report_type&lt;/b&gt; path parameter to indicate metadata to retrieve.&lt;br/&gt;&lt;br/&gt;This method does not use a request payload.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The reporting of some data related to sales and ad-fees may require a 72-hour (&lt;b&gt;maximum&lt;/b&gt;) adjustment period which is often referred to as the &lt;i&gt;Reconciliation Period&lt;/i&gt;. Such adjustment periods should, on average, be minimal. However, at any given time, the &lt;b&gt;payments&lt;/b&gt; tab may be used to view those amounts that have actually been charged.&lt;/span&gt;
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link ReportMetadata}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 403 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public ReportMetadata get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, ReportMetadata::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("403", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, ReportMetadata::createFromDiscriminatorValue);
     }
     /**
      * This call retrieves metadata that details the fields used by a specific Promoted Listings report type. Use the &lt;b&gt;report_type&lt;/b&gt; path parameter to indicate metadata to retrieve.&lt;br/&gt;&lt;br/&gt;This method does not use a request payload.&lt;br/&gt;&lt;br/&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The reporting of some data related to sales and ad-fees may require a 72-hour (&lt;b&gt;maximum&lt;/b&gt;) adjustment period which is often referred to as the &lt;i&gt;Reconciliation Period&lt;/i&gt;. Such adjustment periods should, on average, be minimal. However, at any given time, the &lt;b&gt;payments&lt;/b&gt; tab may be used to view those amounts that have actually been charged.&lt;/span&gt;
@@ -103,12 +117,12 @@ public class WithReportTypeItemRequestBuilder extends BaseRequestBuilder {
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
         /**
-         * The channel used in the report. The channel must be compatible with the report type specified in the path parameter. Refer to the &lt;a href=&quot;/api-docs/sell/marketing/types/pls:ChannelEnum&quot;&gt;ChannelEnum&lt;/a&gt; type for supported values. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The channel parameter is only applicable for COST_PER_CLICK funding model.&lt;/span&gt;
+         * The channel used in the report. The channel must be compatible with the report type specified in the path parameter. Refer to the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_report_task-getreporttasks.channelenum&quot;&gt;ChannelEnum&lt;/a&gt; type for supported values. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The channel parameter is only applicable for COST_PER_CLICK funding model.&lt;/span&gt;
          */
         @jakarta.annotation.Nullable
         public String channel;
         /**
-         * The funding model used in the report. The funding model must be compatible with the report type specified in the path parameter. Refer to the &lt;a href=&quot;/api-docs/sell/marketing/types/pls:FundingModelEnum&quot;&gt;FundingModelEnum&lt;/a&gt; type for supported values.
+         * The funding model used in the report. The funding model must be compatible with the report type specified in the path parameter. Refer to the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_report_task-getreporttasks.fundingmodelenum&quot;&gt;FundingModelEnum&lt;/a&gt; type for supported values.
          */
         @jakarta.annotation.Nullable
         public String fundingModel;

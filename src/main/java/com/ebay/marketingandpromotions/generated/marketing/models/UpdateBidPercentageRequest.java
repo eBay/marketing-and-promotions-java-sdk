@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type specifies the bid percentage for an ad campaign.
+ * This type defines the fields for the &lt;b&gt;updateBid&lt;/b&gt; request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateBidPercentageRequest implements AdditionalDataHolder, Parsable {

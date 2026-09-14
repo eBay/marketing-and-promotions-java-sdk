@@ -37,15 +37,15 @@ public class UpdateAdsByInventoryReferenceResponse implements AdditionalDataHold
     /**
      * A container for all of the errors associated with the specified inventory reference ID.
      */
-    private java.util.List<Error> errors;
+    private java.util.List<ErrorDetailV3> errors;
     /**
      * The reference ID associated with the ad. The reference ID could be a SKU number or Inventory Item Group, depending on value of &lt;code&gt;inventoryReferenceType&lt;/code&gt;.
      */
     private String inventoryReferenceId;
     /**
-     * The inventory reference type associated with the ad. The inventory reference type could be a SKU number or Inventory Item Group. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The inventory reference type associated with the ad. The inventory reference type could be a SKU number or Inventory Item Group.
      */
-    private String inventoryReferenceType;
+    private InventoryReferenceTypeEnum inventoryReferenceType;
     /**
      * An HTTP status code that indicates whether or not the CPS ad was successfully updated.
      */
@@ -84,10 +84,10 @@ public class UpdateAdsByInventoryReferenceResponse implements AdditionalDataHold
     }
     /**
      * Gets the errors property value. A container for all of the errors associated with the specified inventory reference ID.
-     * @return a {@link java.util.List<Error>}
+     * @return a {@link java.util.List<ErrorDetailV3>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<Error> getErrors() {
+    public java.util.List<ErrorDetailV3> getErrors() {
         return this.errors;
     }
     /**
@@ -98,9 +98,9 @@ public class UpdateAdsByInventoryReferenceResponse implements AdditionalDataHold
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(5);
         deserializerMap.put("ads", (n) -> { this.setAds(n.getCollectionOfObjectValues(AdReference::createFromDiscriminatorValue)); });
-        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(Error::createFromDiscriminatorValue)); });
+        deserializerMap.put("errors", (n) -> { this.setErrors(n.getCollectionOfObjectValues(ErrorDetailV3::createFromDiscriminatorValue)); });
         deserializerMap.put("inventoryReferenceId", (n) -> { this.setInventoryReferenceId(n.getStringValue()); });
-        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getStringValue()); });
+        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getEnumValue(InventoryReferenceTypeEnum::forValue)); });
         deserializerMap.put("statusCode", (n) -> { this.setStatusCode(n.getIntegerValue()); });
         return deserializerMap;
     }
@@ -113,11 +113,11 @@ public class UpdateAdsByInventoryReferenceResponse implements AdditionalDataHold
         return this.inventoryReferenceId;
     }
     /**
-     * Gets the inventoryReferenceType property value. The inventory reference type associated with the ad. The inventory reference type could be a SKU number or Inventory Item Group. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the inventoryReferenceType property value. The inventory reference type associated with the ad. The inventory reference type could be a SKU number or Inventory Item Group.
+     * @return a {@link InventoryReferenceTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getInventoryReferenceType() {
+    public InventoryReferenceTypeEnum getInventoryReferenceType() {
         return this.inventoryReferenceType;
     }
     /**
@@ -137,7 +137,7 @@ public class UpdateAdsByInventoryReferenceResponse implements AdditionalDataHold
         writer.writeCollectionOfObjectValues("ads", this.getAds());
         writer.writeCollectionOfObjectValues("errors", this.getErrors());
         writer.writeStringValue("inventoryReferenceId", this.getInventoryReferenceId());
-        writer.writeStringValue("inventoryReferenceType", this.getInventoryReferenceType());
+        writer.writeEnumValue("inventoryReferenceType", this.getInventoryReferenceType());
         writer.writeIntegerValue("statusCode", this.getStatusCode());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -159,7 +159,7 @@ public class UpdateAdsByInventoryReferenceResponse implements AdditionalDataHold
      * Sets the errors property value. A container for all of the errors associated with the specified inventory reference ID.
      * @param value Value to set for the errors property.
      */
-    public void setErrors(@jakarta.annotation.Nullable final java.util.List<Error> value) {
+    public void setErrors(@jakarta.annotation.Nullable final java.util.List<ErrorDetailV3> value) {
         this.errors = value;
     }
     /**
@@ -170,10 +170,10 @@ public class UpdateAdsByInventoryReferenceResponse implements AdditionalDataHold
         this.inventoryReferenceId = value;
     }
     /**
-     * Sets the inventoryReferenceType property value. The inventory reference type associated with the ad. The inventory reference type could be a SKU number or Inventory Item Group. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:InventoryReferenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the inventoryReferenceType property value. The inventory reference type associated with the ad. The inventory reference type could be a SKU number or Inventory Item Group.
      * @param value Value to set for the inventoryReferenceType property.
      */
-    public void setInventoryReferenceType(@jakarta.annotation.Nullable final String value) {
+    public void setInventoryReferenceType(@jakarta.annotation.Nullable final InventoryReferenceTypeEnum value) {
         this.inventoryReferenceType = value;
     }
     /**

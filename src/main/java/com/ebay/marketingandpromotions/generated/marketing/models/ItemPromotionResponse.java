@@ -35,11 +35,11 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
      */
     private Boolean applyDiscountToSingleItemOnly;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * This sets the budget for the &lt;code&gt;CODED_COUPON&lt;/code&gt; discount type. Supported values range from 100-1000000. Supported currency codes include USD, GBP, EUR, and AUD. &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The budget value for an active or paused discount can not be decreased.&lt;/p&gt; &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The Currency Code for &apos;budget&apos; must be the same as the Currency Code for &apos;maxDiscountAmount&apos;.&lt;/p&gt;
      */
     private Amount budget;
     /**
-     * This container defines a coded coupon discount. It is required if the discount type is CODED_COUPON.
+     * The configuration of a coded coupon discount.
      */
     private CouponConfiguration couponConfiguration;
     /**
@@ -55,21 +55,21 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
      */
     private String endDate;
     /**
-     * This type defines either the selections rules or the list of listing IDs for the discount. The &quot;listing IDs&quot; are are either the seller&apos;s item IDs or the eBay listing IDs.
+     * Returns either an array of listing IDs or the selection rules used to specify the items being discounted. Listing IDs can be either eBay listing IDs or an array of seller&apos;s inventory reference IDs (know as SKUs or custom labels). See the &lt;b&gt;selectionRules&lt;/b&gt; container for the rule criteria you can use to select inventory.
      */
     private InventoryCriterion inventoryCriterion;
     /**
-     * The eBay marketplace ID of the site where the threshold discount is hosted. Threshold discounts are currently supported on a limited number of eBay marketplaces.  &lt;p&gt;&lt;b&gt;Valid values:&lt;/b&gt;&lt;/p&gt;  &lt;ul class=&quot;compact&quot;&gt;&lt;li&gt;&lt;code&gt;EBAY_AU&lt;/code&gt; = Australia&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_DE&lt;/code&gt; = Germany&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_ES&lt;/code&gt; = Spain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_FR&lt;/code&gt; = France&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_GB&lt;/code&gt; = Great Britain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_IT&lt;/code&gt; = Italy&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_US&lt;/code&gt; = United States&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The eBay marketplace ID of the site where the threshold discount is hosted. Threshold discounts are currently supported on a limited number of eBay marketplaces.  &lt;p&gt;&lt;b&gt;Valid values:&lt;/b&gt;&lt;/p&gt;  &lt;ul class=&quot;compact&quot;&gt;&lt;li&gt;&lt;code&gt;EBAY_AU&lt;/code&gt; = Australia&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_DE&lt;/code&gt; = Germany&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_ES&lt;/code&gt; = Spain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_FR&lt;/code&gt; = France&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_GB&lt;/code&gt; = Great Britain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_IT&lt;/code&gt; = Italy&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_US&lt;/code&gt; = United States&lt;/li&gt;&lt;/ul&gt;
      */
-    private String marketplaceId;
+    private MarketplaceIdEnum marketplaceId;
     /**
      * The seller-defined name or &quot;title&quot; of the discount that the seller can use to identify a discount. This label is not displayed in end-user flows.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum length:&lt;/b&gt; 90
      */
     private String name;
     /**
-     * Applicable for only &lt;b&gt;ORDER_DISCOUNT&lt;/b&gt; discounts, this field indicates the precedence of the discount, which eBay uses to determine the position of a discount on the seller&apos;s &lt;b&gt;All Offers&lt;/b&gt; page. If an item is associated with multiple discounts, the discount with the higher priority takes precedence. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionPriorityEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Applicable for only &lt;b&gt;ORDER_DISCOUNT&lt;/b&gt; discounts, this field indicates the precedence of the discount, which eBay uses to determine the position of a discount on the seller&apos;s &lt;b&gt;All Offers&lt;/b&gt; page. If an item is associated with multiple discounts, the discount with the higher priority takes precedence.
      */
-    private String priority;
+    private PromotionPriorityEnum priority;
     /**
      * A unique eBay-assigned ID for the discount that&apos;s generated when the discount is created.
      */
@@ -79,13 +79,13 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
      */
     private String promotionImageUrl;
     /**
-     * The current status of the discount. When creating a new discount, this value must be set to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The current status of the discount. When creating a new discount, this value must be set to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;.
      */
-    private String promotionStatus;
+    private PromotionStatusEnum promotionStatus;
     /**
-     * Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;.
      */
-    private String promotionType;
+    private PromotionTypeEnum promotionType;
     /**
      * The date and time the discount starts in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). For display purposes, convert this time into the local time of the seller.
      */
@@ -123,7 +123,7 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         return this.applyDiscountToSingleItemOnly;
     }
     /**
-     * Gets the budget property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the budget property value. This sets the budget for the &lt;code&gt;CODED_COUPON&lt;/code&gt; discount type. Supported values range from 100-1000000. Supported currency codes include USD, GBP, EUR, and AUD. &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The budget value for an active or paused discount can not be decreased.&lt;/p&gt; &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The Currency Code for &apos;budget&apos; must be the same as the Currency Code for &apos;maxDiscountAmount&apos;.&lt;/p&gt;
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -131,7 +131,7 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         return this.budget;
     }
     /**
-     * Gets the couponConfiguration property value. This container defines a coded coupon discount. It is required if the discount type is CODED_COUPON.
+     * Gets the couponConfiguration property value. The configuration of a coded coupon discount.
      * @return a {@link CouponConfiguration}
      */
     @jakarta.annotation.Nullable
@@ -176,18 +176,18 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         deserializerMap.put("discountRules", (n) -> { this.setDiscountRules(n.getCollectionOfObjectValues(DiscountRule::createFromDiscriminatorValue)); });
         deserializerMap.put("endDate", (n) -> { this.setEndDate(n.getStringValue()); });
         deserializerMap.put("inventoryCriterion", (n) -> { this.setInventoryCriterion(n.getObjectValue(InventoryCriterion::createFromDiscriminatorValue)); });
-        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getStringValue()); });
+        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getEnumValue(MarketplaceIdEnum::forValue)); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
-        deserializerMap.put("priority", (n) -> { this.setPriority(n.getStringValue()); });
+        deserializerMap.put("priority", (n) -> { this.setPriority(n.getEnumValue(PromotionPriorityEnum::forValue)); });
         deserializerMap.put("promotionId", (n) -> { this.setPromotionId(n.getStringValue()); });
         deserializerMap.put("promotionImageUrl", (n) -> { this.setPromotionImageUrl(n.getStringValue()); });
-        deserializerMap.put("promotionStatus", (n) -> { this.setPromotionStatus(n.getStringValue()); });
-        deserializerMap.put("promotionType", (n) -> { this.setPromotionType(n.getStringValue()); });
+        deserializerMap.put("promotionStatus", (n) -> { this.setPromotionStatus(n.getEnumValue(PromotionStatusEnum::forValue)); });
+        deserializerMap.put("promotionType", (n) -> { this.setPromotionType(n.getEnumValue(PromotionTypeEnum::forValue)); });
         deserializerMap.put("startDate", (n) -> { this.setStartDate(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the inventoryCriterion property value. This type defines either the selections rules or the list of listing IDs for the discount. The &quot;listing IDs&quot; are are either the seller&apos;s item IDs or the eBay listing IDs.
+     * Gets the inventoryCriterion property value. Returns either an array of listing IDs or the selection rules used to specify the items being discounted. Listing IDs can be either eBay listing IDs or an array of seller&apos;s inventory reference IDs (know as SKUs or custom labels). See the &lt;b&gt;selectionRules&lt;/b&gt; container for the rule criteria you can use to select inventory.
      * @return a {@link InventoryCriterion}
      */
     @jakarta.annotation.Nullable
@@ -195,11 +195,11 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         return this.inventoryCriterion;
     }
     /**
-     * Gets the marketplaceId property value. The eBay marketplace ID of the site where the threshold discount is hosted. Threshold discounts are currently supported on a limited number of eBay marketplaces.  &lt;p&gt;&lt;b&gt;Valid values:&lt;/b&gt;&lt;/p&gt;  &lt;ul class=&quot;compact&quot;&gt;&lt;li&gt;&lt;code&gt;EBAY_AU&lt;/code&gt; = Australia&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_DE&lt;/code&gt; = Germany&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_ES&lt;/code&gt; = Spain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_FR&lt;/code&gt; = France&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_GB&lt;/code&gt; = Great Britain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_IT&lt;/code&gt; = Italy&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_US&lt;/code&gt; = United States&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the marketplaceId property value. The eBay marketplace ID of the site where the threshold discount is hosted. Threshold discounts are currently supported on a limited number of eBay marketplaces.  &lt;p&gt;&lt;b&gt;Valid values:&lt;/b&gt;&lt;/p&gt;  &lt;ul class=&quot;compact&quot;&gt;&lt;li&gt;&lt;code&gt;EBAY_AU&lt;/code&gt; = Australia&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_DE&lt;/code&gt; = Germany&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_ES&lt;/code&gt; = Spain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_FR&lt;/code&gt; = France&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_GB&lt;/code&gt; = Great Britain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_IT&lt;/code&gt; = Italy&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_US&lt;/code&gt; = United States&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link MarketplaceIdEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMarketplaceId() {
+    public MarketplaceIdEnum getMarketplaceId() {
         return this.marketplaceId;
     }
     /**
@@ -211,11 +211,11 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the priority property value. Applicable for only &lt;b&gt;ORDER_DISCOUNT&lt;/b&gt; discounts, this field indicates the precedence of the discount, which eBay uses to determine the position of a discount on the seller&apos;s &lt;b&gt;All Offers&lt;/b&gt; page. If an item is associated with multiple discounts, the discount with the higher priority takes precedence. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionPriorityEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the priority property value. Applicable for only &lt;b&gt;ORDER_DISCOUNT&lt;/b&gt; discounts, this field indicates the precedence of the discount, which eBay uses to determine the position of a discount on the seller&apos;s &lt;b&gt;All Offers&lt;/b&gt; page. If an item is associated with multiple discounts, the discount with the higher priority takes precedence.
+     * @return a {@link PromotionPriorityEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPriority() {
+    public PromotionPriorityEnum getPriority() {
         return this.priority;
     }
     /**
@@ -235,19 +235,19 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         return this.promotionImageUrl;
     }
     /**
-     * Gets the promotionStatus property value. The current status of the discount. When creating a new discount, this value must be set to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the promotionStatus property value. The current status of the discount. When creating a new discount, this value must be set to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;.
+     * @return a {@link PromotionStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPromotionStatus() {
+    public PromotionStatusEnum getPromotionStatus() {
         return this.promotionStatus;
     }
     /**
-     * Gets the promotionType property value. Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the promotionType property value. Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;.
+     * @return a {@link PromotionTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPromotionType() {
+    public PromotionTypeEnum getPromotionType() {
         return this.promotionType;
     }
     /**
@@ -271,13 +271,13 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues("discountRules", this.getDiscountRules());
         writer.writeStringValue("endDate", this.getEndDate());
         writer.writeObjectValue("inventoryCriterion", this.getInventoryCriterion());
-        writer.writeStringValue("marketplaceId", this.getMarketplaceId());
+        writer.writeEnumValue("marketplaceId", this.getMarketplaceId());
         writer.writeStringValue("name", this.getName());
-        writer.writeStringValue("priority", this.getPriority());
+        writer.writeEnumValue("priority", this.getPriority());
         writer.writeStringValue("promotionId", this.getPromotionId());
         writer.writeStringValue("promotionImageUrl", this.getPromotionImageUrl());
-        writer.writeStringValue("promotionStatus", this.getPromotionStatus());
-        writer.writeStringValue("promotionType", this.getPromotionType());
+        writer.writeEnumValue("promotionStatus", this.getPromotionStatus());
+        writer.writeEnumValue("promotionType", this.getPromotionType());
         writer.writeStringValue("startDate", this.getStartDate());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -296,14 +296,14 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         this.applyDiscountToSingleItemOnly = value;
     }
     /**
-     * Sets the budget property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the budget property value. This sets the budget for the &lt;code&gt;CODED_COUPON&lt;/code&gt; discount type. Supported values range from 100-1000000. Supported currency codes include USD, GBP, EUR, and AUD. &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The budget value for an active or paused discount can not be decreased.&lt;/p&gt; &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The Currency Code for &apos;budget&apos; must be the same as the Currency Code for &apos;maxDiscountAmount&apos;.&lt;/p&gt;
      * @param value Value to set for the budget property.
      */
     public void setBudget(@jakarta.annotation.Nullable final Amount value) {
         this.budget = value;
     }
     /**
-     * Sets the couponConfiguration property value. This container defines a coded coupon discount. It is required if the discount type is CODED_COUPON.
+     * Sets the couponConfiguration property value. The configuration of a coded coupon discount.
      * @param value Value to set for the couponConfiguration property.
      */
     public void setCouponConfiguration(@jakarta.annotation.Nullable final CouponConfiguration value) {
@@ -331,17 +331,17 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         this.endDate = value;
     }
     /**
-     * Sets the inventoryCriterion property value. This type defines either the selections rules or the list of listing IDs for the discount. The &quot;listing IDs&quot; are are either the seller&apos;s item IDs or the eBay listing IDs.
+     * Sets the inventoryCriterion property value. Returns either an array of listing IDs or the selection rules used to specify the items being discounted. Listing IDs can be either eBay listing IDs or an array of seller&apos;s inventory reference IDs (know as SKUs or custom labels). See the &lt;b&gt;selectionRules&lt;/b&gt; container for the rule criteria you can use to select inventory.
      * @param value Value to set for the inventoryCriterion property.
      */
     public void setInventoryCriterion(@jakarta.annotation.Nullable final InventoryCriterion value) {
         this.inventoryCriterion = value;
     }
     /**
-     * Sets the marketplaceId property value. The eBay marketplace ID of the site where the threshold discount is hosted. Threshold discounts are currently supported on a limited number of eBay marketplaces.  &lt;p&gt;&lt;b&gt;Valid values:&lt;/b&gt;&lt;/p&gt;  &lt;ul class=&quot;compact&quot;&gt;&lt;li&gt;&lt;code&gt;EBAY_AU&lt;/code&gt; = Australia&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_DE&lt;/code&gt; = Germany&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_ES&lt;/code&gt; = Spain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_FR&lt;/code&gt; = France&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_GB&lt;/code&gt; = Great Britain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_IT&lt;/code&gt; = Italy&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_US&lt;/code&gt; = United States&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the marketplaceId property value. The eBay marketplace ID of the site where the threshold discount is hosted. Threshold discounts are currently supported on a limited number of eBay marketplaces.  &lt;p&gt;&lt;b&gt;Valid values:&lt;/b&gt;&lt;/p&gt;  &lt;ul class=&quot;compact&quot;&gt;&lt;li&gt;&lt;code&gt;EBAY_AU&lt;/code&gt; = Australia&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_DE&lt;/code&gt; = Germany&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_ES&lt;/code&gt; = Spain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_FR&lt;/code&gt; = France&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_GB&lt;/code&gt; = Great Britain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_IT&lt;/code&gt; = Italy&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_US&lt;/code&gt; = United States&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the marketplaceId property.
      */
-    public void setMarketplaceId(@jakarta.annotation.Nullable final String value) {
+    public void setMarketplaceId(@jakarta.annotation.Nullable final MarketplaceIdEnum value) {
         this.marketplaceId = value;
     }
     /**
@@ -352,10 +352,10 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         this.name = value;
     }
     /**
-     * Sets the priority property value. Applicable for only &lt;b&gt;ORDER_DISCOUNT&lt;/b&gt; discounts, this field indicates the precedence of the discount, which eBay uses to determine the position of a discount on the seller&apos;s &lt;b&gt;All Offers&lt;/b&gt; page. If an item is associated with multiple discounts, the discount with the higher priority takes precedence. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionPriorityEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the priority property value. Applicable for only &lt;b&gt;ORDER_DISCOUNT&lt;/b&gt; discounts, this field indicates the precedence of the discount, which eBay uses to determine the position of a discount on the seller&apos;s &lt;b&gt;All Offers&lt;/b&gt; page. If an item is associated with multiple discounts, the discount with the higher priority takes precedence.
      * @param value Value to set for the priority property.
      */
-    public void setPriority(@jakarta.annotation.Nullable final String value) {
+    public void setPriority(@jakarta.annotation.Nullable final PromotionPriorityEnum value) {
         this.priority = value;
     }
     /**
@@ -373,17 +373,17 @@ public class ItemPromotionResponse implements AdditionalDataHolder, Parsable {
         this.promotionImageUrl = value;
     }
     /**
-     * Sets the promotionStatus property value. The current status of the discount. When creating a new discount, this value must be set to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the promotionStatus property value. The current status of the discount. When creating a new discount, this value must be set to either &lt;code&gt;DRAFT&lt;/code&gt; or &lt;code&gt;SCHEDULED&lt;/code&gt;.
      * @param value Value to set for the promotionStatus property.
      */
-    public void setPromotionStatus(@jakarta.annotation.Nullable final String value) {
+    public void setPromotionStatus(@jakarta.annotation.Nullable final PromotionStatusEnum value) {
         this.promotionStatus = value;
     }
     /**
-     * Sets the promotionType property value. Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the promotionType property value. Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;.
      * @param value Value to set for the promotionType property.
      */
-    public void setPromotionType(@jakarta.annotation.Nullable final String value) {
+    public void setPromotionType(@jakarta.annotation.Nullable final PromotionTypeEnum value) {
         this.promotionType = value;
     }
     /**

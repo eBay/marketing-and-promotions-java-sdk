@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.promotion_report;
 
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.PromotionsReportPagedCollection;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -52,6 +53,8 @@ public class PromotionReportRequestBuilder extends BaseRequestBuilder {
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that lists the seller&apos;s running, paused, and ended discounts for the specified eBay marketplace. The result set can be filtered by the discount status and the number of results to return. You can also supply &lt;i&gt;keywords&lt;/i&gt; to limit the report to discounts that contain the specified keywords. &lt;br&gt;&lt;br&gt;Specify the eBay marketplace for which you want the report run using the &lt;b&gt;marketplace_id&lt;/b&gt; query parameter. Supply additional query parameters to control the report as needed.
      * @return a {@link PromotionsReportPagedCollection}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public PromotionsReportPagedCollection get() {
@@ -61,11 +64,16 @@ public class PromotionReportRequestBuilder extends BaseRequestBuilder {
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that lists the seller&apos;s running, paused, and ended discounts for the specified eBay marketplace. The result set can be filtered by the discount status and the number of results to return. You can also supply &lt;i&gt;keywords&lt;/i&gt; to limit the report to discounts that contain the specified keywords. &lt;br&gt;&lt;br&gt;Specify the eBay marketplace for which you want the report run using the &lt;b&gt;marketplace_id&lt;/b&gt; query parameter. Supply additional query parameters to control the report as needed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link PromotionsReportPagedCollection}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public PromotionsReportPagedCollection get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, PromotionsReportPagedCollection::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, PromotionsReportPagedCollection::createFromDiscriminatorValue);
     }
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; As of July 8th 2024, &lt;i&gt;promotions&lt;/i&gt; are now being referred to as &lt;i&gt;discounts&lt;/i&gt; on Seller Hub and eBay help pages. Sell Marketing API documentation has been updated to reflect this product name change, but note that no API interface changes have been made.&lt;/span&gt;&lt;br&gt;This method generates a report that lists the seller&apos;s running, paused, and ended discounts for the specified eBay marketplace. The result set can be filtered by the discount status and the number of results to return. You can also supply &lt;i&gt;keywords&lt;/i&gt; to limit the report to discounts that contain the specified keywords. &lt;br&gt;&lt;br&gt;Specify the eBay marketplace for which you want the report run using the &lt;b&gt;marketplace_id&lt;/b&gt; query parameter. Supply additional query parameters to control the report as needed.
@@ -108,7 +116,7 @@ public class PromotionReportRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String limit;
         /**
-         * This parameter specifies the eBay marketplace ID of the site for which you want the discounts report.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for supported Marketplace ID values.
+         * This parameter specifies the eBay marketplace ID of the site for which you want the discounts report.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;Marketplace ID values&lt;/a&gt; for supported Marketplace ID values.
          */
         @jakarta.annotation.Nullable
         public String marketplaceId;
@@ -118,12 +126,12 @@ public class PromotionReportRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String offset;
         /**
-         * This parameter specifies the discount state by which you want to filter the results. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/sme:PromotionStatusEnum&quot; target=&quot;_blank&quot;&gt;PromotionStatusEnum&lt;/a&gt; for supported values.&lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum number of input values:&lt;/b&gt; 1
+         * This parameter specifies the discount state by which you want to filter the results. &lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions.promotionstatusenum&quot;&gt;PromotionStatusEnum&lt;/a&gt; for supported values.&lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum number of input values:&lt;/b&gt; 1
          */
         @jakarta.annotation.Nullable
         public String promotionStatus;
         /**
-         * This parameter specifies the campaign discount type by which you want to filter the results.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/marketing/types/sme:PromotionTypeEnum&quot; target=&quot;_blank&quot;&gt;PromotionTypeEnum&lt;/a&gt; for supported values.
+         * This parameter specifies the campaign discount type by which you want to filter the results.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-promotion-getpromotions.promotiontypeenum&quot;&gt;PromotionTypeEnum&lt;/a&gt; for supported values.
          */
         @jakarta.annotation.Nullable
         public String promotionType;

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields used to create ads in bulk by inventory reference IDs.
+ * This request object defines the fields for the &lt;b&gt;BulkCreateAdsByInventoryReference&lt;/b&gt; request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class BulkCreateAdsByInventoryReferenceRequest implements AdditionalDataHolder, Parsable {

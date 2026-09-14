@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.ad_group.item.suggest_keywords;
 
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.TargetedKeywordRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.TargetedKeywordsPagedCollection;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -50,29 +51,42 @@ public class SuggestKeywordsRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/ad_campaign/{campaign_id}/ad_group/{ad_group_id}/suggest_keywords", rawUrl);
     }
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only available for select partners who have been approved for the eBay priority strategy program. For information about how to request access to this program, refer to &lt;a href=&quot;/api-docs/sell/static/marketing/pl-verify-eligibility.html#access-requests &quot; target=&quot;_blank &quot;&gt; Priority Strategy Access Requests&lt;/a&gt; in the Promoted Listings Playbook. To determine if a seller qualifies for priority strategy, use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility &quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method in Account API.&lt;/span&gt;&lt;br /&gt;This method allows sellers to retrieve a list of keyword ideas to be targeted for Promoted Listings campaigns.
-     * @param body A type that provides details for the targeted keywords.
+     * This method allows sellers to retrieve a list of keyword ideas to be targeted for Promoted Listings campaigns.
+     * @param body The required data to retrieve suggested keywords.
      * @return a {@link TargetedKeywordsPagedCollection}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public TargetedKeywordsPagedCollection post(@jakarta.annotation.Nonnull final TargetedKeywordRequest body) {
         return post(body, null);
     }
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only available for select partners who have been approved for the eBay priority strategy program. For information about how to request access to this program, refer to &lt;a href=&quot;/api-docs/sell/static/marketing/pl-verify-eligibility.html#access-requests &quot; target=&quot;_blank &quot;&gt; Priority Strategy Access Requests&lt;/a&gt; in the Promoted Listings Playbook. To determine if a seller qualifies for priority strategy, use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility &quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method in Account API.&lt;/span&gt;&lt;br /&gt;This method allows sellers to retrieve a list of keyword ideas to be targeted for Promoted Listings campaigns.
-     * @param body A type that provides details for the targeted keywords.
+     * This method allows sellers to retrieve a list of keyword ideas to be targeted for Promoted Listings campaigns.
+     * @param body The required data to retrieve suggested keywords.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link TargetedKeywordsPagedCollection}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public TargetedKeywordsPagedCollection post(@jakarta.annotation.Nonnull final TargetedKeywordRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, TargetedKeywordsPagedCollection::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, TargetedKeywordsPagedCollection::createFromDiscriminatorValue);
     }
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only available for select partners who have been approved for the eBay priority strategy program. For information about how to request access to this program, refer to &lt;a href=&quot;/api-docs/sell/static/marketing/pl-verify-eligibility.html#access-requests &quot; target=&quot;_blank &quot;&gt; Priority Strategy Access Requests&lt;/a&gt; in the Promoted Listings Playbook. To determine if a seller qualifies for priority strategy, use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility &quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method in Account API.&lt;/span&gt;&lt;br /&gt;This method allows sellers to retrieve a list of keyword ideas to be targeted for Promoted Listings campaigns.
-     * @param body A type that provides details for the targeted keywords.
+     * This method allows sellers to retrieve a list of keyword ideas to be targeted for Promoted Listings campaigns.
+     * @param body The required data to retrieve suggested keywords.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -80,8 +94,8 @@ public class SuggestKeywordsRequestBuilder extends BaseRequestBuilder {
         return toPostRequestInformation(body, null);
     }
     /**
-     * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only available for select partners who have been approved for the eBay priority strategy program. For information about how to request access to this program, refer to &lt;a href=&quot;/api-docs/sell/static/marketing/pl-verify-eligibility.html#access-requests &quot; target=&quot;_blank &quot;&gt; Priority Strategy Access Requests&lt;/a&gt; in the Promoted Listings Playbook. To determine if a seller qualifies for priority strategy, use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility &quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method in Account API.&lt;/span&gt;&lt;br /&gt;This method allows sellers to retrieve a list of keyword ideas to be targeted for Promoted Listings campaigns.
-     * @param body A type that provides details for the targeted keywords.
+     * This method allows sellers to retrieve a list of keyword ideas to be targeted for Promoted Listings campaigns.
+     * @param body The required data to retrieve suggested keywords.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

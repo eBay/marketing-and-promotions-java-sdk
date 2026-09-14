@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A container for the details of an existing ad group.&lt;br /&gt;&lt;br /&gt;An ad group can be added to a campaign that uses the Cost Per Click (CPC) funding model. A campaign may have multiple ad groups. All listings that are promoted in the campaign are included in the ad group.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This type only applies to the CPC funding model; it does not apply to the Cost Per Sale (CPS) funding model.&lt;/span&gt;
+ * This type defines the details of an existing ad group.&lt;br /&gt;&lt;br /&gt;An ad group can be added to a campaign that uses the Cost Per Click (CPC) funding model. A campaign may have multiple ad groups. All listings that are promoted in the campaign are included in the ad group.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This type only applies to the CPC funding model; it does not apply to the Cost Per Sale (CPS) funding model.&lt;/span&gt;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class AdGroup implements AdditionalDataHolder, Parsable {
@@ -35,11 +35,11 @@ public class AdGroup implements AdditionalDataHolder, Parsable {
      */
     private String adGroupId;
     /**
-     * An enumeration value representing the current status of the ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AdGroupStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * An enumeration value representing the current status of the ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String adGroupStatus;
+    private AdGroupStatusEnum adGroupStatus;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * A bid amount that applies to all of the keywords in an ad group that do not have individual bids. For all keywords without individual bids, the default bid is the amount that the seller will pay per click for the listings in the ad group in the promoted listings campaign.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values&lt;/b&gt;: 0.5, 0.75
      */
     private Amount defaultBid;
     /**
@@ -79,15 +79,15 @@ public class AdGroup implements AdditionalDataHolder, Parsable {
         return this.adGroupId;
     }
     /**
-     * Gets the adGroupStatus property value. An enumeration value representing the current status of the ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AdGroupStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the adGroupStatus property value. An enumeration value representing the current status of the ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link AdGroupStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getAdGroupStatus() {
+    public AdGroupStatusEnum getAdGroupStatus() {
         return this.adGroupStatus;
     }
     /**
-     * Gets the defaultBid property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the defaultBid property value. A bid amount that applies to all of the keywords in an ad group that do not have individual bids. For all keywords without individual bids, the default bid is the amount that the seller will pay per click for the listings in the ad group in the promoted listings campaign.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values&lt;/b&gt;: 0.5, 0.75
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -102,7 +102,7 @@ public class AdGroup implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(4);
         deserializerMap.put("adGroupId", (n) -> { this.setAdGroupId(n.getStringValue()); });
-        deserializerMap.put("adGroupStatus", (n) -> { this.setAdGroupStatus(n.getStringValue()); });
+        deserializerMap.put("adGroupStatus", (n) -> { this.setAdGroupStatus(n.getEnumValue(AdGroupStatusEnum::forValue)); });
         deserializerMap.put("defaultBid", (n) -> { this.setDefaultBid(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
         deserializerMap.put("name", (n) -> { this.setName(n.getStringValue()); });
         return deserializerMap;
@@ -122,7 +122,7 @@ public class AdGroup implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("adGroupId", this.getAdGroupId());
-        writer.writeStringValue("adGroupStatus", this.getAdGroupStatus());
+        writer.writeEnumValue("adGroupStatus", this.getAdGroupStatus());
         writer.writeObjectValue("defaultBid", this.getDefaultBid());
         writer.writeStringValue("name", this.getName());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -142,14 +142,14 @@ public class AdGroup implements AdditionalDataHolder, Parsable {
         this.adGroupId = value;
     }
     /**
-     * Sets the adGroupStatus property value. An enumeration value representing the current status of the ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:AdGroupStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the adGroupStatus property value. An enumeration value representing the current status of the ad group.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PAUSED&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;ARCHIVED&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the adGroupStatus property.
      */
-    public void setAdGroupStatus(@jakarta.annotation.Nullable final String value) {
+    public void setAdGroupStatus(@jakarta.annotation.Nullable final AdGroupStatusEnum value) {
         this.adGroupStatus = value;
     }
     /**
-     * Sets the defaultBid property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the defaultBid property value. A bid amount that applies to all of the keywords in an ad group that do not have individual bids. For all keywords without individual bids, the default bid is the amount that the seller will pay per click for the listings in the ad group in the promoted listings campaign.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values&lt;/b&gt;: 0.5, 0.75
      * @param value Value to set for the defaultBid property.
      */
     public void setDefaultBid(@jakarta.annotation.Nullable final Amount value) {

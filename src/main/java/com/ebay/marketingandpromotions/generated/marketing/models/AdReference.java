@@ -35,7 +35,7 @@ public class AdReference implements AdditionalDataHolder, Parsable {
      */
     private String adId;
     /**
-     * The getAd URI of an ad. You can use this URI to retrieve the ad.
+     * The &lt;b&gt;getAd&lt;/b&gt; URI of an ad. You can use this URI to retrieve the ad.
      */
     private String href;
     /**
@@ -82,7 +82,7 @@ public class AdReference implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the href property value. The getAd URI of an ad. You can use this URI to retrieve the ad.
+     * Gets the href property value. The &lt;b&gt;getAd&lt;/b&gt; URI of an ad. You can use this URI to retrieve the ad.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -114,7 +114,7 @@ public class AdReference implements AdditionalDataHolder, Parsable {
         this.adId = value;
     }
     /**
-     * Sets the href property value. The getAd URI of an ad. You can use this URI to retrieve the ad.
+     * Sets the href property value. The &lt;b&gt;getAd&lt;/b&gt; URI of an ad. You can use this URI to retrieve the ad.
      * @param value Value to set for the href property.
      */
     public void setHref(@jakarta.annotation.Nullable final String value) {

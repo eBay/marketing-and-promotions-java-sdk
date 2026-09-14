@@ -31,7 +31,7 @@ public class SelectedInventoryDiscount implements AdditionalDataHolder, Parsable
      */
     private Map<String, Object> additionalData;
     /**
-     * This container defines the discount as either a monetary amount or a percentage of the sales price.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Important!:&lt;/b&gt; You must populate one and only one of the fields in this container: &lt;ul&gt;&lt;li&gt;&lt;b&gt;amountOffItem&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;amountOffOrder&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;percentageOffItem&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;percentageOffOrder&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Tip:&lt;/b&gt; Refer to &lt;a href=&quot;/api-docs/sell/static/marketing/pm-specifying-discounts.html&quot;&gt;Configuring discounts for threshold discounts&lt;/a&gt; for information and examples on how to combine &lt;b&gt;discountBenefit&lt;/b&gt; and &lt;b&gt;discountSpecification&lt;/b&gt; values to create different types of discounts.&lt;/p&gt;
+     * This container defines the discount as either a monetary amount or a percentage applied to the sales price.
      */
     private DiscountBenefit discountBenefit;
     /**
@@ -39,11 +39,11 @@ public class SelectedInventoryDiscount implements AdditionalDataHolder, Parsable
      */
     private String discountId;
     /**
-     * This type defines either the selections rules or the list of listing IDs for the discount. The &quot;listing IDs&quot; are are either the seller&apos;s item IDs or the eBay listing IDs.
+     * A container that defines either the listing IDs or the selection rules that specify the items to include in the discount. Listing IDs can be either eBay listing IDs or a list of the seller&apos;s inventory reference IDs (know as SKUs or custom labels). See the &lt;b&gt;selectionRules&lt;/b&gt; container for the rule criteria you can use to select inventory.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; All listings in Discounts Manager discounts must support an electronic payment method.&lt;/p&gt;
      */
     private InventoryCriterion inventoryCriterion;
     /**
-     * For markdown discounts, this field is reserved for future use. &lt;!--This field specifies the precedence of this set of inventory criteria, which is taken into account if an item is selected for multiple discounts by different sets of criteria. The criteria with the highest priority (lowest ruleOrder value) takes precedence over criteria with a lower precedence.--&gt;
+     * For markdown discounts, this field is reserved for future use. &lt;!--This field specifies the precedence of this set of inventory criteria, which is taken into account if an item is selected for multiple discounts by different sets of criteria. The criteria with the highest priority (lowest &lt;b&gt;ruleOrder&lt;/b&gt; value) takes precedence over criteria with a lower precedence.--&gt;
      */
     private Integer ruleOrder;
     /**
@@ -71,7 +71,7 @@ public class SelectedInventoryDiscount implements AdditionalDataHolder, Parsable
         return this.additionalData;
     }
     /**
-     * Gets the discountBenefit property value. This container defines the discount as either a monetary amount or a percentage of the sales price.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Important!:&lt;/b&gt; You must populate one and only one of the fields in this container: &lt;ul&gt;&lt;li&gt;&lt;b&gt;amountOffItem&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;amountOffOrder&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;percentageOffItem&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;percentageOffOrder&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Tip:&lt;/b&gt; Refer to &lt;a href=&quot;/api-docs/sell/static/marketing/pm-specifying-discounts.html&quot;&gt;Configuring discounts for threshold discounts&lt;/a&gt; for information and examples on how to combine &lt;b&gt;discountBenefit&lt;/b&gt; and &lt;b&gt;discountSpecification&lt;/b&gt; values to create different types of discounts.&lt;/p&gt;
+     * Gets the discountBenefit property value. This container defines the discount as either a monetary amount or a percentage applied to the sales price.
      * @return a {@link DiscountBenefit}
      */
     @jakarta.annotation.Nullable
@@ -100,7 +100,7 @@ public class SelectedInventoryDiscount implements AdditionalDataHolder, Parsable
         return deserializerMap;
     }
     /**
-     * Gets the inventoryCriterion property value. This type defines either the selections rules or the list of listing IDs for the discount. The &quot;listing IDs&quot; are are either the seller&apos;s item IDs or the eBay listing IDs.
+     * Gets the inventoryCriterion property value. A container that defines either the listing IDs or the selection rules that specify the items to include in the discount. Listing IDs can be either eBay listing IDs or a list of the seller&apos;s inventory reference IDs (know as SKUs or custom labels). See the &lt;b&gt;selectionRules&lt;/b&gt; container for the rule criteria you can use to select inventory.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; All listings in Discounts Manager discounts must support an electronic payment method.&lt;/p&gt;
      * @return a {@link InventoryCriterion}
      */
     @jakarta.annotation.Nullable
@@ -108,7 +108,7 @@ public class SelectedInventoryDiscount implements AdditionalDataHolder, Parsable
         return this.inventoryCriterion;
     }
     /**
-     * Gets the ruleOrder property value. For markdown discounts, this field is reserved for future use. &lt;!--This field specifies the precedence of this set of inventory criteria, which is taken into account if an item is selected for multiple discounts by different sets of criteria. The criteria with the highest priority (lowest ruleOrder value) takes precedence over criteria with a lower precedence.--&gt;
+     * Gets the ruleOrder property value. For markdown discounts, this field is reserved for future use. &lt;!--This field specifies the precedence of this set of inventory criteria, which is taken into account if an item is selected for multiple discounts by different sets of criteria. The criteria with the highest priority (lowest &lt;b&gt;ruleOrder&lt;/b&gt; value) takes precedence over criteria with a lower precedence.--&gt;
      * @return a {@link Integer}
      */
     @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class SelectedInventoryDiscount implements AdditionalDataHolder, Parsable
         this.additionalData = value;
     }
     /**
-     * Sets the discountBenefit property value. This container defines the discount as either a monetary amount or a percentage of the sales price.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Important!:&lt;/b&gt; You must populate one and only one of the fields in this container: &lt;ul&gt;&lt;li&gt;&lt;b&gt;amountOffItem&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;amountOffOrder&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;percentageOffItem&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;percentageOffOrder&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Tip:&lt;/b&gt; Refer to &lt;a href=&quot;/api-docs/sell/static/marketing/pm-specifying-discounts.html&quot;&gt;Configuring discounts for threshold discounts&lt;/a&gt; for information and examples on how to combine &lt;b&gt;discountBenefit&lt;/b&gt; and &lt;b&gt;discountSpecification&lt;/b&gt; values to create different types of discounts.&lt;/p&gt;
+     * Sets the discountBenefit property value. This container defines the discount as either a monetary amount or a percentage applied to the sales price.
      * @param value Value to set for the discountBenefit property.
      */
     public void setDiscountBenefit(@jakarta.annotation.Nullable final DiscountBenefit value) {
@@ -149,14 +149,14 @@ public class SelectedInventoryDiscount implements AdditionalDataHolder, Parsable
         this.discountId = value;
     }
     /**
-     * Sets the inventoryCriterion property value. This type defines either the selections rules or the list of listing IDs for the discount. The &quot;listing IDs&quot; are are either the seller&apos;s item IDs or the eBay listing IDs.
+     * Sets the inventoryCriterion property value. A container that defines either the listing IDs or the selection rules that specify the items to include in the discount. Listing IDs can be either eBay listing IDs or a list of the seller&apos;s inventory reference IDs (know as SKUs or custom labels). See the &lt;b&gt;selectionRules&lt;/b&gt; container for the rule criteria you can use to select inventory.  &lt;p class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; All listings in Discounts Manager discounts must support an electronic payment method.&lt;/p&gt;
      * @param value Value to set for the inventoryCriterion property.
      */
     public void setInventoryCriterion(@jakarta.annotation.Nullable final InventoryCriterion value) {
         this.inventoryCriterion = value;
     }
     /**
-     * Sets the ruleOrder property value. For markdown discounts, this field is reserved for future use. &lt;!--This field specifies the precedence of this set of inventory criteria, which is taken into account if an item is selected for multiple discounts by different sets of criteria. The criteria with the highest priority (lowest ruleOrder value) takes precedence over criteria with a lower precedence.--&gt;
+     * Sets the ruleOrder property value. For markdown discounts, this field is reserved for future use. &lt;!--This field specifies the precedence of this set of inventory criteria, which is taken into account if an item is selected for multiple discounts by different sets of criteria. The criteria with the highest priority (lowest &lt;b&gt;ruleOrder&lt;/b&gt; value) takes precedence over criteria with a lower precedence.--&gt;
      * @param value Value to set for the ruleOrder property.
      */
     public void setRuleOrder(@jakarta.annotation.Nullable final Integer value) {

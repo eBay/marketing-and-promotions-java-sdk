@@ -31,11 +31,11 @@ public class CreateKeywordRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * This &lt;b&gt;adGroupId&lt;/b&gt; is created when an ad group is first created and associated with a campaign. This is the ad group that the corresponding keyword will be added to. This ad group must be a part of the campaign that is specified in the call URI. Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/adgroup/methods/getAdGroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller, and &lt;a href=&quot;/api-docs/sell/marketing/resources/keywords/methods/getKeywords&quot;&gt;getKeywords&lt;/a&gt; to retrieve the keyword IDs for a seller&apos;s keywords.
+     * This &lt;b&gt;adGroupId&lt;/b&gt; is created when an ad group is first created and associated with a campaign. This is the ad group that the corresponding keyword will be added to. This ad group must be a part of the campaign that is specified in the call URI. Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_group-getadgroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller, and &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeywords&quot;&gt;getKeywords&lt;/a&gt; to retrieve the keyword IDs for a seller&apos;s keywords.
      */
     private String adGroupId;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * This container is used to set the maximum bid for the keyword. Each time a listing is retrieved in search results using this keyword and clicked on, the seller will be charged, at most, this amount. Each click goes toward the daily budget set up for the CPC campaign. If the bid is not provided, then the default bid associated with the ad group is used.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; You can call the  &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_group-suggestbids&quot;&gt;suggestBids&lt;/a&gt; method to retrieve the suggested bids for keywords.&lt;/span&gt;
      */
     private Amount bid;
     /**
@@ -43,9 +43,9 @@ public class CreateKeywordRequest implements AdditionalDataHolder, Parsable {
      */
     private String keywordText;
     /**
-     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String matchType;
+    private MatchTypeEnum matchType;
     /**
      * Instantiates a new {@link CreateKeywordRequest} and sets the default values.
      */
@@ -71,7 +71,7 @@ public class CreateKeywordRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the adGroupId property value. This &lt;b&gt;adGroupId&lt;/b&gt; is created when an ad group is first created and associated with a campaign. This is the ad group that the corresponding keyword will be added to. This ad group must be a part of the campaign that is specified in the call URI. Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/adgroup/methods/getAdGroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller, and &lt;a href=&quot;/api-docs/sell/marketing/resources/keywords/methods/getKeywords&quot;&gt;getKeywords&lt;/a&gt; to retrieve the keyword IDs for a seller&apos;s keywords.
+     * Gets the adGroupId property value. This &lt;b&gt;adGroupId&lt;/b&gt; is created when an ad group is first created and associated with a campaign. This is the ad group that the corresponding keyword will be added to. This ad group must be a part of the campaign that is specified in the call URI. Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_group-getadgroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller, and &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeywords&quot;&gt;getKeywords&lt;/a&gt; to retrieve the keyword IDs for a seller&apos;s keywords.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class CreateKeywordRequest implements AdditionalDataHolder, Parsable {
         return this.adGroupId;
     }
     /**
-     * Gets the bid property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the bid property value. This container is used to set the maximum bid for the keyword. Each time a listing is retrieved in search results using this keyword and clicked on, the seller will be charged, at most, this amount. Each click goes toward the daily budget set up for the CPC campaign. If the bid is not provided, then the default bid associated with the ad group is used.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; You can call the  &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_group-suggestbids&quot;&gt;suggestBids&lt;/a&gt; method to retrieve the suggested bids for keywords.&lt;/span&gt;
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class CreateKeywordRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("adGroupId", (n) -> { this.setAdGroupId(n.getStringValue()); });
         deserializerMap.put("bid", (n) -> { this.setBid(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
         deserializerMap.put("keywordText", (n) -> { this.setKeywordText(n.getStringValue()); });
-        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getStringValue()); });
+        deserializerMap.put("matchType", (n) -> { this.setMatchType(n.getEnumValue(MatchTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -108,11 +108,11 @@ public class CreateKeywordRequest implements AdditionalDataHolder, Parsable {
         return this.keywordText;
     }
     /**
-     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link MatchTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMatchType() {
+    public MatchTypeEnum getMatchType() {
         return this.matchType;
     }
     /**
@@ -124,7 +124,7 @@ public class CreateKeywordRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("adGroupId", this.getAdGroupId());
         writer.writeObjectValue("bid", this.getBid());
         writer.writeStringValue("keywordText", this.getKeywordText());
-        writer.writeStringValue("matchType", this.getMatchType());
+        writer.writeEnumValue("matchType", this.getMatchType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -135,14 +135,14 @@ public class CreateKeywordRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the adGroupId property value. This &lt;b&gt;adGroupId&lt;/b&gt; is created when an ad group is first created and associated with a campaign. This is the ad group that the corresponding keyword will be added to. This ad group must be a part of the campaign that is specified in the call URI. Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/adgroup/methods/getAdGroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller, and &lt;a href=&quot;/api-docs/sell/marketing/resources/keywords/methods/getKeywords&quot;&gt;getKeywords&lt;/a&gt; to retrieve the keyword IDs for a seller&apos;s keywords.
+     * Sets the adGroupId property value. This &lt;b&gt;adGroupId&lt;/b&gt; is created when an ad group is first created and associated with a campaign. This is the ad group that the corresponding keyword will be added to. This ad group must be a part of the campaign that is specified in the call URI. Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_group-getadgroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller, and &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeywords&quot;&gt;getKeywords&lt;/a&gt; to retrieve the keyword IDs for a seller&apos;s keywords.
      * @param value Value to set for the adGroupId property.
      */
     public void setAdGroupId(@jakarta.annotation.Nullable final String value) {
         this.adGroupId = value;
     }
     /**
-     * Sets the bid property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the bid property value. This container is used to set the maximum bid for the keyword. Each time a listing is retrieved in search results using this keyword and clicked on, the seller will be charged, at most, this amount. Each click goes toward the daily budget set up for the CPC campaign. If the bid is not provided, then the default bid associated with the ad group is used.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; You can call the  &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_group-suggestbids&quot;&gt;suggestBids&lt;/a&gt; method to retrieve the suggested bids for keywords.&lt;/span&gt;
      * @param value Value to set for the bid property.
      */
     public void setBid(@jakarta.annotation.Nullable final Amount value) {
@@ -156,10 +156,10 @@ public class CreateKeywordRequest implements AdditionalDataHolder, Parsable {
         this.keywordText = value;
     }
     /**
-     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MatchTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the matchType property value. A field that defines the match type for the keyword.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;BROAD&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;EXACT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;PHRASE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the matchType property.
      */
-    public void setMatchType(@jakarta.annotation.Nullable final String value) {
+    public void setMatchType(@jakarta.annotation.Nullable final MatchTypeEnum value) {
         this.matchType = value;
     }
 }

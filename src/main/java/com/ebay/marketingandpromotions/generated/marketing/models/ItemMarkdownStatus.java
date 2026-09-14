@@ -31,9 +31,9 @@ public class ItemMarkdownStatus implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Indicates the state assigned to the markdown discount using one of the &lt;b&gt;status&lt;/b&gt; values. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:ItemMarkdownStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates the state assigned to the markdown discount using one of the &lt;b&gt;status&lt;/b&gt; values.
      */
-    private String listingMarkdownStatus;
+    private ItemMarkdownStatusEnum listingMarkdownStatus;
     /**
      * Identifies the date the last time the state of the discount changed. Both both markdown and markup events can trigger a status change.
      */
@@ -73,17 +73,17 @@ public class ItemMarkdownStatus implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
-        deserializerMap.put("listingMarkdownStatus", (n) -> { this.setListingMarkdownStatus(n.getStringValue()); });
+        deserializerMap.put("listingMarkdownStatus", (n) -> { this.setListingMarkdownStatus(n.getEnumValue(ItemMarkdownStatusEnum::forValue)); });
         deserializerMap.put("statusChangedDate", (n) -> { this.setStatusChangedDate(n.getStringValue()); });
         deserializerMap.put("statusMessage", (n) -> { this.setStatusMessage(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the listingMarkdownStatus property value. Indicates the state assigned to the markdown discount using one of the &lt;b&gt;status&lt;/b&gt; values. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:ItemMarkdownStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the listingMarkdownStatus property value. Indicates the state assigned to the markdown discount using one of the &lt;b&gt;status&lt;/b&gt; values.
+     * @return a {@link ItemMarkdownStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getListingMarkdownStatus() {
+    public ItemMarkdownStatusEnum getListingMarkdownStatus() {
         return this.listingMarkdownStatus;
     }
     /**
@@ -108,7 +108,7 @@ public class ItemMarkdownStatus implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("listingMarkdownStatus", this.getListingMarkdownStatus());
+        writer.writeEnumValue("listingMarkdownStatus", this.getListingMarkdownStatus());
         writer.writeStringValue("statusChangedDate", this.getStatusChangedDate());
         writer.writeStringValue("statusMessage", this.getStatusMessage());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -121,10 +121,10 @@ public class ItemMarkdownStatus implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the listingMarkdownStatus property value. Indicates the state assigned to the markdown discount using one of the &lt;b&gt;status&lt;/b&gt; values. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:ItemMarkdownStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the listingMarkdownStatus property value. Indicates the state assigned to the markdown discount using one of the &lt;b&gt;status&lt;/b&gt; values.
      * @param value Value to set for the listingMarkdownStatus property.
      */
-    public void setListingMarkdownStatus(@jakarta.annotation.Nullable final String value) {
+    public void setListingMarkdownStatus(@jakarta.annotation.Nullable final ItemMarkdownStatusEnum value) {
         this.listingMarkdownStatus = value;
     }
     /**

@@ -31,19 +31,19 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The &lt;i&gt;average item discount&lt;/i&gt; is the average discount that has been applied to each item being discounted. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalDiscount&lt;/b&gt; / &lt;b&gt;itemsSoldQuantity&lt;/b&gt; = &lt;b&gt;averageItemDiscount&lt;/b&gt;
      */
     private Amount averageItemDiscount;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The &lt;i&gt;average item revenue&lt;/i&gt; is the average revenue that has been received for each item being discounted.. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalSales&lt;/b&gt; / &lt;b&gt;itemsSoldQuantity&lt;/b&gt; = &lt;b&gt;averageItemRevenue&lt;/b&gt;
      */
     private Amount averageItemRevenue;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The &lt;i&gt;average order discount&lt;/i&gt; is the average discount that has been applied to each order that has an active discount. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalDiscount&lt;/b&gt; / &lt;b&gt;numberOfOrdersSold&lt;/b&gt; = &lt;b&gt;averageOrderDiscount&lt;/b&gt;
      */
     private Amount averageOrderDiscount;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The &lt;i&gt;average order revenue&lt;/i&gt; is the average revenue that has been received for each order that has an active discount. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalSales&lt;/b&gt; / &lt;b&gt;numberOfOrdersSold&lt;/b&gt; = &lt;b&gt;averageOrderRevenue&lt;/b&gt;
      */
     private Amount averageOrderRevenue;
     /**
@@ -51,7 +51,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
      */
     private String averageOrderSize;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * This is the monetary amount of items purchased that have been discounted where the threshold &lt;i&gt;wasn&apos;t met&lt;/i&gt;, so the discount was not applied.  &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. One buyer purchased only one pair of socks, so they pay the full price of $5. Here, your &lt;b&gt;baseSale&lt;/b&gt; amount would be $5.
      */
     private Amount baseSale;
     /**
@@ -79,19 +79,19 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
      */
     private String promotionReportId;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * This is the monetary amount of the items sold in a threshold discount where the threshold &lt;i&gt;has been met&lt;/i&gt; and the discount was applied.  &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. One buyer purchases two pairs of socks, so they pay $7.50 for both pairs (rather than the full price of $10). Your &lt;b&gt;promotionSale&lt;/b&gt; amount would be $7.50.
      */
     private Amount promotionSale;
     /**
-     * Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;.
      */
-    private String promotionType;
+    private PromotionTypeEnum promotionType;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * This is the monetary discount amount applied to the sale of items in a threshold discount where the threshold &lt;i&gt;has been met&lt;/i&gt; and the discount was applied.  &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. One buyer purchases two pairs of socks, so they pay $7.50 for both pairs (rather than the full price of $10). Your &lt;b&gt;totalDiscount&lt;/b&gt; amount would be $2.50.
      */
     private Amount totalDiscount;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * This is the total monetary sales amount of all items sold that were discounted. &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. You make one sale where the buyer purchases only one pair of socks and they pay the full price of $5 (&lt;b&gt;baseSale&lt;/b&gt;). You make a second sale where the buyer purchases two pairs of socks and they pay $7.50, for both pairs (&lt;b&gt;promotionSale&lt;/b&gt;). Your &lt;b&gt;totalSale&lt;/b&gt; would be $12.50. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;baseSale&lt;/b&gt; + &lt;b&gt;promotionSale&lt;/b&gt; = &lt;b&gt;totalSale&lt;/b&gt;
      */
     private Amount totalSale;
     /**
@@ -119,7 +119,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the averageItemDiscount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the averageItemDiscount property value. The &lt;i&gt;average item discount&lt;/i&gt; is the average discount that has been applied to each item being discounted. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalDiscount&lt;/b&gt; / &lt;b&gt;itemsSoldQuantity&lt;/b&gt; = &lt;b&gt;averageItemDiscount&lt;/b&gt;
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -127,7 +127,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         return this.averageItemDiscount;
     }
     /**
-     * Gets the averageItemRevenue property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the averageItemRevenue property value. The &lt;i&gt;average item revenue&lt;/i&gt; is the average revenue that has been received for each item being discounted.. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalSales&lt;/b&gt; / &lt;b&gt;itemsSoldQuantity&lt;/b&gt; = &lt;b&gt;averageItemRevenue&lt;/b&gt;
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         return this.averageItemRevenue;
     }
     /**
-     * Gets the averageOrderDiscount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the averageOrderDiscount property value. The &lt;i&gt;average order discount&lt;/i&gt; is the average discount that has been applied to each order that has an active discount. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalDiscount&lt;/b&gt; / &lt;b&gt;numberOfOrdersSold&lt;/b&gt; = &lt;b&gt;averageOrderDiscount&lt;/b&gt;
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -143,7 +143,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         return this.averageOrderDiscount;
     }
     /**
-     * Gets the averageOrderRevenue property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the averageOrderRevenue property value. The &lt;i&gt;average order revenue&lt;/i&gt; is the average revenue that has been received for each order that has an active discount. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalSales&lt;/b&gt; / &lt;b&gt;numberOfOrdersSold&lt;/b&gt; = &lt;b&gt;averageOrderRevenue&lt;/b&gt;
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -159,7 +159,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         return this.averageOrderSize;
     }
     /**
-     * Gets the baseSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the baseSale property value. This is the monetary amount of items purchased that have been discounted where the threshold &lt;i&gt;wasn&apos;t met&lt;/i&gt;, so the discount was not applied.  &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. One buyer purchased only one pair of socks, so they pay the full price of $5. Here, your &lt;b&gt;baseSale&lt;/b&gt; amount would be $5.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -186,7 +186,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         deserializerMap.put("promotionId", (n) -> { this.setPromotionId(n.getStringValue()); });
         deserializerMap.put("promotionReportId", (n) -> { this.setPromotionReportId(n.getStringValue()); });
         deserializerMap.put("promotionSale", (n) -> { this.setPromotionSale(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
-        deserializerMap.put("promotionType", (n) -> { this.setPromotionType(n.getStringValue()); });
+        deserializerMap.put("promotionType", (n) -> { this.setPromotionType(n.getEnumValue(PromotionTypeEnum::forValue)); });
         deserializerMap.put("totalDiscount", (n) -> { this.setTotalDiscount(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
         deserializerMap.put("totalSale", (n) -> { this.setTotalSale(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
         return deserializerMap;
@@ -240,7 +240,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         return this.promotionReportId;
     }
     /**
-     * Gets the promotionSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the promotionSale property value. This is the monetary amount of the items sold in a threshold discount where the threshold &lt;i&gt;has been met&lt;/i&gt; and the discount was applied.  &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. One buyer purchases two pairs of socks, so they pay $7.50 for both pairs (rather than the full price of $10). Your &lt;b&gt;promotionSale&lt;/b&gt; amount would be $7.50.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -248,15 +248,15 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         return this.promotionSale;
     }
     /**
-     * Gets the promotionType property value. Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the promotionType property value. Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;.
+     * @return a {@link PromotionTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getPromotionType() {
+    public PromotionTypeEnum getPromotionType() {
         return this.promotionType;
     }
     /**
-     * Gets the totalDiscount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the totalDiscount property value. This is the monetary discount amount applied to the sale of items in a threshold discount where the threshold &lt;i&gt;has been met&lt;/i&gt; and the discount was applied.  &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. One buyer purchases two pairs of socks, so they pay $7.50 for both pairs (rather than the full price of $10). Your &lt;b&gt;totalDiscount&lt;/b&gt; amount would be $2.50.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -264,7 +264,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         return this.totalDiscount;
     }
     /**
-     * Gets the totalSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the totalSale property value. This is the total monetary sales amount of all items sold that were discounted. &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. You make one sale where the buyer purchases only one pair of socks and they pay the full price of $5 (&lt;b&gt;baseSale&lt;/b&gt;). You make a second sale where the buyer purchases two pairs of socks and they pay $7.50, for both pairs (&lt;b&gt;promotionSale&lt;/b&gt;). Your &lt;b&gt;totalSale&lt;/b&gt; would be $12.50. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;baseSale&lt;/b&gt; + &lt;b&gt;promotionSale&lt;/b&gt; = &lt;b&gt;totalSale&lt;/b&gt;
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -290,7 +290,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("promotionId", this.getPromotionId());
         writer.writeStringValue("promotionReportId", this.getPromotionReportId());
         writer.writeObjectValue("promotionSale", this.getPromotionSale());
-        writer.writeStringValue("promotionType", this.getPromotionType());
+        writer.writeEnumValue("promotionType", this.getPromotionType());
         writer.writeObjectValue("totalDiscount", this.getTotalDiscount());
         writer.writeObjectValue("totalSale", this.getTotalSale());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -303,28 +303,28 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the averageItemDiscount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the averageItemDiscount property value. The &lt;i&gt;average item discount&lt;/i&gt; is the average discount that has been applied to each item being discounted. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalDiscount&lt;/b&gt; / &lt;b&gt;itemsSoldQuantity&lt;/b&gt; = &lt;b&gt;averageItemDiscount&lt;/b&gt;
      * @param value Value to set for the averageItemDiscount property.
      */
     public void setAverageItemDiscount(@jakarta.annotation.Nullable final Amount value) {
         this.averageItemDiscount = value;
     }
     /**
-     * Sets the averageItemRevenue property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the averageItemRevenue property value. The &lt;i&gt;average item revenue&lt;/i&gt; is the average revenue that has been received for each item being discounted.. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalSales&lt;/b&gt; / &lt;b&gt;itemsSoldQuantity&lt;/b&gt; = &lt;b&gt;averageItemRevenue&lt;/b&gt;
      * @param value Value to set for the averageItemRevenue property.
      */
     public void setAverageItemRevenue(@jakarta.annotation.Nullable final Amount value) {
         this.averageItemRevenue = value;
     }
     /**
-     * Sets the averageOrderDiscount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the averageOrderDiscount property value. The &lt;i&gt;average order discount&lt;/i&gt; is the average discount that has been applied to each order that has an active discount. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalDiscount&lt;/b&gt; / &lt;b&gt;numberOfOrdersSold&lt;/b&gt; = &lt;b&gt;averageOrderDiscount&lt;/b&gt;
      * @param value Value to set for the averageOrderDiscount property.
      */
     public void setAverageOrderDiscount(@jakarta.annotation.Nullable final Amount value) {
         this.averageOrderDiscount = value;
     }
     /**
-     * Sets the averageOrderRevenue property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the averageOrderRevenue property value. The &lt;i&gt;average order revenue&lt;/i&gt; is the average revenue that has been received for each order that has an active discount. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;totalSales&lt;/b&gt; / &lt;b&gt;numberOfOrdersSold&lt;/b&gt; = &lt;b&gt;averageOrderRevenue&lt;/b&gt;
      * @param value Value to set for the averageOrderRevenue property.
      */
     public void setAverageOrderRevenue(@jakarta.annotation.Nullable final Amount value) {
@@ -338,7 +338,7 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         this.averageOrderSize = value;
     }
     /**
-     * Sets the baseSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the baseSale property value. This is the monetary amount of items purchased that have been discounted where the threshold &lt;i&gt;wasn&apos;t met&lt;/i&gt;, so the discount was not applied.  &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. One buyer purchased only one pair of socks, so they pay the full price of $5. Here, your &lt;b&gt;baseSale&lt;/b&gt; amount would be $5.
      * @param value Value to set for the baseSale property.
      */
     public void setBaseSale(@jakarta.annotation.Nullable final Amount value) {
@@ -387,28 +387,28 @@ public class PromotionReportDetail implements AdditionalDataHolder, Parsable {
         this.promotionReportId = value;
     }
     /**
-     * Sets the promotionSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the promotionSale property value. This is the monetary amount of the items sold in a threshold discount where the threshold &lt;i&gt;has been met&lt;/i&gt; and the discount was applied.  &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. One buyer purchases two pairs of socks, so they pay $7.50 for both pairs (rather than the full price of $10). Your &lt;b&gt;promotionSale&lt;/b&gt; amount would be $7.50.
      * @param value Value to set for the promotionSale property.
      */
     public void setPromotionSale(@jakarta.annotation.Nullable final Amount value) {
         this.promotionSale = value;
     }
     /**
-     * Sets the promotionType property value. Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/sme:PromotionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the promotionType property value. Indicates the type of the discount, either &lt;code&gt;CODED_COUPON&lt;/code&gt;, &lt;code&gt;MARKDOWN_SALE&lt;/code&gt;, &lt;code&gt;ORDER_DISCOUNT&lt;/code&gt;, or &lt;code&gt;VOLUME_DISCOUNT&lt;/code&gt;.
      * @param value Value to set for the promotionType property.
      */
-    public void setPromotionType(@jakarta.annotation.Nullable final String value) {
+    public void setPromotionType(@jakarta.annotation.Nullable final PromotionTypeEnum value) {
         this.promotionType = value;
     }
     /**
-     * Sets the totalDiscount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the totalDiscount property value. This is the monetary discount amount applied to the sale of items in a threshold discount where the threshold &lt;i&gt;has been met&lt;/i&gt; and the discount was applied.  &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. One buyer purchases two pairs of socks, so they pay $7.50 for both pairs (rather than the full price of $10). Your &lt;b&gt;totalDiscount&lt;/b&gt; amount would be $2.50.
      * @param value Value to set for the totalDiscount property.
      */
     public void setTotalDiscount(@jakarta.annotation.Nullable final Amount value) {
         this.totalDiscount = value;
     }
     /**
-     * Sets the totalSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the totalSale property value. This is the total monetary sales amount of all items sold that were discounted. &lt;br&gt;&lt;br&gt;For example, suppose you&apos;re running a &quot;Buy 1, get 1 at 50%&quot; discount on $5 socks. You make one sale where the buyer purchases only one pair of socks and they pay the full price of $5 (&lt;b&gt;baseSale&lt;/b&gt;). You make a second sale where the buyer purchases two pairs of socks and they pay $7.50, for both pairs (&lt;b&gt;promotionSale&lt;/b&gt;). Your &lt;b&gt;totalSale&lt;/b&gt; would be $12.50. This value is calculated as follows:  &lt;br&gt;&lt;br&gt;&lt;b&gt;baseSale&lt;/b&gt; + &lt;b&gt;promotionSale&lt;/b&gt; = &lt;b&gt;totalSale&lt;/b&gt;
      * @param value Value to set for the totalSale property.
      */
     public void setTotalSale(@jakarta.annotation.Nullable final Amount value) {

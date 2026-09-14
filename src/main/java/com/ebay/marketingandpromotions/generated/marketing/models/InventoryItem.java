@@ -35,6 +35,10 @@ public class InventoryItem implements AdditionalDataHolder, Parsable {
      */
     private String inventoryReferenceId;
     /**
+     * Indicates the type of the &lt;b&gt;inventoryReferenceId&lt;/b&gt;, which can be either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; This value is not currently returned in the response.
+     */
+    private InventoryReferenceTypeEnum inventoryReferenceType;
+    /**
      * Instantiates a new {@link InventoryItem} and sets the default values.
      */
     public InventoryItem() {
@@ -64,8 +68,9 @@ public class InventoryItem implements AdditionalDataHolder, Parsable {
      */
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
-        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(1);
+        final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("inventoryReferenceId", (n) -> { this.setInventoryReferenceId(n.getStringValue()); });
+        deserializerMap.put("inventoryReferenceType", (n) -> { this.setInventoryReferenceType(n.getEnumValue(InventoryReferenceTypeEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -77,12 +82,21 @@ public class InventoryItem implements AdditionalDataHolder, Parsable {
         return this.inventoryReferenceId;
     }
     /**
+     * Gets the inventoryReferenceType property value. Indicates the type of the &lt;b&gt;inventoryReferenceId&lt;/b&gt;, which can be either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; This value is not currently returned in the response.
+     * @return a {@link InventoryReferenceTypeEnum}
+     */
+    @jakarta.annotation.Nullable
+    public InventoryReferenceTypeEnum getInventoryReferenceType() {
+        return this.inventoryReferenceType;
+    }
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeStringValue("inventoryReferenceId", this.getInventoryReferenceId());
+        writer.writeEnumValue("inventoryReferenceType", this.getInventoryReferenceType());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -98,5 +112,12 @@ public class InventoryItem implements AdditionalDataHolder, Parsable {
      */
     public void setInventoryReferenceId(@jakarta.annotation.Nullable final String value) {
         this.inventoryReferenceId = value;
+    }
+    /**
+     * Sets the inventoryReferenceType property value. Indicates the type of the &lt;b&gt;inventoryReferenceId&lt;/b&gt;, which can be either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; This value is not currently returned in the response.
+     * @param value Value to set for the inventoryReferenceType property.
+     */
+    public void setInventoryReferenceType(@jakarta.annotation.Nullable final InventoryReferenceTypeEnum value) {
+        this.inventoryReferenceType = value;
     }
 }

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields needed to create a campaign. To create a campaign, you need to specify a name, start and end dates, funding, marketplace, and optionally the criterion (selection rules).
+ * This type defines the fields for the create campaign request.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
@@ -31,11 +31,11 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A container for the details of a Promoted Listings campaign that uses the Cost Per Click (CPC) funding model.
+     * The allocated daily budget for the Cost Per Click (CPC) Promoted Listings campaign.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if&lt;/i&gt; the campaign funding model is CPC.
      */
     private CampaignBudgetRequest budget;
     /**
-     * This type defines the fields for specifying the criterion (selection rule) settings of an ad campaign. If you populate the campaignCriterion object in your &lt;b&gt;createCampaign&lt;/b&gt; request, ads for the campaign are created by rule for the listings that meet the criteria you specify, and these ads are associated with the newly created campaign.
+     * This container is used if the seller wishes to create one or more rules for a rules-based campaign. If you populate the &lt;b&gt;campaignCriterion&lt;/b&gt; object in your &lt;b&gt;createCampaign&lt;/b&gt; request, ads for the campaign are created by rule for the listings that meet the criteria you specify, and these ads are associated with the campaign to be created.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Rules-based listing selection is only applicable for general strategy campaigns using the Cost-Per-Sale (CPS) funding model.&lt;/span&gt;
      */
     private CampaignCriterion campaignCriterion;
     /**
@@ -43,25 +43,25 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
      */
     private String campaignName;
     /**
-     * The targeting type of the campaign. This value indicates whether the campaign is a manual targeting or smart targeting campaign.&lt;br&gt;&lt;br&gt;If not value is specified, this field will default to &lt;code&gt;MANUAL&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This feature is only supported for on-site campaigns that use the Cost Per Click (CPC) funding model.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;MANUAL&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SMART&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;This field is required and must be set to &lt;/code&gt;SMART&lt;/code&gt; for a Smart Targeting campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:CampaignTargetingTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The targeting type of the campaign. This value indicates whether the campaign is a manual targeting or smart targeting campaign.&lt;br&gt;&lt;br&gt;If not value is specified, this field will default to &lt;code&gt;MANUAL&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This feature is only supported for on-site campaigns that use the Cost Per Click (CPC) funding model.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;MANUAL&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SMART&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;This field is required and must be set to &lt;/code&gt;SMART&lt;/code&gt; for a Smart Targeting campaign.
      */
-    private String campaignTargetingType;
+    private CampaignTargetingTypeEnum campaignTargetingType;
     /**
      * The channel for the campaign. This value indicates whether the advertising campaign is an Onsite or Offsite.&lt;br&gt;&lt;br&gt;If no value is entered, this field will default to &lt;code&gt;ON_SITE&lt;/code&gt;. Multiple channels are not supported. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;b&gt;Channels&lt;/b&gt; is only applicable for campaigns that use the Cost Per Click (CPC) funding model.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ON_SITE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;OFF_SITE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;This field is required and must be set to &lt;code&gt;OFF_SITE&lt;/code&gt; for a Promoted Offsite campaign.
      */
-    private java.util.List<String> channels;
+    private java.util.List<ChannelEnum> channels;
     /**
-     * The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/endCampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
+     * The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-endcampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
      */
     private String endDate;
     /**
-     * This type defines how the Promoted Listings fee is calculated for a Promoted Listings ad campaign.
+     * This container includes parameters that define an ad campaign funding strategy. The set of seller-configurable parameters depends on the selected &lt;b&gt;fundingModel&lt;/b&gt; value.
      */
     private FundingStrategy fundingStrategy;
     /**
-     * The ID of the eBay marketplace where the campaign is hosted. See the &lt;b&gt;MarketplaceIdEnum&lt;/b&gt; type to get the appropriate enumeration value for the listing marketplace. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The ID of the eBay marketplace where the campaign is hosted. See the &lt;b&gt;MarketplaceIdEnum&lt;/b&gt; type to get the appropriate enumeration value for the listing marketplace.
      */
-    private String marketplaceId;
+    private MarketplaceIdEnum marketplaceId;
     /**
      * The date and time the campaign starts, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). For display purposes, convert this time into the local time of the seller.  &lt;p&gt;On the date specified, the service derives the keywords for each listing in the campaign, creates an ad for each listing, and associates each new ad with the campaign. The campaign starts after this process is completed. The amount of time it takes the service to start the campaign depends on the number of listings in the campaign. Call &lt;b&gt;getCampaign&lt;/b&gt; to check the status of the campaign.&lt;/p&gt;
      */
@@ -91,7 +91,7 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the budget property value. A container for the details of a Promoted Listings campaign that uses the Cost Per Click (CPC) funding model.
+     * Gets the budget property value. The allocated daily budget for the Cost Per Click (CPC) Promoted Listings campaign.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if&lt;/i&gt; the campaign funding model is CPC.
      * @return a {@link CampaignBudgetRequest}
      */
     @jakarta.annotation.Nullable
@@ -99,7 +99,7 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
         return this.budget;
     }
     /**
-     * Gets the campaignCriterion property value. This type defines the fields for specifying the criterion (selection rule) settings of an ad campaign. If you populate the campaignCriterion object in your &lt;b&gt;createCampaign&lt;/b&gt; request, ads for the campaign are created by rule for the listings that meet the criteria you specify, and these ads are associated with the newly created campaign.
+     * Gets the campaignCriterion property value. This container is used if the seller wishes to create one or more rules for a rules-based campaign. If you populate the &lt;b&gt;campaignCriterion&lt;/b&gt; object in your &lt;b&gt;createCampaign&lt;/b&gt; request, ads for the campaign are created by rule for the listings that meet the criteria you specify, and these ads are associated with the campaign to be created.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Rules-based listing selection is only applicable for general strategy campaigns using the Cost-Per-Sale (CPS) funding model.&lt;/span&gt;
      * @return a {@link CampaignCriterion}
      */
     @jakarta.annotation.Nullable
@@ -115,23 +115,23 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
         return this.campaignName;
     }
     /**
-     * Gets the campaignTargetingType property value. The targeting type of the campaign. This value indicates whether the campaign is a manual targeting or smart targeting campaign.&lt;br&gt;&lt;br&gt;If not value is specified, this field will default to &lt;code&gt;MANUAL&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This feature is only supported for on-site campaigns that use the Cost Per Click (CPC) funding model.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;MANUAL&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SMART&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;This field is required and must be set to &lt;/code&gt;SMART&lt;/code&gt; for a Smart Targeting campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:CampaignTargetingTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the campaignTargetingType property value. The targeting type of the campaign. This value indicates whether the campaign is a manual targeting or smart targeting campaign.&lt;br&gt;&lt;br&gt;If not value is specified, this field will default to &lt;code&gt;MANUAL&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This feature is only supported for on-site campaigns that use the Cost Per Click (CPC) funding model.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;MANUAL&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SMART&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;This field is required and must be set to &lt;/code&gt;SMART&lt;/code&gt; for a Smart Targeting campaign.
+     * @return a {@link CampaignTargetingTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getCampaignTargetingType() {
+    public CampaignTargetingTypeEnum getCampaignTargetingType() {
         return this.campaignTargetingType;
     }
     /**
      * Gets the channels property value. The channel for the campaign. This value indicates whether the advertising campaign is an Onsite or Offsite.&lt;br&gt;&lt;br&gt;If no value is entered, this field will default to &lt;code&gt;ON_SITE&lt;/code&gt;. Multiple channels are not supported. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;b&gt;Channels&lt;/b&gt; is only applicable for campaigns that use the Cost Per Click (CPC) funding model.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ON_SITE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;OFF_SITE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;This field is required and must be set to &lt;code&gt;OFF_SITE&lt;/code&gt; for a Promoted Offsite campaign.
-     * @return a {@link java.util.List<String>}
+     * @return a {@link java.util.List<ChannelEnum>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<String> getChannels() {
+    public java.util.List<ChannelEnum> getChannels() {
         return this.channels;
     }
     /**
-     * Gets the endDate property value. The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/endCampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
+     * Gets the endDate property value. The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-endcampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -148,16 +148,16 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
         deserializerMap.put("budget", (n) -> { this.setBudget(n.getObjectValue(CampaignBudgetRequest::createFromDiscriminatorValue)); });
         deserializerMap.put("campaignCriterion", (n) -> { this.setCampaignCriterion(n.getObjectValue(CampaignCriterion::createFromDiscriminatorValue)); });
         deserializerMap.put("campaignName", (n) -> { this.setCampaignName(n.getStringValue()); });
-        deserializerMap.put("campaignTargetingType", (n) -> { this.setCampaignTargetingType(n.getStringValue()); });
-        deserializerMap.put("channels", (n) -> { this.setChannels(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("campaignTargetingType", (n) -> { this.setCampaignTargetingType(n.getEnumValue(CampaignTargetingTypeEnum::forValue)); });
+        deserializerMap.put("channels", (n) -> { this.setChannels(n.getCollectionOfEnumValues(ChannelEnum::forValue)); });
         deserializerMap.put("endDate", (n) -> { this.setEndDate(n.getStringValue()); });
         deserializerMap.put("fundingStrategy", (n) -> { this.setFundingStrategy(n.getObjectValue(FundingStrategy::createFromDiscriminatorValue)); });
-        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getStringValue()); });
+        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getEnumValue(MarketplaceIdEnum::forValue)); });
         deserializerMap.put("startDate", (n) -> { this.setStartDate(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the fundingStrategy property value. This type defines how the Promoted Listings fee is calculated for a Promoted Listings ad campaign.
+     * Gets the fundingStrategy property value. This container includes parameters that define an ad campaign funding strategy. The set of seller-configurable parameters depends on the selected &lt;b&gt;fundingModel&lt;/b&gt; value.
      * @return a {@link FundingStrategy}
      */
     @jakarta.annotation.Nullable
@@ -165,11 +165,11 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
         return this.fundingStrategy;
     }
     /**
-     * Gets the marketplaceId property value. The ID of the eBay marketplace where the campaign is hosted. See the &lt;b&gt;MarketplaceIdEnum&lt;/b&gt; type to get the appropriate enumeration value for the listing marketplace. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the marketplaceId property value. The ID of the eBay marketplace where the campaign is hosted. See the &lt;b&gt;MarketplaceIdEnum&lt;/b&gt; type to get the appropriate enumeration value for the listing marketplace.
+     * @return a {@link MarketplaceIdEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMarketplaceId() {
+    public MarketplaceIdEnum getMarketplaceId() {
         return this.marketplaceId;
     }
     /**
@@ -189,11 +189,11 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue("budget", this.getBudget());
         writer.writeObjectValue("campaignCriterion", this.getCampaignCriterion());
         writer.writeStringValue("campaignName", this.getCampaignName());
-        writer.writeStringValue("campaignTargetingType", this.getCampaignTargetingType());
-        writer.writeCollectionOfPrimitiveValues("channels", this.getChannels());
+        writer.writeEnumValue("campaignTargetingType", this.getCampaignTargetingType());
+        writer.writeCollectionOfEnumValues("channels", this.getChannels());
         writer.writeStringValue("endDate", this.getEndDate());
         writer.writeObjectValue("fundingStrategy", this.getFundingStrategy());
-        writer.writeStringValue("marketplaceId", this.getMarketplaceId());
+        writer.writeEnumValue("marketplaceId", this.getMarketplaceId());
         writer.writeStringValue("startDate", this.getStartDate());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -205,14 +205,14 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the budget property value. A container for the details of a Promoted Listings campaign that uses the Cost Per Click (CPC) funding model.
+     * Sets the budget property value. The allocated daily budget for the Cost Per Click (CPC) Promoted Listings campaign.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if&lt;/i&gt; the campaign funding model is CPC.
      * @param value Value to set for the budget property.
      */
     public void setBudget(@jakarta.annotation.Nullable final CampaignBudgetRequest value) {
         this.budget = value;
     }
     /**
-     * Sets the campaignCriterion property value. This type defines the fields for specifying the criterion (selection rule) settings of an ad campaign. If you populate the campaignCriterion object in your &lt;b&gt;createCampaign&lt;/b&gt; request, ads for the campaign are created by rule for the listings that meet the criteria you specify, and these ads are associated with the newly created campaign.
+     * Sets the campaignCriterion property value. This container is used if the seller wishes to create one or more rules for a rules-based campaign. If you populate the &lt;b&gt;campaignCriterion&lt;/b&gt; object in your &lt;b&gt;createCampaign&lt;/b&gt; request, ads for the campaign are created by rule for the listings that meet the criteria you specify, and these ads are associated with the campaign to be created.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Rules-based listing selection is only applicable for general strategy campaigns using the Cost-Per-Sale (CPS) funding model.&lt;/span&gt;
      * @param value Value to set for the campaignCriterion property.
      */
     public void setCampaignCriterion(@jakarta.annotation.Nullable final CampaignCriterion value) {
@@ -226,38 +226,38 @@ public class CreateCampaignRequest implements AdditionalDataHolder, Parsable {
         this.campaignName = value;
     }
     /**
-     * Sets the campaignTargetingType property value. The targeting type of the campaign. This value indicates whether the campaign is a manual targeting or smart targeting campaign.&lt;br&gt;&lt;br&gt;If not value is specified, this field will default to &lt;code&gt;MANUAL&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This feature is only supported for on-site campaigns that use the Cost Per Click (CPC) funding model.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;MANUAL&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SMART&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;This field is required and must be set to &lt;/code&gt;SMART&lt;/code&gt; for a Smart Targeting campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:CampaignTargetingTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the campaignTargetingType property value. The targeting type of the campaign. This value indicates whether the campaign is a manual targeting or smart targeting campaign.&lt;br&gt;&lt;br&gt;If not value is specified, this field will default to &lt;code&gt;MANUAL&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This feature is only supported for on-site campaigns that use the Cost Per Click (CPC) funding model.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;MANUAL&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SMART&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;This field is required and must be set to &lt;/code&gt;SMART&lt;/code&gt; for a Smart Targeting campaign.
      * @param value Value to set for the campaignTargetingType property.
      */
-    public void setCampaignTargetingType(@jakarta.annotation.Nullable final String value) {
+    public void setCampaignTargetingType(@jakarta.annotation.Nullable final CampaignTargetingTypeEnum value) {
         this.campaignTargetingType = value;
     }
     /**
      * Sets the channels property value. The channel for the campaign. This value indicates whether the advertising campaign is an Onsite or Offsite.&lt;br&gt;&lt;br&gt;If no value is entered, this field will default to &lt;code&gt;ON_SITE&lt;/code&gt;. Multiple channels are not supported. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;b&gt;Channels&lt;/b&gt; is only applicable for campaigns that use the Cost Per Click (CPC) funding model.&lt;/span&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ON_SITE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;OFF_SITE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;This field is required and must be set to &lt;code&gt;OFF_SITE&lt;/code&gt; for a Promoted Offsite campaign.
      * @param value Value to set for the channels property.
      */
-    public void setChannels(@jakarta.annotation.Nullable final java.util.List<String> value) {
+    public void setChannels(@jakarta.annotation.Nullable final java.util.List<ChannelEnum> value) {
         this.channels = value;
     }
     /**
-     * Sets the endDate property value. The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/endCampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
+     * Sets the endDate property value. The date and time the campaign ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). If this field is omitted, the campaign will have no defined end date, and will not end until the seller makes a decision to end the campaign with an &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-endcampaign&quot;&gt;endCampaign&lt;/a&gt; call, or if they update the campaign at a later time with an end date.
      * @param value Value to set for the endDate property.
      */
     public void setEndDate(@jakarta.annotation.Nullable final String value) {
         this.endDate = value;
     }
     /**
-     * Sets the fundingStrategy property value. This type defines how the Promoted Listings fee is calculated for a Promoted Listings ad campaign.
+     * Sets the fundingStrategy property value. This container includes parameters that define an ad campaign funding strategy. The set of seller-configurable parameters depends on the selected &lt;b&gt;fundingModel&lt;/b&gt; value.
      * @param value Value to set for the fundingStrategy property.
      */
     public void setFundingStrategy(@jakarta.annotation.Nullable final FundingStrategy value) {
         this.fundingStrategy = value;
     }
     /**
-     * Sets the marketplaceId property value. The ID of the eBay marketplace where the campaign is hosted. See the &lt;b&gt;MarketplaceIdEnum&lt;/b&gt; type to get the appropriate enumeration value for the listing marketplace. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the marketplaceId property value. The ID of the eBay marketplace where the campaign is hosted. See the &lt;b&gt;MarketplaceIdEnum&lt;/b&gt; type to get the appropriate enumeration value for the listing marketplace.
      * @param value Value to set for the marketplaceId property.
      */
-    public void setMarketplaceId(@jakarta.annotation.Nullable final String value) {
+    public void setMarketplaceId(@jakarta.annotation.Nullable final MarketplaceIdEnum value) {
         this.marketplaceId = value;
     }
     /**

@@ -16,6 +16,7 @@ package com.ebay.marketingandpromotions.generated.marketing.email_campaign.item;
 
 import com.ebay.marketingandpromotions.generated.marketing.email_campaign.item.email_preview.EmailPreviewRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.models.DeleteEmailCampaignResponse;
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.GetEmailCampaignResponse;
 import com.ebay.marketingandpromotions.generated.marketing.models.UpdateCampaignRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.UpdateEmailCampaignResponse;
@@ -61,64 +62,94 @@ public class WithEmailCampaignItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/email_campaign/{email_campaign_id}", rawUrl);
     }
     /**
-     * This method deletes the email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/getEmailCampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s email campaigns. Use the &lt;b&gt;email_campaign_id&lt;/b&gt; of the desired email campaign in the response as the path parameter for this request.
+     * This method deletes the email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s email campaigns. Use the &lt;b&gt;email_campaign_id&lt;/b&gt; of the desired email campaign in the response as the path parameter for this request.
      * @return a {@link DeleteEmailCampaignResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public DeleteEmailCampaignResponse delete() {
         return delete(null);
     }
     /**
-     * This method deletes the email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/getEmailCampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s email campaigns. Use the &lt;b&gt;email_campaign_id&lt;/b&gt; of the desired email campaign in the response as the path parameter for this request.
+     * This method deletes the email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s email campaigns. Use the &lt;b&gt;email_campaign_id&lt;/b&gt; of the desired email campaign in the response as the path parameter for this request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link DeleteEmailCampaignResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public DeleteEmailCampaignResponse delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, DeleteEmailCampaignResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, DeleteEmailCampaignResponse::createFromDiscriminatorValue);
     }
     /**
-     * This method returns the details of a single email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getEmailCampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve a list of all email campaigns from a seller&apos;s eBay store.
+     * This method returns the details of a single email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve a list of all email campaigns from a seller&apos;s eBay store.
      * @return a {@link GetEmailCampaignResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetEmailCampaignResponse get() {
         return get(null);
     }
     /**
-     * This method returns the details of a single email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getEmailCampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve a list of all email campaigns from a seller&apos;s eBay store.
+     * This method returns the details of a single email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve a list of all email campaigns from a seller&apos;s eBay store.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link GetEmailCampaignResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetEmailCampaignResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, GetEmailCampaignResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, GetEmailCampaignResponse::createFromDiscriminatorValue);
     }
     /**
-     * This method lets users update an existing email campaign. Pass the &lt;b&gt;emailCampaignId&lt;/b&gt; in the request URL and specify the changes to field values in the request payload.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;You can only update the custom fields of an email campaign. Fixed values, such as the &lt;b&gt;emailCampaignType&lt;/b&gt;, cannot be changed. For full specifications of fixed values for each email campaign type, see the &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/createEmailCampaign&quot;&gt;createEmailCampaign&lt;/a&gt; method documentation.&lt;/span&gt;
-     * @param body The update email campaign request payload
+     * This method lets users update an existing email campaign. Pass the &lt;b&gt;emailCampaignId&lt;/b&gt; in the request URL and specify the changes to field values in the request payload.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;You can only update the custom fields of an email campaign. Fixed values, such as the &lt;b&gt;emailCampaignType&lt;/b&gt;, cannot be changed. For full specifications of fixed values for each email campaign type, see the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-createemailcampaign&quot;&gt;createEmailCampaign&lt;/a&gt; method documentation.&lt;/span&gt;
+     * @param body update email campaign request
      * @return a {@link UpdateEmailCampaignResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public UpdateEmailCampaignResponse put(@jakarta.annotation.Nonnull final UpdateCampaignRequest body) {
         return put(body, null);
     }
     /**
-     * This method lets users update an existing email campaign. Pass the &lt;b&gt;emailCampaignId&lt;/b&gt; in the request URL and specify the changes to field values in the request payload.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;You can only update the custom fields of an email campaign. Fixed values, such as the &lt;b&gt;emailCampaignType&lt;/b&gt;, cannot be changed. For full specifications of fixed values for each email campaign type, see the &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/createEmailCampaign&quot;&gt;createEmailCampaign&lt;/a&gt; method documentation.&lt;/span&gt;
-     * @param body The update email campaign request payload
+     * This method lets users update an existing email campaign. Pass the &lt;b&gt;emailCampaignId&lt;/b&gt; in the request URL and specify the changes to field values in the request payload.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;You can only update the custom fields of an email campaign. Fixed values, such as the &lt;b&gt;emailCampaignType&lt;/b&gt;, cannot be changed. For full specifications of fixed values for each email campaign type, see the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-createemailcampaign&quot;&gt;createEmailCampaign&lt;/a&gt; method documentation.&lt;/span&gt;
+     * @param body update email campaign request
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link UpdateEmailCampaignResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public UpdateEmailCampaignResponse put(@jakarta.annotation.Nonnull final UpdateCampaignRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PutRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPutRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, UpdateEmailCampaignResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, UpdateEmailCampaignResponse::createFromDiscriminatorValue);
     }
     /**
-     * This method deletes the email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/getEmailCampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s email campaigns. Use the &lt;b&gt;email_campaign_id&lt;/b&gt; of the desired email campaign in the response as the path parameter for this request.
+     * This method deletes the email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s email campaigns. Use the &lt;b&gt;email_campaign_id&lt;/b&gt; of the desired email campaign in the response as the path parameter for this request.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -126,7 +157,7 @@ public class WithEmailCampaignItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * This method deletes the email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/getEmailCampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s email campaigns. Use the &lt;b&gt;email_campaign_id&lt;/b&gt; of the desired email campaign in the response as the path parameter for this request.
+     * This method deletes the email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve all of the seller&apos;s email campaigns. Use the &lt;b&gt;email_campaign_id&lt;/b&gt; of the desired email campaign in the response as the path parameter for this request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -138,7 +169,7 @@ public class WithEmailCampaignItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * This method returns the details of a single email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getEmailCampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve a list of all email campaigns from a seller&apos;s eBay store.
+     * This method returns the details of a single email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve a list of all email campaigns from a seller&apos;s eBay store.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -146,7 +177,7 @@ public class WithEmailCampaignItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * This method returns the details of a single email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getEmailCampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve a list of all email campaigns from a seller&apos;s eBay store.
+     * This method returns the details of a single email campaign specified by the &lt;b&gt;email_campaign_id&lt;/b&gt; path parameter.&lt;br&gt;&lt;br&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; to retrieve a list of all email campaigns from a seller&apos;s eBay store.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -158,8 +189,8 @@ public class WithEmailCampaignItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     }
     /**
-     * This method lets users update an existing email campaign. Pass the &lt;b&gt;emailCampaignId&lt;/b&gt; in the request URL and specify the changes to field values in the request payload.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;You can only update the custom fields of an email campaign. Fixed values, such as the &lt;b&gt;emailCampaignType&lt;/b&gt;, cannot be changed. For full specifications of fixed values for each email campaign type, see the &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/createEmailCampaign&quot;&gt;createEmailCampaign&lt;/a&gt; method documentation.&lt;/span&gt;
-     * @param body The update email campaign request payload
+     * This method lets users update an existing email campaign. Pass the &lt;b&gt;emailCampaignId&lt;/b&gt; in the request URL and specify the changes to field values in the request payload.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;You can only update the custom fields of an email campaign. Fixed values, such as the &lt;b&gt;emailCampaignType&lt;/b&gt;, cannot be changed. For full specifications of fixed values for each email campaign type, see the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-createemailcampaign&quot;&gt;createEmailCampaign&lt;/a&gt; method documentation.&lt;/span&gt;
+     * @param body update email campaign request
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -167,8 +198,8 @@ public class WithEmailCampaignItemRequestBuilder extends BaseRequestBuilder {
         return toPutRequestInformation(body, null);
     }
     /**
-     * This method lets users update an existing email campaign. Pass the &lt;b&gt;emailCampaignId&lt;/b&gt; in the request URL and specify the changes to field values in the request payload.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;You can only update the custom fields of an email campaign. Fixed values, such as the &lt;b&gt;emailCampaignType&lt;/b&gt;, cannot be changed. For full specifications of fixed values for each email campaign type, see the &lt;a href=&quot;/api-docs/sell/marketing/resources/email_campaign/methods/createEmailCampaign&quot;&gt;createEmailCampaign&lt;/a&gt; method documentation.&lt;/span&gt;
-     * @param body The update email campaign request payload
+     * This method lets users update an existing email campaign. Pass the &lt;b&gt;emailCampaignId&lt;/b&gt; in the request URL and specify the changes to field values in the request payload.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;You can only update the custom fields of an email campaign. Fixed values, such as the &lt;b&gt;emailCampaignType&lt;/b&gt;, cannot be changed. For full specifications of fixed values for each email campaign type, see the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-createemailcampaign&quot;&gt;createEmailCampaign&lt;/a&gt; method documentation.&lt;/span&gt;
+     * @param body update email campaign request
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

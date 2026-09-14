@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that contains the fields for the &lt;b&gt;UpdateCampaignBudget&lt;/b&gt; request.
+ * This type defines the request fields for the budget details that shall be updated.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateCampaignBudgetRequest implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class UpdateCampaignBudgetRequest implements AdditionalDataHolder, Parsab
      */
     private Map<String, Object> additionalData;
     /**
-     * A container for the budget details of a Promoted Listings campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This container will only be returned for campaigns using the CPC funding model; it does not apply to the Cost Per Sale (CPS) funding model.&lt;/span&gt;
+     * The daily budget limit for the Cost Per Click (CPC) Promoted Listings campaign. This will be a dollar value. All clicks using the keywords defined for the campaign will go towards expending the daily budget. Once the daily budget is exceeded for the campaign, all Promoted Listings under the campaign will be turned off until the next day.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;50.00&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;100.00&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
     private BudgetRequest daily;
     /**
@@ -59,7 +59,7 @@ public class UpdateCampaignBudgetRequest implements AdditionalDataHolder, Parsab
         return this.additionalData;
     }
     /**
-     * Gets the daily property value. A container for the budget details of a Promoted Listings campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This container will only be returned for campaigns using the CPC funding model; it does not apply to the Cost Per Sale (CPS) funding model.&lt;/span&gt;
+     * Gets the daily property value. The daily budget limit for the Cost Per Click (CPC) Promoted Listings campaign. This will be a dollar value. All clicks using the keywords defined for the campaign will go towards expending the daily budget. Once the daily budget is exceeded for the campaign, all Promoted Listings under the campaign will be turned off until the next day.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;50.00&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;100.00&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @return a {@link BudgetRequest}
      */
     @jakarta.annotation.Nullable
@@ -93,7 +93,7 @@ public class UpdateCampaignBudgetRequest implements AdditionalDataHolder, Parsab
         this.additionalData = value;
     }
     /**
-     * Sets the daily property value. A container for the budget details of a Promoted Listings campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This container will only be returned for campaigns using the CPC funding model; it does not apply to the Cost Per Sale (CPS) funding model.&lt;/span&gt;
+     * Sets the daily property value. The daily budget limit for the Cost Per Click (CPC) Promoted Listings campaign. This will be a dollar value. All clicks using the keywords defined for the campaign will go towards expending the daily budget. Once the daily budget is exceeded for the campaign, all Promoted Listings under the campaign will be turned off until the next day.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Valid Values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;50.00&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;100.00&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the daily property.
      */
     public void setDaily(@jakarta.annotation.Nullable final BudgetRequest value) {

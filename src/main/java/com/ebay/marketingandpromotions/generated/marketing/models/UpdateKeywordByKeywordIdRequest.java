@@ -31,17 +31,17 @@ public class UpdateKeywordByKeywordIdRequest implements AdditionalDataHolder, Pa
      */
     private Map<String, Object> additionalData;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * This container is used to set or change the bid percentage for the keyword. Each time a listing is retrieved in search results using this keyword and clicked on, the seller will be charged this amount. Each click goes toward the daily budget set up for the Cost Per Click (CPC) campaign.
      */
     private Amount bid;
     /**
-     * This field is used to identify the keyword to be updated. The &lt;a href=&quot;/api-docs/sell/marketing/resources/keyword/methods/getKeyword&quot;&gt;getKeyword&lt;/a&gt; method can be used to retrieve keywordId values.
+     * This field is used to identify the keyword to be updated. The &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeyword&quot;&gt;getKeyword&lt;/a&gt; method can be used to retrieve keywordId values.
      */
     private String keywordId;
     /**
-     * Include this field if you wish to change the status of the keyword. The status value specified here must be different than the keyword&apos;s current status. To confirm the current status of a keyword, you can use the &lt;a href=&quot;/api-docs/sell/marketing/resources/keyword/methods/getKeyword&quot;&gt;getKeyword&lt;/a&gt; method.&lt;/p&gt;&lt;p&gt;If the status of the ad is currently &lt;code&gt;ACTIVE&lt;/code&gt;, you can change status to &lt;code&gt;PAUSED&lt;/code&gt; or &lt;code&gt;ARCHIVED&lt;/code&gt;. If ad group is currently in &lt;code&gt;PAUSED&lt;/code&gt; status, you can change the status back to &lt;code&gt;ACTIVE&lt;/code&gt;. Ads that are currently in &lt;code&gt;ARCHIVED&lt;/code&gt; status cannot be made &lt;code&gt;ACTIVE&lt;/code&gt; again. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:KeywordStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Include this field if you wish to change the status of the keyword. The status value specified here must be different than the keyword&apos;s current status. To confirm the current status of a keyword, you can use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeyword&quot;&gt;getKeyword&lt;/a&gt; method.&lt;/p&gt;&lt;p&gt;If the status of the ad is currently &lt;code&gt;ACTIVE&lt;/code&gt;, you can change status to &lt;code&gt;PAUSED&lt;/code&gt; or &lt;code&gt;ARCHIVED&lt;/code&gt;. If ad group is currently in &lt;code&gt;PAUSED&lt;/code&gt; status, you can change the status back to &lt;code&gt;ACTIVE&lt;/code&gt;. Ads that are currently in &lt;code&gt;ARCHIVED&lt;/code&gt; status cannot be made &lt;code&gt;ACTIVE&lt;/code&gt; again.
      */
-    private String keywordStatus;
+    private KeywordStatusEnum keywordStatus;
     /**
      * Instantiates a new {@link UpdateKeywordByKeywordIdRequest} and sets the default values.
      */
@@ -67,7 +67,7 @@ public class UpdateKeywordByKeywordIdRequest implements AdditionalDataHolder, Pa
         return this.additionalData;
     }
     /**
-     * Gets the bid property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the bid property value. This container is used to set or change the bid percentage for the keyword. Each time a listing is retrieved in search results using this keyword and clicked on, the seller will be charged this amount. Each click goes toward the daily budget set up for the Cost Per Click (CPC) campaign.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -83,11 +83,11 @@ public class UpdateKeywordByKeywordIdRequest implements AdditionalDataHolder, Pa
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("bid", (n) -> { this.setBid(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
         deserializerMap.put("keywordId", (n) -> { this.setKeywordId(n.getStringValue()); });
-        deserializerMap.put("keywordStatus", (n) -> { this.setKeywordStatus(n.getStringValue()); });
+        deserializerMap.put("keywordStatus", (n) -> { this.setKeywordStatus(n.getEnumValue(KeywordStatusEnum::forValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the keywordId property value. This field is used to identify the keyword to be updated. The &lt;a href=&quot;/api-docs/sell/marketing/resources/keyword/methods/getKeyword&quot;&gt;getKeyword&lt;/a&gt; method can be used to retrieve keywordId values.
+     * Gets the keywordId property value. This field is used to identify the keyword to be updated. The &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeyword&quot;&gt;getKeyword&lt;/a&gt; method can be used to retrieve keywordId values.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -95,11 +95,11 @@ public class UpdateKeywordByKeywordIdRequest implements AdditionalDataHolder, Pa
         return this.keywordId;
     }
     /**
-     * Gets the keywordStatus property value. Include this field if you wish to change the status of the keyword. The status value specified here must be different than the keyword&apos;s current status. To confirm the current status of a keyword, you can use the &lt;a href=&quot;/api-docs/sell/marketing/resources/keyword/methods/getKeyword&quot;&gt;getKeyword&lt;/a&gt; method.&lt;/p&gt;&lt;p&gt;If the status of the ad is currently &lt;code&gt;ACTIVE&lt;/code&gt;, you can change status to &lt;code&gt;PAUSED&lt;/code&gt; or &lt;code&gt;ARCHIVED&lt;/code&gt;. If ad group is currently in &lt;code&gt;PAUSED&lt;/code&gt; status, you can change the status back to &lt;code&gt;ACTIVE&lt;/code&gt;. Ads that are currently in &lt;code&gt;ARCHIVED&lt;/code&gt; status cannot be made &lt;code&gt;ACTIVE&lt;/code&gt; again. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:KeywordStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the keywordStatus property value. Include this field if you wish to change the status of the keyword. The status value specified here must be different than the keyword&apos;s current status. To confirm the current status of a keyword, you can use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeyword&quot;&gt;getKeyword&lt;/a&gt; method.&lt;/p&gt;&lt;p&gt;If the status of the ad is currently &lt;code&gt;ACTIVE&lt;/code&gt;, you can change status to &lt;code&gt;PAUSED&lt;/code&gt; or &lt;code&gt;ARCHIVED&lt;/code&gt;. If ad group is currently in &lt;code&gt;PAUSED&lt;/code&gt; status, you can change the status back to &lt;code&gt;ACTIVE&lt;/code&gt;. Ads that are currently in &lt;code&gt;ARCHIVED&lt;/code&gt; status cannot be made &lt;code&gt;ACTIVE&lt;/code&gt; again.
+     * @return a {@link KeywordStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getKeywordStatus() {
+    public KeywordStatusEnum getKeywordStatus() {
         return this.keywordStatus;
     }
     /**
@@ -110,7 +110,7 @@ public class UpdateKeywordByKeywordIdRequest implements AdditionalDataHolder, Pa
         Objects.requireNonNull(writer);
         writer.writeObjectValue("bid", this.getBid());
         writer.writeStringValue("keywordId", this.getKeywordId());
-        writer.writeStringValue("keywordStatus", this.getKeywordStatus());
+        writer.writeEnumValue("keywordStatus", this.getKeywordStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -121,24 +121,24 @@ public class UpdateKeywordByKeywordIdRequest implements AdditionalDataHolder, Pa
         this.additionalData = value;
     }
     /**
-     * Sets the bid property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the bid property value. This container is used to set or change the bid percentage for the keyword. Each time a listing is retrieved in search results using this keyword and clicked on, the seller will be charged this amount. Each click goes toward the daily budget set up for the Cost Per Click (CPC) campaign.
      * @param value Value to set for the bid property.
      */
     public void setBid(@jakarta.annotation.Nullable final Amount value) {
         this.bid = value;
     }
     /**
-     * Sets the keywordId property value. This field is used to identify the keyword to be updated. The &lt;a href=&quot;/api-docs/sell/marketing/resources/keyword/methods/getKeyword&quot;&gt;getKeyword&lt;/a&gt; method can be used to retrieve keywordId values.
+     * Sets the keywordId property value. This field is used to identify the keyword to be updated. The &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeyword&quot;&gt;getKeyword&lt;/a&gt; method can be used to retrieve keywordId values.
      * @param value Value to set for the keywordId property.
      */
     public void setKeywordId(@jakarta.annotation.Nullable final String value) {
         this.keywordId = value;
     }
     /**
-     * Sets the keywordStatus property value. Include this field if you wish to change the status of the keyword. The status value specified here must be different than the keyword&apos;s current status. To confirm the current status of a keyword, you can use the &lt;a href=&quot;/api-docs/sell/marketing/resources/keyword/methods/getKeyword&quot;&gt;getKeyword&lt;/a&gt; method.&lt;/p&gt;&lt;p&gt;If the status of the ad is currently &lt;code&gt;ACTIVE&lt;/code&gt;, you can change status to &lt;code&gt;PAUSED&lt;/code&gt; or &lt;code&gt;ARCHIVED&lt;/code&gt;. If ad group is currently in &lt;code&gt;PAUSED&lt;/code&gt; status, you can change the status back to &lt;code&gt;ACTIVE&lt;/code&gt;. Ads that are currently in &lt;code&gt;ARCHIVED&lt;/code&gt; status cannot be made &lt;code&gt;ACTIVE&lt;/code&gt; again. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:KeywordStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the keywordStatus property value. Include this field if you wish to change the status of the keyword. The status value specified here must be different than the keyword&apos;s current status. To confirm the current status of a keyword, you can use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-keyword-getkeyword&quot;&gt;getKeyword&lt;/a&gt; method.&lt;/p&gt;&lt;p&gt;If the status of the ad is currently &lt;code&gt;ACTIVE&lt;/code&gt;, you can change status to &lt;code&gt;PAUSED&lt;/code&gt; or &lt;code&gt;ARCHIVED&lt;/code&gt;. If ad group is currently in &lt;code&gt;PAUSED&lt;/code&gt; status, you can change the status back to &lt;code&gt;ACTIVE&lt;/code&gt;. Ads that are currently in &lt;code&gt;ARCHIVED&lt;/code&gt; status cannot be made &lt;code&gt;ACTIVE&lt;/code&gt; again.
      * @param value Value to set for the keywordStatus property.
      */
-    public void setKeywordStatus(@jakarta.annotation.Nullable final String value) {
+    public void setKeywordStatus(@jakarta.annotation.Nullable final KeywordStatusEnum value) {
         this.keywordStatus = value;
     }
 }

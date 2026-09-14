@@ -23,10 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-/**
- * Client for the Sell Recommendation API.
- * Provides methods to retrieve marketing recommendations for listings.
- */
 public final class RecommendationClient {
     private final RecommendationApiClient kiota;
     private final MarketingAndPromotionsConfiguration config;
@@ -36,10 +32,6 @@ public final class RecommendationClient {
         this.config = config;
     }
 
-    /**
-     * Merges default headers from config with per-call headers.
-     * Per-call headers override defaults.
-     */
     private Map<String, String> mergedHeaders(RequestOptions requestOptions) {
         Map<String, String> headers = new HashMap<>(config.getDefaultRequestOptions().getHeaders());
         if (requestOptions != null) {
@@ -48,28 +40,18 @@ public final class RecommendationClient {
         return headers;
     }
 
-    /**
-     * Retrieves marketing recommendations for listings.
-     *
-     * @param body Request body with listing criteria
-     * @param filter Optional filter parameter
-     * @param limit Maximum number of results to return
-     * @param offset Number of results to skip
-     * @param accessToken Per-call token; overrides config fallback
-     * @param requestOptions Per-call headers
-     * @return Paged collection of listing recommendations
-     */
-    public CompletableFuture<PagedListingRecommendationCollection> findListingRecommendationsAsync(
-            FindListingRecommendationRequest body, String filter, String limit, String offset,
-            String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<Void> findListingRecommendationsAsync(
+            FindListingRecommendationRequest body, String filter, String limit, String offset, String xEBAYCMARKETPLACEID, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.find().post(body, config -> {
+            kiota.find().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
                 if (filter != null) config.queryParameters.filter = filter;
                 if (limit != null) config.queryParameters.limit = limit;
                 if (offset != null) config.queryParameters.offset = offset;
+                if (xEBAYCMARKETPLACEID != null) config.headers.add("X-EBAY-C-MARKETPLACE-ID", xEBAYCMARKETPLACEID);
             });
+            return null;
         }));
     }
 }

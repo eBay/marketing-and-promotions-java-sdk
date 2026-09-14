@@ -40,6 +40,7 @@ import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.upda
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.update_campaign_budget.UpdateCampaignBudgetRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.item.update_campaign_identification.UpdateCampaignIdentificationRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.models.Campaign;
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -274,39 +275,65 @@ public class WithCampaignItemRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/ad_campaign/{campaign_id}", rawUrl);
     }
     /**
-     * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
+     * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     public void delete() {
         delete(null);
     }
     /**
-     * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
+     * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     public void delete(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toDeleteRequestInformation(requestConfiguration);
-        this.requestAdapter.sendPrimitive(requestInfo, null, Void.class);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        this.requestAdapter.sendPrimitive(requestInfo, errorMapping, Void.class);
     }
     /**
-     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_id&lt;/b&gt; query parameter.  &lt;p&gt;This method returns all the details of a campaign (including the campaign&apos;s the selection rules), except the for the listing IDs or inventory reference IDs included in the campaign. These IDs are returned by &lt;a href=&quot;/api-docs/sell/marketing/resources/ad/methods/getAds&quot;&gt;getAds&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign IDs.&lt;/p&gt;
+     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_id&lt;/b&gt; query parameter.  &lt;p&gt;This method returns all the details of a campaign (including the campaign&apos;s the selection rules), except the for the listing IDs or inventory reference IDs included in the campaign. These IDs are returned by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getads&quot;&gt;getAds&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign IDs.&lt;/p&gt;
      * @return a {@link Campaign}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Campaign get() {
         return get(null);
     }
     /**
-     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_id&lt;/b&gt; query parameter.  &lt;p&gt;This method returns all the details of a campaign (including the campaign&apos;s the selection rules), except the for the listing IDs or inventory reference IDs included in the campaign. These IDs are returned by &lt;a href=&quot;/api-docs/sell/marketing/resources/ad/methods/getAds&quot;&gt;getAds&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign IDs.&lt;/p&gt;
+     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_id&lt;/b&gt; query parameter.  &lt;p&gt;This method returns all the details of a campaign (including the campaign&apos;s the selection rules), except the for the listing IDs or inventory reference IDs included in the campaign. These IDs are returned by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getads&quot;&gt;getAds&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign IDs.&lt;/p&gt;
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link Campaign}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public Campaign get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, Campaign::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, Campaign::createFromDiscriminatorValue);
     }
     /**
-     * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
+     * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -314,7 +341,7 @@ public class WithCampaignItemRequestBuilder extends BaseRequestBuilder {
         return toDeleteRequestInformation(null);
     }
     /**
-     * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
+     * This method deletes the campaign specified by the &lt;code&gt;campaign_id&lt;/code&gt; query parameter.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; You can only delete campaigns that have ended.&lt;/span&gt;&lt;br /&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve the &lt;b&gt;campaign_id&lt;/b&gt; and the campaign status (&lt;code&gt;RUNNING&lt;/code&gt;, &lt;code&gt;PAUSED&lt;/code&gt;, &lt;code&gt;ENDED&lt;/code&gt;, and so on) for all the seller&apos;s campaigns.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -322,10 +349,11 @@ public class WithCampaignItemRequestBuilder extends BaseRequestBuilder {
     public RequestInformation toDeleteRequestInformation(@jakarta.annotation.Nullable final java.util.function.Consumer<DeleteRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = new RequestInformation(HttpMethod.DELETE, urlTemplate, pathParameters);
         requestInfo.configure(requestConfiguration, DeleteRequestConfiguration::new);
+        requestInfo.headers.tryAdd("Accept", "application/json");
         return requestInfo;
     }
     /**
-     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_id&lt;/b&gt; query parameter.  &lt;p&gt;This method returns all the details of a campaign (including the campaign&apos;s the selection rules), except the for the listing IDs or inventory reference IDs included in the campaign. These IDs are returned by &lt;a href=&quot;/api-docs/sell/marketing/resources/ad/methods/getAds&quot;&gt;getAds&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign IDs.&lt;/p&gt;
+     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_id&lt;/b&gt; query parameter.  &lt;p&gt;This method returns all the details of a campaign (including the campaign&apos;s the selection rules), except the for the listing IDs or inventory reference IDs included in the campaign. These IDs are returned by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getads&quot;&gt;getAds&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign IDs.&lt;/p&gt;
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -333,7 +361,7 @@ public class WithCampaignItemRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_id&lt;/b&gt; query parameter.  &lt;p&gt;This method returns all the details of a campaign (including the campaign&apos;s the selection rules), except the for the listing IDs or inventory reference IDs included in the campaign. These IDs are returned by &lt;a href=&quot;/api-docs/sell/marketing/resources/ad/methods/getAds&quot;&gt;getAds&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getCampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign IDs.&lt;/p&gt;
+     * This method retrieves the details of a single campaign, as specified with the &lt;b&gt;campaign_id&lt;/b&gt; query parameter.  &lt;p&gt;This method returns all the details of a campaign (including the campaign&apos;s the selection rules), except the for the listing IDs or inventory reference IDs included in the campaign. These IDs are returned by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad-getads&quot;&gt;getAds&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Call &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-campaign-getcampaigns&quot;&gt;getCampaigns&lt;/a&gt; to retrieve a list of the seller&apos;s campaign IDs.&lt;/p&gt;
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

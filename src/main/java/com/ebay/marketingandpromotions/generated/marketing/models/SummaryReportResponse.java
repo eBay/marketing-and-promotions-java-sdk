@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields in an Discounts Manager Summary report. Reports are formatted in JSON. For more details, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-reports.html&quot;&gt;Reading item discount Summary reports&lt;/a&gt;.
+ * This type defines the fields in an Discounts Manager Summary report. Reports are formatted in JSON. For more details, see &lt;a href=&quot;/api-docs/sell/static/marketing/pm-summary-reports.html&quot; target=&quot;_blank&quot;&gt;Reading item discount Summary reports&lt;/a&gt;.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class SummaryReportResponse implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class SummaryReportResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The total revenue from all the purchased items that were part of a discount but &lt;i&gt;did not trigger&lt;/i&gt; a discount during the discount period.
      */
     private Amount baseSale;
     /**
@@ -43,11 +43,11 @@ public class SummaryReportResponse implements AdditionalDataHolder, Parsable {
      */
     private String percentageSalesLift;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The total revenue from all the purchased items that were part of a discount and their purchase &lt;i&gt;did trigger&lt;/i&gt; a discount during the discount period.
      */
     private Amount promotionSale;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Total dollar sales amount of all the seller&apos;s listings, current to the date the report was generated.
      */
     private Amount totalSale;
     /**
@@ -75,7 +75,7 @@ public class SummaryReportResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the baseSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the baseSale property value. The total revenue from all the purchased items that were part of a discount but &lt;i&gt;did not trigger&lt;/i&gt; a discount during the discount period.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -113,7 +113,7 @@ public class SummaryReportResponse implements AdditionalDataHolder, Parsable {
         return this.percentageSalesLift;
     }
     /**
-     * Gets the promotionSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the promotionSale property value. The total revenue from all the purchased items that were part of a discount and their purchase &lt;i&gt;did trigger&lt;/i&gt; a discount during the discount period.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -121,7 +121,7 @@ public class SummaryReportResponse implements AdditionalDataHolder, Parsable {
         return this.promotionSale;
     }
     /**
-     * Gets the totalSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the totalSale property value. Total dollar sales amount of all the seller&apos;s listings, current to the date the report was generated.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -149,7 +149,7 @@ public class SummaryReportResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the baseSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the baseSale property value. The total revenue from all the purchased items that were part of a discount but &lt;i&gt;did not trigger&lt;/i&gt; a discount during the discount period.
      * @param value Value to set for the baseSale property.
      */
     public void setBaseSale(@jakarta.annotation.Nullable final Amount value) {
@@ -170,14 +170,14 @@ public class SummaryReportResponse implements AdditionalDataHolder, Parsable {
         this.percentageSalesLift = value;
     }
     /**
-     * Sets the promotionSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the promotionSale property value. The total revenue from all the purchased items that were part of a discount and their purchase &lt;i&gt;did trigger&lt;/i&gt; a discount during the discount period.
      * @param value Value to set for the promotionSale property.
      */
     public void setPromotionSale(@jakarta.annotation.Nullable final Amount value) {
         this.promotionSale = value;
     }
     /**
-     * Sets the totalSale property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the totalSale property value. Total dollar sales amount of all the seller&apos;s listings, current to the date the report was generated.
      * @param value Value to set for the totalSale property.
      */
     public void setTotalSale(@jakarta.annotation.Nullable final Amount value) {

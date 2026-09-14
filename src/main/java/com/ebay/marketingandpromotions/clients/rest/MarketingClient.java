@@ -23,10 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-/**
- * Client for the Sell Marketing API.
- * Provides methods for managing campaigns, ads, keywords, promotions, and email campaigns.
- */
 public final class MarketingClient {
     private final MarketingApiClient kiota;
     private final MarketingAndPromotionsConfiguration config;
@@ -36,10 +32,6 @@ public final class MarketingClient {
         this.config = config;
     }
 
-    /**
-     * Merges default headers from config with per-call headers.
-     * Per-call headers override defaults.
-     */
     private Map<String, String> mergedHeaders(RequestOptions requestOptions) {
         Map<String, String> headers = new HashMap<>(config.getDefaultRequestOptions().getHeaders());
         if (requestOptions != null) {
@@ -48,7 +40,267 @@ public final class MarketingClient {
         return headers;
     }
 
-    // ── Campaign Management ────────────────────────────────────────────────
+    public CompletableFuture<BulkCreateAdsByInventoryReferenceResponse> bulkCreateAdsByInventoryReferenceAsync(
+            String campaignId, BulkCreateAdsByInventoryReferenceRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkCreateAdsByInventoryReference().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkAdResponse> bulkCreateAdsByListingIdAsync(
+            String campaignId, BulkCreateAdRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkCreateAdsByListingId().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkDeleteAdsByInventoryReferenceResponse> bulkDeleteAdsByInventoryReferenceAsync(
+            String campaignId, BulkDeleteAdsByInventoryReferenceRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkDeleteAdsByInventoryReference().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkDeleteAdResponse> bulkDeleteAdsByListingIdAsync(
+            String campaignId, BulkDeleteAdRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkDeleteAdsByListingId().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkUpdateAdsByInventoryReferenceResponse> bulkUpdateAdsBidByInventoryReferenceAsync(
+            String campaignId, BulkCreateAdsByInventoryReferenceRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkUpdateAdsBidByInventoryReference().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkAdUpdateResponse> bulkUpdateAdsBidByListingIdAsync(
+            String campaignId, BulkCreateAdRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkUpdateAdsBidByListingId().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkAdUpdateStatusResponse> bulkUpdateAdsStatusAsync(
+            String campaignId, BulkUpdateAdStatusRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkUpdateAdsStatus().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkAdUpdateStatusByListingIdResponse> bulkUpdateAdsStatusByListingIdAsync(
+            String campaignId, BulkUpdateAdStatusByListingIdRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkUpdateAdsStatusByListingId().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<AdPagedCollectionResponse> getAdsAsync(
+            String campaignId, String adGroupIds, String adStatus, String limit, String listingIds, String offset, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).ad().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (adGroupIds != null) config.queryParameters.adGroupIds = adGroupIds;
+                if (adStatus != null) config.queryParameters.adStatus = adStatus;
+                if (limit != null) config.queryParameters.limit = limit;
+                if (listingIds != null) config.queryParameters.listingIds = listingIds;
+                if (offset != null) config.queryParameters.offset = offset;
+            });
+        }));
+    }
+
+    public CompletableFuture<Object> createAdByListingIdAsync(
+            String campaignId, CreateAdRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).ad().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<AdReferences> createAdsByInventoryReferenceAsync(
+            String campaignId, CreateAdsByInventoryReferenceRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).createAdsByInventoryReference().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<Ad> getAdAsync(
+            String adId, String campaignId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).ad().byAd_id(Params.requireValid("adId", adId)).get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<Void> deleteAdAsync(
+            String adId, String campaignId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).ad().byAd_id(Params.requireValid("adId", adId)).delete(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<AdIds> deleteAdsByInventoryReferenceAsync(
+            String campaignId, DeleteAdsByInventoryReferenceRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).deleteAdsByInventoryReference().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<Ads> getAdsByInventoryReferenceAsync(
+            String campaignId, String inventoryReferenceId, String inventoryReferenceType, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).getAdsByInventoryReference().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (inventoryReferenceId != null) config.queryParameters.inventoryReferenceId = inventoryReferenceId;
+                if (inventoryReferenceType != null) config.queryParameters.inventoryReferenceType = inventoryReferenceType;
+            });
+        }));
+    }
+
+    public CompletableFuture<Void> updateBidAsync(
+            String adId, String campaignId, UpdateBidPercentageRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).ad().byAd_id(Params.requireValid("adId", adId)).updateBid().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<AdGroupPagedCollectionResponse> getAdGroupsAsync(
+            String campaignId, String adGroupStatus, String limit, String offset, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).adGroup().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (adGroupStatus != null) config.queryParameters.adGroupStatus = adGroupStatus;
+                if (limit != null) config.queryParameters.limit = limit;
+                if (offset != null) config.queryParameters.offset = offset;
+            });
+        }));
+    }
+
+    public CompletableFuture<Object> createAdGroupAsync(
+            String campaignId, CreateAdGroupRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).adGroup().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<AdGroup> getAdGroupAsync(
+            String adGroupId, String campaignId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).adGroup().byAd_group_id(Params.requireValid("adGroupId", adGroupId)).get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<Void> updateAdGroupAsync(
+            String adGroupId, String campaignId, UpdateAdGroupRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).adGroup().byAd_group_id(Params.requireValid("adGroupId", adGroupId)).put(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<TargetedBidsPagedCollection> suggestBidsAsync(
+            String adGroupId, String campaignId, TargetedBidRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).adGroup().byAd_group_id(Params.requireValid("adGroupId", adGroupId)).suggestBids().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<TargetedKeywordsPagedCollection> suggestKeywordsAsync(
+            String adGroupId, String campaignId, TargetedKeywordRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).adGroup().byAd_group_id(Params.requireValid("adGroupId", adGroupId)).suggestKeywords().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<Object> cloneCampaignAsync(
+            String campaignId, CloneCampaignRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).clone().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<CampaignPagedCollectionResponse> getCampaignsAsync(
+            String campaignName, String campaignStatus, String campaignTargetingTypes, String channels, String endDateRange, String fundingStrategy, String limit, String offset, String startDateRange, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (campaignName != null) config.queryParameters.campaignName = campaignName;
+                if (campaignStatus != null) config.queryParameters.campaignStatus = campaignStatus;
+                if (campaignTargetingTypes != null) config.queryParameters.campaignTargetingTypes = campaignTargetingTypes;
+                if (channels != null) config.queryParameters.channels = channels;
+                if (endDateRange != null) config.queryParameters.endDateRange = endDateRange;
+                if (fundingStrategy != null) config.queryParameters.fundingStrategy = fundingStrategy;
+                if (limit != null) config.queryParameters.limit = limit;
+                if (offset != null) config.queryParameters.offset = offset;
+                if (startDateRange != null) config.queryParameters.startDateRange = startDateRange;
+            });
+        }));
+    }
 
     public CompletableFuture<Object> createCampaignAsync(
             CreateCampaignRequest body, String accessToken, RequestOptions requestOptions) {
@@ -63,25 +315,9 @@ public final class MarketingClient {
     public CompletableFuture<Campaign> getCampaignAsync(
             String campaignId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(campaignId).get(config -> {
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
-            });
-        }));
-    }
-
-    public CompletableFuture<CampaignPagedCollectionResponse> getCampaignsAsync(
-            String campaignName, String campaignStatus, String limit, String offset,
-            String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().get(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
-                if (campaignName != null) config.queryParameters.campaignName = campaignName;
-                if (campaignStatus != null) config.queryParameters.campaignStatus = campaignStatus;
-                if (limit != null) config.queryParameters.limit = limit;
-                if (offset != null) config.queryParameters.offset = offset;
             });
         }));
     }
@@ -89,33 +325,8 @@ public final class MarketingClient {
     public CompletableFuture<Void> deleteCampaignAsync(
             String campaignId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.adCampaign().byCampaign_id(campaignId).delete(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
-            });
-            return null;
-        }));
-    }
-
-    public CompletableFuture<Void> pauseCampaignAsync(
-            String campaignId, String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.adCampaign().byCampaign_id(campaignId).pause().post(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
-            });
-            return null;
-        }));
-    }
-
-    public CompletableFuture<Void> resumeCampaignAsync(
-            String campaignId, String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.adCampaign().byCampaign_id(campaignId).resume().post(config -> {
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).delete(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
             return null;
@@ -125,76 +336,176 @@ public final class MarketingClient {
     public CompletableFuture<Void> endCampaignAsync(
             String campaignId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.adCampaign().byCampaign_id(campaignId).end().post(config -> {
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).end().post(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
             return null;
         }));
     }
 
-    // ── Ad Management ──────────────────────────────────────────────────────
-
-    public CompletableFuture<Object> createAdByListingIdAsync(
-            String campaignId, CreateAdRequest body, String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<Campaigns> findCampaignByAdReferenceAsync(
+            String inventoryReferenceId, String inventoryReferenceType, String listingId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(campaignId).ad().post(body, config -> {
+            return kiota.adCampaign().findCampaignByAdReference().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
+                if (inventoryReferenceId != null) config.queryParameters.inventoryReferenceId = inventoryReferenceId;
+                if (inventoryReferenceType != null) config.queryParameters.inventoryReferenceType = inventoryReferenceType;
+                if (listingId != null) config.queryParameters.listingId = listingId;
             });
         }));
     }
 
-    public CompletableFuture<Ad> getAdAsync(
-            String campaignId, String adId, String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<Campaign> getCampaignByNameAsync(
+            String campaignName, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
-            Params.requireValid("adId", adId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(campaignId).ad().byAd_id(adId).get(config -> {
+            return kiota.adCampaign().getCampaignByName().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
+                if (campaignName != null) config.queryParameters.campaignName = campaignName;
             });
         }));
     }
 
-    public CompletableFuture<AdPagedCollectionResponse> getAdsAsync(
-            String campaignId, String adStatus, String limit, String offset,
-            String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<Void> pauseCampaignAsync(
+            String campaignId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(campaignId).ad().get(config -> {
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).pause().post(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
-                if (adStatus != null) config.queryParameters.adStatus = adStatus;
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<Void> resumeCampaignAsync(
+            String campaignId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).resume().post(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<SuggestBudgetResponse> suggestBudgetAsync(
+            String xEBAYCMARKETPLACEID, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().suggestBudget().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (xEBAYCMARKETPLACEID != null) config.headers.add("X-EBAY-C-MARKETPLACE-ID", xEBAYCMARKETPLACEID);
+            });
+        }));
+    }
+
+    public CompletableFuture<TargetedAdsPagedCollection> suggestItemsAsync(
+            String campaignId, String categoryIds, String limit, String offset, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).suggestItems().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (categoryIds != null) config.queryParameters.categoryIds = categoryIds;
                 if (limit != null) config.queryParameters.limit = limit;
                 if (offset != null) config.queryParameters.offset = offset;
             });
         }));
     }
 
-    public CompletableFuture<Void> deleteAdAsync(
-            String campaignId, String adId, String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<SuggestMaxCpcResponse> suggestMaxCpcAsync(
+            SuggestMaxCpcRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
-            Params.requireValid("adId", adId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.adCampaign().byCampaign_id(campaignId).ad().byAd_id(adId).delete(config -> {
+            return kiota.adCampaign().suggestMaxCpc().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<Void> updateAdRateStrategyAsync(
+            String campaignId, UpdateAdrateStrategyRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).updateAdRateStrategy().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
             return null;
         }));
     }
 
-    // ── Keyword Management ─────────────────────────────────────────────────
+    public CompletableFuture<Void> updateBiddingStrategyAsync(
+            String campaignId, UpdateBiddingStrategyRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).updateBiddingStrategy().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<Object> updateCampaignBudgetAsync(
+            String campaignId, UpdateCampaignBudgetRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).updateCampaignBudget().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<Void> updateCampaignIdentificationAsync(
+            String campaignId, UpdateCampaignIdentificationRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).updateCampaignIdentification().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<BulkCreateKeywordResponse> bulkCreateKeywordAsync(
+            String campaignId, BulkCreateKeywordRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkCreateKeyword().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkUpdateKeywordResponse> bulkUpdateKeywordAsync(
+            String campaignId, BulkUpdateKeywordRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkUpdateKeyword().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<KeywordPagedCollectionResponse> getKeywordsAsync(
+            String campaignId, String adGroupIds, String keywordStatus, String limit, String offset, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).keyword().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (adGroupIds != null) config.queryParameters.adGroupIds = adGroupIds;
+                if (keywordStatus != null) config.queryParameters.keywordStatus = keywordStatus;
+                if (limit != null) config.queryParameters.limit = limit;
+                if (offset != null) config.queryParameters.offset = offset;
+            });
+        }));
+    }
 
     public CompletableFuture<Object> createKeywordAsync(
             String campaignId, CreateKeywordRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(campaignId).keyword().post(body, config -> {
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).keyword().post(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
         }));
@@ -203,31 +514,57 @@ public final class MarketingClient {
     public CompletableFuture<Keyword> getKeywordAsync(
             String campaignId, String keywordId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
-            Params.requireValid("keywordId", keywordId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(campaignId).keyword().byKeyword_id(keywordId).get(config -> {
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).keyword().byKeyword_id(Params.requireValid("keywordId", keywordId)).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
         }));
     }
 
-    public CompletableFuture<KeywordPagedCollectionResponse> getKeywordsAsync(
-            String campaignId, String keywordStatus, String limit, String offset,
-            String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<UpdateKeywordResponse> updateKeywordAsync(
+            String campaignId, String keywordId, UpdateKeywordRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("campaignId", campaignId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adCampaign().byCampaign_id(campaignId).keyword().get(config -> {
+            return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).keyword().byKeyword_id(Params.requireValid("keywordId", keywordId)).put(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
-                if (keywordStatus != null) config.queryParameters.keywordStatus = keywordStatus;
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkCreateNegativeKeywordResponse> bulkCreateNegativeKeywordAsync(
+            BulkCreateNegativeKeywordRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.bulkCreateNegativeKeyword().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<BulkUpdateNegativeKeywordResponse> bulkUpdateNegativeKeywordAsync(
+            BulkUpdateNegativeKeywordRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.bulkUpdateNegativeKeyword().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<NegativeKeywordPagedCollectionResponse> getNegativeKeywordsAsync(
+            String adGroupIds, String campaignIds, String limit, String negativeKeywordStatus, String offset, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.negativeKeyword().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (adGroupIds != null) config.queryParameters.adGroupIds = adGroupIds;
+                if (campaignIds != null) config.queryParameters.campaignIds = campaignIds;
                 if (limit != null) config.queryParameters.limit = limit;
+                if (negativeKeywordStatus != null) config.queryParameters.negativeKeywordStatus = negativeKeywordStatus;
                 if (offset != null) config.queryParameters.offset = offset;
             });
         }));
     }
-
-    // ── Negative Keyword Management ────────────────────────────────────────
 
     public CompletableFuture<Object> createNegativeKeywordAsync(
             CreateNegativeKeywordRequest body, String accessToken, RequestOptions requestOptions) {
@@ -242,73 +579,104 @@ public final class MarketingClient {
     public CompletableFuture<NegativeKeyword> getNegativeKeywordAsync(
             String negativeKeywordId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("negativeKeywordId", negativeKeywordId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.negativeKeyword().byNegative_keyword_id(negativeKeywordId).get(config -> {
+            return kiota.negativeKeyword().byNegative_keyword_id(Params.requireValid("negativeKeywordId", negativeKeywordId)).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
         }));
     }
 
-    public CompletableFuture<NegativeKeywordPagedCollectionResponse> getNegativeKeywordsAsync(
-            String campaignIds, String adGroupIds, String limit, String offset,
-            String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<Void> updateNegativeKeywordAsync(
+            String negativeKeywordId, UpdateNegativeKeywordRequest body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.negativeKeyword().get(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
-                if (campaignIds != null) config.queryParameters.campaignIds = campaignIds;
-                if (adGroupIds != null) config.queryParameters.adGroupIds = adGroupIds;
-                if (limit != null) config.queryParameters.limit = limit;
-                if (offset != null) config.queryParameters.offset = offset;
-            });
-        }));
-    }
-
-    // ── Promotion Management ───────────────────────────────────────────────
-
-    public CompletableFuture<PromotionsPagedCollection> getPromotionsAsync(
-            String marketplaceId, String limit, String offset, String promotionStatus,
-            String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.promotion().get(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
-                if (marketplaceId != null) config.queryParameters.marketplaceId = marketplaceId;
-                if (limit != null) config.queryParameters.limit = limit;
-                if (offset != null) config.queryParameters.offset = offset;
-                if (promotionStatus != null) config.queryParameters.promotionStatus = promotionStatus;
-            });
-        }));
-    }
-
-    public CompletableFuture<Void> pausePromotionAsync(
-            String promotionId, String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("promotionId", promotionId);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.promotion().byPromotion_id(promotionId).pause().post(config -> {
+            kiota.negativeKeyword().byNegative_keyword_id(Params.requireValid("negativeKeywordId", negativeKeywordId)).put(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
             return null;
         }));
     }
 
-    public CompletableFuture<Void> resumePromotionAsync(
-            String promotionId, String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<Void> getReportAsync(
+            String reportId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("promotionId", promotionId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.promotion().byPromotion_id(promotionId).resume().post(config -> {
+            kiota.adReport().byReport_id(Params.requireValid("reportId", reportId)).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
             return null;
         }));
     }
 
-    // ── Item Price Markdown ────────────────────────────────────────────────
+    public CompletableFuture<ReportMetadatas> getReportMetadataAsync(
+            String fundingModel, String channel, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adReportMetadata().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (fundingModel != null) config.queryParameters.fundingModel = fundingModel;
+                if (channel != null) config.queryParameters.channel = channel;
+            });
+        }));
+    }
 
-    public CompletableFuture<Object> createItemPriceMarkdownAsync(
+    public CompletableFuture<ReportMetadata> getReportMetadataForReportTypeAsync(
+            String reportType, String fundingModel, String channel, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adReportMetadata().byReport_type(Params.requireValid("reportType", reportType)).get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (fundingModel != null) config.queryParameters.fundingModel = fundingModel;
+                if (channel != null) config.queryParameters.channel = channel;
+            });
+        }));
+    }
+
+    public CompletableFuture<ReportTaskPagedCollection> getReportTasksAsync(
+            String limit, String offset, String reportTaskStatuses, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adReportTask().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (limit != null) config.queryParameters.limit = limit;
+                if (offset != null) config.queryParameters.offset = offset;
+                if (reportTaskStatuses != null) config.queryParameters.reportTaskStatuses = reportTaskStatuses;
+            });
+        }));
+    }
+
+    public CompletableFuture<com.ebay.marketingandpromotions.generated.marketing.models.Error> createReportTaskAsync(
+            CreateReportTask body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adReportTask().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<ReportTask> getReportTaskAsync(
+            String reportTaskId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.adReportTask().byReport_task_id(Params.requireValid("reportTaskId", reportTaskId)).get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<Void> deleteReportTaskAsync(
+            String reportTaskId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.adReportTask().byReport_task_id(Params.requireValid("reportTaskId", reportTaskId)).delete(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<Object> createItemPriceMarkdownPromotionAsync(
             ItemPriceMarkdown body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
@@ -318,20 +686,38 @@ public final class MarketingClient {
         }));
     }
 
-    public CompletableFuture<ItemPriceMarkdown> getItemPriceMarkdownAsync(
+    public CompletableFuture<ItemPriceMarkdown> getItemPriceMarkdownPromotionAsync(
             String promotionId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("promotionId", promotionId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.itemPriceMarkdown().byPromotion_id(promotionId).get(config -> {
+            return kiota.itemPriceMarkdown().byPromotion_id(Params.requireValid("promotionId", promotionId)).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
         }));
     }
 
-    // ── Item Promotion ─────────────────────────────────────────────────────
+    public CompletableFuture<Object> updateItemPriceMarkdownPromotionAsync(
+            String promotionId, ItemPriceMarkdown body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.itemPriceMarkdown().byPromotion_id(Params.requireValid("promotionId", promotionId)).put(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
 
-    public CompletableFuture<Object> createItemPromotionAsync(
+    public CompletableFuture<Void> deleteItemPriceMarkdownPromotionAsync(
+            String promotionId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.itemPriceMarkdown().byPromotion_id(Params.requireValid("promotionId", promotionId)).delete(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<BaseResponse> createItemPromotionAsync(
             ItemPromotion body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
@@ -344,90 +730,100 @@ public final class MarketingClient {
     public CompletableFuture<ItemPromotionResponse> getItemPromotionAsync(
             String promotionId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("promotionId", promotionId);
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.itemPromotion().byPromotion_id(promotionId).get(config -> {
+            return kiota.itemPromotion().byPromotion_id(Params.requireValid("promotionId", promotionId)).get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
         }));
     }
 
-    // ── Email Campaign Management ──────────────────────────────────────────
-
-    public CompletableFuture<Object> createEmailCampaignAsync(
-            CreateEmailCampaignRequest body, String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<BaseResponse> updateItemPromotionAsync(
+            String promotionId, ItemPromotion body, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.emailCampaign().post(body, config -> {
+            return kiota.itemPromotion().byPromotion_id(Params.requireValid("promotionId", promotionId)).put(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
         }));
     }
 
-    public CompletableFuture<GetEmailCampaignResponse> getEmailCampaignAsync(
-            String emailCampaignId, String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("emailCampaignId", emailCampaignId);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.emailCampaign().byEmail_campaign_id(emailCampaignId).get(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
-            });
-        }));
-    }
-
-    public CompletableFuture<GetEmailCampaignsResponse> getEmailCampaignsAsync(
-            String query, String limit, String offset,
-            String accessToken, RequestOptions requestOptions) {
+    public CompletableFuture<Void> deleteItemPromotionAsync(
+            String promotionId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.emailCampaign().get(config -> {
-                headers.forEach((k, v) -> config.headers.add(k, v));
-                if (query != null) config.queryParameters.q = query;
-                if (limit != null) config.queryParameters.limit = limit;
-                if (offset != null) config.queryParameters.offset = offset;
-            });
-        }));
-    }
-
-    public CompletableFuture<Void> deleteEmailCampaignAsync(
-            String emailCampaignId, String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
-            Params.requireValid("emailCampaignId", emailCampaignId);
-            Map<String, String> headers = mergedHeaders(requestOptions);
-            kiota.emailCampaign().byEmail_campaign_id(emailCampaignId).delete(config -> {
+            kiota.itemPromotion().byPromotion_id(Params.requireValid("promotionId", promotionId)).delete(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
             });
             return null;
         }));
     }
 
-    // ── Reports ────────────────────────────────────────────────────────────
-
-    public CompletableFuture<ReportMetadatas> getReportMetadataAsync(
-            String channel, String fundingModel,
-            String accessToken, RequestOptions requestOptions) {
-        return CompletableFuture.supplyAsync(() -> {
-            TokenContext.CURRENT.set(accessToken);
+    public CompletableFuture<ItemsPagedCollection> getListingSetAsync(
+            String promotionId, String limit, String offset, String q, String sort, String status, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
-            return kiota.adReportMetadata().get(config -> {
+            return kiota.promotion().byPromotion_id(Params.requireValid("promotionId", promotionId)).getListingSet().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
-                if (channel != null) config.queryParameters.channel = channel;
-                if (fundingModel != null) config.queryParameters.fundingModel = fundingModel;
+                if (limit != null) config.queryParameters.limit = limit;
+                if (offset != null) config.queryParameters.offset = offset;
+                if (q != null) config.queryParameters.q = q;
+                if (sort != null) config.queryParameters.sort = sort;
+                if (status != null) config.queryParameters.status = status;
             });
-        });
+        }));
+    }
+
+    public CompletableFuture<PromotionsPagedCollection> getPromotionsAsync(
+            String limit, String marketplaceId, String offset, String promotionStatus, String promotionType, String q, String sort, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.promotion().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (limit != null) config.queryParameters.limit = limit;
+                if (marketplaceId != null) config.queryParameters.marketplaceId = marketplaceId;
+                if (offset != null) config.queryParameters.offset = offset;
+                if (promotionStatus != null) config.queryParameters.promotionStatus = promotionStatus;
+                if (promotionType != null) config.queryParameters.promotionType = promotionType;
+                if (q != null) config.queryParameters.q = q;
+                if (sort != null) config.queryParameters.sort = sort;
+            });
+        }));
+    }
+
+    public CompletableFuture<Void> pausePromotionAsync(
+            String promotionId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.promotion().byPromotion_id(Params.requireValid("promotionId", promotionId)).pause().post(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
+    }
+
+    public CompletableFuture<Void> resumePromotionAsync(
+            String promotionId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            kiota.promotion().byPromotion_id(Params.requireValid("promotionId", promotionId)).resume().post(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+            return null;
+        }));
     }
 
     public CompletableFuture<PromotionsReportPagedCollection> getPromotionReportsAsync(
-            String marketplaceId, String limit, String offset, String promotionStatus,
-            String accessToken, RequestOptions requestOptions) {
+            String limit, String marketplaceId, String offset, String promotionStatus, String promotionType, String q, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.promotionReport().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
-                if (marketplaceId != null) config.queryParameters.marketplaceId = marketplaceId;
                 if (limit != null) config.queryParameters.limit = limit;
+                if (marketplaceId != null) config.queryParameters.marketplaceId = marketplaceId;
                 if (offset != null) config.queryParameters.offset = offset;
                 if (promotionStatus != null) config.queryParameters.promotionStatus = promotionStatus;
+                if (promotionType != null) config.queryParameters.promotionType = promotionType;
+                if (q != null) config.queryParameters.q = q;
             });
         }));
     }
@@ -439,6 +835,96 @@ public final class MarketingClient {
             return kiota.promotionSummaryReport().get(config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
                 if (marketplaceId != null) config.queryParameters.marketplaceId = marketplaceId;
+            });
+        }));
+    }
+
+    public CompletableFuture<GetEmailCampaignsResponse> getEmailCampaignsAsync(
+            String limit, String offset, String q, String sort, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.emailCampaign().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (limit != null) config.queryParameters.limit = limit;
+                if (offset != null) config.queryParameters.offset = offset;
+                if (q != null) config.queryParameters.q = q;
+                if (sort != null) config.queryParameters.sort = sort;
+            });
+        }));
+    }
+
+    public CompletableFuture<CreateEmailCampaignResponse> createEmailCampaignAsync(
+            CreateEmailCampaignRequest body, String xEBAYCMARKETPLACEID, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.emailCampaign().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (xEBAYCMARKETPLACEID != null) config.headers.add("X-EBAY-C-MARKETPLACE-ID", xEBAYCMARKETPLACEID);
+            });
+        }));
+    }
+
+    public CompletableFuture<GetEmailCampaignResponse> getEmailCampaignAsync(
+            String emailCampaignId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.emailCampaign().byEmail_campaign_id(Params.requireValid("emailCampaignId", emailCampaignId)).get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<UpdateEmailCampaignResponse> updateEmailCampaignAsync(
+            String emailCampaignId, UpdateCampaignRequest body, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.emailCampaign().byEmail_campaign_id(Params.requireValid("emailCampaignId", emailCampaignId)).put(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<DeleteEmailCampaignResponse> deleteEmailCampaignAsync(
+            String emailCampaignId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.emailCampaign().byEmail_campaign_id(Params.requireValid("emailCampaignId", emailCampaignId)).delete(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<GetEmailCampaignAudiencesResponse> getAudiencesAsync(
+            String emailCampaignType, String limit, String offset, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.emailCampaign().audience().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (emailCampaignType != null) config.queryParameters.emailCampaignType = emailCampaignType;
+                if (limit != null) config.queryParameters.limit = limit;
+                if (offset != null) config.queryParameters.offset = offset;
+            });
+        }));
+    }
+
+    public CompletableFuture<GetEmailPreviewResponse> getEmailPreviewAsync(
+            String emailCampaignId, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.emailCampaign().byEmail_campaign_id(Params.requireValid("emailCampaignId", emailCampaignId)).emailPreview().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<GetEmailReportResponse> getEmailReportAsync(
+            String endDate, String startDate, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.emailCampaign().report().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (endDate != null) config.queryParameters.endDate = endDate;
+                if (startDate != null) config.queryParameters.startDate = startDate;
             });
         }));
     }

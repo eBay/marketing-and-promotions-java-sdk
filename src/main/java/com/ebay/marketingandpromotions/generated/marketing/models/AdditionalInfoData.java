@@ -31,9 +31,9 @@ public class AdditionalInfoData implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The metric used to provide additional information for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Values:&lt;/strong&gt; &lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE_SELLER_COUNT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SEARCH_VOLUME&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MetricEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The metric used to provide additional information for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Values:&lt;/strong&gt; &lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE_SELLER_COUNT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SEARCH_VOLUME&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private String metricKey;
+    private MetricEnum metricKey;
     /**
      * The data provided for the specified metric.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;span style=&quot;color:#004680&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/span&gt; All metric data is compiled for the marketplace associated with the specified campaign ID.&lt;/span&gt;
      */
@@ -69,16 +69,16 @@ public class AdditionalInfoData implements AdditionalDataHolder, Parsable {
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
-        deserializerMap.put("metricKey", (n) -> { this.setMetricKey(n.getStringValue()); });
+        deserializerMap.put("metricKey", (n) -> { this.setMetricKey(n.getEnumValue(MetricEnum::forValue)); });
         deserializerMap.put("value", (n) -> { this.setValue(n.getStringValue()); });
         return deserializerMap;
     }
     /**
-     * Gets the metricKey property value. The metric used to provide additional information for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Values:&lt;/strong&gt; &lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE_SELLER_COUNT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SEARCH_VOLUME&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MetricEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the metricKey property value. The metric used to provide additional information for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Values:&lt;/strong&gt; &lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE_SELLER_COUNT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SEARCH_VOLUME&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @return a {@link MetricEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMetricKey() {
+    public MetricEnum getMetricKey() {
         return this.metricKey;
     }
     /**
@@ -95,7 +95,7 @@ public class AdditionalInfoData implements AdditionalDataHolder, Parsable {
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("metricKey", this.getMetricKey());
+        writer.writeEnumValue("metricKey", this.getMetricKey());
         writer.writeStringValue("value", this.getValue());
         writer.writeAdditionalData(this.getAdditionalData());
     }
@@ -107,10 +107,10 @@ public class AdditionalInfoData implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the metricKey property value. The metric used to provide additional information for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Values:&lt;/strong&gt; &lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE_SELLER_COUNT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SEARCH_VOLUME&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:MetricEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the metricKey property value. The metric used to provide additional information for the suggested keyword.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Valid Values:&lt;/strong&gt; &lt;ul&gt;&lt;li&gt;&lt;code&gt;ACTIVE_SELLER_COUNT&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SEARCH_VOLUME&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the metricKey property.
      */
-    public void setMetricKey(@jakarta.annotation.Nullable final String value) {
+    public void setMetricKey(@jakarta.annotation.Nullable final MetricEnum value) {
         this.metricKey = value;
     }
     /**

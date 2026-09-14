@@ -31,13 +31,13 @@ public class SuggestMaxCpcResponse implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The suggested &lt;b&gt;maxCpc&lt;/b&gt; amount for the smart targeting campaign.
      */
     private Amount amount;
     /**
-     * The unique identifier of the marketplace where the listings are hosted. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The unique identifier of the marketplace where the listings are hosted.
      */
-    private String marketplaceId;
+    private MarketplaceIdEnum marketplaceId;
     /**
      * Instantiates a new {@link SuggestMaxCpcResponse} and sets the default values.
      */
@@ -63,7 +63,7 @@ public class SuggestMaxCpcResponse implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the amount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the amount property value. The suggested &lt;b&gt;maxCpc&lt;/b&gt; amount for the smart targeting campaign.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -78,15 +78,15 @@ public class SuggestMaxCpcResponse implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
-        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getStringValue()); });
+        deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getEnumValue(MarketplaceIdEnum::forValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the marketplaceId property value. The unique identifier of the marketplace where the listings are hosted. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the marketplaceId property value. The unique identifier of the marketplace where the listings are hosted.
+     * @return a {@link MarketplaceIdEnum}
      */
     @jakarta.annotation.Nullable
-    public String getMarketplaceId() {
+    public MarketplaceIdEnum getMarketplaceId() {
         return this.marketplaceId;
     }
     /**
@@ -96,7 +96,7 @@ public class SuggestMaxCpcResponse implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("amount", this.getAmount());
-        writer.writeStringValue("marketplaceId", this.getMarketplaceId());
+        writer.writeEnumValue("marketplaceId", this.getMarketplaceId());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -107,17 +107,17 @@ public class SuggestMaxCpcResponse implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the amount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the amount property value. The suggested &lt;b&gt;maxCpc&lt;/b&gt; amount for the smart targeting campaign.
      * @param value Value to set for the amount property.
      */
     public void setAmount(@jakarta.annotation.Nullable final Amount value) {
         this.amount = value;
     }
     /**
-     * Sets the marketplaceId property value. The unique identifier of the marketplace where the listings are hosted. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the marketplaceId property value. The unique identifier of the marketplace where the listings are hosted.
      * @param value Value to set for the marketplaceId property.
      */
-    public void setMarketplaceId(@jakarta.annotation.Nullable final String value) {
+    public void setMarketplaceId(@jakarta.annotation.Nullable final MarketplaceIdEnum value) {
         this.marketplaceId = value;
     }
 }

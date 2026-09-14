@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that contains the fields for the &lt;b&gt;UpdateNegativeKeyword&lt;/b&gt; request.
+ * A type that defines the fields for the request to update a negative keyword.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class UpdateNegativeKeywordRequest implements AdditionalDataHolder, Parsable {
@@ -31,9 +31,9 @@ public class UpdateNegativeKeywordRequest implements AdditionalDataHolder, Parsa
      */
     private Map<String, Object> additionalData;
     /**
-     * A field that defines the status of the negative keyword. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:NegativeKeywordStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * A field that defines the status of the negative keyword.
      */
-    private String negativeKeywordStatus;
+    private NegativeKeywordStatusEnum negativeKeywordStatus;
     /**
      * Instantiates a new {@link UpdateNegativeKeywordRequest} and sets the default values.
      */
@@ -65,15 +65,15 @@ public class UpdateNegativeKeywordRequest implements AdditionalDataHolder, Parsa
     @jakarta.annotation.Nonnull
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(1);
-        deserializerMap.put("negativeKeywordStatus", (n) -> { this.setNegativeKeywordStatus(n.getStringValue()); });
+        deserializerMap.put("negativeKeywordStatus", (n) -> { this.setNegativeKeywordStatus(n.getEnumValue(NegativeKeywordStatusEnum::forValue)); });
         return deserializerMap;
     }
     /**
-     * Gets the negativeKeywordStatus property value. A field that defines the status of the negative keyword. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:NegativeKeywordStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the negativeKeywordStatus property value. A field that defines the status of the negative keyword.
+     * @return a {@link NegativeKeywordStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getNegativeKeywordStatus() {
+    public NegativeKeywordStatusEnum getNegativeKeywordStatus() {
         return this.negativeKeywordStatus;
     }
     /**
@@ -82,7 +82,7 @@ public class UpdateNegativeKeywordRequest implements AdditionalDataHolder, Parsa
      */
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
-        writer.writeStringValue("negativeKeywordStatus", this.getNegativeKeywordStatus());
+        writer.writeEnumValue("negativeKeywordStatus", this.getNegativeKeywordStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -93,10 +93,10 @@ public class UpdateNegativeKeywordRequest implements AdditionalDataHolder, Parsa
         this.additionalData = value;
     }
     /**
-     * Sets the negativeKeywordStatus property value. A field that defines the status of the negative keyword. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:NegativeKeywordStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the negativeKeywordStatus property value. A field that defines the status of the negative keyword.
      * @param value Value to set for the negativeKeywordStatus property.
      */
-    public void setNegativeKeywordStatus(@jakarta.annotation.Nullable final String value) {
+    public void setNegativeKeywordStatus(@jakarta.annotation.Nullable final NegativeKeywordStatusEnum value) {
         this.negativeKeywordStatus = value;
     }
 }

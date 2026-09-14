@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * email campaign instance body
+ *  This type defines the email campaign instance body.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class CampaignDTO implements AdditionalDataHolder, Parsable {
@@ -31,7 +31,7 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * The audiences that the email campaign is being sent to. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:AudienceTypeEnum&quot;&gt;AudienceTypeEnum&lt;/a&gt; for a list of audience types.
+     * The audiences that the email campaign is being sent to. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.audiencetypeenum&quot;&gt;AudienceTypeEnum&lt;/a&gt; for a list of audience types.
      */
     private java.util.List<CampaignAudience> audiences;
     /**
@@ -43,13 +43,13 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
      */
     private String emailCampaignId;
     /**
-     * The email campaign status. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for information on statuses. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The email campaign status. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for information on statuses.
      */
-    private String emailCampaignStatus;
+    private EmailCampaignStatusEnum emailCampaignStatus;
     /**
-     * The email campaign type. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for definitions of email campaign types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CampaignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The email campaign type. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for definitions of email campaign types.
      */
-    private String emailCampaignType;
+    private CampaignTypeEnum emailCampaignType;
     /**
      * The eBay marketplace where the email campaign is active.
      */
@@ -63,9 +63,9 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
      */
     private String scheduleDate;
     /**
-     * The schedule type used for sending the email campaign. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&quot;&gt;ScheduleDateTypeEnum&lt;/a&gt; for available schedule types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The schedule type used for sending the email campaign. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.scheduledatetypeenum&quot;&gt;ScheduleDateTypeEnum&lt;/a&gt; for available schedule types.
      */
-    private String scheduleDateType;
+    private ScheduleDateTypeEnum scheduleDateType;
     /**
      * The date and time that the email campaign was last sent, given in UTC format.
      */
@@ -99,7 +99,7 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the audiences property value. The audiences that the email campaign is being sent to. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:AudienceTypeEnum&quot;&gt;AudienceTypeEnum&lt;/a&gt; for a list of audience types.
+     * Gets the audiences property value. The audiences that the email campaign is being sent to. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.audiencetypeenum&quot;&gt;AudienceTypeEnum&lt;/a&gt; for a list of audience types.
      * @return a {@link java.util.List<CampaignAudience>}
      */
     @jakarta.annotation.Nullable
@@ -123,19 +123,19 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
         return this.emailCampaignId;
     }
     /**
-     * Gets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for information on statuses. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for information on statuses.
+     * @return a {@link EmailCampaignStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getEmailCampaignStatus() {
+    public EmailCampaignStatusEnum getEmailCampaignStatus() {
         return this.emailCampaignStatus;
     }
     /**
-     * Gets the emailCampaignType property value. The email campaign type. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for definitions of email campaign types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CampaignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the emailCampaignType property value. The email campaign type. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for definitions of email campaign types.
+     * @return a {@link CampaignTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getEmailCampaignType() {
+    public CampaignTypeEnum getEmailCampaignType() {
         return this.emailCampaignType;
     }
     /**
@@ -148,12 +148,12 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
         deserializerMap.put("audiences", (n) -> { this.setAudiences(n.getCollectionOfObjectValues(CampaignAudience::createFromDiscriminatorValue)); });
         deserializerMap.put("creationDate", (n) -> { this.setCreationDate(n.getStringValue()); });
         deserializerMap.put("emailCampaignId", (n) -> { this.setEmailCampaignId(n.getStringValue()); });
-        deserializerMap.put("emailCampaignStatus", (n) -> { this.setEmailCampaignStatus(n.getStringValue()); });
-        deserializerMap.put("emailCampaignType", (n) -> { this.setEmailCampaignType(n.getStringValue()); });
+        deserializerMap.put("emailCampaignStatus", (n) -> { this.setEmailCampaignStatus(n.getEnumValue(EmailCampaignStatusEnum::forValue)); });
+        deserializerMap.put("emailCampaignType", (n) -> { this.setEmailCampaignType(n.getEnumValue(CampaignTypeEnum::forValue)); });
         deserializerMap.put("marketplaceId", (n) -> { this.setMarketplaceId(n.getStringValue()); });
         deserializerMap.put("modificationDate", (n) -> { this.setModificationDate(n.getStringValue()); });
         deserializerMap.put("scheduleDate", (n) -> { this.setScheduleDate(n.getStringValue()); });
-        deserializerMap.put("scheduleDateType", (n) -> { this.setScheduleDateType(n.getStringValue()); });
+        deserializerMap.put("scheduleDateType", (n) -> { this.setScheduleDateType(n.getEnumValue(ScheduleDateTypeEnum::forValue)); });
         deserializerMap.put("sentDate", (n) -> { this.setSentDate(n.getStringValue()); });
         deserializerMap.put("subject", (n) -> { this.setSubject(n.getStringValue()); });
         return deserializerMap;
@@ -183,11 +183,11 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
         return this.scheduleDate;
     }
     /**
-     * Gets the scheduleDateType property value. The schedule type used for sending the email campaign. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&quot;&gt;ScheduleDateTypeEnum&lt;/a&gt; for available schedule types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the scheduleDateType property value. The schedule type used for sending the email campaign. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.scheduledatetypeenum&quot;&gt;ScheduleDateTypeEnum&lt;/a&gt; for available schedule types.
+     * @return a {@link ScheduleDateTypeEnum}
      */
     @jakarta.annotation.Nullable
-    public String getScheduleDateType() {
+    public ScheduleDateTypeEnum getScheduleDateType() {
         return this.scheduleDateType;
     }
     /**
@@ -215,12 +215,12 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues("audiences", this.getAudiences());
         writer.writeStringValue("creationDate", this.getCreationDate());
         writer.writeStringValue("emailCampaignId", this.getEmailCampaignId());
-        writer.writeStringValue("emailCampaignStatus", this.getEmailCampaignStatus());
-        writer.writeStringValue("emailCampaignType", this.getEmailCampaignType());
+        writer.writeEnumValue("emailCampaignStatus", this.getEmailCampaignStatus());
+        writer.writeEnumValue("emailCampaignType", this.getEmailCampaignType());
         writer.writeStringValue("marketplaceId", this.getMarketplaceId());
         writer.writeStringValue("modificationDate", this.getModificationDate());
         writer.writeStringValue("scheduleDate", this.getScheduleDate());
-        writer.writeStringValue("scheduleDateType", this.getScheduleDateType());
+        writer.writeEnumValue("scheduleDateType", this.getScheduleDateType());
         writer.writeStringValue("sentDate", this.getSentDate());
         writer.writeStringValue("subject", this.getSubject());
         writer.writeAdditionalData(this.getAdditionalData());
@@ -233,7 +233,7 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the audiences property value. The audiences that the email campaign is being sent to. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:AudienceTypeEnum&quot;&gt;AudienceTypeEnum&lt;/a&gt; for a list of audience types.
+     * Sets the audiences property value. The audiences that the email campaign is being sent to. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.audiencetypeenum&quot;&gt;AudienceTypeEnum&lt;/a&gt; for a list of audience types.
      * @param value Value to set for the audiences property.
      */
     public void setAudiences(@jakarta.annotation.Nullable final java.util.List<CampaignAudience> value) {
@@ -254,17 +254,17 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
         this.emailCampaignId = value;
     }
     /**
-     * Sets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for information on statuses. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the emailCampaignStatus property value. The email campaign status. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;EmailCampaignStatusEnum&lt;/a&gt; for information on statuses.
      * @param value Value to set for the emailCampaignStatus property.
      */
-    public void setEmailCampaignStatus(@jakarta.annotation.Nullable final String value) {
+    public void setEmailCampaignStatus(@jakarta.annotation.Nullable final EmailCampaignStatusEnum value) {
         this.emailCampaignStatus = value;
     }
     /**
-     * Sets the emailCampaignType property value. The email campaign type. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for definitions of email campaign types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:CampaignTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the emailCampaignType property value. The email campaign type. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;CampaignTypeEnum&lt;/a&gt; for definitions of email campaign types.
      * @param value Value to set for the emailCampaignType property.
      */
-    public void setEmailCampaignType(@jakarta.annotation.Nullable final String value) {
+    public void setEmailCampaignType(@jakarta.annotation.Nullable final CampaignTypeEnum value) {
         this.emailCampaignType = value;
     }
     /**
@@ -289,10 +289,10 @@ public class CampaignDTO implements AdditionalDataHolder, Parsable {
         this.scheduleDate = value;
     }
     /**
-     * Sets the scheduleDateType property value. The schedule type used for sending the email campaign. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&quot;&gt;ScheduleDateTypeEnum&lt;/a&gt; for available schedule types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/api:ScheduleDateTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the scheduleDateType property value. The schedule type used for sending the email campaign. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.scheduledatetypeenum&quot;&gt;ScheduleDateTypeEnum&lt;/a&gt; for available schedule types.
      * @param value Value to set for the scheduleDateType property.
      */
-    public void setScheduleDateType(@jakarta.annotation.Nullable final String value) {
+    public void setScheduleDateType(@jakarta.annotation.Nullable final ScheduleDateTypeEnum value) {
         this.scheduleDateType = value;
     }
     /**

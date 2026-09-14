@@ -15,52 +15,32 @@
 package com.ebay.marketingandpromotions.configuration;
 
 import jakarta.annotation.Nullable;
-import java.net.URI;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
- * Configuration for the Marketing and Promotions SDK.
- * Provides base URLs for Marketing and Recommendation APIs and optional fallback access token.
- */
 public final class MarketingAndPromotionsConfiguration {
-    // Base URLs for each API
+    private @Nullable String accessToken;
+    private RequestOptions defaultRequestOptions = new RequestOptions();
+
     private final String marketingBaseUrl;
     private final String recommendationBaseUrl;
 
-    private @Nullable String accessToken;  // static fallback; per-call token takes precedence
-    private boolean diagnosticLogging = false;
-
-    /**
-     * Default request options (headers) applied to all SDK calls.
-     * Per-call RequestOptions will override these.
-     */
-    private RequestOptions defaultRequestOptions = new RequestOptions();
-
-    /** Default constructor using production eBay API endpoints. */
     public MarketingAndPromotionsConfiguration() {
-        this.marketingBaseUrl = "https://api.ebay.com";
-        this.recommendationBaseUrl = "https://api.ebay.com";
+        this.marketingBaseUrl = "https://api.ebay.com/sell/marketing/v1";
+        this.recommendationBaseUrl = "https://api.ebay.com/sell/recommendation/v1";
     }
 
-    /**
-     * Constructor accepting custom base URLs. Each URL is validated against the allowed-host list.
-     *
-     * @param marketingBaseUrl       Base URL for the Marketing API
-     * @param recommendationBaseUrl  Base URL for the Recommendation API
-     */
-    public MarketingAndPromotionsConfiguration(String marketingBaseUrl, String recommendationBaseUrl) {
+    public MarketingAndPromotionsConfiguration(
+            String marketingBaseUrl,
+            String recommendationBaseUrl) {
         this.marketingBaseUrl = validateHost(marketingBaseUrl);
         this.recommendationBaseUrl = validateHost(recommendationBaseUrl);
     }
 
-    private static final Set<String> STATIC_ALLOWED_HOSTS = new HashSet<>(java.util.Arrays.asList(
-            "api.ebay.com", "api.sandbox.ebay.com"));
-
     private String validateHost(String url) {
         try {
             String host = new java.net.URI(url).getHost();
-            if (host == null || !STATIC_ALLOWED_HOSTS.contains(host)) {
+            if (host == null || !getAllowedHosts().contains(host)) {
                 throw new IllegalArgumentException("URL host not in allowed list: " + url);
             }
         } catch (java.net.URISyntaxException e) {
@@ -69,42 +49,37 @@ public final class MarketingAndPromotionsConfiguration {
         return url;
     }
 
-    // Getters
-    public String getMarketingBaseUrl() { return marketingBaseUrl; }
-
-    public String getRecommendationBaseUrl() { return recommendationBaseUrl; }
-
     /**
-     * Sets the static fallback access token.
+     * Sets the OAuth Bearer token used for API calls when no per-call token is provided.
      *
-     * <p><strong>Security note:</strong> Access tokens are stored as plain {@code String} objects on
-     * the heap. Avoid logging or serialising instances of this class; clear the token reference when
-     * no longer needed.
+     * <p><b>Security note:</b> The token is stored as a Java {@code String} and will remain
+     * in heap memory until garbage collected. To minimize exposure: do not log this
+     * configuration object, null out the token reference when it is no longer needed,
+     * and avoid storing the configuration longer than the client lifecycle.
      */
-    public @Nullable String getAccessToken() { return accessToken; }
-    public void setAccessToken(@Nullable String accessToken) { this.accessToken = accessToken; }
+    public void setAccessToken(@Nullable String token) {
+        this.accessToken = token;
+    }
 
-    public boolean isDiagnosticLogging() { return diagnosticLogging; }
-    public void setDiagnosticLogging(boolean diagnosticLogging) { this.diagnosticLogging = diagnosticLogging; }
+    public @Nullable String getAccessToken() {
+        return accessToken;
+    }
 
-    public RequestOptions getDefaultRequestOptions() { return defaultRequestOptions; }
-    public void setDefaultRequestOptions(RequestOptions defaultRequestOptions) { this.defaultRequestOptions = defaultRequestOptions; }
+    public RequestOptions getDefaultRequestOptions() {
+        return defaultRequestOptions;
+    }
 
-    /**
-     * All hostnames tokens may be sent to; used by AllowedHostsValidator.
-     */
     public Set<String> getAllowedHosts() {
         Set<String> hosts = new HashSet<>();
-        hosts.add(extractHost(marketingBaseUrl));
-        hosts.add(extractHost(recommendationBaseUrl));
+        hosts.add("api.ebay.com");
         return hosts;
     }
 
-    private String extractHost(String url) {
-        try {
-            return URI.create(url).getHost();
-        } catch (Exception e) {
-            return "api.ebay.com"; // fallback
-        }
+    public String getMarketingBaseUrl() {
+        return marketingBaseUrl;
+    }
+
+    public String getRecommendationBaseUrl() {
+        return recommendationBaseUrl;
     }
 }

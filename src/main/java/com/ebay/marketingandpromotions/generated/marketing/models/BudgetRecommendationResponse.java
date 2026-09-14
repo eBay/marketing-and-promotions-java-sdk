@@ -31,7 +31,7 @@ public class BudgetRecommendationResponse implements AdditionalDataHolder, Parsa
      */
     private Map<String, Object> additionalData;
     /**
-     * A type that defines the budget details for a Cost Per Click (CPC) Promoted Listings campaign.
+     * The allocated daily budget for the Cost Per Click (CPC) Promoted Listings campaign.
      */
     private CampaignBudget budget;
     /**
@@ -41,7 +41,7 @@ public class BudgetRecommendationResponse implements AdditionalDataHolder, Parsa
     /**
      * The channel for the campaign. This value indicates whether the campaign is an Onsite or Offsite advertising campaign.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ON_SITE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;OFF_SITE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      */
-    private java.util.List<String> channels;
+    private java.util.List<ChannelEnum> channels;
     /**
      * Instantiates a new {@link BudgetRecommendationResponse} and sets the default values.
      */
@@ -67,7 +67,7 @@ public class BudgetRecommendationResponse implements AdditionalDataHolder, Parsa
         return this.additionalData;
     }
     /**
-     * Gets the budget property value. A type that defines the budget details for a Cost Per Click (CPC) Promoted Listings campaign.
+     * Gets the budget property value. The allocated daily budget for the Cost Per Click (CPC) Promoted Listings campaign.
      * @return a {@link CampaignBudget}
      */
     @jakarta.annotation.Nullable
@@ -84,10 +84,10 @@ public class BudgetRecommendationResponse implements AdditionalDataHolder, Parsa
     }
     /**
      * Gets the channels property value. The channel for the campaign. This value indicates whether the campaign is an Onsite or Offsite advertising campaign.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ON_SITE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;OFF_SITE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @return a {@link java.util.List<String>}
+     * @return a {@link java.util.List<ChannelEnum>}
      */
     @jakarta.annotation.Nullable
-    public java.util.List<String> getChannels() {
+    public java.util.List<ChannelEnum> getChannels() {
         return this.channels;
     }
     /**
@@ -99,7 +99,7 @@ public class BudgetRecommendationResponse implements AdditionalDataHolder, Parsa
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(3);
         deserializerMap.put("budget", (n) -> { this.setBudget(n.getObjectValue(CampaignBudget::createFromDiscriminatorValue)); });
         deserializerMap.put("campaignId", (n) -> { this.setCampaignId(n.getStringValue()); });
-        deserializerMap.put("channels", (n) -> { this.setChannels(n.getCollectionOfPrimitiveValues(String.class)); });
+        deserializerMap.put("channels", (n) -> { this.setChannels(n.getCollectionOfEnumValues(ChannelEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -110,7 +110,7 @@ public class BudgetRecommendationResponse implements AdditionalDataHolder, Parsa
         Objects.requireNonNull(writer);
         writer.writeObjectValue("budget", this.getBudget());
         writer.writeStringValue("campaignId", this.getCampaignId());
-        writer.writeCollectionOfPrimitiveValues("channels", this.getChannels());
+        writer.writeCollectionOfEnumValues("channels", this.getChannels());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -121,7 +121,7 @@ public class BudgetRecommendationResponse implements AdditionalDataHolder, Parsa
         this.additionalData = value;
     }
     /**
-     * Sets the budget property value. A type that defines the budget details for a Cost Per Click (CPC) Promoted Listings campaign.
+     * Sets the budget property value. The allocated daily budget for the Cost Per Click (CPC) Promoted Listings campaign.
      * @param value Value to set for the budget property.
      */
     public void setBudget(@jakarta.annotation.Nullable final CampaignBudget value) {
@@ -138,7 +138,7 @@ public class BudgetRecommendationResponse implements AdditionalDataHolder, Parsa
      * Sets the channels property value. The channel for the campaign. This value indicates whether the campaign is an Onsite or Offsite advertising campaign.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;ON_SITE&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;OFF_SITE&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the channels property.
      */
-    public void setChannels(@jakarta.annotation.Nullable final java.util.List<String> value) {
+    public void setChannels(@jakarta.annotation.Nullable final java.util.List<ChannelEnum> value) {
         this.channels = value;
     }
 }

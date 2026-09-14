@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A container for the budget details of a Promoted Listings campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This container will only be returned for campaigns using the CPC funding model; it does not apply to the Cost Per Sale (CPS) funding model.&lt;/span&gt;
+ * The daily budget limit for the Cost Per Click (CPC) Promoted Listings campaign.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if&lt;/i&gt; the campaign&apos;s funding model is CPC.&lt;br&gt;&lt;br&gt;This will be a dollar value. All clicks using the keywords defined for the campaign will go towards expending the daily budget. Once the daily budget is exceeded for the campaign, all Promoted Listings under the campaign will be turned off until the next day.&lt;br&gt;&lt;br&gt;When running an offsite campaign, eBay may spend more or less than the seller&apos;s daily budget to capitalize on interested buyers, but will not exceed 2x the daily budget. The average over the course of the campaign will not exceed the provided daily budget. This value is used to calculate a total monthly budget by multiplying 30.4 by the provided daily budget. Over the course of the campaign, eBay will not charge more than this total budget per month.&lt;br&gt;&lt;br&gt;If a campaign ends prematurely, however, the seller may be charged up to 2x their daily budget on a daily basis, as the campaign may have not had the chance to average the budget out over time.&lt;br&gt;&lt;br&gt;&lt;b&gt;Valid Values&lt;/b&gt;:&lt;ul&gt;&lt;li&gt;&lt;code&gt;50.00&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;100.00&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class Budget implements AdditionalDataHolder, Parsable {
@@ -31,13 +31,13 @@ public class Budget implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * A complex type that describes the value of a monetary amount as represented by a global currency.
+     * The allocated budget amount for a CPC Promoted Listings campaign.
      */
     private Amount amount;
     /**
-     * The budget status for a CPC Promoted Listings campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:BudgetStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * The budget status for a CPC Promoted Listings campaign.
      */
-    private String budgetStatus;
+    private BudgetStatusEnum budgetStatus;
     /**
      * Instantiates a new {@link Budget} and sets the default values.
      */
@@ -63,7 +63,7 @@ public class Budget implements AdditionalDataHolder, Parsable {
         return this.additionalData;
     }
     /**
-     * Gets the amount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Gets the amount property value. The allocated budget amount for a CPC Promoted Listings campaign.
      * @return a {@link Amount}
      */
     @jakarta.annotation.Nullable
@@ -71,11 +71,11 @@ public class Budget implements AdditionalDataHolder, Parsable {
         return this.amount;
     }
     /**
-     * Gets the budgetStatus property value. The budget status for a CPC Promoted Listings campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:BudgetStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
-     * @return a {@link String}
+     * Gets the budgetStatus property value. The budget status for a CPC Promoted Listings campaign.
+     * @return a {@link BudgetStatusEnum}
      */
     @jakarta.annotation.Nullable
-    public String getBudgetStatus() {
+    public BudgetStatusEnum getBudgetStatus() {
         return this.budgetStatus;
     }
     /**
@@ -86,7 +86,7 @@ public class Budget implements AdditionalDataHolder, Parsable {
     public Map<String, java.util.function.Consumer<ParseNode>> getFieldDeserializers() {
         final HashMap<String, java.util.function.Consumer<ParseNode>> deserializerMap = new HashMap<String, java.util.function.Consumer<ParseNode>>(2);
         deserializerMap.put("amount", (n) -> { this.setAmount(n.getObjectValue(Amount::createFromDiscriminatorValue)); });
-        deserializerMap.put("budgetStatus", (n) -> { this.setBudgetStatus(n.getStringValue()); });
+        deserializerMap.put("budgetStatus", (n) -> { this.setBudgetStatus(n.getEnumValue(BudgetStatusEnum::forValue)); });
         return deserializerMap;
     }
     /**
@@ -96,7 +96,7 @@ public class Budget implements AdditionalDataHolder, Parsable {
     public void serialize(@jakarta.annotation.Nonnull final SerializationWriter writer) {
         Objects.requireNonNull(writer);
         writer.writeObjectValue("amount", this.getAmount());
-        writer.writeStringValue("budgetStatus", this.getBudgetStatus());
+        writer.writeEnumValue("budgetStatus", this.getBudgetStatus());
         writer.writeAdditionalData(this.getAdditionalData());
     }
     /**
@@ -107,17 +107,17 @@ public class Budget implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the amount property value. A complex type that describes the value of a monetary amount as represented by a global currency.
+     * Sets the amount property value. The allocated budget amount for a CPC Promoted Listings campaign.
      * @param value Value to set for the amount property.
      */
     public void setAmount(@jakarta.annotation.Nullable final Amount value) {
         this.amount = value;
     }
     /**
-     * Sets the budgetStatus property value. The budget status for a CPC Promoted Listings campaign. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/marketing/types/pls:BudgetStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;
+     * Sets the budgetStatus property value. The budget status for a CPC Promoted Listings campaign.
      * @param value Value to set for the budgetStatus property.
      */
-    public void setBudgetStatus(@jakarta.annotation.Nullable final String value) {
+    public void setBudgetStatus(@jakarta.annotation.Nullable final BudgetStatusEnum value) {
         this.budgetStatus = value;
     }
 }

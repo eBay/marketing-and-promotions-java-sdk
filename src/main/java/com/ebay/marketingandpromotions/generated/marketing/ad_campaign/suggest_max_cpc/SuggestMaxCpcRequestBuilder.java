@@ -14,6 +14,7 @@
 
 package com.ebay.marketingandpromotions.generated.marketing.ad_campaign.suggest_max_cpc;
 
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.SuggestMaxCpcRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.SuggestMaxCpcResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
@@ -51,8 +52,12 @@ public class SuggestMaxCpcRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only supported for smart targeting priority strategy campaigns. Sellers can use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility &quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method of the Account API v1 to determine if they are eligible for a priority strategy campaign.&lt;/span&gt;&lt;br /&gt;This method allows sellers to retrieve the suggested maximum cost-per-click value for a smart targeting campaign. This value is required when creating a smart targeting campaign and indicates the maximum amount for which the eBay suggested bid can be adjusted.
-     * @param body This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request. To retrieve the suggested &lt;b&gt;maxCpc&lt;/b&gt; value for a smart targeting campaign, a seller must specify the listings associated with the campaign, as well as the marketplace on which the campaign is hosted.
+     * @param body This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request.
      * @return a {@link SuggestMaxCpcResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public SuggestMaxCpcResponse post(@jakarta.annotation.Nonnull final SuggestMaxCpcRequest body) {
@@ -60,19 +65,28 @@ public class SuggestMaxCpcRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only supported for smart targeting priority strategy campaigns. Sellers can use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility &quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method of the Account API v1 to determine if they are eligible for a priority strategy campaign.&lt;/span&gt;&lt;br /&gt;This method allows sellers to retrieve the suggested maximum cost-per-click value for a smart targeting campaign. This value is required when creating a smart targeting campaign and indicates the maximum amount for which the eBay suggested bid can be adjusted.
-     * @param body This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request. To retrieve the suggested &lt;b&gt;maxCpc&lt;/b&gt; value for a smart targeting campaign, a seller must specify the listings associated with the campaign, as well as the marketplace on which the campaign is hosted.
+     * @param body This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link SuggestMaxCpcResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 404 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public SuggestMaxCpcResponse post(@jakarta.annotation.Nonnull final SuggestMaxCpcRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, SuggestMaxCpcResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("404", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, SuggestMaxCpcResponse::createFromDiscriminatorValue);
     }
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only supported for smart targeting priority strategy campaigns. Sellers can use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility &quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method of the Account API v1 to determine if they are eligible for a priority strategy campaign.&lt;/span&gt;&lt;br /&gt;This method allows sellers to retrieve the suggested maximum cost-per-click value for a smart targeting campaign. This value is required when creating a smart targeting campaign and indicates the maximum amount for which the eBay suggested bid can be adjusted.
-     * @param body This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request. To retrieve the suggested &lt;b&gt;maxCpc&lt;/b&gt; value for a smart targeting campaign, a seller must specify the listings associated with the campaign, as well as the marketplace on which the campaign is hosted.
+     * @param body This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -81,7 +95,7 @@ public class SuggestMaxCpcRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * &lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This method is only supported for smart targeting priority strategy campaigns. Sellers can use the &lt;a href=&quot;/api-docs/sell/account/resources/advertising_eligibility/methods/getAdvertisingEligibility &quot; target=&quot;_blank &quot;&gt;getAdvertisingEligibility&lt;/a&gt; method of the Account API v1 to determine if they are eligible for a priority strategy campaign.&lt;/span&gt;&lt;br /&gt;This method allows sellers to retrieve the suggested maximum cost-per-click value for a smart targeting campaign. This value is required when creating a smart targeting campaign and indicates the maximum amount for which the eBay suggested bid can be adjusted.
-     * @param body This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request. To retrieve the suggested &lt;b&gt;maxCpc&lt;/b&gt; value for a smart targeting campaign, a seller must specify the listings associated with the campaign, as well as the marketplace on which the campaign is hosted.
+     * @param body This type defines the fields used in the &lt;b&gt;suggestMaxCpc&lt;/b&gt; request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */

@@ -19,6 +19,7 @@ import com.ebay.marketingandpromotions.generated.marketing.email_campaign.item.W
 import com.ebay.marketingandpromotions.generated.marketing.email_campaign.report.ReportRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.models.CreateEmailCampaignRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.CreateEmailCampaignResponse;
+import com.ebay.marketingandpromotions.generated.marketing.models.Error;
 import com.ebay.marketingandpromotions.generated.marketing.models.GetEmailCampaignsResponse;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
@@ -56,7 +57,7 @@ public class EmailCampaignRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Gets an item from the com.ebay.marketingandpromotions.generated.marketing.email_campaign.item collection
-     * @param email_campaign_id This path parameter specifies the unique eBay-assigned identifier of the email campaign being retrieved.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/api-docs/sell/marketing/resources/campaign/methods/getEmailCampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; method to retrieve a list of email campaign IDs for a seller.
+     * @param email_campaign_id This path parameter specifies the unique eBay-assigned identifier of the email campaign being retrieved.&lt;br&gt;&lt;br&gt;Use the &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns&quot;&gt;getEmailCampaigns&lt;/a&gt; method to retrieve a list of email campaign IDs for a seller.
      * @return a {@link WithEmailCampaignItemRequestBuilder}
      */
     @jakarta.annotation.Nonnull
@@ -83,27 +84,40 @@ public class EmailCampaignRequestBuilder extends BaseRequestBuilder {
         super(requestAdapter, "{+baseurl}/email_campaign{?limit*,offset*,q*,sort*}", rawUrl);
     }
     /**
-     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
+     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
      * @return a {@link GetEmailCampaignsResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetEmailCampaignsResponse get() {
         return get(null);
     }
     /**
-     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
+     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link GetEmailCampaignsResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public GetEmailCampaignsResponse get(@jakarta.annotation.Nullable final java.util.function.Consumer<GetRequestConfiguration> requestConfiguration) {
         final RequestInformation requestInfo = toGetRequestInformation(requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, GetEmailCampaignsResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, GetEmailCampaignsResponse::createFromDiscriminatorValue);
     }
     /**
      * This method creates a new email campaign. An eBay store owner can create six different types of email campaigns: Welcome, New products &amp; collections, Coupon, Sale event + markdown, Order discount, and Volume pricing.&lt;br&gt;&lt;br&gt;A successful &lt;b&gt;createEmailCampaign&lt;/b&gt; request returns the &lt;b&gt;emailCampaignId&lt;/b&gt; assigned to the new email campaign.&lt;br&gt;&lt;br&gt;The fields &lt;b&gt;emailCampaignType&lt;/b&gt;, &lt;b&gt;audienceCodes&lt;/b&gt;, &lt;b&gt;itemSelectMode&lt;/b&gt;, &lt;b&gt;subject&lt;/b&gt;, and &lt;b&gt;personalizedMessage&lt;/b&gt; are required for all email campaign types. &lt;br&gt;&lt;br&gt;Specific email campaign types have required values for additional fields. For more information on the email campaign types, see the &lt;a href=&quot;/api-docs/sell/static/marketing/store-email-campaigns.html#email-campain-types&quot; target=&quot;_blank&quot;&gt;Store Email Campaigns&lt;/a&gt; section of the Selling Integration Guide. 
-     * @param body create email campaign request payload
+     * @param body Create a new email campaign request.
      * @return a {@link CreateEmailCampaignResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public CreateEmailCampaignResponse post(@jakarta.annotation.Nonnull final CreateEmailCampaignRequest body) {
@@ -111,18 +125,25 @@ public class EmailCampaignRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * This method creates a new email campaign. An eBay store owner can create six different types of email campaigns: Welcome, New products &amp; collections, Coupon, Sale event + markdown, Order discount, and Volume pricing.&lt;br&gt;&lt;br&gt;A successful &lt;b&gt;createEmailCampaign&lt;/b&gt; request returns the &lt;b&gt;emailCampaignId&lt;/b&gt; assigned to the new email campaign.&lt;br&gt;&lt;br&gt;The fields &lt;b&gt;emailCampaignType&lt;/b&gt;, &lt;b&gt;audienceCodes&lt;/b&gt;, &lt;b&gt;itemSelectMode&lt;/b&gt;, &lt;b&gt;subject&lt;/b&gt;, and &lt;b&gt;personalizedMessage&lt;/b&gt; are required for all email campaign types. &lt;br&gt;&lt;br&gt;Specific email campaign types have required values for additional fields. For more information on the email campaign types, see the &lt;a href=&quot;/api-docs/sell/static/marketing/store-email-campaigns.html#email-campain-types&quot; target=&quot;_blank&quot;&gt;Store Email Campaigns&lt;/a&gt; section of the Selling Integration Guide. 
-     * @param body create email campaign request payload
+     * @param body Create a new email campaign request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link CreateEmailCampaignResponse}
+     * @throws Error When receiving a 400 status code
+     * @throws Error When receiving a 409 status code
+     * @throws Error When receiving a 500 status code
      */
     @jakarta.annotation.Nullable
     public CreateEmailCampaignResponse post(@jakarta.annotation.Nonnull final CreateEmailCampaignRequest body, @jakarta.annotation.Nullable final java.util.function.Consumer<PostRequestConfiguration> requestConfiguration) {
         Objects.requireNonNull(body);
         final RequestInformation requestInfo = toPostRequestInformation(body, requestConfiguration);
-        return this.requestAdapter.send(requestInfo, null, CreateEmailCampaignResponse::createFromDiscriminatorValue);
+        final HashMap<String, ParsableFactory<? extends Parsable>> errorMapping = new HashMap<String, ParsableFactory<? extends Parsable>>();
+        errorMapping.put("400", Error::createFromDiscriminatorValue);
+        errorMapping.put("409", Error::createFromDiscriminatorValue);
+        errorMapping.put("500", Error::createFromDiscriminatorValue);
+        return this.requestAdapter.send(requestInfo, errorMapping, CreateEmailCampaignResponse::createFromDiscriminatorValue);
     }
     /**
-     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
+     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -130,7 +151,7 @@ public class EmailCampaignRequestBuilder extends BaseRequestBuilder {
         return toGetRequestInformation(null);
     }
     /**
-     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
+     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -143,7 +164,7 @@ public class EmailCampaignRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * This method creates a new email campaign. An eBay store owner can create six different types of email campaigns: Welcome, New products &amp; collections, Coupon, Sale event + markdown, Order discount, and Volume pricing.&lt;br&gt;&lt;br&gt;A successful &lt;b&gt;createEmailCampaign&lt;/b&gt; request returns the &lt;b&gt;emailCampaignId&lt;/b&gt; assigned to the new email campaign.&lt;br&gt;&lt;br&gt;The fields &lt;b&gt;emailCampaignType&lt;/b&gt;, &lt;b&gt;audienceCodes&lt;/b&gt;, &lt;b&gt;itemSelectMode&lt;/b&gt;, &lt;b&gt;subject&lt;/b&gt;, and &lt;b&gt;personalizedMessage&lt;/b&gt; are required for all email campaign types. &lt;br&gt;&lt;br&gt;Specific email campaign types have required values for additional fields. For more information on the email campaign types, see the &lt;a href=&quot;/api-docs/sell/static/marketing/store-email-campaigns.html#email-campain-types&quot; target=&quot;_blank&quot;&gt;Store Email Campaigns&lt;/a&gt; section of the Selling Integration Guide. 
-     * @param body create email campaign request payload
+     * @param body Create a new email campaign request.
      * @return a {@link RequestInformation}
      */
     @jakarta.annotation.Nonnull
@@ -152,7 +173,7 @@ public class EmailCampaignRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * This method creates a new email campaign. An eBay store owner can create six different types of email campaigns: Welcome, New products &amp; collections, Coupon, Sale event + markdown, Order discount, and Volume pricing.&lt;br&gt;&lt;br&gt;A successful &lt;b&gt;createEmailCampaign&lt;/b&gt; request returns the &lt;b&gt;emailCampaignId&lt;/b&gt; assigned to the new email campaign.&lt;br&gt;&lt;br&gt;The fields &lt;b&gt;emailCampaignType&lt;/b&gt;, &lt;b&gt;audienceCodes&lt;/b&gt;, &lt;b&gt;itemSelectMode&lt;/b&gt;, &lt;b&gt;subject&lt;/b&gt;, and &lt;b&gt;personalizedMessage&lt;/b&gt; are required for all email campaign types. &lt;br&gt;&lt;br&gt;Specific email campaign types have required values for additional fields. For more information on the email campaign types, see the &lt;a href=&quot;/api-docs/sell/static/marketing/store-email-campaigns.html#email-campain-types&quot; target=&quot;_blank&quot;&gt;Store Email Campaigns&lt;/a&gt; section of the Selling Integration Guide. 
-     * @param body create email campaign request payload
+     * @param body Create a new email campaign request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return a {@link RequestInformation}
      */
@@ -176,7 +197,7 @@ public class EmailCampaignRequestBuilder extends BaseRequestBuilder {
         return new EmailCampaignRequestBuilder(rawUrl, requestAdapter);
     }
     /**
-     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
+     * This method retrieves a list of email campaigns from a seller&apos;s eBay store.&lt;br&gt;&lt;br&gt;Users can filter the results by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;marketplace ID&lt;/a&gt; using the &lt;code&gt;q&lt;/code&gt; query parameter.
      */
     @jakarta.annotation.Generated("com.microsoft.kiota")
     public class GetQueryParameters implements QueryParameters {
@@ -191,12 +212,12 @@ public class EmailCampaignRequestBuilder extends BaseRequestBuilder {
         @jakarta.annotation.Nullable
         public String offset;
         /**
-         * This field contains filter criteria for the results returned. Filter by &lt;a href=&quot;/api-docs/sell/marketing/types/api:CampaignTypeEnum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/api-docs/sell/marketing/types/api:EmailCampaignStatusEnum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/api-docs/sell/marketing/types/ba:MarketplaceIdEnum&quot;&gt;marketplace ID&lt;/a&gt;.&lt;br&gt;&lt;br&gt;For example, setting &lt;code&gt;q=campaignType:WELCOME,ITEM_SHOWCASE&lt;/code&gt; will return only Welcome and Item Showcase email campaigns.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; At least one &lt;code&gt;campaignType&lt;/code&gt; value must be set through the &lt;code&gt;q&lt;/code&gt; query parameter. If no other filters are set, all email campaigns for the specified campaign type(s) will be returned in the results set.&lt;/span&gt;
+         * This field contains filter criteria for the results returned. Filter by &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.campaigntypeenum&quot;&gt;email campaign type&lt;/a&gt;, &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-getemailcampaigns.emailcampaignstatusenum&quot;&gt;email campaign status&lt;/a&gt;, and &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;marketplace ID&lt;/a&gt;.&lt;br&gt;&lt;br&gt;For example, setting &lt;code&gt;q=campaignType:WELCOME,ITEM_SHOWCASE&lt;/code&gt; will return only Welcome and Item Showcase email campaigns.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; At least one &lt;code&gt;campaignType&lt;/code&gt; value must be set through the &lt;code&gt;q&lt;/code&gt; query parameter. If no other filters are set, all email campaigns for the specified campaign type(s) will be returned in the results set.&lt;/span&gt;
          */
         @jakarta.annotation.Nullable
         public String q;
         /**
-         * The criteria for sorting email campaign results. See &lt;a href=&quot;/api-docs/sell/marketing/types/api:ItemSortEnum&quot; target=&quot;_blank&quot;&gt;ItemSortEnum&lt;/a&gt; for sorting options and their enum values.&lt;br&gt;&lt;br&gt;&lt;b&gt;Default&lt;/b&gt;: &lt;code&gt;NEWLY_LISTED&lt;/code&gt;
+         * The criteria for sorting email campaign results. See &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-email_campaign-createemailcampaign.itemsortenum&quot;&gt;ItemSortEnum&lt;/a&gt; for sorting options and their enum values.&lt;br&gt;&lt;br&gt;&lt;b&gt;Default&lt;/b&gt;: &lt;code&gt;NEWLY_LISTED&lt;/code&gt;
          */
         @jakarta.annotation.Nullable
         public String sort;

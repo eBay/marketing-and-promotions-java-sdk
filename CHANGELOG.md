@@ -17,25 +17,25 @@
 
 | Operation | Previous parameters | Current parameters |
 | --- | --- | --- |
-| `createEmailCampaignAsync` | `(CreateEmailCampaignRequest, String, RequestOptions)` | `(CreateEmailCampaignRequest, String, String, RequestOptions)` |
-| `findCampaignByAdReferenceAsync` | `(String, String, String, String, RequestOptions)` | `(String, FindCampaignInventoryReferenceType, String, String, RequestOptions)` |
-| `getAdAsync` | `(String adId, String campaignId, String accessToken, RequestOptions requestOptions)` | `(String adId, String campaignId, AdFieldgroups, String accessToken, RequestOptions requestOptions)` |
-| `getAdGroupsAsync` | `(String, String, String, String, String, RequestOptions)` | `(String, AdGroupStatus, String, String, String, RequestOptions)` |
-| `getAdsAsync` | `(String, String, String, String, String, RequestOptions)` | `(String campaignId, String adGroupIds, AdStatus adStatus, String limit, String listingIds, String offset, AdListFieldgroups fieldgroups, String accessToken, RequestOptions requestOptions)` |
-| `getAdsByInventoryReferenceAsync` | `(String, String, String, String, RequestOptions)` | `(String, String, AdsInventoryReferenceType, String, RequestOptions)` |
-| `getCampaignsAsync` | `(String, String, String, String, String, RequestOptions)` | `(String campaignName, CampaignStatus campaignStatus, CampaignTargetingTypes campaignTargetingTypes, Channels channels, String endDateRange, FundingStrategy fundingStrategy, String limit, String offset, String startDateRange, String marketplaceId, String accessToken, RequestOptions requestOptions)` |
-| `getEmailCampaignsAsync` | `(String, String, String, String, RequestOptions)` | `(String, String, String, String, String, RequestOptions)` |
-| `getKeywordsAsync` | `(String, String, String, String, String, RequestOptions)` | `(String, String, KeywordStatus, String, String, String, RequestOptions)` |
-| `getListingSetAsync` | `(String, String, String, String, String, String, String, RequestOptions)` | `(String, String, String, String, String, ItemMarkdownStatusEnum, String, RequestOptions)` |
-| `getNegativeKeywordsAsync` | `(String, String, String, String, String, RequestOptions)` | `(String, String, String, NegativeKeywordStatus, String, String, RequestOptions)` |
-| `getPromotionReportsAsync` | `(String, String, String, String, String, RequestOptions)` | `(String, String, String, String, String, String, RequestOptions)` |
-| `getPromotionsAsync` | `(String, String, String, String, String, RequestOptions)` | `(String, String, String, String, String, String, String, String, RequestOptions)` |
+| `createEmailCampaignAsync` | `(CreateEmailCampaignRequest body, String accessToken, RequestOptions requestOptions)` | `(CreateEmailCampaignRequest body, String xEBAYCMARKETPLACEID, String accessToken, RequestOptions requestOptions)` |
+| `findCampaignByAdReferenceAsync` | `(String inventoryReferenceId, String inventoryReferenceType, String listingId, String accessToken, RequestOptions requestOptions)` | `(String inventoryReferenceId, FindCampaignInventoryReferenceType inventoryReferenceType, String listingId, String accessToken, RequestOptions requestOptions)` |
+| `getAdAsync` | `(String adId, String campaignId, String accessToken, RequestOptions requestOptions)` | `(String adId, String campaignId, AdFieldgroups fieldgroups, String accessToken, RequestOptions requestOptions)` |
+| `getAdGroupsAsync` | `(String campaignId, String adGroupStatus, String limit, String offset, String accessToken, RequestOptions requestOptions)` | `(String campaignId, AdGroupStatus adGroupStatus, String limit, String offset, String accessToken, RequestOptions requestOptions)` |
+| `getAdsAsync` | `(String campaignId, String adStatus, String limit, String offset, String accessToken, RequestOptions requestOptions)` | `(String campaignId, String adGroupIds, AdStatus adStatus, String limit, String listingIds, String offset, AdListFieldgroups fieldgroups, String accessToken, RequestOptions requestOptions)` |
+| `getAdsByInventoryReferenceAsync` | `(String campaignId, String inventoryReferenceId, String inventoryReferenceType, String accessToken, RequestOptions requestOptions)` | `(String campaignId, String inventoryReferenceId, AdsInventoryReferenceType inventoryReferenceType, String accessToken, RequestOptions requestOptions)` |
+| `getCampaignsAsync` | `(String campaignName, String campaignStatus, String limit, String offset, String accessToken, RequestOptions requestOptions)` | `(String campaignName, CampaignStatus campaignStatus, CampaignTargetingTypes campaignTargetingTypes, Channels channels, String endDateRange, FundingStrategy fundingStrategy, String limit, String offset, String startDateRange, String marketplaceId, String accessToken, RequestOptions requestOptions)` |
+| `getEmailCampaignsAsync` | `(String query, String limit, String offset, String accessToken, RequestOptions requestOptions)` | `(String limit, String offset, String q, String sort, String accessToken, RequestOptions requestOptions)` |
+| `getKeywordsAsync` | `(String campaignId, String keywordStatus, String limit, String offset, String accessToken, RequestOptions requestOptions)` | `(String campaignId, String adGroupIds, KeywordStatus keywordStatus, String limit, String offset, String accessToken, RequestOptions requestOptions)` |
+| `getListingSetAsync` | `(String promotionId, String limit, String offset, String q, String sort, String status, String accessToken, RequestOptions requestOptions)` | `(String promotionId, String limit, String offset, String q, String sort, ItemMarkdownStatusEnum status, String accessToken, RequestOptions requestOptions)` |
+| `getNegativeKeywordsAsync` | `(String campaignIds, String adGroupIds, String limit, String offset, String accessToken, RequestOptions requestOptions)` | `(String adGroupIds, String campaignIds, String limit, NegativeKeywordStatus negativeKeywordStatus, String offset, String accessToken, RequestOptions requestOptions)` |
+| `getPromotionReportsAsync` | `(String marketplaceId, String limit, String offset, String promotionStatus, String accessToken, RequestOptions requestOptions)` | `(String limit, String marketplaceId, String offset, String promotionStatus, String promotionType, String q, String accessToken, RequestOptions requestOptions)` |
+| `getPromotionsAsync` | `(String marketplaceId, String limit, String offset, String promotionStatus, String accessToken, RequestOptions requestOptions)` | `(String limit, String marketplaceId, String offset, String promotionStatus, String promotionType, String q, String sort, String accessToken, RequestOptions requestOptions)` |
 
 `RecommendationClient`:
 
 | Operation | Previous parameters | Current parameters |
 | --- | --- | --- |
-| `findListingRecommendationsAsync` | `(FindListingRecommendationRequest, String, String, String, String, RequestOptions)` | `(FindListingRecommendationRequest, String, Integer, Integer, String, String, RequestOptions)` |
+| `findListingRecommendationsAsync` | `(FindListingRecommendationRequest body, String filter, String limit, String offset, String accessToken, RequestOptions requestOptions)` | `(FindListingRecommendationRequest body, String filter, Integer limit, Integer offset, String xEBAYCMARKETPLACEID, String accessToken, RequestOptions requestOptions)` |
 
 Type aliases used in the table:
 

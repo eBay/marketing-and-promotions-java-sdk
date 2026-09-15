@@ -36,7 +36,7 @@ src/main/java/com/ebay/marketingandpromotions/
 <dependency>
     <groupId>com.ebay</groupId>
     <artifactId>marketing-and-promotions-java-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 

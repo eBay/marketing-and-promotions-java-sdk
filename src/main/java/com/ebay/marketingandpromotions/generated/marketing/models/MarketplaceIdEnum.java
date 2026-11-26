@@ -18,14 +18,16 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * The eBay marketplace ID of the site where the discount is hosted. Threshold discounts are supported on a select set of marketplaces while markdown discounts are supported on all eBay marketplaces. &lt;p&gt;&lt;b&gt;Valid values for threshold discounts are as follows:&lt;/b&gt;&lt;/p&gt;  &lt;ul class=&quot;compact&quot;&gt;&lt;li&gt;&lt;code&gt;EBAY_AU&lt;/code&gt; = Australia&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_DE&lt;/code&gt; = Germany&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_ES&lt;/code&gt; = Spain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_FR&lt;/code&gt; = France&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_GB&lt;/code&gt; = Great Britain&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_IT&lt;/code&gt; = Italy&lt;/li&gt; &lt;li&gt;&lt;code&gt;EBAY_US&lt;/code&gt; = United States&lt;/li&gt;&lt;/ul&gt;
+ * This enumerated type defines the unique IDs for each of the eBay marketplaces. | - **EBAY_AT**: This enumeration value indicates that the eBay Marketplace is the Austria site (ebay.at). - **EBAY_AU**: This enumeration value indicates that the eBay Marketplace is the Australia site (ebay.com.au). - **EBAY_BE**: This enumeration value indicates that the eBay marketplace is the Belgium (Dutch) site (www.ebay.be). - **EBAY_CA**: This enumeration value indicates that the eBay Marketplace is the Canada (English) site (ebay.ca). - **EBAY_CH**: This enumeration value indicates that the eBay Marketplace is the Switzerland site (ebay.ch). - **EBAY_CN**: Reserved for future use. - **EBAY_CZ**: Reserved for future use. - **EBAY_DE**: This enumeration value indicates that the eBay Marketplace is the Germany site (ebay.de). - **EBAY_DK**: Reserved for future use. - **EBAY_ES**: This enumeration value indicates that the eBay Marketplace is the Spain site (ebay.es). - **EBAY_FI**: Reserved for future use. - **EBAY_FR**: This enumeration value indicates that the eBay Marketplace is the France site (ebay.fr). - **EBAY_GB**: This enumeration value indicates that the eBay Marketplace is the UK site (ebay.co.uk). - **EBAY_GR**: Reserved for future use. - **EBAY_HK**: This enumeration value indicates that the eBay Marketplace is the Hong Kong site (ebay.com.hk). - **EBAY_HU**: Reserved for future use. - **EBAY_ID**: Reserved for future use. - **EBAY_IE**: This enumeration value indicates that the eBay Marketplace is the Ireland site (ebay.ie). - **EBAY_IL**: Reserved for future use. - **EBAY_IN**: This enumeration value indicates that the eBay Marketplace is the India site (ebay.in). Note: eBay India is no longer a functioning eBay marketplace. - **EBAY_IT**: This enumeration value indicates that the eBay Marketplace is the Italy site (ebay.it). - **EBAY_JP**: Reserved for future use. - **EBAY_MY**: This enumeration value indicates that the eBay Marketplace is the Malaysia site (ebay.com/my). - **EBAY_NL**: This enumeration value indicates that the eBay Marketplace is the Netherlands site (ebay.nl). - **EBAY_NO**: Reserved for future use. - **EBAY_NZ**: Reserved for future use. - **EBAY_PE**: Reserved for future use. - **EBAY_PH**: This enumeration value indicates that the eBay Marketplace is the Philippines site (ebay.ph). - **EBAY_PL**: This enumeration value indicates that the eBay Marketplace is the Poland site (ebay.pl). - **EBAY_PR**: Reserved for future use. - **EBAY_PT**: Reserved for future use. - **EBAY_RU**: Reserved for future use. - **EBAY_SE**: Reserved for future use. - **EBAY_SG**: This enumeration value indicates that the eBay Marketplace is the Singapore site (ebay.com/sg). - **EBAY_TH**: This enumeration value indicates that the eBay Marketplace is the Thailand site (export.ebay.co.th). - **EBAY_TW**: This enumeration value indicates that the eBay Marketplace is the Taiwan site (ebay.com/tw). - **EBAY_US**: This enumeration value indicates that the eBay Marketplace is the US site (ebay.com). - **EBAY_VN**: This enumeration value indicates that the eBay Marketplace is the Vietnam site (ebay.vn). - **EBAY_ZA**: Reserved for future use. - **EBAY_HALF_US**: This enumeration value is no longer applicable as the Half.com site no longer exists. - **EBAY_MOTORS_US**: Indicates the parent category for &quot;Auto Parts and Vehicles&quot; on the EBAY_US marketplace (https://www.ebay.com/motors).
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum MarketplaceIdEnum implements ValuedEnum {
-    EBAY_AT("EBAY_AT"),
-    EBAY_AU("EBAY_AU"),
-    EBAY_BE("EBAY_BE"),
+    EBAY_US("EBAY_US"),
     EBAY_CA("EBAY_CA"),
+    EBAY_GB("EBAY_GB"),
+    EBAY_AU("EBAY_AU"),
+    EBAY_AT("EBAY_AT"),
+    EBAY_BE("EBAY_BE"),
     EBAY_CH("EBAY_CH"),
     EBAY_CN("EBAY_CN"),
     EBAY_CZ("EBAY_CZ"),
@@ -34,7 +36,6 @@ public enum MarketplaceIdEnum implements ValuedEnum {
     EBAY_ES("EBAY_ES"),
     EBAY_FI("EBAY_FI"),
     EBAY_FR("EBAY_FR"),
-    EBAY_GB("EBAY_GB"),
     EBAY_GR("EBAY_GR"),
     EBAY_HK("EBAY_HK"),
     EBAY_HU("EBAY_HU"),
@@ -58,7 +59,6 @@ public enum MarketplaceIdEnum implements ValuedEnum {
     EBAY_SG("EBAY_SG"),
     EBAY_TH("EBAY_TH"),
     EBAY_TW("EBAY_TW"),
-    EBAY_US("EBAY_US"),
     EBAY_VN("EBAY_VN"),
     EBAY_ZA("EBAY_ZA"),
     EBAY_HALF_US("EBAY_HALF_US"),
@@ -73,10 +73,12 @@ public enum MarketplaceIdEnum implements ValuedEnum {
     public static MarketplaceIdEnum forValue(@jakarta.annotation.Nonnull final String searchValue) {
         Objects.requireNonNull(searchValue);
         switch(searchValue) {
-            case "EBAY_AT": return EBAY_AT;
-            case "EBAY_AU": return EBAY_AU;
-            case "EBAY_BE": return EBAY_BE;
+            case "EBAY_US": return EBAY_US;
             case "EBAY_CA": return EBAY_CA;
+            case "EBAY_GB": return EBAY_GB;
+            case "EBAY_AU": return EBAY_AU;
+            case "EBAY_AT": return EBAY_AT;
+            case "EBAY_BE": return EBAY_BE;
             case "EBAY_CH": return EBAY_CH;
             case "EBAY_CN": return EBAY_CN;
             case "EBAY_CZ": return EBAY_CZ;
@@ -85,7 +87,6 @@ public enum MarketplaceIdEnum implements ValuedEnum {
             case "EBAY_ES": return EBAY_ES;
             case "EBAY_FI": return EBAY_FI;
             case "EBAY_FR": return EBAY_FR;
-            case "EBAY_GB": return EBAY_GB;
             case "EBAY_GR": return EBAY_GR;
             case "EBAY_HK": return EBAY_HK;
             case "EBAY_HU": return EBAY_HU;
@@ -109,7 +110,6 @@ public enum MarketplaceIdEnum implements ValuedEnum {
             case "EBAY_SG": return EBAY_SG;
             case "EBAY_TH": return EBAY_TH;
             case "EBAY_TW": return EBAY_TW;
-            case "EBAY_US": return EBAY_US;
             case "EBAY_VN": return EBAY_VN;
             case "EBAY_ZA": return EBAY_ZA;
             case "EBAY_HALF_US": return EBAY_HALF_US;

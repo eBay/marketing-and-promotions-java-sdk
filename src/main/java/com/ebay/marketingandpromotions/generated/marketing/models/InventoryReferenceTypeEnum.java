@@ -18,7 +18,7 @@ import com.microsoft.kiota.serialization.ValuedEnum;
 import java.util.Objects;
 
 /**
- * Indicates the type of item indicated by the &lt;b&gt;inventoryReferenceId&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This value can be set to either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;i&gt;Required if &lt;/i&gt; if you supply an &lt;b&gt;inventoryReferenceId&lt;/b&gt;.
+ * Indicates the type of the &lt;b&gt;inventoryReferenceId&lt;/b&gt;, which can be either &lt;code&gt;INVENTORY_ITEM&lt;/code&gt; or &lt;code&gt;INVENTORY_ITEM_GROUP&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; This value is not currently returned in the response.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public enum InventoryReferenceTypeEnum implements ValuedEnum {

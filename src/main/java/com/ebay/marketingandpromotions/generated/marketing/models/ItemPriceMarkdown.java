@@ -47,7 +47,7 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
      */
     private String description;
     /**
-     * The date and time the discount ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). The value supplied for &lt;b&gt;endDate&lt;/b&gt; must be at least 24 hours after the value supplied for the &lt;b&gt;startDate&lt;/b&gt; of the markdown discount.&lt;br&gt;&lt;br&gt;For display purposes, convert this time into the local time of the seller.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Max value:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;14&lt;/code&gt; days for the AT, CH, DE, ES, FR, IE, IT, and UK, marketplaces.&lt;/li&gt;  &lt;li&gt;&lt;code&gt;45&lt;/code&gt; days for all other marketplaces.&lt;/li&gt;&lt;/ul&gt;
+     * The date and time the discount ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). The value supplied for &lt;b&gt;endDate&lt;/b&gt; must be at least 24 hours after the value supplied for the &lt;b&gt;startDate&lt;/b&gt; of the markdown discount.&lt;br&gt;&lt;br&gt;For display purposes, convert this time into the local time of the seller.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Max duration for markdown discounts:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;14&lt;/code&gt; days for the AT, CH, IE, and UK marketplaces.&lt;/li&gt; &lt;li&gt;&lt;code&gt;30&lt;/code&gt; days for DE, ES, FR, IT, and TW marketplaces.&lt;/li&gt;  &lt;li&gt;&lt;code&gt;45&lt;/code&gt; days for all other marketplaces.&lt;/li&gt;&lt;/ul&gt;
      */
     private String endDate;
     /**
@@ -135,7 +135,7 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
         return this.description;
     }
     /**
-     * Gets the endDate property value. The date and time the discount ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). The value supplied for &lt;b&gt;endDate&lt;/b&gt; must be at least 24 hours after the value supplied for the &lt;b&gt;startDate&lt;/b&gt; of the markdown discount.&lt;br&gt;&lt;br&gt;For display purposes, convert this time into the local time of the seller.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Max value:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;14&lt;/code&gt; days for the AT, CH, DE, ES, FR, IE, IT, and UK, marketplaces.&lt;/li&gt;  &lt;li&gt;&lt;code&gt;45&lt;/code&gt; days for all other marketplaces.&lt;/li&gt;&lt;/ul&gt;
+     * Gets the endDate property value. The date and time the discount ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). The value supplied for &lt;b&gt;endDate&lt;/b&gt; must be at least 24 hours after the value supplied for the &lt;b&gt;startDate&lt;/b&gt; of the markdown discount.&lt;br&gt;&lt;br&gt;For display purposes, convert this time into the local time of the seller.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Max duration for markdown discounts:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;14&lt;/code&gt; days for the AT, CH, IE, and UK marketplaces.&lt;/li&gt; &lt;li&gt;&lt;code&gt;30&lt;/code&gt; days for DE, ES, FR, IT, and TW marketplaces.&lt;/li&gt;  &lt;li&gt;&lt;code&gt;45&lt;/code&gt; days for all other marketplaces.&lt;/li&gt;&lt;/ul&gt;
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -275,7 +275,7 @@ public class ItemPriceMarkdown implements AdditionalDataHolder, Parsable {
         this.description = value;
     }
     /**
-     * Sets the endDate property value. The date and time the discount ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). The value supplied for &lt;b&gt;endDate&lt;/b&gt; must be at least 24 hours after the value supplied for the &lt;b&gt;startDate&lt;/b&gt; of the markdown discount.&lt;br&gt;&lt;br&gt;For display purposes, convert this time into the local time of the seller.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Max value:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;14&lt;/code&gt; days for the AT, CH, DE, ES, FR, IE, IT, and UK, marketplaces.&lt;/li&gt;  &lt;li&gt;&lt;code&gt;45&lt;/code&gt; days for all other marketplaces.&lt;/li&gt;&lt;/ul&gt;
+     * Sets the endDate property value. The date and time the discount ends, in UTC format (&lt;code&gt;yyyy-MM-ddThh:mm:ssZ&lt;/code&gt;). The value supplied for &lt;b&gt;endDate&lt;/b&gt; must be at least 24 hours after the value supplied for the &lt;b&gt;startDate&lt;/b&gt; of the markdown discount.&lt;br&gt;&lt;br&gt;For display purposes, convert this time into the local time of the seller.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Max duration for markdown discounts:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;14&lt;/code&gt; days for the AT, CH, IE, and UK marketplaces.&lt;/li&gt; &lt;li&gt;&lt;code&gt;30&lt;/code&gt; days for DE, ES, FR, IT, and TW marketplaces.&lt;/li&gt;  &lt;li&gt;&lt;code&gt;45&lt;/code&gt; days for all other marketplaces.&lt;/li&gt;&lt;/ul&gt;
      * @param value Value to set for the endDate property.
      */
     public void setEndDate(@jakarta.annotation.Nullable final String value) {

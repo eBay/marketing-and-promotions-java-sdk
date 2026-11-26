@@ -36,7 +36,7 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
      */
     private String category;
     /**
-     * Name for the primary system where the error occurred. This is relevant for application errors.
+     * Name for the primary system where the error occurred.
      */
     private String domain;
     /**
@@ -60,11 +60,11 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
      */
     private java.util.List<String> outputRefIds;
     /**
-     * An array of name/value pairs that describe details the error condition. These are useful when multiple errors are returned.
+     * An array of name/value pairs that describe details the error condition.
      */
     private java.util.List<ErrorParameter> parameters;
     /**
-     * Further helps indicate which subsystem the error is coming from. System subcategories include: Initialization, Serialization, Security, Monitoring, Rate Limiting, etc.
+     * Further helps indicate which subsystem the error is coming from.
      */
     private String subdomain;
     /**
@@ -100,7 +100,7 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
         return this.category;
     }
     /**
-     * Gets the domain property value. Name for the primary system where the error occurred. This is relevant for application errors.
+     * Gets the domain property value. Name for the primary system where the error occurred.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -175,7 +175,7 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
         return this.outputRefIds;
     }
     /**
-     * Gets the parameters property value. An array of name/value pairs that describe details the error condition. These are useful when multiple errors are returned.
+     * Gets the parameters property value. An array of name/value pairs that describe details the error condition.
      * @return a {@link java.util.List<ErrorParameter>}
      */
     @jakarta.annotation.Nullable
@@ -183,7 +183,7 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
         return this.parameters;
     }
     /**
-     * Gets the subdomain property value. Further helps indicate which subsystem the error is coming from. System subcategories include: Initialization, Serialization, Security, Monitoring, Rate Limiting, etc.
+     * Gets the subdomain property value. Further helps indicate which subsystem the error is coming from.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -222,7 +222,7 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
         this.category = value;
     }
     /**
-     * Sets the domain property value. Name for the primary system where the error occurred. This is relevant for application errors.
+     * Sets the domain property value. Name for the primary system where the error occurred.
      * @param value Value to set for the domain property.
      */
     public void setDomain(@jakarta.annotation.Nullable final String value) {
@@ -264,14 +264,14 @@ public class Error extends ApiException implements AdditionalDataHolder, Parsabl
         this.outputRefIds = value;
     }
     /**
-     * Sets the parameters property value. An array of name/value pairs that describe details the error condition. These are useful when multiple errors are returned.
+     * Sets the parameters property value. An array of name/value pairs that describe details the error condition.
      * @param value Value to set for the parameters property.
      */
     public void setParameters(@jakarta.annotation.Nullable final java.util.List<ErrorParameter> value) {
         this.parameters = value;
     }
     /**
-     * Sets the subdomain property value. Further helps indicate which subsystem the error is coming from. System subcategories include: Initialization, Serialization, Security, Monitoring, Rate Limiting, etc.
+     * Sets the subdomain property value. Further helps indicate which subsystem the error is coming from.
      * @param value Value to set for the subdomain property.
      */
     public void setSubdomain(@jakarta.annotation.Nullable final String value) {

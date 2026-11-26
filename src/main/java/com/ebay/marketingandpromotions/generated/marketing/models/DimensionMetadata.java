@@ -39,7 +39,7 @@ public class DimensionMetadata implements AdditionalDataHolder, Parsable {
      */
     private String dimensionKey;
     /**
-     * An list of annotation keys associated with the specified dimension of the report.
+     * A list of annotation keys associated with the specified dimension of the report.
      */
     private java.util.List<DimensionKeyAnnotation> dimensionKeyAnnotations;
     /**
@@ -83,7 +83,7 @@ public class DimensionMetadata implements AdditionalDataHolder, Parsable {
         return this.dimensionKey;
     }
     /**
-     * Gets the dimensionKeyAnnotations property value. An list of annotation keys associated with the specified dimension of the report.
+     * Gets the dimensionKeyAnnotations property value. A list of annotation keys associated with the specified dimension of the report.
      * @return a {@link java.util.List<DimensionKeyAnnotation>}
      */
     @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class DimensionMetadata implements AdditionalDataHolder, Parsable {
         this.dimensionKey = value;
     }
     /**
-     * Sets the dimensionKeyAnnotations property value. An list of annotation keys associated with the specified dimension of the report.
+     * Sets the dimensionKeyAnnotations property value. A list of annotation keys associated with the specified dimension of the report.
      * @param value Value to set for the dimensionKeyAnnotations property.
      */
     public void setDimensionKeyAnnotations(@jakarta.annotation.Nullable final java.util.List<DimensionKeyAnnotation> value) {

@@ -31,11 +31,11 @@ public class ErrorParameterV3 implements AdditionalDataHolder, Parsable {
      */
     private Map<String, Object> additionalData;
     /**
-     * Name of the entity that threw the error.
+     * This is the name of the parameter/field for which the error was thrown.
      */
     private String name;
     /**
-     * The value that was set for the element specified in the &lt;b&gt;name&lt;/b&gt; field.
+     * This is the value of the parameter/field for which the error was thrown.
      */
     private String value;
     /**
@@ -74,7 +74,7 @@ public class ErrorParameterV3 implements AdditionalDataHolder, Parsable {
         return deserializerMap;
     }
     /**
-     * Gets the name property value. Name of the entity that threw the error.
+     * Gets the name property value. This is the name of the parameter/field for which the error was thrown.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -82,7 +82,7 @@ public class ErrorParameterV3 implements AdditionalDataHolder, Parsable {
         return this.name;
     }
     /**
-     * Gets the value property value. The value that was set for the element specified in the &lt;b&gt;name&lt;/b&gt; field.
+     * Gets the value property value. This is the value of the parameter/field for which the error was thrown.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -107,14 +107,14 @@ public class ErrorParameterV3 implements AdditionalDataHolder, Parsable {
         this.additionalData = value;
     }
     /**
-     * Sets the name property value. Name of the entity that threw the error.
+     * Sets the name property value. This is the name of the parameter/field for which the error was thrown.
      * @param value Value to set for the name property.
      */
     public void setName(@jakarta.annotation.Nullable final String value) {
         this.name = value;
     }
     /**
-     * Sets the value property value. The value that was set for the element specified in the &lt;b&gt;name&lt;/b&gt; field.
+     * Sets the value property value. This is the value of the parameter/field for which the error was thrown.
      * @param value Value to set for the value property.
      */
     public void setValue(@jakarta.annotation.Nullable final String value) {

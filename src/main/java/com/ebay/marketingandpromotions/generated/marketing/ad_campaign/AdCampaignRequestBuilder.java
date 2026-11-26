@@ -22,6 +22,7 @@ import com.ebay.marketingandpromotions.generated.marketing.ad_campaign.suggest_m
 import com.ebay.marketingandpromotions.generated.marketing.models.CampaignPagedCollectionResponse;
 import com.ebay.marketingandpromotions.generated.marketing.models.CreateCampaignRequest;
 import com.ebay.marketingandpromotions.generated.marketing.models.ErrorDetailV3;
+import com.ebay.marketingandpromotions.generated.marketing.models.MarketplaceIdEnum;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.BaseRequestConfiguration;
 import com.microsoft.kiota.HttpMethod;
@@ -257,7 +258,7 @@ public class AdCampaignRequestBuilder extends BaseRequestBuilder {
          * This parameter specifies the eBay marketplace ID of the site for which you want to retrieve campaigns.&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/request_headers#marketplace-id-values&quot; target=&quot;_blank&quot;&gt;Marketplace ID values&lt;/a&gt; for supported Marketplace ID values.
          */
         @jakarta.annotation.Nullable
-        public String marketplaceId;
+        public MarketplaceIdEnum marketplaceId;
         /**
          * This query parameter specifies the number of campaigns to skip in the result set before returning the first report in the paginated response.&lt;br&gt;&lt;br&gt;Combine &lt;b&gt;offset&lt;/b&gt; with the &lt;b&gt;limit&lt;/b&gt; query parameter to control the items returned in the response. For example, if you supply an &lt;b&gt;offset&lt;/b&gt; of &lt;code&gt;0&lt;/code&gt; and a &lt;b&gt;limit&lt;/b&gt; of &lt;code&gt;10&lt;/code&gt;, the first page of the response contains the first 10 items from the complete list of items retrieved by the call. If &lt;b&gt;offset&lt;/b&gt; is &lt;code&gt;10&lt;/code&gt; and &lt;b&gt;limit&lt;/b&gt; is &lt;code&gt;20&lt;/code&gt;, the first page of the response contains items 11-30 from the complete result set.&lt;br&gt;&lt;br&gt; &lt;b&gt;Default:&lt;/b&gt; 0
          */
@@ -279,10 +280,10 @@ public class AdCampaignRequestBuilder extends BaseRequestBuilder {
             allQueryParams.put("campaign_targeting_types", campaignTargetingTypes);
             allQueryParams.put("channels", channels);
             allQueryParams.put("funding_strategy", fundingStrategy);
+            allQueryParams.put("marketplace_id", marketplaceId);
             allQueryParams.put("campaign_name", campaignName);
             allQueryParams.put("end_date_range", endDateRange);
             allQueryParams.put("limit", limit);
-            allQueryParams.put("marketplace_id", marketplaceId);
             allQueryParams.put("offset", offset);
             allQueryParams.put("start_date_range", startDateRange);
             return allQueryParams;

@@ -27,6 +27,7 @@ import com.ebay.marketingandpromotions.generated.marketing.negative_keyword.Nega
 import com.ebay.marketingandpromotions.generated.marketing.promotion_report.PromotionReportRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.promotion_summary_report.PromotionSummaryReportRequestBuilder;
 import com.ebay.marketingandpromotions.generated.marketing.promotion.PromotionRequestBuilder;
+import com.ebay.marketingandpromotions.generated.marketing.seller_promotional_offers.SellerPromotionalOffersRequestBuilder;
 import com.microsoft.kiota.ApiClientBuilder;
 import com.microsoft.kiota.BaseRequestBuilder;
 import com.microsoft.kiota.RequestAdapter;
@@ -149,6 +150,14 @@ public class MarketingApiClient extends BaseRequestBuilder {
     @jakarta.annotation.Nonnull
     public PromotionSummaryReportRequestBuilder promotionSummaryReport() {
         return new PromotionSummaryReportRequestBuilder(pathParameters, requestAdapter);
+    }
+    /**
+     * Seller promotional offers
+     * @return a {@link SellerPromotionalOffersRequestBuilder}
+     */
+    @jakarta.annotation.Nonnull
+    public SellerPromotionalOffersRequestBuilder sellerPromotionalOffers() {
+        return new SellerPromotionalOffersRequestBuilder(pathParameters, requestAdapter);
     }
     /**
      * Instantiates a new {@link MarketingApiClient} and sets the default values.

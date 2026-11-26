@@ -31,7 +31,7 @@ public class UpdateAdStatusByListingIdRequest implements AdditionalDataHolder, P
      */
     private Map<String, Object> additionalData;
     /**
-     * A unique eBay-assigned ID for an ad group in a campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;Use the  &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_group-getadgroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller.
+     * A unique eBay-assigned ID for an ad group in a campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;Use the  &lt;a href=&quot;/api-docs/sell/marketing/resources/adgroup/methods/getAdGroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller.
      */
     private String adGroupId;
     /**
@@ -67,7 +67,7 @@ public class UpdateAdStatusByListingIdRequest implements AdditionalDataHolder, P
         return this.additionalData;
     }
     /**
-     * Gets the adGroupId property value. A unique eBay-assigned ID for an ad group in a campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;Use the  &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_group-getadgroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller.
+     * Gets the adGroupId property value. A unique eBay-assigned ID for an ad group in a campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;Use the  &lt;a href=&quot;/api-docs/sell/marketing/resources/adgroup/methods/getAdGroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -121,7 +121,7 @@ public class UpdateAdStatusByListingIdRequest implements AdditionalDataHolder, P
         this.additionalData = value;
     }
     /**
-     * Sets the adGroupId property value. A unique eBay-assigned ID for an ad group in a campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;Use the  &lt;a href=&quot;/develop/api/sell/marketing_api#sell-marketing_api-ad_group-getadgroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller.
+     * Sets the adGroupId property value. A unique eBay-assigned ID for an ad group in a campaign that uses the Cost Per Click (CPC) funding model.&lt;br /&gt;&lt;br /&gt;Use the  &lt;a href=&quot;/api-docs/sell/marketing/resources/adgroup/methods/getAdGroups&quot;&gt;getAdGroups&lt;/a&gt; method to retrieve the ad group IDs for a seller.
      * @param value Value to set for the adGroupId property.
      */
     public void setAdGroupId(@jakarta.annotation.Nullable final String value) {

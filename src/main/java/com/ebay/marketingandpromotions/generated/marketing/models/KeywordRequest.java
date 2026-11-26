@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * A type that defines the fields used by the &lt;b&gt;keyword&lt;/b&gt; requests.
+ * A type that defines the fields used by the &lt;b&gt;Keyword&lt;/b&gt; method.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class KeywordRequest implements AdditionalDataHolder, Parsable {

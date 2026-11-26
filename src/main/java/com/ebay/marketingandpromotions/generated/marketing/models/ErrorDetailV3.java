@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 /**
- * This type defines the fields returned in an error condition.
+ * The errors or warnings object type.
  */
 @jakarta.annotation.Generated("com.microsoft.kiota")
 public class ErrorDetailV3 extends ApiException implements AdditionalDataHolder, Parsable {

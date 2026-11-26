@@ -291,7 +291,7 @@ public final class MarketingClient {
     }
 
     public CompletableFuture<CampaignPagedCollectionResponse> getCampaignsAsync(
-            String campaignName, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignStatusQueryParameterType campaignStatus, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignTargetingTypesQueryParameterType campaignTargetingTypes, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetChannelsQueryParameterType channels, String endDateRange, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetFundingStrategyQueryParameterType fundingStrategy, String limit, String offset, String startDateRange, String marketplaceId, String accessToken, RequestOptions requestOptions) {
+            String campaignName, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignStatusQueryParameterType campaignStatus, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignTargetingTypesQueryParameterType campaignTargetingTypes, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetChannelsQueryParameterType channels, String endDateRange, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetFundingStrategyQueryParameterType fundingStrategy, String limit, String offset, String startDateRange, com.ebay.marketingandpromotions.generated.marketing.models.MarketplaceIdEnum marketplaceId, String accessToken, RequestOptions requestOptions) {
         return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.adCampaign().get(config -> {
@@ -958,6 +958,30 @@ public final class MarketingClient {
             Map<String, String> headers = mergedHeaders(requestOptions);
             return kiota.adCampaign().byCampaign_id(Params.requireValid("campaignId", campaignId)).bulkUpsertVideoAdsPreferences().put(body, config -> {
                 headers.forEach((k, v) -> config.headers.add(k, v));
+            });
+        }));
+    }
+
+    public CompletableFuture<SellerPromotionalOffersResponse> getSellerPromotionalOffersAsync(
+            String xEBAYCMARKETPLACEID, String acceptLanguage, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.sellerPromotionalOffers().get(config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (xEBAYCMARKETPLACEID != null) config.headers.add("X-EBAY-C-MARKETPLACE-ID", xEBAYCMARKETPLACEID);
+                if (acceptLanguage != null) config.headers.add("Accept-Language", acceptLanguage);
+            });
+        }));
+    }
+
+    public CompletableFuture<PromotionSignUpResponse> activatePromotionAsync(
+            PromotionSignUpRequest body, String xEBAYCMARKETPLACEID, String acceptLanguage, String accessToken, RequestOptions requestOptions) {
+        return CompletableFuture.supplyAsync(() -> TokenContext.runWith(accessToken, () -> {
+            Map<String, String> headers = mergedHeaders(requestOptions);
+            return kiota.sellerPromotionalOffers().activatePromotion().post(body, config -> {
+                headers.forEach((k, v) -> config.headers.add(k, v));
+                if (xEBAYCMARKETPLACEID != null) config.headers.add("X-EBAY-C-MARKETPLACE-ID", xEBAYCMARKETPLACEID);
+                if (acceptLanguage != null) config.headers.add("Accept-Language", acceptLanguage);
             });
         }));
     }

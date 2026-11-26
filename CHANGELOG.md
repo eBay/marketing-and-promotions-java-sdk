@@ -1,5 +1,29 @@
 # ChangeLog
 
+## 0.3.0 (11/26/2026)
+
+### Breaking changes
+
+- The following operations changed signature on `MarketingClient`:
+| Operation | Previous signature | New signature |
+| --- | --- | --- |
+| `getCampaignsAsync` | `getCampaignsAsync(String campaignName, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignStatusQueryParameterType campaignStatus, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignTargetingTypesQueryParameterType campaignTargetingTypes, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetChannelsQueryParameterType channels, String endDateRange, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetFundingStrategyQueryParameterType fundingStrategy, String limit, String offset, String startDateRange, String marketplaceId, String accessToken, RequestOptions requestOptions)` | `getCampaignsAsync(String campaignName, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignStatusQueryParameterType campaignStatus, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetCampaignTargetingTypesQueryParameterType campaignTargetingTypes, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetChannelsQueryParameterType channels, String endDateRange, com.ebay.marketingandpromotions.generated.marketing.ad_campaign.GetFundingStrategyQueryParameterType fundingStrategy, String limit, String offset, String startDateRange, com.ebay.marketingandpromotions.generated.marketing.models.MarketplaceIdEnum marketplaceId, String accessToken, RequestOptions requestOptions)` |
+
+### Added
+
+- The following operations were added to `MarketingClient`:
+  - `activatePromotionAsync`
+  - `getSellerPromotionalOffersAsync`
+
+- Local mock servers: a base URL may use plain `http` when its host is a loopback host (`127.0.0.1`, `::1` or `localhost`) that you also pass in `allowedHosts`, for example `List.of("127.0.0.1")`. Every other host still requires `https`. `MarketingAndPromotionsConfiguration.LOOPBACK_HOSTS` lists the loopback hosts.
+
+### Changed
+
+- Updated the `marketing` OpenAPI document to the latest definitions.
+- `MarketingAndPromotionsConfiguration.isTrustedUrl` and the auth provider apply the same rule.
+- Hosts are compared lowercased and without IPv6 brackets, so `[::1]` and `::1` match.
+- A rejected base URL now says whether the scheme or the host is not trusted.
+
 ## 0.2.3 (10/28/2026)
 
 ### Dependencies

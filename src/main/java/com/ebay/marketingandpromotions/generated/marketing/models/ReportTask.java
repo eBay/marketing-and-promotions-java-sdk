@@ -87,7 +87,7 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
      */
     private String reportId;
     /**
-     * An eBay-assigned name for the report that&apos;s created by the &lt;b&gt;createReportTask&lt;/b&gt; call. This name is unique for the seller.
+     * An eBay-assigned name for the report that&apos;s created by the &lt;b&gt;createReportTask&lt;/b&gt; method. This name is unique for the seller.
      */
     private String reportName;
     /**
@@ -286,7 +286,7 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         return this.reportId;
     }
     /**
-     * Gets the reportName property value. An eBay-assigned name for the report that&apos;s created by the &lt;b&gt;createReportTask&lt;/b&gt; call. This name is unique for the seller.
+     * Gets the reportName property value. An eBay-assigned name for the report that&apos;s created by the &lt;b&gt;createReportTask&lt;/b&gt; method. This name is unique for the seller.
      * @return a {@link String}
      */
     @jakarta.annotation.Nullable
@@ -485,7 +485,7 @@ public class ReportTask implements AdditionalDataHolder, Parsable {
         this.reportId = value;
     }
     /**
-     * Sets the reportName property value. An eBay-assigned name for the report that&apos;s created by the &lt;b&gt;createReportTask&lt;/b&gt; call. This name is unique for the seller.
+     * Sets the reportName property value. An eBay-assigned name for the report that&apos;s created by the &lt;b&gt;createReportTask&lt;/b&gt; method. This name is unique for the seller.
      * @param value Value to set for the reportName property.
      */
     public void setReportName(@jakarta.annotation.Nullable final String value) {
